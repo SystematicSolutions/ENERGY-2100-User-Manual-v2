@@ -49,7 +49,899 @@
   <!-- Content style -->
   <link href="css/hnd.content.css" rel="stylesheet" />
 
+  <style type="text/css">/* =========================================================
+   HELPNDOC DOCUMENTATION THEME v9
+   Cleaned and consolidated
+   ========================================================= */
+
+
+/* =========================================================
+   1) BASE PAGE
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin-right: 300px;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.62;
+  color: #111827;
+}
+
+main,
+article,
+.topic,
+.topic-content,
+#topic_content {
+  max-width: 920px;
+}
+
+
+/* =========================================================
+   2) HEADINGS, TEXT, LISTS
+   ========================================================= */
+
+h1 {
+  margin-top: 0.15em;
+  margin-bottom: 0.45em;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+h2 {
+  margin-top: 1.1em;
+  margin-bottom: 0.35em;
+  line-height: 1.22;
+  font-weight: 600;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 16px;
+}
+
+h3 {
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+  line-height: 1.28;
+  font-weight: 600;
+}
+
+h4 {
+  margin-top: 0.85em;
+  margin-bottom: 0.25em;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+h2,
+h3,
+h4 {
+  scroll-margin-top: 120px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.82em;
+}
+
+ul,
+ol {
+  margin-top: 0.4em;
+  margin-bottom: 0.9em;
+  padding-left: 1.6em;
+}
+
+
+
+li {
+  margin-bottom: 0.24em;
+}
+
+li p {
+  margin-bottom: 0.35em;
+}
+
+ol li {
+  padding-left: 0.2em;
+  margin-bottom: 0.4em;
+  font-size: 1em;
+  line-height: 1.62;
+}
+
+ol li::marker {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1.05em;
+  font-weight: 400;
+  color: #111827;
+}
+
+
+/* =========================================================
+   3) INLINE CODE + PRE/CODE
+   ========================================================= */
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.95em;
+  background: #f3f4f6;
+  color: #111827;
+  border-radius: 4px;
+}
+
+pre {
+  position: relative;
+  margin-top: 0.35em;
+  margin-bottom: 0.8em;
+  padding: 14px 16px;
+  border: 1px solid #dde3ea;
+  border-radius: 8px;
+  background: #f7f9fb;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: pre;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  -webkit-overflow-scrolling: touch;
+}
+
+pre code {
+  padding: 0;
+  background: transparent;
+}
+
+p + pre {
+  margin-top: 0.25em;
+}
+
+pre + p {
+  margin-top: 0.7em;
+}
+
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+
+/* =========================================================
+   4) LEFT NAVIGATION
+   ========================================================= */
+
+nav,
+aside,
+#contents,
+#toc,
+.tree,
+.treeview {
+  background: #fafafa;
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: #4b5563;
+}
+
+nav a,
+aside a,
+#contents a,
+#toc a,
+.tree a,
+.treeview a {
+  border-radius: 6px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+nav a:hover,
+aside a:hover,
+#contents a:hover,
+#toc a:hover,
+.tree a:hover,
+.treeview a:hover {
+  background: #eef2f7;
+  color: #111827;
+}
+
+nav .active,
+aside .active,
+#contents .active,
+#toc .active,
+.tree .active,
+.treeview .active,
+nav a[aria-current="page"],
+aside a[aria-current="page"],
+#contents a[aria-current="page"],
+#toc a[aria-current="page"] {
+  background: #e8eefc;
+  color: #1f3a8a;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+nav li,
+aside li,
+#contents li,
+#toc li,
+.tree li,
+.treeview li {
+  margin-bottom: 2px;
+  padding: 2px 0;
+}
+
+nav > ul > li > a,
+aside > ul > li > a,
+#contents > ul > li > a,
+#toc > ul > li > a {
+  font-weight: 600;
+  color: #374151;
+}
+
+nav li li a,
+aside li li a,
+#contents li li a,
+#toc li li a {
+  color: #6b7280;
+}
+
+
+/* =========================================================
+   5) RIGHT "ON THIS PAGE" NAV
+   ========================================================= */
+
+#right-nav {
+  position: fixed;
+  right: 24px;
+  top: 120px;
+  width: 260px;
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+  padding: 16px;
+  background: #fafafa;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.55;
+  z-index: 99999;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+#right-nav .right-nav-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+#right-nav .nav-group {
+  margin-bottom: 10px;
+}
+
+#right-nav .nav-group-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #111827;
+  cursor: pointer;
+  margin-bottom: 6px;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+#right-nav .nav-group-title:hover {
+  background: #f3f4f6;
+}
+
+#right-nav .nav-group-items.collapsed {
+  display: none;
+}
+
+#right-nav .right-nav-link {
+  display: block;
+  padding: 5px 8px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  color: #374151;
+  text-decoration: none;
+}
+
+#right-nav .right-nav-link:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+#right-nav .right-nav-link.h3 {
+  margin-left: 14px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+#right-nav .right-nav-link.h4 {
+  margin-left: 28px;
+  font-size: 12.5px;
+  color: #6b7280;
+}
+
+#right-nav .right-nav-link.active {
+  background: #e8eefc;
+  color: #1f3a8a;
+  font-weight: 600;
+}
+
+#right-nav .back-to-top {
+  margin-top: 14px;
+  padding: 4px 6px;
+  font-size: 12px;
+  color: #6b7280;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+#right-nav .back-to-top:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+#right-nav::-webkit-scrollbar {
+  width: 8px;
+}
+
+#right-nav::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 8px;
+}
+
+
+/* =========================================================
+   6) ANCHOR HIGHLIGHT
+   ========================================================= */
+
+:target {
+  animation: rightNavTargetFlash 0.8s ease;
+}
+
+@keyframes rightNavTargetFlash {
+  0% { background: #fff3cd; }
+  100% { background: transparent; }
+}
+
+
+/* =========================================================
+   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   ========================================================= */
+
+table:not(:has(td[style*="background-color"])) {
+  border: 1px solid #dde3ea !important;
+  border-radius: 8px;
+  background: #f7f9fb !important;
+  border-collapse: separate !important;
+  overflow: hidden;
+  margin: 14px 0;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+table:not(:has(td[style*="background-color"])) td {
+  padding: 10px 14px !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+table:not(:has(td[style*="background-color"])) p {
+  font-weight: 400 !important;
+  color: #111827 !important;
+  margin: 0 0 6px 0 !important;
+}
+
+table:not(:has(td[style*="background-color"])) p:first-child {
+  margin-top: 0 !important;
+}
+
+table:not(:has(td[style*="background-color"])) p:last-child {
+  margin-bottom: 0 !important;
+}
+
+
+/* =========================================================
+   8) TABLE-BASED CALLOUT SYSTEM
+   ========================================================= */
+
+table:has(td[style*="background-color: #cc99ff"]),
+table:has(td[style*="background-color: #ff0000"]),
+table:has(td[style*="background-color: #e9f1ff"]),
+table:has(td[style*="background-color: #00c030"]) {
+  margin: 14px 0;
+  border-collapse: separate !important;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.025);
+  width: 100% !important;
+  max-width: 100% !important;
+  table-layout: fixed !important;
+  box-sizing: border-box !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td,
+table:has(td[style*="background-color: #ff0000"]) td,
+table:has(td[style*="background-color: #e9f1ff"]) td,
+table:has(td[style*="background-color: #00c030"]) td {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  vertical-align: top;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:not(:last-child),
+table:has(td[style*="background-color: #ff0000"]) td:not(:last-child),
+table:has(td[style*="background-color: #e9f1ff"]) td:not(:last-child),
+table:has(td[style*="background-color: #00c030"]) td:not(:last-child) {
+  display: none;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child,
+table:has(td[style*="background-color: #ff0000"]) td:last-child,
+table:has(td[style*="background-color: #e9f1ff"]) td:last-child,
+table:has(td[style*="background-color: #00c030"]) td:last-child {
+  padding: 12px 14px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p,
+table:has(td[style*="background-color: #ff0000"]) td:last-child p,
+table:has(td[style*="background-color: #e9f1ff"]) td:last-child p,
+table:has(td[style*="background-color: #00c030"]) td:last-child p {
+  margin: 0 0 6px 0 !important;
+  font-weight: 400 !important;
+  color: #374151;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p:last-child,
+table:has(td[style*="background-color: #ff0000"]) td:last-child p:last-child,
+table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:last-child,
+table:has(td[style*="background-color: #00c030"]) td:last-child p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Exercise */
+table:has(td[style*="background-color: #cc99ff"]) {
+  border: 1px solid #e5e7eb !important;
+  border-left: 4px solid #a855f7 !important;
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child {
+  font-weight: 500 !important;
+  color: #111827 !important;
+  margin-bottom: 8px !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child::before {
+  content: "📚";
+  display: inline-block;
+  margin-right: 8px;
+  color: #a855f7;
+}
+
+/* Warning */
+table:has(td[style*="background-color: #ff0000"]) {
+  border: 1px solid #e5e7eb !important;
+  border-left: 4px solid #ef4444 !important;
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #ff0000"]) td:last-child p:first-child::before {
+  content: "⚠";
+  display: inline-block;
+  margin-right: 8px;
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* Note */
+table:has(td[style*="background-color: #e9f1ff"]) {
+  border: 1px solid #e5e7eb !important;
+  border-left: 4px solid #2b9af3 !important;
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::before {
+  content: "i";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
   
+  width: 18px;
+  height: 18px;
+  
+  font-size: 12px;
+  font-weight: 600;
+  
+  color: #ffffff;
+  background: #2b9af3;
+  
+  border-radius: 50%;
+}
+
+/* Tip */
+table:has(td[style*="background-color: #00c030"]) {
+  border: 1px solid #e5e7eb !important;
+  border-left: 4px solid #22c55e !important;
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #00c030"]) td:last-child p:first-child::before {
+  content: "💡";
+  display: inline-block;
+  margin-right: 8px;
+  color: #22c55e;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   9) REAL CODE BLOCKS ONLY
+   ========================================================= */
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child span,
+table:has(td[style*="background-color: #00c030"]) td:last-child span {
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child pre,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
+  margin: 0 !important;
+  padding: 10px 14px !important;
+  background: #f7f9fb !important;
+  border: 1px solid #dde3ea !important;
+  border-radius: 8px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  white-space: pre !important;
+  font-family: Consolas, "Courier New", monospace !important;
+  font-size: 13.5px !important;
+  line-height: 1.3 !important;
+  color: #111827 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child code,
+table:has(td[style*="background-color: #00c030"]) td:last-child code {
+  font-family: Consolas, "Courier New", monospace !important;
+}
+
+
+/* =========================================================
+   10) COLLAPSIBLE NOTE-STYLE BOX
+   ========================================================= */
+
+details.hnd-blue-callout {
+  margin: 14px 0 !important;
+
+  transform: translateX(48px);
+  width: calc(100% - 48px) !important;
+  max-width: calc(100% - 48px) !important;
+
+  box-sizing: border-box !important;
+
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #2b9af3;
+  border-radius: 10px;
+  background: transparent;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.025);
+}
+
+/* Header (summary) */
+details.hnd-blue-callout > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 14px;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+details.hnd-blue-callout > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Info icon (matches Note box) */
+details.hnd-blue-callout > summary::before {
+  content: "i";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #2b9af3;
+  border-radius: 50%;
+}
+
+/* Arrow */
+details.hnd-blue-callout > summary::after {
+  content: "▸";
+  margin-left: auto;
+  font-size: 18px;
+  color: #4b5563;
+  transition: transform 0.18s ease;
+}
+
+details.hnd-blue-callout[open] > summary::after {
+  transform: rotate(90deg);
+}
+
+/* Body */
+details.hnd-blue-callout .callout-body {
+  padding: 0 14px 12px 14px;
+}
+
+details.hnd-blue-callout p {
+  margin: 0 0 6px 0;
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+details.hnd-blue-callout p:last-child {
+  margin-bottom: 0;
+}
+
+/* Code inside collapsible (match your other code blocks) */
+details.hnd-blue-callout pre {
+  margin: 8px 0 10px 0;
+  padding: 10px 14px;
+  background: #f7f9fb;
+  border: 1px solid #dde3ea;
+  border-radius: 8px;
+  overflow-x: auto;
+  white-space: pre;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+details.hnd-blue-callout > summary:hover {
+  background: #f9fafb;
+}
+
+
+/* =========================================================
+   11) COPY BUTTONS
+   ========================================================= */
+
+.copy-code-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 12px;
+  padding: 4px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #374151;
+  cursor: pointer;
+  opacity: 0.92;
+}
+
+.copy-code-btn:hover {
+  background: #f3f4f6;
+}
+
+.copy-code-btn.copied {
+  color: #065f46;
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+}
+
+
+/* =========================================================
+   12) RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+  #right-nav {
+    display: none;
+  }
+
+  body {
+    margin-right: 0;
+  }
+}
+
+
+/* =========================================================
+   13) HELPER CLASSES
+   ========================================================= */
+
+.code-block {
+  margin-left: 0;
+}
+
+.indent-1 { margin-left: 20px; }
+.indent-2 { margin-left: 48px; }
+.indent-3 { margin-left: 60px; }
+
+.code-indent {
+  margin-left: 40px;
+  max-width: calc(100% - 40px);
+}
+
+pre code {
+  padding: 0;
+  background: transparent;
+}
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.95em;
+  background: #f3f4f6;
+  color: #111827;
+  padding: 2px 5px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.html-code-box {
+  width: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.html-code-box.indent-1 { margin-left: 20px !important; }
+.html-code-box.indent-2 { margin-left: 48px !important; }
+.html-code-box.indent-3 { margin-left: 68px !important; }
+
+
+/* =========================================================
+   14) EMPTY PARAGRAPH CLEANUP
+   ========================================================= */
+
+table td p:empty,
+table td p:has(br:only-child) {
+  display: none;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p:empty,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p:has(br:only-child) {
+  display: none !important;
+}
+
+
+/* =========================================================
+   15) HTML CODE BOXES INSIDE EXERCISES
+   ========================================================= */
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box {
+  margin-top: 6px !important;
+}
+
+
+/* =========================================================
+   16) COLLAPSIBLE EXERCISE BOXES
+   ========================================================= */
+
+details.example-toggle {
+  margin: 0;
+}
+
+details.example-toggle > summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  color: #6b21a8;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+details.example-toggle > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.example-toggle > summary::before {
+  content: "▸";
+  font-size: 12px;
+  color: #6b21a8;
+  transition: transform 0.18s ease;
+  margin-right: 2px;
+}
+
+details.example-toggle[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+details.example-toggle > summary::after {
+  content: "📚";
+  font-size: 14px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+details.example-toggle p:first-child::before {
+  content: none !important;
+}
+
+details.example-toggle > *:not(summary) {
+  margin-top: 8px;
+}
+
+details.example-toggle .html-code-box {
+  margin-top: 6px;
+}
+
+/* =========================================================
+   17) CODE LABELS
+   ========================================================= */
+
+.code-label {
+  display: block !important;
+  font-size: 12px;
+  font-weight: 500;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 12px 0 6px 2px !important;
+  white-space: normal !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  padding: 0 !important;
+}
+
+.html-code-box + .code-label {
+  margin-top: 14px !important;
+}
+
+/* =========================================================
+   18) FINAL CODE SPACING OVERRIDE
+   ========================================================= */
+
+pre {
+  line-height: 1.15 !important;
+  padding: 8px 14px !important;
+}
+
+/* Fix html-code-box font size */
+.html-code-box pre {
+  font-size: 14.5px !important;
+}
+
+/* Syntax color for keywords */
+.kw {
+  color: #AF00DB;
+  font-weight: 500;
+}</style>
 
 
 
@@ -180,84 +1072,84 @@
 
             <div class="main-content">
                 
-<h2 class="rvps6"><span class="rvts0"><span class="rvts13">Device Energy Efficiency Policies</span></span></h2>
-<p class="rvps14"><span class="rvts6">Establishing appliance/equipment efficiency standards and promoting appliance/equipment energy efficiency programs are examples of device energy efficiency policies. Equipment standards establish minimum device energy efficiencies for residential appliances, commercial and industrial equipment, and transportation vehicles. Each type of appliance, such as furnaces, could have a different efficiency standard for each fuel type. Policies that simulate energy efficiency programs are designed to encourage consumers to reduce energy consumption, such as programs to promote purchasing energy efficient light bulbs.&nbsp;</span></p>
-<p class="rvps14"><span class="rvts6">The principles of increasing device efficiency mimic those of increasing process efficiency. </span><a class="rvts20" href="ENERGY2100UserManual.html#_Ref480396751">Figure 7</a><span class="rvts6"> illustrates the variables that are used to calculate device energy efficiency. The device efficiency of a specific enduse and fuel is determined using a device efficiency fuel trade-off curve. The coefficient that defines the trade-off curve, DFTC, is developed during model initialization and held constant through the model run. Marginal device efficiency (DEE) is determined by the relative energy price (ECFP, DFPN) and the device efficiency curve parameters (DEM, DFTC). The device efficiency multiplier (DEMM), the domestic grant fraction (DGF) and the device price multiplier (DEPM) are policy variables. The ultimate device energy efficiency (DEE) is assigned the maximum of the calculated device efficiency and any device efficiency standards (either existing or policy-related).</span></p>
-<p class="rvps92"><span class="rvts22">Other Factors to Consider</span></p>
-<p class="rvps91"><span class="rvts6">Other factors to consider when simulating policies that modify device energy efficiency are: 1) capital cost of the new energy efficient devices, and 2) lifetime of the new energy efficiency devices. The model equations related to device capital cost are described below. Modifying the device lifetime will impact the rate of retirements and new additions of device energy. Model equations related to device lifetime are described in </span><span class="rvts12">Section </span><a class="rvts146" href="ENERGY2100UserManual.html#_Ref484173530">3.6</a><span class="rvts6"> related to policies impacting stock levels.</span></p>
-<p class="rvps91"><span class="rvts6">Device energy capital costs are calculated based on the level of device efficiency using a device capital trade off curve coefficient (DCTC), developed during model initialization and held constant through the model run, combined with cost and efficiency multipliers and subject to a maximum efficiency. </span><a class="rvts20" href="ENERGY2100UserManual.html#_Ref480398107">Figure 8</a><span class="rvts6"> identifies the inputs to the device capital cost equation.&nbsp;</span></p>
-<p class="rvps95"><span class="rvts151">Device Energy Capital Costs &nbsp;</span><span class="rvts152">When simulating a device energy efficiency policy, the resulting capital costs should be examined. With an increase in energy efficiency, the capital costs increase based on a curve developed from historical relationships calculated during model initialization. As part of the policy simulation, you may want to adjust the capital cost curve up or down to reflect current thinking as to the relationship of cost and efficiency levels.</span></p>
-<p class="rvps96"><span class="rvts153">Device Capital Costs Inputs</span></p>
-<p class="rvps91"><img alt="" style="width : 549px; height : 269px; padding : 1px;" src="lib/NewItem%2091.png"></p>
+<h2 class="rvps6"><span class="rvts0"><span class="rvts12">Device Energy Efficiency Policies</span></span></h2>
+<p class="rvps19"><span class="rvts6">Establishing appliance/equipment efficiency standards and promoting appliance/equipment energy efficiency programs are examples of device energy efficiency policies. Equipment standards establish minimum device energy efficiencies for residential appliances, commercial and industrial equipment, and transportation vehicles. Each type of appliance, such as furnaces, could have a different efficiency standard for each fuel type. Policies that simulate energy efficiency programs are designed to encourage consumers to reduce energy consumption, such as programs to promote purchasing energy efficient light bulbs.&nbsp;</span></p>
+<p class="rvps19"><span class="rvts6">The principles of increasing device efficiency mimic those of increasing process efficiency. </span><a class="rvts26" href="ENERGY2100UserManual.html#_Ref480396751">Figure 7</a><span class="rvts6"> illustrates the variables that are used to calculate device energy efficiency. The device efficiency of a specific enduse and fuel is determined using a device efficiency fuel trade-off curve. The coefficient that defines the trade-off curve, DFTC, is developed during model initialization and held constant through the model run. Marginal device efficiency (DEE) is determined by the relative energy price (ECFP, DFPN) and the device efficiency curve parameters (DEM, DFTC). The device efficiency multiplier (DEMM), the domestic grant fraction (DGF) and the device price multiplier (DEPM) are policy variables. The ultimate device energy efficiency (DEE) is assigned the maximum of the calculated device efficiency and any device efficiency standards (either existing or policy-related).</span></p>
+<p class="rvps20"><span class="rvts21">Other Factors to Consider</span></p>
+<p class="rvps178"><span class="rvts6">Other factors to consider when simulating policies that modify device energy efficiency are: 1) capital cost of the new energy efficient devices, and 2) lifetime of the new energy efficiency devices. The model equations related to device capital cost are described below. Modifying the device lifetime will impact the rate of retirements and new additions of device energy. Model equations related to device lifetime are described in </span><span class="rvts68">Section </span><a class="rvts252" href="ENERGY2100UserManual.html#_Ref484173530">3.6</a><span class="rvts6"> related to policies impacting stock levels.</span></p>
+<p class="rvps178"><span class="rvts6">Device energy capital costs are calculated based on the level of device efficiency using a device capital trade off curve coefficient (DCTC), developed during model initialization and held constant through the model run, combined with cost and efficiency multipliers and subject to a maximum efficiency. </span><a class="rvts26" href="ENERGY2100UserManual.html#_Ref480398107">Figure 8</a><span class="rvts6"> identifies the inputs to the device capital cost equation.&nbsp;</span></p>
+<p class="rvps180"><span class="rvts255">Device Energy Capital Costs &nbsp;</span><span class="rvts256">When simulating a device energy efficiency policy, the resulting capital costs should be examined. With an increase in energy efficiency, the capital costs increase based on a curve developed from historical relationships calculated during model initialization. As part of the policy simulation, you may want to adjust the capital cost curve up or down to reflect current thinking as to the relationship of cost and efficiency levels.</span></p>
+<p class="rvps181"><span class="rvts257">Device Capital Costs Inputs</span></p>
+<p class="rvps178"><img alt="" style="width : 549px; height : 269px; padding : 1px;" src="lib/NewItem%2091.png"></p>
 <div class="rvps2">
 <table width="90%" style="border-width: 0px; background-color: #ffffff; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: rgba(76,162,11,0.5); width: 7px;">
-   <p class="rvps34"><span class="rvts83"><br/></span></p>
+   <p class="rvps82"><span class="rvts172"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: #f1fff1; vertical-align: top; width: 29px;">
-   <p class="rvps35"><span class="rvts66">🛈</span></p>
+   <p class="rvps13"><span class="rvts133">🛈</span></p>
   </td>
   <td style="border-width : 1px; border-color: #008000; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #f1fff1; vertical-align: top; width: 722px;">
-   <p class="rvps35"><span class="rvts142">Note:</span><span class="rvts141"> &nbsp;Several methods are available to calculate </span><span class="rvts142">device efficiency</span><span class="rvts141">. The specific method used is determined based on a switch (</span><a class="rvts11" href="PEESw.html">DEESw</a><span class="rvts141">).</span></p>
+   <p class="rvps13"><span class="rvts248">Note:</span><span class="rvts247"> &nbsp;Several methods are available to calculate </span><span class="rvts248">device efficiency</span><span class="rvts247">. The specific method used is determined based on a switch (</span><a class="rvts11" href="PEESw.html">DEESw</a><span class="rvts247">).</span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps91"><span class="rvts20">The table below</span><span class="rvts6"> lists the policy variables commonly used to simulate appliance/equipment efficiency standards and appliance energy efficiency programs. These policy variables can be applied to any of the residential, commercial, industrial, or transportation sectors.</span></p>
-<p class="rvps91"><span class="rvts22">Policy Variables for Device Efficiency Policies</span></p>
-<div class="rvps93">
+<p class="rvps178"><span class="rvts26">The table below</span><span class="rvts6"> lists the policy variables commonly used to simulate appliance/equipment efficiency standards and appliance energy efficiency programs. These policy variables can be applied to any of the residential, commercial, industrial, or transportation sectors.</span></p>
+<p class="rvps178"><span class="rvts21">Policy Variables for Device Efficiency Policies</span></p>
+<div class="rvps12">
 <table style="border-width: 0px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td colspan="2" style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; background-color: #0070c0; vertical-align: middle; width: 608px; height: 28px;">
-   <p class="rvps2"><span class="rvts147">Device Energy Efficiency Policy Variables</span></p>
+   <p class="rvps2"><span class="rvts253">Device Energy Efficiency Policy Variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; background-color: #0070c0; vertical-align: middle; width: 189px; height: 28px;">
-   <p class="rvps2"><span class="rvts147">Variable Name</span></p>
+   <p class="rvps2"><span class="rvts253">Variable Name</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; background-color: #0070c0; vertical-align: middle; width: 405px; height: 28px;">
-   <p class="rvps2"><span class="rvts147">Description</span></p>
+   <p class="rvps2"><span class="rvts253">Description</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 189px;">
-   <p class="rvps2"><span class="rvts148">DEStdP</span><span class="rvts149">(Enduse,Tech,EC,Area,Year)</span></p>
-   <p class="rvps14"><span class="rvts148"><br/></span></p>
+   <p class="rvps2"><span class="rvts156">DEStdP</span><span class="rvts254">(Enduse,Tech,EC,Area,Year)</span></p>
+   <p class="rvps19"><span class="rvts156"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 405px;">
-   <p class="rvps74"><span class="rvts148">Device efficiency standard policy (Btu/Btu). Assign a device efficiency standard policy which establishes the minimum level of device efficiency chosen by the model. This option can be used when the level of desired efficiency is known and can be directly input. An efficiency standard can also be set to allow for the model to increase capital cost based on the efficiency curve parameters.</span></p>
+   <p class="rvps22"><span class="rvts156">Device efficiency standard policy (Btu/Btu). Assign a device efficiency standard policy which establishes the minimum level of device efficiency chosen by the model. This option can be used when the level of desired efficiency is known and can be directly input. An efficiency standard can also be set to allow for the model to increase capital cost based on the efficiency curve parameters.</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 189px;">
-   <p class="rvps14"><span class="rvts148">DEMM</span><span class="rvts149">(Enduse,Tech,EC,Area,Year)</span></p>
+   <p class="rvps19"><span class="rvts156">DEMM</span><span class="rvts254">(Enduse,Tech,EC,Area,Year)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 405px;">
-   <p class="rvps74"><span class="rvts148">Device Efficiency Maximum Multiplier (Btu/Btu). Adjusting the device efficiency maximum multiplier (DEMM) modifies the efficiency curve by increasing its maximum level and results in an increase in the marginal efficiency selected at each fuel price. Changing the efficiency maximum multiplier will produce a response in efficiency without a corresponding change in capital cost given the same level of fuel price.</span></p>
+   <p class="rvps22"><span class="rvts156">Device Efficiency Maximum Multiplier (Btu/Btu). Adjusting the device efficiency maximum multiplier (DEMM) modifies the efficiency curve by increasing its maximum level and results in an increase in the marginal efficiency selected at each fuel price. Changing the efficiency maximum multiplier will produce a response in efficiency without a corresponding change in capital cost given the same level of fuel price.</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 189px;">
-   <p class="rvps14"><span class="rvts148">DPL</span><span class="rvts149">(Enduse,Tech,EC,Area,Year)</span></p>
+   <p class="rvps19"><span class="rvts156">DPL</span><span class="rvts254">(Enduse,Tech,EC,Area,Year)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 405px;">
-   <p class="rvps74"><span class="rvts148">Physical life of devices (Years).</span><span class="rvts150"> &nbsp;</span><span class="rvts148">With increased appliance energy efficiency, the lifetime of devices may need to be increased if appropriate, for example, CFL or LED lighting have longer lifetimes than incandescent. The physical lifetime of devices is used to calculate the retirement rate of the device. Policies that promote early scrappage of devices, such as vehicles, in favor of new efficient devices can be applied by adjusting the device physical lifetime variable.</span></p>
+   <p class="rvps22"><span class="rvts156">Physical life of devices (Years).</span><span class="rvts161"> &nbsp;</span><span class="rvts156">With increased appliance energy efficiency, the lifetime of devices may need to be increased if appropriate, for example, CFL or LED lighting have longer lifetimes than incandescent. The physical lifetime of devices is used to calculate the retirement rate of the device. Policies that promote early scrappage of devices, such as vehicles, in favor of new efficient devices can be applied by adjusting the device physical lifetime variable.</span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts22">Expected Device Efficiency Policy Impacts</span></p>
+<p class="rvps2"><span class="rvts21">Expected Device Efficiency Policy Impacts</span></p>
 <p class="rvps2"><span class="rvts6">The expected impacts of these process efficiency policies include the following:</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
- <li style="text-indent: 0px" class="rvps94 noindent"><span class="rvts6">Direct impacts: &nbsp;Increase to specific device efficiencies; adjustments to device cost curve to match anticipated increases to capital costs by technology; quicker adoption of newer, more efficiency devices.</span></li>
- <li style="text-indent: 0px" class="rvps94 noindent"><span class="rvts6">Indirect impacts: &nbsp;Reduction in energy use and emissions; changes to expenditures; reduction in electric generation (from reduced enduse demand).</span></li>
+ <li style="text-indent: 0px" class="rvps179 noindent"><span class="rvts6">Direct impacts: &nbsp;Increase to specific device efficiencies; adjustments to device cost curve to match anticipated increases to capital costs by technology; quicker adoption of newer, more efficiency devices.</span></li>
+ <li style="text-indent: 0px" class="rvps179 noindent"><span class="rvts6">Indirect impacts: &nbsp;Reduction in energy use and emissions; changes to expenditures; reduction in electric generation (from reduced enduse demand).</span></li>
 </ul>
-<p class="rvps94"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts22"></span><span class="rvts6"></span></p>
+<p class="rvps179"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts21"></span><span class="rvts6"></span></p>
 
             </div>
             

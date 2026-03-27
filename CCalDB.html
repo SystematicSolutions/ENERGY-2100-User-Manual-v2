@@ -49,7 +49,899 @@
   <!-- Content style -->
   <link href="css/hnd.content.css" rel="stylesheet" />
 
+  <style type="text/css">/* =========================================================
+   HELPNDOC DOCUMENTATION THEME v9
+   Cleaned and consolidated
+   ========================================================= */
+
+
+/* =========================================================
+   1) BASE PAGE
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin-right: 300px;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.62;
+  color: #111827;
+}
+
+main,
+article,
+.topic,
+.topic-content,
+#topic_content {
+  max-width: 920px;
+}
+
+
+/* =========================================================
+   2) HEADINGS, TEXT, LISTS
+   ========================================================= */
+
+h1 {
+  margin-top: 0.15em;
+  margin-bottom: 0.45em;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+h2 {
+  margin-top: 1.1em;
+  margin-bottom: 0.35em;
+  line-height: 1.22;
+  font-weight: 600;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 16px;
+}
+
+h3 {
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+  line-height: 1.28;
+  font-weight: 600;
+}
+
+h4 {
+  margin-top: 0.85em;
+  margin-bottom: 0.25em;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+h2,
+h3,
+h4 {
+  scroll-margin-top: 120px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.82em;
+}
+
+ul,
+ol {
+  margin-top: 0.4em;
+  margin-bottom: 0.9em;
+  padding-left: 1.6em;
+}
+
+
+
+li {
+  margin-bottom: 0.24em;
+}
+
+li p {
+  margin-bottom: 0.35em;
+}
+
+ol li {
+  padding-left: 0.2em;
+  margin-bottom: 0.4em;
+  font-size: 1em;
+  line-height: 1.62;
+}
+
+ol li::marker {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1.05em;
+  font-weight: 400;
+  color: #111827;
+}
+
+
+/* =========================================================
+   3) INLINE CODE + PRE/CODE
+   ========================================================= */
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.95em;
+  background: #f3f4f6;
+  color: #111827;
+  border-radius: 4px;
+}
+
+pre {
+  position: relative;
+  margin-top: 0.35em;
+  margin-bottom: 0.8em;
+  padding: 14px 16px;
+  border: 1px solid #dde3ea;
+  border-radius: 8px;
+  background: #f7f9fb;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: pre;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  -webkit-overflow-scrolling: touch;
+}
+
+pre code {
+  padding: 0;
+  background: transparent;
+}
+
+p + pre {
+  margin-top: 0.25em;
+}
+
+pre + p {
+  margin-top: 0.7em;
+}
+
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+
+/* =========================================================
+   4) LEFT NAVIGATION
+   ========================================================= */
+
+nav,
+aside,
+#contents,
+#toc,
+.tree,
+.treeview {
+  background: #fafafa;
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: #4b5563;
+}
+
+nav a,
+aside a,
+#contents a,
+#toc a,
+.tree a,
+.treeview a {
+  border-radius: 6px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+nav a:hover,
+aside a:hover,
+#contents a:hover,
+#toc a:hover,
+.tree a:hover,
+.treeview a:hover {
+  background: #eef2f7;
+  color: #111827;
+}
+
+nav .active,
+aside .active,
+#contents .active,
+#toc .active,
+.tree .active,
+.treeview .active,
+nav a[aria-current="page"],
+aside a[aria-current="page"],
+#contents a[aria-current="page"],
+#toc a[aria-current="page"] {
+  background: #e8eefc;
+  color: #1f3a8a;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+nav li,
+aside li,
+#contents li,
+#toc li,
+.tree li,
+.treeview li {
+  margin-bottom: 2px;
+  padding: 2px 0;
+}
+
+nav > ul > li > a,
+aside > ul > li > a,
+#contents > ul > li > a,
+#toc > ul > li > a {
+  font-weight: 600;
+  color: #374151;
+}
+
+nav li li a,
+aside li li a,
+#contents li li a,
+#toc li li a {
+  color: #6b7280;
+}
+
+
+/* =========================================================
+   5) RIGHT "ON THIS PAGE" NAV
+   ========================================================= */
+
+#right-nav {
+  position: fixed;
+  right: 24px;
+  top: 120px;
+  width: 260px;
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+  padding: 16px;
+  background: #fafafa;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.55;
+  z-index: 99999;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+#right-nav .right-nav-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+#right-nav .nav-group {
+  margin-bottom: 10px;
+}
+
+#right-nav .nav-group-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #111827;
+  cursor: pointer;
+  margin-bottom: 6px;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+#right-nav .nav-group-title:hover {
+  background: #f3f4f6;
+}
+
+#right-nav .nav-group-items.collapsed {
+  display: none;
+}
+
+#right-nav .right-nav-link {
+  display: block;
+  padding: 5px 8px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  color: #374151;
+  text-decoration: none;
+}
+
+#right-nav .right-nav-link:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+#right-nav .right-nav-link.h3 {
+  margin-left: 14px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+#right-nav .right-nav-link.h4 {
+  margin-left: 28px;
+  font-size: 12.5px;
+  color: #6b7280;
+}
+
+#right-nav .right-nav-link.active {
+  background: #e8eefc;
+  color: #1f3a8a;
+  font-weight: 600;
+}
+
+#right-nav .back-to-top {
+  margin-top: 14px;
+  padding: 4px 6px;
+  font-size: 12px;
+  color: #6b7280;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+#right-nav .back-to-top:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+#right-nav::-webkit-scrollbar {
+  width: 8px;
+}
+
+#right-nav::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 8px;
+}
+
+
+/* =========================================================
+   6) ANCHOR HIGHLIGHT
+   ========================================================= */
+
+:target {
+  animation: rightNavTargetFlash 0.8s ease;
+}
+
+@keyframes rightNavTargetFlash {
+  0% { background: #fff3cd; }
+  100% { background: transparent; }
+}
+
+
+/* =========================================================
+   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   ========================================================= */
+
+table:not(:has(td[style*="background-color"])) {
+  border: 1px solid #dde3ea !important;
+  border-radius: 8px;
+  background: #f7f9fb !important;
+  border-collapse: separate !important;
+  overflow: hidden;
+  margin: 14px 0;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+table:not(:has(td[style*="background-color"])) td {
+  padding: 10px 14px !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+table:not(:has(td[style*="background-color"])) p {
+  font-weight: 400 !important;
+  color: #111827 !important;
+  margin: 0 0 6px 0 !important;
+}
+
+table:not(:has(td[style*="background-color"])) p:first-child {
+  margin-top: 0 !important;
+}
+
+table:not(:has(td[style*="background-color"])) p:last-child {
+  margin-bottom: 0 !important;
+}
+
+
+/* =========================================================
+   8) TABLE-BASED CALLOUT SYSTEM
+   ========================================================= */
+
+table:has(td[style*="background-color: #cc99ff"]),
+table:has(td[style*="background-color: #ff0000"]),
+table:has(td[style*="background-color: #e9f1ff"]),
+table:has(td[style*="background-color: #00c030"]) {
+  margin: 14px 0;
+  border-collapse: separate !important;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.025);
+  width: 100% !important;
+  max-width: 100% !important;
+  table-layout: fixed !important;
+  box-sizing: border-box !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td,
+table:has(td[style*="background-color: #ff0000"]) td,
+table:has(td[style*="background-color: #e9f1ff"]) td,
+table:has(td[style*="background-color: #00c030"]) td {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  vertical-align: top;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:not(:last-child),
+table:has(td[style*="background-color: #ff0000"]) td:not(:last-child),
+table:has(td[style*="background-color: #e9f1ff"]) td:not(:last-child),
+table:has(td[style*="background-color: #00c030"]) td:not(:last-child) {
+  display: none;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child,
+table:has(td[style*="background-color: #ff0000"]) td:last-child,
+table:has(td[style*="background-color: #e9f1ff"]) td:last-child,
+table:has(td[style*="background-color: #00c030"]) td:last-child {
+  padding: 12px 14px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p,
+table:has(td[style*="background-color: #ff0000"]) td:last-child p,
+table:has(td[style*="background-color: #e9f1ff"]) td:last-child p,
+table:has(td[style*="background-color: #00c030"]) td:last-child p {
+  margin: 0 0 6px 0 !important;
+  font-weight: 400 !important;
+  color: #374151;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p:last-child,
+table:has(td[style*="background-color: #ff0000"]) td:last-child p:last-child,
+table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:last-child,
+table:has(td[style*="background-color: #00c030"]) td:last-child p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Exercise */
+table:has(td[style*="background-color: #cc99ff"]) {
+  border: 1px solid #e5e7eb !important;
+  border-left: 4px solid #a855f7 !important;
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child {
+  font-weight: 500 !important;
+  color: #111827 !important;
+  margin-bottom: 8px !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child::before {
+  content: "📚";
+  display: inline-block;
+  margin-right: 8px;
+  color: #a855f7;
+}
+
+/* Warning */
+table:has(td[style*="background-color: #ff0000"]) {
+  border: 1px solid #e5e7eb !important;
+  border-left: 4px solid #ef4444 !important;
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #ff0000"]) td:last-child p:first-child::before {
+  content: "⚠";
+  display: inline-block;
+  margin-right: 8px;
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* Note */
+table:has(td[style*="background-color: #e9f1ff"]) {
+  border: 1px solid #e5e7eb !important;
+  border-left: 4px solid #2b9af3 !important;
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::before {
+  content: "i";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
   
+  width: 18px;
+  height: 18px;
+  
+  font-size: 12px;
+  font-weight: 600;
+  
+  color: #ffffff;
+  background: #2b9af3;
+  
+  border-radius: 50%;
+}
+
+/* Tip */
+table:has(td[style*="background-color: #00c030"]) {
+  border: 1px solid #e5e7eb !important;
+  border-left: 4px solid #22c55e !important;
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #00c030"]) td:last-child p:first-child::before {
+  content: "💡";
+  display: inline-block;
+  margin-right: 8px;
+  color: #22c55e;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   9) REAL CODE BLOCKS ONLY
+   ========================================================= */
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child span,
+table:has(td[style*="background-color: #00c030"]) td:last-child span {
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child pre,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
+  margin: 0 !important;
+  padding: 10px 14px !important;
+  background: #f7f9fb !important;
+  border: 1px solid #dde3ea !important;
+  border-radius: 8px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  white-space: pre !important;
+  font-family: Consolas, "Courier New", monospace !important;
+  font-size: 13.5px !important;
+  line-height: 1.3 !important;
+  color: #111827 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child code,
+table:has(td[style*="background-color: #00c030"]) td:last-child code {
+  font-family: Consolas, "Courier New", monospace !important;
+}
+
+
+/* =========================================================
+   10) COLLAPSIBLE NOTE-STYLE BOX
+   ========================================================= */
+
+details.hnd-blue-callout {
+  margin: 14px 0 !important;
+
+  transform: translateX(48px);
+  width: calc(100% - 48px) !important;
+  max-width: calc(100% - 48px) !important;
+
+  box-sizing: border-box !important;
+
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #2b9af3;
+  border-radius: 10px;
+  background: transparent;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.025);
+}
+
+/* Header (summary) */
+details.hnd-blue-callout > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 14px;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+details.hnd-blue-callout > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Info icon (matches Note box) */
+details.hnd-blue-callout > summary::before {
+  content: "i";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #2b9af3;
+  border-radius: 50%;
+}
+
+/* Arrow */
+details.hnd-blue-callout > summary::after {
+  content: "▸";
+  margin-left: auto;
+  font-size: 18px;
+  color: #4b5563;
+  transition: transform 0.18s ease;
+}
+
+details.hnd-blue-callout[open] > summary::after {
+  transform: rotate(90deg);
+}
+
+/* Body */
+details.hnd-blue-callout .callout-body {
+  padding: 0 14px 12px 14px;
+}
+
+details.hnd-blue-callout p {
+  margin: 0 0 6px 0;
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+details.hnd-blue-callout p:last-child {
+  margin-bottom: 0;
+}
+
+/* Code inside collapsible (match your other code blocks) */
+details.hnd-blue-callout pre {
+  margin: 8px 0 10px 0;
+  padding: 10px 14px;
+  background: #f7f9fb;
+  border: 1px solid #dde3ea;
+  border-radius: 8px;
+  overflow-x: auto;
+  white-space: pre;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+details.hnd-blue-callout > summary:hover {
+  background: #f9fafb;
+}
+
+
+/* =========================================================
+   11) COPY BUTTONS
+   ========================================================= */
+
+.copy-code-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 12px;
+  padding: 4px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #374151;
+  cursor: pointer;
+  opacity: 0.92;
+}
+
+.copy-code-btn:hover {
+  background: #f3f4f6;
+}
+
+.copy-code-btn.copied {
+  color: #065f46;
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+}
+
+
+/* =========================================================
+   12) RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+  #right-nav {
+    display: none;
+  }
+
+  body {
+    margin-right: 0;
+  }
+}
+
+
+/* =========================================================
+   13) HELPER CLASSES
+   ========================================================= */
+
+.code-block {
+  margin-left: 0;
+}
+
+.indent-1 { margin-left: 20px; }
+.indent-2 { margin-left: 48px; }
+.indent-3 { margin-left: 60px; }
+
+.code-indent {
+  margin-left: 40px;
+  max-width: calc(100% - 40px);
+}
+
+pre code {
+  padding: 0;
+  background: transparent;
+}
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.95em;
+  background: #f3f4f6;
+  color: #111827;
+  padding: 2px 5px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.html-code-box {
+  width: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.html-code-box.indent-1 { margin-left: 20px !important; }
+.html-code-box.indent-2 { margin-left: 48px !important; }
+.html-code-box.indent-3 { margin-left: 68px !important; }
+
+
+/* =========================================================
+   14) EMPTY PARAGRAPH CLEANUP
+   ========================================================= */
+
+table td p:empty,
+table td p:has(br:only-child) {
+  display: none;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p:empty,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p:has(br:only-child) {
+  display: none !important;
+}
+
+
+/* =========================================================
+   15) HTML CODE BOXES INSIDE EXERCISES
+   ========================================================= */
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box {
+  margin-top: 6px !important;
+}
+
+
+/* =========================================================
+   16) COLLAPSIBLE EXERCISE BOXES
+   ========================================================= */
+
+details.example-toggle {
+  margin: 0;
+}
+
+details.example-toggle > summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  color: #6b21a8;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+details.example-toggle > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.example-toggle > summary::before {
+  content: "▸";
+  font-size: 12px;
+  color: #6b21a8;
+  transition: transform 0.18s ease;
+  margin-right: 2px;
+}
+
+details.example-toggle[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+details.example-toggle > summary::after {
+  content: "📚";
+  font-size: 14px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+details.example-toggle p:first-child::before {
+  content: none !important;
+}
+
+details.example-toggle > *:not(summary) {
+  margin-top: 8px;
+}
+
+details.example-toggle .html-code-box {
+  margin-top: 6px;
+}
+
+/* =========================================================
+   17) CODE LABELS
+   ========================================================= */
+
+.code-label {
+  display: block !important;
+  font-size: 12px;
+  font-weight: 500;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 12px 0 6px 2px !important;
+  white-space: normal !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  padding: 0 !important;
+}
+
+.html-code-box + .code-label {
+  margin-top: 14px !important;
+}
+
+/* =========================================================
+   18) FINAL CODE SPACING OVERRIDE
+   ========================================================= */
+
+pre {
+  line-height: 1.15 !important;
+  padding: 8px 14px !important;
+}
+
+/* Fix html-code-box font size */
+.html-code-box pre {
+  font-size: 14.5px !important;
+}
+
+/* Syntax color for keywords */
+.kw {
+  color: #AF00DB;
+  font-weight: 500;
+}</style>
 
 
 
@@ -180,81 +1072,81 @@
 
             <div class="main-content">
                 
-<p class="rvps2"><span class="rvts22">CCalDB</span><span class="rvts6"> - Commercial calibration variables</span></p>
-<p class="rvps2"><span class="rvts22"><br/></span></p>
-<div class="rvps32">
+<p class="rvps2"><span class="rvts21">CCalDB</span><span class="rvts6"> - Commercial calibration variables</span></p>
+<p class="rvps2"><span class="rvts21"><br/></span></p>
+<div class="rvps78">
 <table width="90%" style="border-color: #ffffff #969696 #969696 #ffffff; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #fafafa;">
-   <p class="rvps30"><span class="rvts69">#</span></p>
-   <p class="rvps30"><span class="rvts69"># CCalDB.jl - Input Database creation file</span></p>
-   <p class="rvps30"><span class="rvts69">#</span></p>
-   <p class="rvps30"><span class="rvts52"><br/></span></p>
-   <p class="rvps30"><span class="rvts52">Base</span><span class="rvts57">.</span><span class="rvts58">@kwdef</span><span class="rvts52"> </span><span class="rvts71">struct</span><span class="rvts52"> CCalDB </span><span class="rvts57">&lt;:</span><span class="rvts52"> </span><span class="rvts126">HDF5GroupDatabase</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; db</span><span class="rvts57">::</span><span class="rvts126">String</span><span class="rvts57">=</span><span class="rvts52">DB</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; </span><span class="rvts69">########################</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; </span><span class="rvts69">#</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; </span><span class="rvts69"># Define Sets</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; </span><span class="rvts69">#</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; Enduse </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">ReadSetFromCSV</span><span class="rvts52">(</span><span class="rvts59">"EnduseCom"</span><span class="rvts52">,</span><span class="rvts59">"Key"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; EC </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">ReadSetFromCSV</span><span class="rvts52">(</span><span class="rvts59">"ECCom"</span><span class="rvts52">,</span><span class="rvts59">"Key"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; Area </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">ReadSetFromCSV</span><span class="rvts52">(</span><span class="rvts59">"Area"</span><span class="rvts52">,</span><span class="rvts59">"Key"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; Year </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">ReadSetFromCSV</span><span class="rvts52">(</span><span class="rvts59">"Year"</span><span class="rvts52">,</span><span class="rvts59">"Key"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; tv </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">ReadSetFromCSV</span><span class="rvts52">(</span><span class="rvts59">"tv"</span><span class="rvts52">,</span><span class="rvts59">"Key"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; Tech </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">ReadSetFromCSV</span><span class="rvts52">(</span><span class="rvts59">"TechCom"</span><span class="rvts52">,</span><span class="rvts59">"Key"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; Hour </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">ReadSetFromCSV</span><span class="rvts52">(</span><span class="rvts59">"Hour"</span><span class="rvts52">,</span><span class="rvts59">"Key"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; Day </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">ReadSetFromCSV</span><span class="rvts52">(</span><span class="rvts59">"Day"</span><span class="rvts52">,</span><span class="rvts59">"Key"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; Month </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">ReadSetFromCSV</span><span class="rvts52">(</span><span class="rvts59">"Month"</span><span class="rvts52">,</span><span class="rvts59">"Key"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; CTech </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">ReadSetFromCSV</span><span class="rvts52">(</span><span class="rvts59">"CTechCom"</span><span class="rvts52">,</span><span class="rvts59">"Key"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; Fuel </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">ReadSetFromCSV</span><span class="rvts52">(</span><span class="rvts59">"Fuel"</span><span class="rvts52">,</span><span class="rvts59">"Key"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; FuelEP </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">ReadSetFromCSV</span><span class="rvts52">(</span><span class="rvts59">"FuelEP"</span><span class="rvts52">,</span><span class="rvts59">"Key"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; Poll </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">ReadSetFromCSV</span><span class="rvts52">(</span><span class="rvts59">"Poll"</span><span class="rvts52">,</span><span class="rvts59">"Key"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; </span><span class="rvts69">########################</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; </span><span class="rvts69">#</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; </span><span class="rvts69"># Define Variables on Database</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; </span><span class="rvts69">#</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; </span><span class="rvts69">#! format: off</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; CERSM </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/CERSM"</span><span class="rvts52">, (:Enduse, :EC, :Area, :Year),</span><span class="rvts59">"Capital Energy Requirement Multiplier (Btu/Btu)"</span><span class="rvts52">,</span><span class="rvts59">"Btu/Btu"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; CgCUF </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/CgCUF"</span><span class="rvts52">, (:Tech, :EC, :Area, :Year),</span><span class="rvts59">"Cogeneration Capacity Utilization Factor (</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">)"</span><span class="rvts52">,</span><span class="rvts59">"</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; CgLSF </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/CgLSF"</span><span class="rvts52">, (:Tech, :EC, :Hour, :Day, :Month, :Area),</span><span class="rvts59">"Cogeneration Load Shape (MW/MW)"</span><span class="rvts52">,</span><span class="rvts59">"MW/MW"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; CgLSFSold </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/CgLSFSold"</span><span class="rvts52">, (:EC, :Hour, :Day, :Month, :Area),</span><span class="rvts59">"Cogeneration Sold to Grid Load Shape (MW/MW)"</span><span class="rvts52">,</span><span class="rvts59">"MW/MW"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; CgMSM0 </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/CgMSM0"</span><span class="rvts52">, (:Tech, :EC, :Area, :Year),</span><span class="rvts59">"Cogeneration Market Share Non-Price Factor (</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">)"</span><span class="rvts52">,</span><span class="rvts59">"</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; CgMSMI </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/CgMSMI"</span><span class="rvts52">, (:Tech, :EC, :Area),</span><span class="rvts59">"Cogeneration Market Share Income Factor (</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">)"</span><span class="rvts52">,</span><span class="rvts59">"</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; CgVF </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/CgVF"</span><span class="rvts52">, (:Tech, :EC, :Area),</span><span class="rvts59">"Cogeneration Variance Factor (</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">)"</span><span class="rvts52">,</span><span class="rvts59">"</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; CHR </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/CHR"</span><span class="rvts52">, (:EC, :Area),</span><span class="rvts59">"Cooling to Heating Ratio (Btu/Btu)"</span><span class="rvts52">,</span><span class="rvts59">"Btu/Btu"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; CMSM0 </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/CMSM0"</span><span class="rvts52">, (:Enduse, :Tech, :CTech, :EC, :Area, :Year),</span><span class="rvts59">"Conversion Market Share Multiplier (</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">)"</span><span class="rvts52">,</span><span class="rvts59">"</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; CMSMI </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/CMSMI"</span><span class="rvts52">, (:Enduse, :Tech, :CTech, :EC, :Area),</span><span class="rvts59">"Conversion Market Share Multiplier (</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">)"</span><span class="rvts52">,</span><span class="rvts59">"</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; CUF </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/CUF"</span><span class="rvts52">, (:Enduse, :Tech, :EC, :Area, :Year),</span><span class="rvts59">"Capital Utilization Fraction (</span><span class="rvts183">\$</span><span class="rvts59">/Yr/</span><span class="rvts183">\$</span><span class="rvts59">/Yr)"</span><span class="rvts52">,</span><span class="rvts59">"</span><span class="rvts183">\$</span><span class="rvts59">/Yr/</span><span class="rvts183">\$</span><span class="rvts59">/Yr"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; CVF </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/CVF"</span><span class="rvts52">, (:Enduse, :Tech, :CTech, :EC, :Area, :Year),</span><span class="rvts59">"Conversion Market Share Variance Factor (DLESS)"</span><span class="rvts52">,</span><span class="rvts59">"DLESS"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; DEMM </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/DEMM"</span><span class="rvts52">, (:Enduse, :Tech, :EC, :Area, :Year),</span><span class="rvts59">"Max. Device Eff. Multiplier (Btu/Btu)"</span><span class="rvts52">,</span><span class="rvts59">"Btu/Btu"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; DmFracMSM0 </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/DmFracMSM0"</span><span class="rvts52">, (:Enduse, :Fuel, :Tech, :EC, :Area, :Year),</span><span class="rvts59">"Demand Fuel/Tech Fraction Non-Price Factor (Btu/Btu)"</span><span class="rvts52">,</span><span class="rvts59">"Btu/Btu"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; DSt0 </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/DSt0"</span><span class="rvts52">, (:Enduse, :EC, :Area, :Year),</span><span class="rvts59">"Device Saturation Fixed Utility (</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">)"</span><span class="rvts52">,</span><span class="rvts59">"</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; DStI </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/DStI"</span><span class="rvts52">, (:Enduse, :EC, :Area),</span><span class="rvts59">"Device Saturation Income Utility (</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">)"</span><span class="rvts52">,</span><span class="rvts59">"</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; DStM </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/DStM"</span><span class="rvts52">, (:Enduse, :EC, :Area),</span><span class="rvts59">"Max. Device Saturation (Btu/Btu)"</span><span class="rvts52">,</span><span class="rvts59">"Btu/Btu"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; DStP </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/DStP"</span><span class="rvts52">, (:Enduse, :EC, :Area),</span><span class="rvts59">"Device Saturation Price Utility (</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">)"</span><span class="rvts52">,</span><span class="rvts59">"</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; DUF </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/DUF"</span><span class="rvts52">, (:Enduse, :EC, :Day, :Month, :Area),</span><span class="rvts59">"Daily Use Factor (Therm/Therm)"</span><span class="rvts52">,</span><span class="rvts59">"Therm/Therm"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; FsFracMSM0 </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/FsFracMSM0"</span><span class="rvts52">, (:Fuel, :Tech, :EC, :Area, :Year),</span><span class="rvts59">"Feedstock Fuel/Tech Fraction Non-Price Factor (Btu/Btu)"</span><span class="rvts52">,</span><span class="rvts59">"Btu/Btu"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; FsPEE </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/FsPEE"</span><span class="rvts52">, (:Tech, :EC, :Area, :Year),</span><span class="rvts59">"Feedstock Process Efficiency (</span><span class="rvts183">\$</span><span class="rvts59">/mmBtu)"</span><span class="rvts52">,</span><span class="rvts59">"</span><span class="rvts183">\$</span><span class="rvts59">/mmBtu"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; LSF </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/LSF"</span><span class="rvts52">, (:Enduse, :EC, :Hour, :Day, :Month, :Area),</span><span class="rvts59">"Load Shape Factor (DLESS)"</span><span class="rvts52">,</span><span class="rvts59">"DLESS"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; MMSM0 </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/MMSM0"</span><span class="rvts52">, (:Enduse, :Tech, :EC, :Area, :Year),</span><span class="rvts59">"Non-price Factors. (</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">)"</span><span class="rvts52">,</span><span class="rvts59">"</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; MMSMI </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/MMSMI"</span><span class="rvts52">, (:Enduse, :Tech, :EC, :Area),</span><span class="rvts59">"Market Share Mult. from Income (</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">)"</span><span class="rvts52">,</span><span class="rvts59">"</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; MVF </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/MVF"</span><span class="rvts52">, (:Enduse, :Tech, :EC, :Area, :Year),</span><span class="rvts59">"Market Share Variance Factor (</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">)"</span><span class="rvts52">,</span><span class="rvts59">"</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; PEM </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/PEM"</span><span class="rvts52">, (:Enduse, :EC, :Area),</span><span class="rvts59">"Maximum Process Efficiency (</span><span class="rvts183">\$</span><span class="rvts59">/mmBtu)"</span><span class="rvts52">,</span><span class="rvts59">"</span><span class="rvts183">\$</span><span class="rvts59">/mmBtu"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; PEMM </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/PEMM"</span><span class="rvts52">, (:Enduse, :Tech, :EC, :Area, :Year),</span><span class="rvts59">"Pro. Eff. Max. Multi (</span><span class="rvts183">\$</span><span class="rvts59">/Btu/(</span><span class="rvts183">\$</span><span class="rvts59">/Btu))"</span><span class="rvts52">,</span><span class="rvts59">"</span><span class="rvts183">\$</span><span class="rvts59">/Btu/(</span><span class="rvts183">\$</span><span class="rvts59">/Btu"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; POCF </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/POCF"</span><span class="rvts52">, (:Enduse, :Tech, :EC, :Area),</span><span class="rvts59">"Process Operating Cost Fraction (</span><span class="rvts183">\$</span><span class="rvts59">/Yr/</span><span class="rvts183">\$</span><span class="rvts59">)"</span><span class="rvts52">,</span><span class="rvts59">"</span><span class="rvts183">\$</span><span class="rvts59">/Yr/</span><span class="rvts183">\$</span><span class="rvts59">"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; Polute </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/Polute"</span><span class="rvts52">, (:Enduse, :FuelEP, :EC, :Poll, :Area, :Year),</span><span class="rvts59">"Pollution (Tonnes/Yr)"</span><span class="rvts52">,</span><span class="rvts59">"Tonnes/Yr"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; RDMSM </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/RDMSM"</span><span class="rvts52">, (:Enduse, :Tech, :EC, :Area, :Year),</span><span class="rvts59">"Device Retrofit Market Share Multiplier (1/Yr)"</span><span class="rvts52">,</span><span class="rvts59">"1/Yr"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; RPMSM </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/RPMSM"</span><span class="rvts52">, (:Enduse, :Tech, :EC, :Area, :Year),</span><span class="rvts59">"Process Retrofit Market Share Multiplier (1/Yr)"</span><span class="rvts52">,</span><span class="rvts59">"1/Yr"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; xCgMSF </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/xCgMSF"</span><span class="rvts52">, (:Tech, :EC, :Area, :Year),</span><span class="rvts59">"Cogen Market Share (</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">)"</span><span class="rvts52">,</span><span class="rvts59">"</span><span class="rvts183">\$</span><span class="rvts59">/</span><span class="rvts183">\$</span><span class="rvts59">"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts52">&nbsp; xMMSF </span><span class="rvts57">=</span><span class="rvts52"> </span><span class="rvts58">CreateVariableInHDF5</span><span class="rvts52">(</span><span class="rvts59">db,"CCalDB/xMMSF"</span><span class="rvts52">, (:Enduse, :Tech, :EC, :Area, :Year),</span><span class="rvts59">"Historical Market Share Fraction by Device (Fraction)"</span><span class="rvts52">,</span><span class="rvts59">"Fraction"</span><span class="rvts52">)</span></p>
-   <p class="rvps30"><span class="rvts72">end</span><span class="rvts52"> </span><span class="rvts69"># struct CCalDB</span></p>
-   <p class="rvps30"><span class="rvts52"><br/></span></p>
+   <p class="rvps76"><span class="rvts162">#</span></p>
+   <p class="rvps76"><span class="rvts162"># CCalDB.jl - Input Database creation file</span></p>
+   <p class="rvps76"><span class="rvts162">#</span></p>
+   <p class="rvps76"><span class="rvts124"><br/></span></p>
+   <p class="rvps76"><span class="rvts124">Base</span><span class="rvts125">.</span><span class="rvts126">@kwdef</span><span class="rvts124"> </span><span class="rvts146">struct</span><span class="rvts124"> CCalDB </span><span class="rvts125">&lt;:</span><span class="rvts124"> </span><span class="rvts148">HDF5GroupDatabase</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; db</span><span class="rvts125">::</span><span class="rvts148">String</span><span class="rvts125">=</span><span class="rvts124">DB</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; </span><span class="rvts162">########################</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; </span><span class="rvts162">#</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; </span><span class="rvts162"># Define Sets</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; </span><span class="rvts162">#</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; Enduse </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadSetFromCSV</span><span class="rvts124">(</span><span class="rvts127">"EnduseCom"</span><span class="rvts124">,</span><span class="rvts127">"Key"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; EC </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadSetFromCSV</span><span class="rvts124">(</span><span class="rvts127">"ECCom"</span><span class="rvts124">,</span><span class="rvts127">"Key"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; Area </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadSetFromCSV</span><span class="rvts124">(</span><span class="rvts127">"Area"</span><span class="rvts124">,</span><span class="rvts127">"Key"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; Year </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadSetFromCSV</span><span class="rvts124">(</span><span class="rvts127">"Year"</span><span class="rvts124">,</span><span class="rvts127">"Key"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; tv </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadSetFromCSV</span><span class="rvts124">(</span><span class="rvts127">"tv"</span><span class="rvts124">,</span><span class="rvts127">"Key"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; Tech </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadSetFromCSV</span><span class="rvts124">(</span><span class="rvts127">"TechCom"</span><span class="rvts124">,</span><span class="rvts127">"Key"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; Hour </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadSetFromCSV</span><span class="rvts124">(</span><span class="rvts127">"Hour"</span><span class="rvts124">,</span><span class="rvts127">"Key"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; Day </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadSetFromCSV</span><span class="rvts124">(</span><span class="rvts127">"Day"</span><span class="rvts124">,</span><span class="rvts127">"Key"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; Month </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadSetFromCSV</span><span class="rvts124">(</span><span class="rvts127">"Month"</span><span class="rvts124">,</span><span class="rvts127">"Key"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; CTech </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadSetFromCSV</span><span class="rvts124">(</span><span class="rvts127">"CTechCom"</span><span class="rvts124">,</span><span class="rvts127">"Key"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; Fuel </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadSetFromCSV</span><span class="rvts124">(</span><span class="rvts127">"Fuel"</span><span class="rvts124">,</span><span class="rvts127">"Key"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; FuelEP </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadSetFromCSV</span><span class="rvts124">(</span><span class="rvts127">"FuelEP"</span><span class="rvts124">,</span><span class="rvts127">"Key"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; Poll </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadSetFromCSV</span><span class="rvts124">(</span><span class="rvts127">"Poll"</span><span class="rvts124">,</span><span class="rvts127">"Key"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; </span><span class="rvts162">########################</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; </span><span class="rvts162">#</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; </span><span class="rvts162"># Define Variables on Database</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; </span><span class="rvts162">#</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; </span><span class="rvts162">#! format: off</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; CERSM </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/CERSM"</span><span class="rvts124">, (:Enduse, :EC, :Area, :Year),</span><span class="rvts127">"Capital Energy Requirement Multiplier (Btu/Btu)"</span><span class="rvts124">,</span><span class="rvts127">"Btu/Btu"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; CgCUF </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/CgCUF"</span><span class="rvts124">, (:Tech, :EC, :Area, :Year),</span><span class="rvts127">"Cogeneration Capacity Utilization Factor (</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">)"</span><span class="rvts124">,</span><span class="rvts127">"</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; CgLSF </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/CgLSF"</span><span class="rvts124">, (:Tech, :EC, :Hour, :Day, :Month, :Area),</span><span class="rvts127">"Cogeneration Load Shape (MW/MW)"</span><span class="rvts124">,</span><span class="rvts127">"MW/MW"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; CgLSFSold </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/CgLSFSold"</span><span class="rvts124">, (:EC, :Hour, :Day, :Month, :Area),</span><span class="rvts127">"Cogeneration Sold to Grid Load Shape (MW/MW)"</span><span class="rvts124">,</span><span class="rvts127">"MW/MW"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; CgMSM0 </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/CgMSM0"</span><span class="rvts124">, (:Tech, :EC, :Area, :Year),</span><span class="rvts127">"Cogeneration Market Share Non-Price Factor (</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">)"</span><span class="rvts124">,</span><span class="rvts127">"</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; CgMSMI </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/CgMSMI"</span><span class="rvts124">, (:Tech, :EC, :Area),</span><span class="rvts127">"Cogeneration Market Share Income Factor (</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">)"</span><span class="rvts124">,</span><span class="rvts127">"</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; CgVF </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/CgVF"</span><span class="rvts124">, (:Tech, :EC, :Area),</span><span class="rvts127">"Cogeneration Variance Factor (</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">)"</span><span class="rvts124">,</span><span class="rvts127">"</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; CHR </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/CHR"</span><span class="rvts124">, (:EC, :Area),</span><span class="rvts127">"Cooling to Heating Ratio (Btu/Btu)"</span><span class="rvts124">,</span><span class="rvts127">"Btu/Btu"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; CMSM0 </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/CMSM0"</span><span class="rvts124">, (:Enduse, :Tech, :CTech, :EC, :Area, :Year),</span><span class="rvts127">"Conversion Market Share Multiplier (</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">)"</span><span class="rvts124">,</span><span class="rvts127">"</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; CMSMI </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/CMSMI"</span><span class="rvts124">, (:Enduse, :Tech, :CTech, :EC, :Area),</span><span class="rvts127">"Conversion Market Share Multiplier (</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">)"</span><span class="rvts124">,</span><span class="rvts127">"</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; CUF </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/CUF"</span><span class="rvts124">, (:Enduse, :Tech, :EC, :Area, :Year),</span><span class="rvts127">"Capital Utilization Fraction (</span><span class="rvts288">\$</span><span class="rvts127">/Yr/</span><span class="rvts288">\$</span><span class="rvts127">/Yr)"</span><span class="rvts124">,</span><span class="rvts127">"</span><span class="rvts288">\$</span><span class="rvts127">/Yr/</span><span class="rvts288">\$</span><span class="rvts127">/Yr"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; CVF </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/CVF"</span><span class="rvts124">, (:Enduse, :Tech, :CTech, :EC, :Area, :Year),</span><span class="rvts127">"Conversion Market Share Variance Factor (DLESS)"</span><span class="rvts124">,</span><span class="rvts127">"DLESS"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; DEMM </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/DEMM"</span><span class="rvts124">, (:Enduse, :Tech, :EC, :Area, :Year),</span><span class="rvts127">"Max. Device Eff. Multiplier (Btu/Btu)"</span><span class="rvts124">,</span><span class="rvts127">"Btu/Btu"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; DmFracMSM0 </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/DmFracMSM0"</span><span class="rvts124">, (:Enduse, :Fuel, :Tech, :EC, :Area, :Year),</span><span class="rvts127">"Demand Fuel/Tech Fraction Non-Price Factor (Btu/Btu)"</span><span class="rvts124">,</span><span class="rvts127">"Btu/Btu"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; DSt0 </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/DSt0"</span><span class="rvts124">, (:Enduse, :EC, :Area, :Year),</span><span class="rvts127">"Device Saturation Fixed Utility (</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">)"</span><span class="rvts124">,</span><span class="rvts127">"</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; DStI </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/DStI"</span><span class="rvts124">, (:Enduse, :EC, :Area),</span><span class="rvts127">"Device Saturation Income Utility (</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">)"</span><span class="rvts124">,</span><span class="rvts127">"</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; DStM </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/DStM"</span><span class="rvts124">, (:Enduse, :EC, :Area),</span><span class="rvts127">"Max. Device Saturation (Btu/Btu)"</span><span class="rvts124">,</span><span class="rvts127">"Btu/Btu"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; DStP </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/DStP"</span><span class="rvts124">, (:Enduse, :EC, :Area),</span><span class="rvts127">"Device Saturation Price Utility (</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">)"</span><span class="rvts124">,</span><span class="rvts127">"</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; DUF </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/DUF"</span><span class="rvts124">, (:Enduse, :EC, :Day, :Month, :Area),</span><span class="rvts127">"Daily Use Factor (Therm/Therm)"</span><span class="rvts124">,</span><span class="rvts127">"Therm/Therm"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; FsFracMSM0 </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/FsFracMSM0"</span><span class="rvts124">, (:Fuel, :Tech, :EC, :Area, :Year),</span><span class="rvts127">"Feedstock Fuel/Tech Fraction Non-Price Factor (Btu/Btu)"</span><span class="rvts124">,</span><span class="rvts127">"Btu/Btu"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; FsPEE </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/FsPEE"</span><span class="rvts124">, (:Tech, :EC, :Area, :Year),</span><span class="rvts127">"Feedstock Process Efficiency (</span><span class="rvts288">\$</span><span class="rvts127">/mmBtu)"</span><span class="rvts124">,</span><span class="rvts127">"</span><span class="rvts288">\$</span><span class="rvts127">/mmBtu"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; LSF </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/LSF"</span><span class="rvts124">, (:Enduse, :EC, :Hour, :Day, :Month, :Area),</span><span class="rvts127">"Load Shape Factor (DLESS)"</span><span class="rvts124">,</span><span class="rvts127">"DLESS"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; MMSM0 </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/MMSM0"</span><span class="rvts124">, (:Enduse, :Tech, :EC, :Area, :Year),</span><span class="rvts127">"Non-price Factors. (</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">)"</span><span class="rvts124">,</span><span class="rvts127">"</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; MMSMI </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/MMSMI"</span><span class="rvts124">, (:Enduse, :Tech, :EC, :Area),</span><span class="rvts127">"Market Share Mult. from Income (</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">)"</span><span class="rvts124">,</span><span class="rvts127">"</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; MVF </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/MVF"</span><span class="rvts124">, (:Enduse, :Tech, :EC, :Area, :Year),</span><span class="rvts127">"Market Share Variance Factor (</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">)"</span><span class="rvts124">,</span><span class="rvts127">"</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; PEM </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/PEM"</span><span class="rvts124">, (:Enduse, :EC, :Area),</span><span class="rvts127">"Maximum Process Efficiency (</span><span class="rvts288">\$</span><span class="rvts127">/mmBtu)"</span><span class="rvts124">,</span><span class="rvts127">"</span><span class="rvts288">\$</span><span class="rvts127">/mmBtu"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; PEMM </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/PEMM"</span><span class="rvts124">, (:Enduse, :Tech, :EC, :Area, :Year),</span><span class="rvts127">"Pro. Eff. Max. Multi (</span><span class="rvts288">\$</span><span class="rvts127">/Btu/(</span><span class="rvts288">\$</span><span class="rvts127">/Btu))"</span><span class="rvts124">,</span><span class="rvts127">"</span><span class="rvts288">\$</span><span class="rvts127">/Btu/(</span><span class="rvts288">\$</span><span class="rvts127">/Btu"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; POCF </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/POCF"</span><span class="rvts124">, (:Enduse, :Tech, :EC, :Area),</span><span class="rvts127">"Process Operating Cost Fraction (</span><span class="rvts288">\$</span><span class="rvts127">/Yr/</span><span class="rvts288">\$</span><span class="rvts127">)"</span><span class="rvts124">,</span><span class="rvts127">"</span><span class="rvts288">\$</span><span class="rvts127">/Yr/</span><span class="rvts288">\$</span><span class="rvts127">"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; Polute </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/Polute"</span><span class="rvts124">, (:Enduse, :FuelEP, :EC, :Poll, :Area, :Year),</span><span class="rvts127">"Pollution (Tonnes/Yr)"</span><span class="rvts124">,</span><span class="rvts127">"Tonnes/Yr"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; RDMSM </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/RDMSM"</span><span class="rvts124">, (:Enduse, :Tech, :EC, :Area, :Year),</span><span class="rvts127">"Device Retrofit Market Share Multiplier (1/Yr)"</span><span class="rvts124">,</span><span class="rvts127">"1/Yr"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; RPMSM </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/RPMSM"</span><span class="rvts124">, (:Enduse, :Tech, :EC, :Area, :Year),</span><span class="rvts127">"Process Retrofit Market Share Multiplier (1/Yr)"</span><span class="rvts124">,</span><span class="rvts127">"1/Yr"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; xCgMSF </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/xCgMSF"</span><span class="rvts124">, (:Tech, :EC, :Area, :Year),</span><span class="rvts127">"Cogen Market Share (</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">)"</span><span class="rvts124">,</span><span class="rvts127">"</span><span class="rvts288">\$</span><span class="rvts127">/</span><span class="rvts288">\$</span><span class="rvts127">"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts124">&nbsp; xMMSF </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(</span><span class="rvts127">db,"CCalDB/xMMSF"</span><span class="rvts124">, (:Enduse, :Tech, :EC, :Area, :Year),</span><span class="rvts127">"Historical Market Share Fraction by Device (Fraction)"</span><span class="rvts124">,</span><span class="rvts127">"Fraction"</span><span class="rvts124">)</span></p>
+   <p class="rvps76"><span class="rvts164">end</span><span class="rvts124"> </span><span class="rvts162"># struct CCalDB</span></p>
+   <p class="rvps76"><span class="rvts124"><br/></span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps2"><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
-<p class="rvps28"><span class="rvts52"></span><span class="rvts6"></span></p>
+<p class="rvps111"><span class="rvts124"></span><span class="rvts6"></span></p>
 
             </div>
             

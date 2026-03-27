@@ -1,0 +1,1305 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="generator" content="HelpNDoc Professional Edition 10.4.0.281">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="favicon.ico"/>
+
+  <title>Running a Policy File in Julia REPL</title>
+  <meta name="description" content="" /> 
+  <meta name="keywords" content="">
+
+
+
+  
+  
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Running a Policy File in Julia REPL">
+  <meta name="twitter:description" content="">
+
+  <!-- Open Graph data -->
+  <meta property="og:title" content="Running a Policy File in Julia REPL" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="ENERGY 2100 User Manual" /> 
+
+  <!-- Bootstrap CSS -->
+  <link href="vendors/bootstrap-5.3.7/bootstrap.min.css" rel="stylesheet"/>
+  <link href="vendors/bootstrap-icons-1.13.1/bootstrap-icons.min.css" rel="stylesheet"/>
+
+  <!-- JsTree styles -->
+  <link href="vendors/jstree-3.3.17/themes/default/style.min.css" rel="stylesheet"/>
+
+  <!-- Hnd styles -->
+  <link href="css/layout.min.css" rel="stylesheet" />
+  <link href="css/effects.min.css" rel="stylesheet" />
+  <link href="css/theme-light-blue.min.css" rel="stylesheet" />
+  <link href="css/print.min.css" rel="stylesheet" media="print" />
+  <style type="text/css">nav { width: 350px} @media screen and (min-width:769px) { body.md-nav-expanded div#main { margin-left: 350px} body.md-nav-expanded header { padding-left: 364px} }</style>
+  <style type="text/css">.navigation #inline-toc { width: auto !important}</style>
+
+  <!-- Content style -->
+  <link href="css/hnd.content.css" rel="stylesheet" />
+
+  <style type="text/css">html {
+  scroll-behavior: smooth;
+}
+
+/* Give content breathing room */
+body {
+  margin-right: 300px;
+}
+
+/* ===== Right Sidebar ===== */
+#right-nav {
+  position: fixed;
+  right: 24px;
+  top: 120px;
+  width: 240px;
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+
+  padding: 16px 16px 14px 16px;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+
+  font-size: 14px;
+  line-height: 1.55;
+
+  z-index: 99999;
+
+  /* subtle modern shadow */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== Title ===== */
+#right-nav .right-nav-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+
+  margin-bottom: 12px;
+}
+
+/* ===== Links ===== */
+#right-nav .right-nav-link {
+  display: block;
+
+  margin-bottom: 8px;
+  padding: 5px 8px;
+
+  border-radius: 6px;
+
+  color: #374151;
+  text-decoration: none;
+
+  transition: all 0.15s ease;
+}
+
+/* Hover */
+#right-nav .right-nav-link:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+/* H3 indentation */
+#right-nav .right-nav-link.level-h3 {
+  margin-left: 14px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+/* Active section */
+#right-nav .right-nav-link.active {
+  background: #e8eefc;
+  color: #1f3a8a;
+  font-weight: 600;
+}
+
+/* ===== Scrollbar (cleaner) ===== */
+#right-nav::-webkit-scrollbar {
+  width: 8px;
+}
+
+#right-nav::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 8px;
+}
+
+#right-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ===== Responsive: hide on smaller screens ===== */
+@media (max-width: 1200px) {
+  #right-nav {
+    display: none;
+  }
+
+  body {
+    margin-right: 0;
+  }
+}</style>
+
+
+
+</head>
+
+<body class="md-nav-expanded">
+
+
+
+  
+
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible">Skip to main content</a>
+  </div>
+
+  <header class="headroom">
+    <button class="hnd-toggle btn btn-default">
+      <span class="visually-hidden">Toggle navigation</span>
+      <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>        
+    </button>
+    <h1>ENERGY 2100 User Manual</h1>
+    <img src="_logo.png" alt="logo" class="logo"/>
+  </header>
+
+  <nav id="panel-left" class="md-nav-expanded">
+    <!-- Nav tabs -->
+    <ul class="tab-tabs nav nav-tabs" role="tablist">
+      <li id="nav-close" role="presentation"> 
+        <button class="hnd-toggle btn btn-default" aria-label="close">
+          <span class="bi bi-x" aria-hidden="true"></span>
+        </button>
+      </li>
+      
+	  
+        <li role="presentation" class="nav-item tab">
+            <a href="#contents" id="tab-contents" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#contents" aria-controls="contents" aria-selected="true">
+                <i class="bi bi-list-ul"></i>
+                Contents
+            </a>
+        </li>
+      
+        <li role="presentation" class="nav-item tab">
+            <a href="#index" id="tab-index" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#index" aria-controls="index" aria-selected="false">
+                <i class="bi bi-asterisk"></i>
+                Index
+            </a>
+        </li>
+      
+        <li role="presentation" class="nav-item tab">
+            <a href="#search" id="tab-search" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#search" aria-controls="search" aria-selected="false">
+                <i class="bi bi-search"></i>
+                Search
+            </a>
+        </li>
+      
+    </ul>  <!-- /Nav tabs -->
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+	  
+      <div role="tabpanel" class="tab-pane active" id="contents">
+        <div id="toc" class="tree-container unselectable"
+            data-url="_toc.json"
+            data-openlvl="1"
+        >
+            
+        </div>
+      </div>  <!-- /contents-->
+      
+      <div role="tabpanel" class="tab-pane" id="index">
+        <div id="keywords" class="tree-container unselectable"
+            data-url="_keywords.json"
+            data-openlvl="1"
+        >
+            
+        </div>
+      </div>  <!-- /index-->
+      
+      <div role="tabpanel" class="tab-pane" id="search">
+        <div class="search-content">
+          <div class="search-input">
+            <form id="search-form">
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" class="form-control" id="input-search" name="input-search" placeholder="Search..." aria-label="Search..." />
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit" aria-label="Search...">
+                      <span class="bi bi-search" aria-hidden="true"></span>
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </form>
+          </div>  <!-- /search-input -->
+          <div class="search-result">
+            <div id="search-info"></div>
+            <div class="tree-container unselectable" id="search-tree"></div>
+          </div>  <!-- /search-result -->
+        </div>  <!-- /search-content -->
+      </div>  <!-- /search-->
+      
+    </div>  <!-- /Tab panes -->
+
+  </nav>
+
+  <div id="main">
+
+    <article>
+        <div id="topic-content" class="container-fluid" 
+		  data-hnd-id="RunningaPolicyFileinJuliaREPL"
+		  data-hnd-context="214"
+		  data-hnd-title="Running a Policy File in Julia REPL"
+		>
+            
+                <div class="navigation">
+                    <ol class="breadcrumb">
+                        <li><a href="WorkinginVSCode.html">Working in VS Code</a></li>
+                    </ol>
+                    <div class="nav-arrows">
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="WorkinginVSCode.html" title="Working in VS Code" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="DeterminingtheAttributesofaVaria.html" title="Determining the Attributes of a Variable" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="RandysNotes.html" title="Randy's Notes" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                    </div>
+                </div> 
+            
+
+            <a id="main-content"></a>
+
+            <h2>Running a Policy File in Julia REPL</h2>
+
+            <div class="main-content">
+                
+<h3 class="rvps17"><span class="rvts0"><span class="rvts29">Executing a Policy File in the Julia REPL</span></span></h3>
+<p class="rvps2"><span class="rvts6">To run a policy file in the Julia REPL, follow the instructions below.</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li class="rvps2 noindent"><span class="rvts21">Open VS Code and open the ENERGY 2100 model folder into the workspace</span><span class="rvts6">: &nbsp;</span><span class="rvts71">File\Open Folder</span><span class="rvts6">.</span></li>
+</ol>
+<p class="rvps36"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="2" class="rvps36 noindent"><span class="rvts21">Start the Julia REPL from the Command Palette</span><span class="rvts6">:</span></li>
+</ol>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 72px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps36 noindent"><span class="rvts6">Open the command palette (</span><span class="rvts71">View\Command Palette)</span><span class="rvts6"> or (</span><span class="rvts71">Ctrl+Shift+P</span><span class="rvts6">)</span></li>
+ <li class="rvps36 noindent"><span class="rvts6">Start the Julia REPL (type </span><span class="rvts71">Julia: Start REPL</span><span class="rvts6">).&nbsp;</span></li>
+ <li class="rvps36 noindent"><span class="rvts6">Wait for the </span><span class="rvts71">julia&gt;&nbsp;</span><span class="rvts6"> prompt.</span></li>
+</ul>
+<p class="rvps36"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="3" class="rvps49 noindent"><span class="rvts21">Activate the folder as a Julia project environment:</span></li>
+</ol>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 72px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps36 noindent"><span class="rvts6">Bring in the package manager, activate the project, and instantiate the project to install dependencies:</span></li>
+</ul>
+<div class="rvps58">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps68"><span class="rvts95">using</span><span class="rvts92"> Pkg</span></p>
+   <p class="rvps68"><span class="rvts92">Pkg.activate("C:</span><span class="rvts97">\\</span><span class="rvts92">ModelFolderName")</span></p>
+   <p class="rvps68"><span class="rvts92">Pkg.instantiate()</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps61"><span class="rvts6"><br/></span></p>
+<div class="rvps69">
+<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
+   <p class="rvps50"><span class="rvts102">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
+   <p class="rvps63"><span class="rvts101">Example</span></p>
+   <p class="rvps60"><span class="rvts95">using</span><span class="rvts92"> Pkg</span></p>
+   <p class="rvps60"><span class="rvts92">Pkg.activate("C:</span><span class="rvts97">\\</span><span class="rvts92">2020CanadaPoplar")</span></p>
+   <p class="rvps60"><span class="rvts92">Pkg.instantiate()</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps56"><span class="rvts6"><br/></span></p>
+<div class="rvps69">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 3px; border-collapse: collapse;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #ff0000; vertical-align: top; width: 6px; height: 42px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 27px; height: 42px;">
+   <p class="rvps53"><span class="rvts91"></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 591px; height: 42px;">
+   <p class="rvps37"><span class="rvts6">You must use two backslashes (\\) in the folder path. If you use only one, Julia will not find the correct path.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps61"><span class="rvts6"><br/></span></p>
+<p class="rvps70"><span class="rvts6">Alternatively, you could use </span><span class="rvts71">Pkg.activate(".")</span><span class="rvts6"> to activate the current project:</span></p>
+<div class="rvps58">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps60"><span class="rvts95">using</span><span class="rvts92"> Pkg</span></p>
+   <p class="rvps60"><span class="rvts97">Pkg.activate(".")</span></p>
+   <p class="rvps60"><span class="rvts92">Pkg.instantiate()</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps36"><span class="rvts6"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 72px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps36 noindent"><span class="rvts6">You can verify that you activated the correct Julia environment by checking the package status:</span></li>
+</ul>
+<div class="rvps58">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps68"><span class="rvts92">Pkg.status()</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps71"><span class="rvts6">If the correct environment was activated, this command will return your desired model folder.&nbsp;</span></p>
+<p class="rvps67"><span class="rvts6"><br/></span></p>
+<div class="rvps51">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 3px; border-collapse: collapse;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #0080c0; vertical-align: top; width: 2px; height: 54px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 23px; height: 54px;">
+   <p class="rvps50"><span class="rvts96">🛈</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 767px; height: 54px;">
+   <p class="rvps36"><span class="rvts85">The Project.toml and Manifest.toml are present in the model's root directory and define the Julia environment and dependencies required for running ENERGY 2100. The </span><span class="rvts115">Pkg.instantiate()</span><span class="rvts6">&nbsp;function ensures all the necessary dependencies for the current project are installed and available.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps36"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="4" class="rvps2 noindent"><span class="rvts21">Load the ENERGY 2100 Julia package</span></li>
+</ol>
+<p class="rvps42"><span class="rvts6">Now that the ENERGY 2100 Julia environment has been activated, load the model's Julia package:</span></p>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps60"><span class="rvts95">using</span><span class="rvts92"> EnergyModel</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts21"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="5" class="rvps2 noindent"><span class="rvts21">Import ENERGY 2100's modules, constants, or functions you want to use.</span><span class="rvts6"> The database and functions required for running a Julia policy file and viewing its variables include the following:&nbsp;</span></li>
+</ol>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps60"><span class="rvts95">import</span><span class="rvts92"> EnergyModel.DB</span></p>
+   <p class="rvps60"><span class="rvts95">import</span><span class="rvts92"> EnergyModel.ReadDisk</span></p>
+   <p class="rvps60"><span class="rvts95">import</span><span class="rvts92"> EnergyModel.Select</span></p>
+   <p class="rvps60"><span class="rvts95">import </span><span class="rvts100">EnergyModel.</span><span class="rvts92">ReadDiskAndSets</span></p>
+   <p class="rvps60"><span class="rvts95">import </span><span class="rvts100">EnergyModel.</span><span class="rvts92">Yr</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps36"><span class="rvts6"><br/></span></p>
+<p class="rvps61"><span class="rvts6">Alternatively, we could import all these structures in one line using the following:</span></p>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps60"><span class="rvts95">import</span><span class="rvts92"> EnergyModel: DB, ReadDisk, Select, ReadDiskAndSets, Yr</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps36"><span class="rvts6"><br/></span></p>
+<div class="rvps51">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 3px; border-collapse: collapse;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #0080c0; vertical-align: top; width: 2px; height: 54px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 23px; height: 54px;">
+   <p class="rvps50"><span class="rvts22">🛈</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 767px; height: 54px;">
+   <p class="rvps50"><span class="rvts85">See</span><span class="rvts87"> section XXX</span><span class="rvts85"> for a more complete list of possible modules, constants, and functions that are available to import from the EnergyModel Project environment.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="6" class="rvps2 noindent"><span class="rvts21">Load additional packages as desired.</span><span class="rvts6"> For viewing variables in an easy-to-read format and writing variables to CSV files, load the following:&nbsp;</span></li>
+</ol>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps60"><span class="rvts94">using</span><span class="rvts93"> DataFrames, DataFramesMeta, CSV</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="7" class="rvps2 noindent"><span class="rvts21">Include your specific policy file in your workspace:</span></li>
+</ol>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps60"><span class="rvts94">include</span><span class="rvts93">("Policy/MyPolicyFile.jl")</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps61"><span class="rvts6"><br/></span></p>
+<div class="rvps51">
+<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
+   <p class="rvps50"><span class="rvts102">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
+   <p class="rvps63"><span class="rvts101">Example</span></p>
+   <p class="rvps60"><span class="rvts94">include</span><span class="rvts93">("Policy/Res_PeakSavings.jl")</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps56"><span class="rvts6"><br/></span></p>
+<p class="rvps61"><span class="rvts6">Including the policy file in your workspace gives you access to the functions defined in the given policy module.&nbsp;</span></p>
+<p class="rvps36"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="8" class="rvps2 noindent"><span class="rvts21">Execute the policy code by calling its control function:</span></li>
+</ol>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps60"><span class="rvts92">MyPolicyModule.PolicyControl(DB)</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps58"><span class="rvts6"><br/></span></p>
+<div class="rvps51">
+<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #0080c0; vertical-align: top; width: 2px; height: 54px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 21px; height: 54px;">
+   <p class="rvps50"><span class="rvts22">🛈</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 770px; height: 54px;">
+   <p class="rvps50"><span class="rvts85">By convention, the name of the policy's module is the same as the name of the policy file. Also by convention, the control function of each policy is named </span><span class="rvts86">PolicyControl</span><span class="rvts85"> and accepts the model's database path, </span><span class="rvts86">DB</span><span class="rvts85">, as input.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps58"><span class="rvts6"><br/></span></p>
+<div class="rvps51">
+<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
+   <p class="rvps50"><span class="rvts102">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
+   <p class="rvps63"><span class="rvts101">Example</span></p>
+   <p class="rvps59"><span class="rvts98">Res_PeakSavings.PolicyControl(DB)</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps56"><span class="rvts6"><br/></span></p>
+<p class="rvps42"><span class="rvts6">The </span><span class="rvts71">PolicyControl(DB)</span><span class="rvts6"> command above will execute the policy. If there are no errors, it will stop with a </span><span class="rvts71">julia&gt;</span><span class="rvts6"> prompt. If the policy hits errors during execution and you revise the file to fix the error, or if you make any other revisions to the file, you will need to follow the instructions below to update the package with the newer file version.</span></p>
+<p class="rvps36"><span class="rvts6"><br/></span></p>
+<div class="rvps28">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 3px; border-collapse: collapse;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #0080c0; vertical-align: top; width: 2px; height: 54px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 23px; height: 54px;">
+   <p class="rvps50"><span class="rvts96">🛈</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 767px; height: 54px;">
+   <p class="rvps36"><span class="rvts101">Alternative Method of Executing a Policy from the REPL</span></p>
+   <p class="rvps36"><span class="rvts101"><br/></span></p>
+   <p class="rvps36"><span class="rvts85">The EnergyModel package gives you access to all of the variables, sets, databases, functions, and modules that have been defined in the model. To access these functions, you need to know the hierarchy of the calling functions.</span></p>
+   <p class="rvps36"><span class="rvts85"><br/></span></p>
+   <p class="rvps2"><span class="rvts85">EnergyModel.jl is stored in \src and calls all the files that define the structures and functionality of the model. For example, EnergyModel.jl loads all the modules from Policy.jl: </span><span class="rvts79">include</span><span class="rvts78">(</span><span class="rvts80">"../Policy/Policy.jl"</span><span class="rvts78">)</span><span class="rvts6"> which </span><span class="rvts85">loads all the policy modules defined in the reference case. Each of the policy modules define a calling function: PolicyControl(DB), where DB points to the model's HDF5 database. In Julia's REPL, we are able to access any of the modules and functions defined in the EnergyModel package using the hierarchy and dots (.).</span></p>
+   <p class="rvps2"><span class="rvts85">Hierarchy: &nbsp;EnergyModel loads the "Policy" module which loads specific policy modules (such as: Res_PeakSavings) for which each has a controlling function named PolicyControl(DB).</span></p>
+   <p class="rvps2"><span class="rvts85">&nbsp; So, to call the function defined in the Res_PeakSavings.jl policy file, we can type the following into the REPL:</span></p>
+   <p class="rvps62"><span class="rvts98">using </span><span class="rvts99">EnergyModel</span></p>
+   <p class="rvps62"><span class="rvts99">EnergyModel</span><span class="rvts98">.Policy.Res_PeakSavings.PolicyControl(</span><span class="rvts99">EnergyModel</span><span class="rvts98">.DB)</span></p>
+   <p class="rvps2"><span class="rvts85">Alternatively, we can assign the EnergyModel package a short name and use the short name in the REPL:</span></p>
+   <p class="rvps62"><span class="rvts99">using EnergyModel as M</span></p>
+   <p class="rvps62"><span class="rvts99">M</span><span class="rvts98">.Policy.Res_PeakSavings.PolicyControl(</span><span class="rvts99">M</span><span class="rvts98">.DB)</span></p>
+   <p class="rvps2"><span class="rvts85">Alternatively, we are able to access the database and the policy module directly (without using the dots (".") by importing the database and including the policy file into the REPL, such as:</span></p>
+   <p class="rvps62"><span class="rvts98">import EnergyModel.DB</span></p>
+   <p class="rvps62"><span class="rvts98">include("Policy/Res_PeakSavings.jl")</span></p>
+   <p class="rvps62"><span class="rvts98">Res_PeakSavings.PolicyControl(DB)</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<h3 class="rvps17"><a name="UpdatePackageRevise"></a><span class="rvts0"><span class="rvts29">Updating the Julia Package After Making File Revisions</span></span></h3>
+<p class="rvps2"><span class="rvts6">If you make changes to the file while in a VS Code session, do the following to reload the Julia project to include the revised files:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="1" class="rvps2 noindent"><span class="rvts6">Load the Revise package:</span></li>
+</ol>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps57"><span class="rvts88">Julia code</span></p>
+   <p class="rvps2"><span class="rvts89">using</span><span class="rvts71"> Revise</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps56"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="2" class="rvps2 noindent"><span class="rvts6">Include your policy module again:</span></li>
+</ol>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps57"><span class="rvts88">Julia code</span></p>
+   <p class="rvps57"><span class="rvts89">include</span><span class="rvts71">("Policy/MyPolicyModule.jl")</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps56"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="3" class="rvps2 noindent"><span class="rvts6">Run the policy's control procedure again:</span></li>
+</ol>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps57"><span class="rvts88">Julia code</span></p>
+   <p class="rvps57"><span class="rvts71">MyPolicyModule.</span><span class="rvts89">PolicyControl</span><span class="rvts71">(DB)</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<h4 class="rvps72"><span class="rvts0"><span class="rvts118">Viewing Variables from the Julia REPL</span></span></h4>
+<p class="rvps2"><span class="rvts6">After the policy file has executed successfully, you may want to verify the policy variables have the expected values. There are multiple ways to view the values of variables from the Julia REPL. These different ways include:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps23 noindent"><span class="rvts6">Assign the variable to a DataFrame and write it to a CSV file;</span></li>
+ <li class="rvps23 noindent"><span class="rvts6">Assign the variable to a DataFrame and view it in the REPL. If the variable is a large array, you may need to create a subset of the DataFrame to be able to view it easily;</span></li>
+ <li class="rvps23 noindent"><span class="rvts6">Add println, @show, or @info statements to your Julia code that write out values to the screen as the file is being executed;</span></li>
+ <li class="rvps23 noindent"><span class="rvts6">Access the interactive interface (HDF5-Explorer-Pro) to view values of variables; or</span></li>
+ <li class="rvps23 noindent"><span class="rvts6">Run an existing or new output .dta file that contains the variable of interest.</span></li>
+</ul>
+<p class="rvps23"><span class="rvts6">The sections below provide instructions for each of these methods.</span></p>
+<div class="rvps12">
+<table width="90%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #0080c0; vertical-align: top; width: 2px; height: 42px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 19px; height: 42px;">
+   <p class="rvps55"><span class="rvts22">🛈</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 836px; height: 42px;">
+   <p class="rvps52"><span class="rvts85">The instructions that follow assume you have performed all the steps above to import the required functions and packages into your Julia workspace.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<h4 class="rvps72"><span class="rvts0"><span class="rvts118">How to Write a Variable to a CSV File</span></span></h4>
+<p class="rvps2"><span class="rvts6">This section provides instructions on writing to CSV files by first assigning the variable to a DataFrame, then using </span><span class="rvts71">CSV.write</span><span class="rvts6"> to save it to a file.</span></p>
+<div class="rvps12">
+<table width="90%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #0080c0; vertical-align: top; width: 2px; height: 42px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 938px; height: 42px;">
+   <p class="rvps52"><span class="rvts22">🛈</span><span class="rvts85"> A DataFrame holds the variable in an easy-to-view format that include set identifiers. The DataFrame commands used in the instructions below assume the variable is saved on the database (DB).</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps37"><span class="rvts6">To write variables to a CSV file from the Julia REPL, follow the instructions below:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li class="rvps2 noindent"><span class="rvts21">Assign the desired variable to a DataFrame:</span></li>
+</ol>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps57"><span class="rvts88">Julia code</span></p>
+   <p class="rvps57"><span class="rvts71">df = </span><span class="rvts90">ReadDisk</span><span class="rvts71">(DataFrame, DB, "DBPartition/VariableName")</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps58"><span class="rvts6"><br/></span></p>
+<div class="rvps51">
+<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
+   <p class="rvps50"><span class="rvts102">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
+   <p class="rvps63"><span class="rvts101">Example</span></p>
+   <p class="rvps57"><span class="rvts71">df = </span><span class="rvts103">ReadDisk</span><span class="rvts71">(DataFrame, DB, "RInput/xPkSav")</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps56"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="2" class="rvps37 noindent"><span class="rvts21">Use the </span><span class="rvts88">CSV.write</span><span class="rvts21"> function to save the DataFrame (df) to a file:</span></li>
+</ol>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps57"><span class="rvts88">Julia code</span></p>
+   <p class="rvps57"><span class="rvts71">CSV.write("output.csv", df)</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps57"><span class="rvts6"><br/></span></p>
+<div class="rvps51">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 3px; border-collapse: collapse;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #00c030; vertical-align: top; width: 6px; height: 42px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 22px; height: 42px;">
+   <p class="rvps53"><span class="rvts81"></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 839px; height: 42px;">
+   <p class="rvps2"><span class="rvts85">By default, the .csv file will be saved to the root model directory. If you want to store the .csv files to a separate folder, first create the folder, then revise the command to be as follows:</span></p>
+   <div class="rvps46">
+   <table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+    <tr style="vertical-align: top;">
+     <td style="padding: 6px 8px;">
+      <p class="rvps52"><span class="rvts88">Julia code</span></p>
+      <p class="rvps52"><span class="rvts71">CSV.write("newfolder/output.csv", df)</span></p>
+     </td>
+    </tr>
+   </table>
+   </div>
+   <p class="rvps46"><span class="rvts70"><br/></span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="3" class="rvps54 noindent"><span class="rvts21">As an alternative option, use </span><span class="rvts88">append = true</span><span class="rvts21"> if you want to append data to an existing csv file without overwriting it</span><span class="rvts6">: &nbsp;</span><span class="rvts71">CSV.write("output.csv", df, append=true)</span></li>
+</ol>
+<div class="rvps51">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 3px; border-collapse: collapse;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #00c030; vertical-align: top; width: 6px; height: 42px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 25px; height: 42px;">
+   <p class="rvps53"><span class="rvts81"></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 835px; height: 42px;">
+   <p class="rvps52"><span class="rvts85">If you don’t want to read any zero values, you can set the</span><span class="rvts6">&nbsp;</span><span class="rvts71">skip_zeros</span><span class="rvts85">&nbsp;keyword argument to</span><span class="rvts6">&nbsp;</span><span class="rvts71">true</span><span class="rvts6">.</span></p>
+   <p class="rvps46"><span class="rvts70"><br/></span></p>
+   <div class="rvps46">
+   <table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+    <tr style="vertical-align: top;">
+     <td style="padding: 6px 8px;">
+      <p class="rvps52"><span class="rvts82">df = </span><span class="rvts90">ReadDisk</span><span class="rvts82">(DataFrame, DB, </span><span class="rvts84">"</span><span class="rvts71">DBPartition</span><span class="rvts84">/VariableName"</span><span class="rvts82">, skip_zeros = </span><span class="rvts83">true</span><span class="rvts82">)</span></p>
+     </td>
+    </tr>
+   </table>
+   </div>
+   <p class="rvps46"><span class="rvts70"><br/></span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps58"><span class="rvts6"><br/></span></p>
+<div class="rvps51">
+<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 23px; height: 58px;">
+   <p class="rvps50"><span class="rvts102">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 830px; height: 58px;">
+   <p class="rvps63"><span class="rvts101">Example</span></p>
+   <p class="rvps57"><span class="rvts71">df = </span><span class="rvts103">ReadDisk</span><span class="rvts71">(DataFrame, DB, "RInput/xPkSav", skip_zeros = </span><span class="rvts104">true</span><span class="rvts71">)</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts119"><br/></span></p>
+<h3 class="rvps17"><span class="rvts0"><span class="rvts116">How to View a Subset of Variable in the REPL using DataFrames</span></span></h3>
+<p class="rvps2"><span class="rvts6">Most variable arrays in ENERGY 2100 are too large to view in their entirety as a DataFrame directly in the REPL. However, you can see a slice of the variable directly in the REPL using the @rsubset macro (from the DataFramesMeta package). The @rsubset macro allows you to filter rows of a DataFrame.&nbsp;</span></p>
+<p class="rvps37"><span class="rvts6">To view a slice of a variable in the REPL, follow the instructions below:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li class="rvps37 noindent"><span class="rvts21">Save the variable as a DataFrame:</span></li>
+</ol>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps57"><span class="rvts88">Julia code</span></p>
+   <p class="rvps57"><span class="rvts71">df = </span><span class="rvts90">ReadDisk</span><span class="rvts71">(DataFrame, DB, "DBPartition/VariableName")</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps58"><span class="rvts6"><br/></span></p>
+<div class="rvps51">
+<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
+   <p class="rvps50"><span class="rvts102">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
+   <p class="rvps63"><span class="rvts101">Example</span></p>
+   <p class="rvps57"><span class="rvts71">df = </span><span class="rvts103">ReadDisk</span><span class="rvts71">(DataFrame, DB, "RInput/xPkSav")</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="2" class="rvps37 noindent"><span class="rvts21">Create a subset of the DataFrame by selecting specific elements of the variable's sets:&nbsp;</span></li>
+</ol>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps57"><span class="rvts88">Julia code</span></p>
+   <p class="rvps57"><span class="rvts71">df_subset = @rsubset df begin</span></p>
+   <p class="rvps57"><span class="rvts71">:set1 == "SetKey"</span></p>
+   <p class="rvps57"><span class="rvts71">:set2 == "SetKey"</span></p>
+   <p class="rvps57"><span class="rvts71">...</span></p>
+   <p class="rvps57"><span class="rvts71">end</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps56"><span class="rvts6"><br/></span></p>
+<div class="rvps51">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 3px; border-collapse: collapse;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #ff0000; vertical-align: top; width: 6px; height: 42px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 27px; height: 42px;">
+   <p class="rvps53"><span class="rvts91"></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 591px; height: 42px;">
+   <p class="rvps37"><span class="rvts6">You must select the set elements using </span><span class="rvts21">set keys</span><span class="rvts6"> rather than </span><span class="rvts21">set descriptors</span><span class="rvts6">.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps58"><span class="rvts6"><br/></span></p>
+<div class="rvps51">
+<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
+   <p class="rvps50"><span class="rvts102">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
+   <p class="rvps63"><span class="rvts101">Example</span></p>
+   <div class="rvps46">
+   <table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+    <tr style="vertical-align: top;">
+     <td style="padding: 6px 8px;">
+      <p class="rvps64"><span class="rvts82">df_subset = @rsubset df begin</span></p>
+      <p class="rvps64"><span class="rvts82">:EC == "SingleFamilyDetached"</span></p>
+      <p class="rvps64"><span class="rvts82">:Enduse == "Light"</span></p>
+      <p class="rvps64"><span class="rvts82">:Area == "BC"</span></p>
+      <p class="rvps64"><span class="rvts82">:Year == 2030</span></p>
+      <p class="rvps64"><span class="rvts82">end</span></p>
+     </td>
+    </tr>
+   </table>
+   </div>
+   <p class="rvps46"><span class="rvts6"><br/></span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps46"><span class="rvts6"><br/></span></p>
+<p class="rvps54"><span class="rvts6">To select more than one set element in a given set, use the logical "or" operator: (</span><span class="rvts71">||</span><span class="rvts6">):</span></p>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps57"><span class="rvts88">Julia code</span></p>
+   <p class="rvps57"><span class="rvts71">df_subset = @rsubset df begin</span></p>
+   <p class="rvps57"><span class="rvts88">:set1 == "Set1Key1" || :set1 == "Set1Key2" || :set1 == "Set1Key3"</span></p>
+   <p class="rvps57"><span class="rvts71">:set2 == "Set2Key"</span></p>
+   <p class="rvps57"><span class="rvts71">...</span></p>
+   <p class="rvps57"><span class="rvts71">end</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps58"><span class="rvts6"><br/></span></p>
+<div class="rvps51">
+<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
+   <p class="rvps50"><span class="rvts102">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
+   <p class="rvps63"><span class="rvts101">Example</span></p>
+   <div class="rvps46">
+   <table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+    <tr style="vertical-align: top;">
+     <td style="padding: 6px 8px;">
+      <p class="rvps64"><span class="rvts82">df_subset = @rsubset df begin</span></p>
+      <p class="rvps64"><span class="rvts82">:EC == "SingleFamilyDetached" || "SingleFamilyAttached" || "MultiFamily"</span></p>
+      <p class="rvps64"><span class="rvts82">:Enduse == "Light"</span></p>
+      <p class="rvps64"><span class="rvts82">:Area == "BC"</span></p>
+      <p class="rvps64"><span class="rvts82">:Year == 2030</span></p>
+      <p class="rvps64"><span class="rvts82">end</span></p>
+     </td>
+    </tr>
+   </table>
+   </div>
+   <p class="rvps46"><span class="rvts6"><br/></span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps46"><span class="rvts6"><br/></span></p>
+<p class="rvps54"><span class="rvts6">Alternatively, to select more than one set element in a given set, you can also use the&nbsp;</span><span class="rvts71">in</span><span class="rvts6">&nbsp;operator, which acts as a filter to check if elements in a DataFrame column exist within a specified collection:</span></p>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps57"><span class="rvts88">Julia code</span></p>
+   <p class="rvps57"><span class="rvts71">df_subset = @rsubset df begin</span></p>
+   <p class="rvps57"><span class="rvts88">:set1 in ["Set1Key1", "Set1Key2", "Set1Key3"]</span></p>
+   <p class="rvps57"><span class="rvts71">:set2 == "Set2Key"</span></p>
+   <p class="rvps57"><span class="rvts71">...</span></p>
+   <p class="rvps57"><span class="rvts71">end</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps58"><span class="rvts6"><br/></span></p>
+<div class="rvps51">
+<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
+   <p class="rvps50"><span class="rvts102">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
+   <p class="rvps63"><span class="rvts101">Example</span></p>
+   <div class="rvps46">
+   <table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+    <tr style="vertical-align: top;">
+     <td style="padding: 6px 8px;">
+      <p class="rvps64"><span class="rvts82">df_subset = @rsubset df begin</span></p>
+      <p class="rvps64"><span class="rvts105">:EC in ["SingleFamilyDetached","SingleFamilyAttached","MultiFamily"]</span></p>
+      <p class="rvps64"><span class="rvts82">:Enduse == "Light"</span></p>
+      <p class="rvps64"><span class="rvts82">:Area == "BC"</span></p>
+      <p class="rvps64"><span class="rvts82">:Year == 2030</span></p>
+      <p class="rvps64"><span class="rvts82">end</span></p>
+     </td>
+    </tr>
+   </table>
+   </div>
+   <p class="rvps46"><span class="rvts6"><br/></span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps46"><span class="rvts6"><br/></span></p>
+<p class="rvps54"><span class="rvts6">To select a range of years, use the less than or equal to operator (</span><span class="rvts71">&lt;=</span><span class="rvts6">):&nbsp;</span></p>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps57"><span class="rvts88">Julia code</span></p>
+   <p class="rvps57"><span class="rvts71">df_subset = @rsubset df begin</span></p>
+   <p class="rvps57"><span class="rvts71">:set1 in ["SetKey","SetKey","SetKey",...]</span></p>
+   <p class="rvps57"><span class="rvts71">:set2 == "SetKey"</span></p>
+   <p class="rvps57"><span class="rvts71">...</span></p>
+   <p class="rvps57"><span class="rvts71">firstyear &lt;= :Year &lt;= lastyear</span></p>
+   <p class="rvps57"><span class="rvts71">end</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps58"><span class="rvts6"><br/></span></p>
+<div class="rvps51">
+<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
+   <p class="rvps50"><span class="rvts102">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
+   <p class="rvps63"><span class="rvts101">Example</span></p>
+   <div class="rvps46">
+   <table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+    <tr style="vertical-align: top;">
+     <td style="padding: 6px 8px;">
+      <p class="rvps64"><span class="rvts82">df_subset = @rsubset df begin</span></p>
+      <p class="rvps64"><span class="rvts82">:EC in ["SingleFamilyDetached","SingleFamilyAttached","MultiFamily"]</span></p>
+      <p class="rvps64"><span class="rvts82">:Enduse == "Light"</span></p>
+      <p class="rvps64"><span class="rvts82">:Area == "BC"</span></p>
+      <p class="rvps64"><span class="rvts105">2028 &lt;= :Year &lt;= 2030</span></p>
+      <p class="rvps64"><span class="rvts82">end</span></p>
+     </td>
+    </tr>
+   </table>
+   </div>
+   <p class="rvps46"><span class="rvts6"><br/></span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps46"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="3" class="rvps37 noindent"><span class="rvts21">View a DataFrame or DataFrame subset just by typing the name of the DataFrame into the REPL:</span></li>
+</ol>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps52"><span class="rvts88">Julia code</span></p>
+   <p class="rvps52"><span class="rvts71">dfname &lt;enter&gt;</span></p>
+   <p class="rvps52"><span class="rvts71">df_subsetname &lt;enter&gt;</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps58"><span class="rvts6"><br/></span></p>
+<div class="rvps51">
+<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
+   <p class="rvps50"><span class="rvts102">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
+   <p class="rvps63"><span class="rvts101">Example</span></p>
+   <div class="rvps46">
+   <table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+    <tr style="vertical-align: top;">
+     <td style="padding: 6px 8px;">
+      <p class="rvps64"><span class="rvts106">julia&gt;</span><span class="rvts82"> df</span></p>
+      <p class="rvps64"><span class="rvts82">46900×5 DataFrame</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp;Row │ Enduse &nbsp; EC &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Area &nbsp; &nbsp;Year &nbsp; Value &nbsp;&nbsp;</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp; &nbsp; &nbsp;│ String &nbsp; String &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;String &nbsp;Int64 &nbsp;Float32</span></p>
+      <p class="rvps64"><span class="rvts82">───────┼───────────────────────────────────────────────────────</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp; &nbsp;1 │ Heat &nbsp; &nbsp; SingleFamilyDetached &nbsp;ON &nbsp; &nbsp; &nbsp; 1985 &nbsp; &nbsp; 99.0</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp; &nbsp;2 │ HW &nbsp; &nbsp; &nbsp; SingleFamilyDetached &nbsp;ON &nbsp; &nbsp; &nbsp; 1985 &nbsp; &nbsp; 99.0</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp; &nbsp;3 │ OthSub &nbsp; SingleFamilyDetached &nbsp;ON &nbsp; &nbsp; &nbsp; 1985 &nbsp; &nbsp; 99.0</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp; &nbsp;4 │ Refrig &nbsp; SingleFamilyDetached &nbsp;ON &nbsp; &nbsp; &nbsp; 1985 &nbsp; &nbsp; 99.0</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp; &nbsp;5 │ Light &nbsp; &nbsp;SingleFamilyDetached &nbsp;ON &nbsp; &nbsp; &nbsp; 1985 &nbsp; &nbsp; 99.0</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp;⋮ &nbsp; │ &nbsp; &nbsp;⋮ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;⋮ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;⋮ &nbsp; &nbsp; &nbsp; ⋮ &nbsp; &nbsp; &nbsp; ⋮</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp;46897 │ Refrig &nbsp; OtherResidential &nbsp; &nbsp; &nbsp;ROW &nbsp; &nbsp; &nbsp;2051 &nbsp; &nbsp; 99.0</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp;46898 │ Light &nbsp; &nbsp;OtherResidential &nbsp; &nbsp; &nbsp;ROW &nbsp; &nbsp; &nbsp;2051 &nbsp; &nbsp; 99.0</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp;46899 │ AC &nbsp; &nbsp; &nbsp; OtherResidential &nbsp; &nbsp; &nbsp;ROW &nbsp; &nbsp; &nbsp;2051 &nbsp; &nbsp; 99.0</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp;46900 │ OthNSub &nbsp;OtherResidential &nbsp; &nbsp; &nbsp;ROW &nbsp; &nbsp; &nbsp;2051 &nbsp; &nbsp; 99.0</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;46891 rows omitted</span></p>
+     </td>
+    </tr>
+   </table>
+   </div>
+   <p class="rvps46"><span class="rvts6"><br/></span></p>
+   <p class="rvps46"><span class="rvts101"><br/></span></p>
+   <div class="rvps46">
+   <table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+    <tr style="vertical-align: top;">
+     <td style="padding: 6px 8px;">
+      <p class="rvps64"><span class="rvts106">julia&gt;</span><span class="rvts82"> df_subset</span></p>
+      <p class="rvps64"><span class="rvts82">9×5 DataFrame</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp;Row │ Enduse &nbsp;EC &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Area &nbsp; &nbsp;Year &nbsp; Value &nbsp;&nbsp;</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp; &nbsp;│ String &nbsp;String &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;String &nbsp;Int64 &nbsp;Float32</span></p>
+      <p class="rvps64"><span class="rvts82">─────┼──────────────────────────────────────────────────────</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp;1 │ Light &nbsp; SingleFamilyDetached &nbsp;BC &nbsp; &nbsp; &nbsp; 2028 &nbsp;4.77305</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp;2 │ Light &nbsp; SingleFamilyAttached &nbsp;BC &nbsp; &nbsp; &nbsp; 2028 &nbsp;1.12756</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp;3 │ Light &nbsp; MultiFamily &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; BC &nbsp; &nbsp; &nbsp; 2028 &nbsp;1.89535</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp;4 │ Light &nbsp; SingleFamilyDetached &nbsp;BC &nbsp; &nbsp; &nbsp; 2029 &nbsp;5.02847</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp;5 │ Light &nbsp; SingleFamilyAttached &nbsp;BC &nbsp; &nbsp; &nbsp; 2029 &nbsp;1.20767</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp;6 │ Light &nbsp; MultiFamily &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; BC &nbsp; &nbsp; &nbsp; 2029 &nbsp;2.05367</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp;7 │ Light &nbsp; SingleFamilyDetached &nbsp;BC &nbsp; &nbsp; &nbsp; 2030 &nbsp;5.00835</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp;8 │ Light &nbsp; SingleFamilyAttached &nbsp;BC &nbsp; &nbsp; &nbsp; 2030 &nbsp;1.22271</span></p>
+      <p class="rvps64"><span class="rvts82">&nbsp; &nbsp;9 │ Light &nbsp; MultiFamily &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; BC &nbsp; &nbsp; &nbsp; 2030 &nbsp;2.102</span></p>
+     </td>
+    </tr>
+   </table>
+   </div>
+   <p class="rvps46"><span class="rvts6"><br/></span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps46"><span class="rvts6"><br/></span></p>
+<h3 class="rvps17"><span class="rvts0"><span class="rvts116">How to View a Variable in the REPL using </span></span><span class="rvts0"><span class="rvts117">println</span></span></h3>
+<p class="rvps2"><span class="rvts6">To view a variable in the REPL using println, first read the variable and its sets into your workspace, then loop through the variable's sets and use the Julia </span><span class="rvts71">println</span><span class="rvts6"> as described in the instructions below.</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li class="rvps2 noindent"><span class="rvts21">Identify the sets of the variable you want to view</span><span class="rvts6">. You can find out more about a variable's sets by importing and using the attributes function </span><span class="rvts71">data_attrs</span><span class="rvts6">:</span></li>
+</ol>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps60"><span class="rvts95">import</span><span class="rvts100"> EnergyModel.data_attrs</span></p>
+   <p class="rvps60"><span class="rvts95">data_attrs</span><span class="rvts92">(DB, "DBPartition/VariableName")</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps56"><span class="rvts6"><br/></span></p>
+<p class="rvps56"><span class="rvts6">Below shows an example of obtaining the attributes for the variable, </span><span class="rvts37">xPkSav</span><span class="rvts6"> stored on </span><span class="rvts37">IInput</span><span class="rvts6">:</span></p>
+<div class="rvps51">
+<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
+   <p class="rvps50"><span class="rvts102">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
+   <p class="rvps63"><span class="rvts101">Example</span></p>
+   <div class="rvps46">
+   <table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+    <tr style="vertical-align: top;">
+     <td style="padding: 6px 8px;">
+      <p class="rvps65"><span class="rvts100">julia&gt; </span><span class="rvts107">import EnergyModel.data_attrs</span></p>
+      <p class="rvps65"><span class="rvts100"><br/></span></p>
+      <p class="rvps65"><span class="rvts100">julia&gt; </span><span class="rvts107">data_attrs(DB, "IInput/xPkSav")</span></p>
+      <p class="rvps66"><span class="rvts108"><br/></span></p>
+      <p class="rvps65"><span class="rvts100">Dict{String, Any} with 7 entries:</span></p>
+      <p class="rvps65"><span class="rvts100">&nbsp; "units" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =&gt; "MW"</span></p>
+      <p class="rvps65"><span class="rvts100">&nbsp; "doc" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =&gt; "Exogenous Peak Savings (MW)"</span></p>
+      <p class="rvps65"><span class="rvts100">&nbsp; "setdesc_locations" =&gt; ["IInput/EnduseDS", "IInput/ECDS", "MainDB/AreaDS", "MainDB/YearDS"] &nbsp;&nbsp;</span><span class="rvts107"> &nbsp;"dims" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=&gt; ["Enduse", "EC", "Area", "Year"]</span></p>
+      <p class="rvps65"><span class="rvts100">&nbsp; "size" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=&gt; (6, 42, 25, 67)</span></p>
+      <p class="rvps65"><span class="rvts100">&nbsp; "ndims" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =&gt; 4</span></p>
+      <p class="rvps65"><span class="rvts100">&nbsp; "type" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=&gt; "variable"</span></p>
+     </td>
+    </tr>
+   </table>
+   </div>
+   <p class="rvps46"><span class="rvts6"><br/></span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps56"><span class="rvts6">From the output of data_attrs, we see that xPkSav is defined by the sets &nbsp;</span><span class="rvts13">"Enduse", "EC", "Area",</span><span class="rvts14"> and </span><span class="rvts13">"Year".</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="2" class="rvps2 noindent"><span class="rvts21">Read the desired variable and sets into your workspace. By importing and using</span><span class="rvts6"> </span><span class="rvts71">ReadDiskAndSets</span><span class="rvts6">, you will read in the variable and sets to the names you specify on the left-hand-side of the equation as follows:</span></li>
+</ol>
+<div class="rvps56">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps60"><span class="rvts95">import</span><span class="rvts100"> </span><span class="rvts92">EnergyModel.ReadDiskAndSets</span></p>
+   <p class="rvps60"><span class="rvts92">(;VariableName, Set1Name, Set2Name, ...) = </span><span class="rvts95">ReadDiskAndSets</span><span class="rvts92">(DB, "DBPartition/VariableName")</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<div class="rvps51">
+<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
+   <p class="rvps50"><span class="rvts102">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
+   <p class="rvps63"><span class="rvts101">Example</span></p>
+   <div class="rvps46">
+   <table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+    <tr style="vertical-align: top;">
+     <td style="padding: 6px 8px;">
+      <p class="rvps60"><span class="rvts109">julia&gt; </span><span class="rvts95">import</span><span class="rvts100"> </span><span class="rvts92">EnergyModel.ReadDiskAndSets</span></p>
+      <p class="rvps65"><span class="rvts110">julia&gt;</span><span class="rvts100"> (;xPkSav,Enduse,EC,Area,Year) = </span><span class="rvts95">ReadDiskAndSets</span><span class="rvts100">(DB, "IInput/xPkSav")</span></p>
+     </td>
+    </tr>
+   </table>
+   </div>
+   <p class="rvps46"><span class="rvts6"><br/></span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="3" class="rvps2 noindent"><span class="rvts21">Select sets and write desired variable values using </span><span class="rvts71">println</span><span class="rvts6">:</span></li>
+</ol>
+<div class="rvps28">
+<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
+   <p class="rvps50"><span class="rvts102">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
+   <p class="rvps63"><span class="rvts101">Example</span></p>
+   <div class="rvps46">
+   <table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+    <tr style="vertical-align: top;">
+     <td style="padding: 6px 8px;">
+      <p class="rvps65"><span class="rvts92">enduses = Select(Enduse,"Heat")</span></p>
+      <p class="rvps65"><span class="rvts92">ecs = Select(EC,["PulpPaperMills","IronSteel"])</span></p>
+      <p class="rvps65"><span class="rvts92">areas = Select(Area,"BC")</span></p>
+      <p class="rvps65"><span class="rvts92">years = collect(Yr(2024):Yr(2026))</span></p>
+      <p class="rvps65"><span class="rvts92"><br/></span></p>
+      <p class="rvps65"><span class="rvts92">for enduse in enduses, ec in ecs, area in areas, year in years</span></p>
+      <p class="rvps65"><span class="rvts92">&nbsp;println("xPkSav(",Enduse[enduse],",",EC[ec],",",Area[area],",",Year[year],")=",</span></p>
+      <p class="rvps65"><span class="rvts92">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; xPkSav[enduse,ec,area,year])</span></p>
+      <p class="rvps65"><span class="rvts92">end</span></p>
+     </td>
+    </tr>
+   </table>
+   </div>
+   <p class="rvps46"><span class="rvts6"><br/></span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps5"><span class="rvts6">The above code yields the following output to the REPL:</span></p>
+<div class="rvps56">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps65"><span class="rvts114">🗎</span><span class="rvts112"> Julia Output</span></p>
+   <p class="rvps66"><span class="rvts113"><br/></span></p>
+   <p class="rvps65"><span class="rvts111">xPkSav(Heat,PulpPaperMills,BC,2024) = 0.0</span></p>
+   <p class="rvps65"><span class="rvts111">xPkSav(Heat,PulpPaperMills,BC,2025) = 1.2080482</span></p>
+   <p class="rvps65"><span class="rvts111">xPkSav(Heat,PulpPaperMills,BC,2026) = 1.1113358</span></p>
+   <p class="rvps65"><span class="rvts111">xPkSav(Heat,IronSteel,BC,2024) = 0.0</span></p>
+   <p class="rvps65"><span class="rvts111">xPkSav(Heat,IronSteel,BC,2025) = 0.1035406</span></p>
+   <p class="rvps65"><span class="rvts111">xPkSav(Heat,IronSteel,BC,2026) = 0.0951572</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps65"><span class="rvts92"></span><br/><span class="rvts92"></span><span class="rvts92"></span></p>
+
+            </div>
+            
+            <div id="topic_footer"><div id="topic_footer_content">Copyright &copy; 2026 by Systematic Solutions, Inc. All Rights Reserved.</div></div>
+        </div>  <!-- /#topic-content -->
+    </article>
+
+    <footer></footer>
+
+  </div>  <!-- /#main -->
+
+  <div class="mask" data-bs-toggle="sm-nav-expanded"></div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="hndModal" tabindex="-1" role="dialog" aria-labelledby="hndModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="hndModalLabel"></h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary modal-btn-close" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Splitter -->
+  <div id="hnd-splitter" style="left: 350px"></div>  
+
+  <!-- Scripts -->
+  <script src="vendors/jquery-3.7.1/jquery.min.js"></script>
+  <script src="vendors/bootstrap-5.3.7/bootstrap.bundle.min.js"></script>
+  <script src="vendors/markjs-8.11.1/jquery.mark.min.js"></script>
+  <script src="vendors/uri-1.19.11/uri.min.js"></script>
+  <script src="vendors/imageMapResizer-1.0.10/imageMapResizer.min.js"></script>
+  <script src="vendors/headroom-0.11.0/headroom.min.js"></script>
+  <script src="vendors/jstree-3.3.17/jstree.min.js"></script>  
+  <script src="vendors/interactjs-1.9.22/interact.min.js"></script>  
+
+  <!-- HelpNDoc scripts -->
+  <script src="_translations.js"></script>
+  <script src="js/hndsd.min.js"></script>
+  <script src="js/hndse.min.js"></script>
+  <script src="js/app.min.js"></script>
+
+  <!-- Init script -->
+  <script src="_topic_init.js"></script>
+
+
+
+</body>
+
+</html>
+

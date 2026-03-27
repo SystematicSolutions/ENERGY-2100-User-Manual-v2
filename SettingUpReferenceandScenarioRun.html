@@ -49,7 +49,899 @@
   <!-- Content style -->
   <link href="css/hnd.content.css" rel="stylesheet" />
 
+  <style type="text/css">/* =========================================================
+   HELPNDOC DOCUMENTATION THEME v9
+   Cleaned and consolidated
+   ========================================================= */
+
+
+/* =========================================================
+   1) BASE PAGE
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin-right: 300px;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.62;
+  color: #111827;
+}
+
+main,
+article,
+.topic,
+.topic-content,
+#topic_content {
+  max-width: 920px;
+}
+
+
+/* =========================================================
+   2) HEADINGS, TEXT, LISTS
+   ========================================================= */
+
+h1 {
+  margin-top: 0.15em;
+  margin-bottom: 0.45em;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+h2 {
+  margin-top: 1.1em;
+  margin-bottom: 0.35em;
+  line-height: 1.22;
+  font-weight: 600;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 16px;
+}
+
+h3 {
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+  line-height: 1.28;
+  font-weight: 600;
+}
+
+h4 {
+  margin-top: 0.85em;
+  margin-bottom: 0.25em;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+h2,
+h3,
+h4 {
+  scroll-margin-top: 120px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.82em;
+}
+
+ul,
+ol {
+  margin-top: 0.4em;
+  margin-bottom: 0.9em;
+  padding-left: 1.6em;
+}
+
+
+
+li {
+  margin-bottom: 0.24em;
+}
+
+li p {
+  margin-bottom: 0.35em;
+}
+
+ol li {
+  padding-left: 0.2em;
+  margin-bottom: 0.4em;
+  font-size: 1em;
+  line-height: 1.62;
+}
+
+ol li::marker {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1.05em;
+  font-weight: 400;
+  color: #111827;
+}
+
+
+/* =========================================================
+   3) INLINE CODE + PRE/CODE
+   ========================================================= */
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.95em;
+  background: #f3f4f6;
+  color: #111827;
+  border-radius: 4px;
+}
+
+pre {
+  position: relative;
+  margin-top: 0.35em;
+  margin-bottom: 0.8em;
+  padding: 14px 16px;
+  border: 1px solid #dde3ea;
+  border-radius: 8px;
+  background: #f7f9fb;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: pre;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  -webkit-overflow-scrolling: touch;
+}
+
+pre code {
+  padding: 0;
+  background: transparent;
+}
+
+p + pre {
+  margin-top: 0.25em;
+}
+
+pre + p {
+  margin-top: 0.7em;
+}
+
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+
+/* =========================================================
+   4) LEFT NAVIGATION
+   ========================================================= */
+
+nav,
+aside,
+#contents,
+#toc,
+.tree,
+.treeview {
+  background: #fafafa;
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: #4b5563;
+}
+
+nav a,
+aside a,
+#contents a,
+#toc a,
+.tree a,
+.treeview a {
+  border-radius: 6px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+nav a:hover,
+aside a:hover,
+#contents a:hover,
+#toc a:hover,
+.tree a:hover,
+.treeview a:hover {
+  background: #eef2f7;
+  color: #111827;
+}
+
+nav .active,
+aside .active,
+#contents .active,
+#toc .active,
+.tree .active,
+.treeview .active,
+nav a[aria-current="page"],
+aside a[aria-current="page"],
+#contents a[aria-current="page"],
+#toc a[aria-current="page"] {
+  background: #e8eefc;
+  color: #1f3a8a;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+nav li,
+aside li,
+#contents li,
+#toc li,
+.tree li,
+.treeview li {
+  margin-bottom: 2px;
+  padding: 2px 0;
+}
+
+nav > ul > li > a,
+aside > ul > li > a,
+#contents > ul > li > a,
+#toc > ul > li > a {
+  font-weight: 600;
+  color: #374151;
+}
+
+nav li li a,
+aside li li a,
+#contents li li a,
+#toc li li a {
+  color: #6b7280;
+}
+
+
+/* =========================================================
+   5) RIGHT "ON THIS PAGE" NAV
+   ========================================================= */
+
+#right-nav {
+  position: fixed;
+  right: 24px;
+  top: 120px;
+  width: 260px;
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+  padding: 16px;
+  background: #fafafa;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.55;
+  z-index: 99999;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+#right-nav .right-nav-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+#right-nav .nav-group {
+  margin-bottom: 10px;
+}
+
+#right-nav .nav-group-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #111827;
+  cursor: pointer;
+  margin-bottom: 6px;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+#right-nav .nav-group-title:hover {
+  background: #f3f4f6;
+}
+
+#right-nav .nav-group-items.collapsed {
+  display: none;
+}
+
+#right-nav .right-nav-link {
+  display: block;
+  padding: 5px 8px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  color: #374151;
+  text-decoration: none;
+}
+
+#right-nav .right-nav-link:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+#right-nav .right-nav-link.h3 {
+  margin-left: 14px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+#right-nav .right-nav-link.h4 {
+  margin-left: 28px;
+  font-size: 12.5px;
+  color: #6b7280;
+}
+
+#right-nav .right-nav-link.active {
+  background: #e8eefc;
+  color: #1f3a8a;
+  font-weight: 600;
+}
+
+#right-nav .back-to-top {
+  margin-top: 14px;
+  padding: 4px 6px;
+  font-size: 12px;
+  color: #6b7280;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+#right-nav .back-to-top:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+#right-nav::-webkit-scrollbar {
+  width: 8px;
+}
+
+#right-nav::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 8px;
+}
+
+
+/* =========================================================
+   6) ANCHOR HIGHLIGHT
+   ========================================================= */
+
+:target {
+  animation: rightNavTargetFlash 0.8s ease;
+}
+
+@keyframes rightNavTargetFlash {
+  0% { background: #fff3cd; }
+  100% { background: transparent; }
+}
+
+
+/* =========================================================
+   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   ========================================================= */
+
+table:not(:has(td[style*="background-color"])) {
+  border: 1px solid #dde3ea !important;
+  border-radius: 8px;
+  background: #f7f9fb !important;
+  border-collapse: separate !important;
+  overflow: hidden;
+  margin: 14px 0;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+table:not(:has(td[style*="background-color"])) td {
+  padding: 10px 14px !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+table:not(:has(td[style*="background-color"])) p {
+  font-weight: 400 !important;
+  color: #111827 !important;
+  margin: 0 0 6px 0 !important;
+}
+
+table:not(:has(td[style*="background-color"])) p:first-child {
+  margin-top: 0 !important;
+}
+
+table:not(:has(td[style*="background-color"])) p:last-child {
+  margin-bottom: 0 !important;
+}
+
+
+/* =========================================================
+   8) TABLE-BASED CALLOUT SYSTEM
+   ========================================================= */
+
+table:has(td[style*="background-color: #cc99ff"]),
+table:has(td[style*="background-color: #ff0000"]),
+table:has(td[style*="background-color: #e9f1ff"]),
+table:has(td[style*="background-color: #00c030"]) {
+  margin: 14px 0;
+  border-collapse: separate !important;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.025);
+  width: 100% !important;
+  max-width: 100% !important;
+  table-layout: fixed !important;
+  box-sizing: border-box !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td,
+table:has(td[style*="background-color: #ff0000"]) td,
+table:has(td[style*="background-color: #e9f1ff"]) td,
+table:has(td[style*="background-color: #00c030"]) td {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  vertical-align: top;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:not(:last-child),
+table:has(td[style*="background-color: #ff0000"]) td:not(:last-child),
+table:has(td[style*="background-color: #e9f1ff"]) td:not(:last-child),
+table:has(td[style*="background-color: #00c030"]) td:not(:last-child) {
+  display: none;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child,
+table:has(td[style*="background-color: #ff0000"]) td:last-child,
+table:has(td[style*="background-color: #e9f1ff"]) td:last-child,
+table:has(td[style*="background-color: #00c030"]) td:last-child {
+  padding: 12px 14px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p,
+table:has(td[style*="background-color: #ff0000"]) td:last-child p,
+table:has(td[style*="background-color: #e9f1ff"]) td:last-child p,
+table:has(td[style*="background-color: #00c030"]) td:last-child p {
+  margin: 0 0 6px 0 !important;
+  font-weight: 400 !important;
+  color: #374151;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p:last-child,
+table:has(td[style*="background-color: #ff0000"]) td:last-child p:last-child,
+table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:last-child,
+table:has(td[style*="background-color: #00c030"]) td:last-child p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Exercise */
+table:has(td[style*="background-color: #cc99ff"]) {
+  border: 1px solid #e5e7eb !important;
+  border-left: 4px solid #a855f7 !important;
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child {
+  font-weight: 500 !important;
+  color: #111827 !important;
+  margin-bottom: 8px !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child::before {
+  content: "📚";
+  display: inline-block;
+  margin-right: 8px;
+  color: #a855f7;
+}
+
+/* Warning */
+table:has(td[style*="background-color: #ff0000"]) {
+  border: 1px solid #e5e7eb !important;
+  border-left: 4px solid #ef4444 !important;
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #ff0000"]) td:last-child p:first-child::before {
+  content: "⚠";
+  display: inline-block;
+  margin-right: 8px;
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* Note */
+table:has(td[style*="background-color: #e9f1ff"]) {
+  border: 1px solid #e5e7eb !important;
+  border-left: 4px solid #2b9af3 !important;
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::before {
+  content: "i";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
   
+  width: 18px;
+  height: 18px;
+  
+  font-size: 12px;
+  font-weight: 600;
+  
+  color: #ffffff;
+  background: #2b9af3;
+  
+  border-radius: 50%;
+}
+
+/* Tip */
+table:has(td[style*="background-color: #00c030"]) {
+  border: 1px solid #e5e7eb !important;
+  border-left: 4px solid #22c55e !important;
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #00c030"]) td:last-child p:first-child::before {
+  content: "💡";
+  display: inline-block;
+  margin-right: 8px;
+  color: #22c55e;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   9) REAL CODE BLOCKS ONLY
+   ========================================================= */
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child span,
+table:has(td[style*="background-color: #00c030"]) td:last-child span {
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child pre,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
+  margin: 0 !important;
+  padding: 10px 14px !important;
+  background: #f7f9fb !important;
+  border: 1px solid #dde3ea !important;
+  border-radius: 8px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  white-space: pre !important;
+  font-family: Consolas, "Courier New", monospace !important;
+  font-size: 13.5px !important;
+  line-height: 1.3 !important;
+  color: #111827 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child code,
+table:has(td[style*="background-color: #00c030"]) td:last-child code {
+  font-family: Consolas, "Courier New", monospace !important;
+}
+
+
+/* =========================================================
+   10) COLLAPSIBLE NOTE-STYLE BOX
+   ========================================================= */
+
+details.hnd-blue-callout {
+  margin: 14px 0 !important;
+
+  transform: translateX(48px);
+  width: calc(100% - 48px) !important;
+  max-width: calc(100% - 48px) !important;
+
+  box-sizing: border-box !important;
+
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #2b9af3;
+  border-radius: 10px;
+  background: transparent;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.025);
+}
+
+/* Header (summary) */
+details.hnd-blue-callout > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 14px;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+details.hnd-blue-callout > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Info icon (matches Note box) */
+details.hnd-blue-callout > summary::before {
+  content: "i";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #2b9af3;
+  border-radius: 50%;
+}
+
+/* Arrow */
+details.hnd-blue-callout > summary::after {
+  content: "▸";
+  margin-left: auto;
+  font-size: 18px;
+  color: #4b5563;
+  transition: transform 0.18s ease;
+}
+
+details.hnd-blue-callout[open] > summary::after {
+  transform: rotate(90deg);
+}
+
+/* Body */
+details.hnd-blue-callout .callout-body {
+  padding: 0 14px 12px 14px;
+}
+
+details.hnd-blue-callout p {
+  margin: 0 0 6px 0;
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+details.hnd-blue-callout p:last-child {
+  margin-bottom: 0;
+}
+
+/* Code inside collapsible (match your other code blocks) */
+details.hnd-blue-callout pre {
+  margin: 8px 0 10px 0;
+  padding: 10px 14px;
+  background: #f7f9fb;
+  border: 1px solid #dde3ea;
+  border-radius: 8px;
+  overflow-x: auto;
+  white-space: pre;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+details.hnd-blue-callout > summary:hover {
+  background: #f9fafb;
+}
+
+
+/* =========================================================
+   11) COPY BUTTONS
+   ========================================================= */
+
+.copy-code-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 12px;
+  padding: 4px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #374151;
+  cursor: pointer;
+  opacity: 0.92;
+}
+
+.copy-code-btn:hover {
+  background: #f3f4f6;
+}
+
+.copy-code-btn.copied {
+  color: #065f46;
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+}
+
+
+/* =========================================================
+   12) RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+  #right-nav {
+    display: none;
+  }
+
+  body {
+    margin-right: 0;
+  }
+}
+
+
+/* =========================================================
+   13) HELPER CLASSES
+   ========================================================= */
+
+.code-block {
+  margin-left: 0;
+}
+
+.indent-1 { margin-left: 20px; }
+.indent-2 { margin-left: 48px; }
+.indent-3 { margin-left: 60px; }
+
+.code-indent {
+  margin-left: 40px;
+  max-width: calc(100% - 40px);
+}
+
+pre code {
+  padding: 0;
+  background: transparent;
+}
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.95em;
+  background: #f3f4f6;
+  color: #111827;
+  padding: 2px 5px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.html-code-box {
+  width: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.html-code-box.indent-1 { margin-left: 20px !important; }
+.html-code-box.indent-2 { margin-left: 48px !important; }
+.html-code-box.indent-3 { margin-left: 68px !important; }
+
+
+/* =========================================================
+   14) EMPTY PARAGRAPH CLEANUP
+   ========================================================= */
+
+table td p:empty,
+table td p:has(br:only-child) {
+  display: none;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p:empty,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p:has(br:only-child) {
+  display: none !important;
+}
+
+
+/* =========================================================
+   15) HTML CODE BOXES INSIDE EXERCISES
+   ========================================================= */
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box {
+  margin-top: 6px !important;
+}
+
+
+/* =========================================================
+   16) COLLAPSIBLE EXERCISE BOXES
+   ========================================================= */
+
+details.example-toggle {
+  margin: 0;
+}
+
+details.example-toggle > summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  color: #6b21a8;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+details.example-toggle > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.example-toggle > summary::before {
+  content: "▸";
+  font-size: 12px;
+  color: #6b21a8;
+  transition: transform 0.18s ease;
+  margin-right: 2px;
+}
+
+details.example-toggle[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+details.example-toggle > summary::after {
+  content: "📚";
+  font-size: 14px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+details.example-toggle p:first-child::before {
+  content: none !important;
+}
+
+details.example-toggle > *:not(summary) {
+  margin-top: 8px;
+}
+
+details.example-toggle .html-code-box {
+  margin-top: 6px;
+}
+
+/* =========================================================
+   17) CODE LABELS
+   ========================================================= */
+
+.code-label {
+  display: block !important;
+  font-size: 12px;
+  font-weight: 500;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 12px 0 6px 2px !important;
+  white-space: normal !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  padding: 0 !important;
+}
+
+.html-code-box + .code-label {
+  margin-top: 14px !important;
+}
+
+/* =========================================================
+   18) FINAL CODE SPACING OVERRIDE
+   ========================================================= */
+
+pre {
+  line-height: 1.15 !important;
+  padding: 8px 14px !important;
+}
+
+/* Fix html-code-box font size */
+.html-code-box pre {
+  font-size: 14.5px !important;
+}
+
+/* Syntax color for keywords */
+.kw {
+  color: #AF00DB;
+  font-weight: 500;
+}</style>
 
 
 
@@ -166,10 +1058,10 @@
             
                 <div class="navigation">
                     <ol class="breadcrumb">
-                        <li><a href="DevelopingaReferenceForecastandA.html">Developing a Reference Forecast and Alternative Scenarios</a></li>
+                        <li><a href="DevelopingReferenceandScenarioCa.html">Developing Reference and Scenario Cases</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="DevelopingaReferenceForecastandA.html" title="Developing a Reference Forecast and Alternative Scenarios" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="StepstoDevelopaReferenceCase.html" title="Steps to Develop a Reference Case" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="ModifyingExistingReferenceandSce.html" title="Modifying Existing Reference and Scenario Cases" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="DevelopingReferenceandScenarioCa.html" title="Developing Reference and Scenario Cases" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="StepstoDevelopaReferenceCase.html" title="Steps to Develop a Reference Case" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="ModifyingExistingReferenceandSce.html" title="Modifying Existing Reference and Scenario Cases" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
@@ -180,135 +1072,134 @@
 
             <div class="main-content">
                 
-<p class="rvps2"><span class="rvts74">Developing Reference and Scenario Cases</span></p>
-<p class="rvps2"><span class="rvts75"><br/></span></p>
+<p class="rvps2"><span class="rvts44"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <li class="rvps2 noindent"><span class="rvts22">Create Individual Policy Files to Define a Scenario</span></li>
+ <li class="rvps2 noindent"><span class="rvts21">Create Individual Policy Files to Define a Scenario</span></li>
 </ol>
-<p class="rvps5"><span class="rvts6">A set of policy files (Julia scripts that change the values of model variables) are combined and executed together to create scenarios. The reference case is a scenario that includes a specific set of policies that are assumed will be in existence into the future. Alternative or additional policies can be incorporated to define alternative scenarios. Store all policy files in the </span><span class="rvts22">\Policy</span><span class="rvts6"> folder.&nbsp;</span></p>
+<p class="rvps5"><span class="rvts6">A set of policy files (Julia scripts that change the values of model variables) are combined and executed together to create scenarios. The reference case is a scenario that includes a specific set of policies that are assumed will be in existence into the future. Alternative or additional policies can be incorporated to define alternative scenarios. Store all policy files in the </span><span class="rvts21">\Policy</span><span class="rvts6"> folder.&nbsp;</span></p>
 <p class="rvps5"><span class="rvts6"><br/></span></p>
 <div class="rvps5">
 <table width="90%" style="border-width: 0px; background-color: #ffffff; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: rgba(76,162,11,0.5); width: 7px;">
-   <p class="rvps44"><span class="rvts83"><br/></span></p>
+   <p class="rvps105"><span class="rvts172"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: #f1fff1; vertical-align: top; width: 29px;">
-   <p class="rvps45"><span class="rvts66">🛈</span></p>
+   <p class="rvps106"><span class="rvts133">🛈</span></p>
   </td>
   <td style="border-width : 1px; border-color: #008000; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #f1fff1; vertical-align: top; width: 490px;">
-   <p class="rvps45"><span class="rvts6">See </span><a class="rvts11" href="PolicyAnalysis-PolicyVariablesan.html">Policy Analysis</a><span class="rvts6"> for instructions on how to develop policy files in ENERGY 2100.&nbsp;</span></p>
+   <p class="rvps106"><span class="rvts6">See </span><a class="rvts11" href="PolicyAnalysis-PolicyVariablesan.html">Policy Analysis</a><span class="rvts6"> for instructions on how to develop policy files in ENERGY 2100.&nbsp;</span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps5"><span class="rvts6"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <li value="2" class="rvps2 noindent"><span class="rvts22">Define Scenario Files that Include and Call a Set of One or More Policy Files</span></li>
+ <li value="2" class="rvps2 noindent"><span class="rvts21">Define Scenario Files that Include and Call a Set of One or More Policy Files</span></li>
 </ol>
 <p class="rvps5"><span class="rvts6">Once the desired set of policy files are created and added to the \Policy folder, a scenario file is created to include and execute a desired set of policy files together as a scenario.&nbsp;</span></p>
 <p class="rvps5"><span class="rvts6"><br/></span></p>
-<p class="rvps5"><span class="rvts6">A name is assigned to each scenario, such as </span><span class="rvts12">Ref25</span><span class="rvts6"> or </span><span class="rvts12">HighPrice</span><span class="rvts6">. Then a scenario file is developed as a Julia script file that 1) includes the desired policy files into the model environment &nbsp;(‘include “PolicyFile1.jl”) then 2) calls the functions created in the policy files ("PolicyFile1.PolicyControl(DB)"). This scenario file is assigned the name of the Scenario, such as </span><span class="rvts12">Ref25.jl</span><span class="rvts6"> or </span><span class="rvts12">HighPrice.jl</span><span class="rvts6"> and housed in the \Policy folder.</span></p>
+<p class="rvps5"><span class="rvts6">A name is assigned to each scenario, such as </span><span class="rvts68">Ref25</span><span class="rvts6"> or </span><span class="rvts68">HighPrice</span><span class="rvts6">. Then a scenario file is developed as a Julia script file that 1) includes the desired policy files into the model environment &nbsp;(‘include “PolicyFile1.jl”) then 2) calls the functions created in the policy files ("PolicyFile1.PolicyControl(DB)"). This scenario file is assigned the name of the Scenario, such as </span><span class="rvts68">Ref25.jl</span><span class="rvts6"> or </span><span class="rvts68">HighPrice.jl</span><span class="rvts6"> and housed in the \Policy folder.</span></p>
 <p class="rvps5"><span class="rvts6"><br/></span></p>
 <p class="rvps5"><span class="rvts6">Scenario files can be created from scratch, or existing files edited to add or remove policies. Some forecast scenarios might include only a couple policy files. Others, such as reference case scenarios, might include over a hundred policies.&nbsp;</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <li value="3" class="rvps2 noindent"><span class="rvts22">Modify RunE2100Runs.bat Batch File to Execute the Reference Case and/or Scenario Cases</span></li>
+ <li value="3" class="rvps2 noindent"><span class="rvts21">Modify RunE2100Runs.bat Batch File to Execute the Reference Case and/or Scenario Cases</span></li>
 </ol>
 <p class="rvps5"><span class="rvts6">RunE2100.bat assumes that there is a scenario file with the same name as the scenario parameter, which it uses to call the selected policies, execute the model, and compile the results. These files are saved to the /Policy sub-folder along with the included policies.</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <li value="4" class="rvps2 noindent"><span class="rvts22">Sample steps to develop and execute a scenario in ENERGY 2100:</span></li>
+ <li value="4" class="rvps2 noindent"><span class="rvts21">Sample steps to develop and execute a scenario in ENERGY 2100:</span></li>
 </ol>
-<p class="rvps2"><span class="rvts22"><br/></span></p>
+<p class="rvps2"><span class="rvts21"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: lower-alpha;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li style="text-indent: 0px" class="rvps38 noindent"><span class="rvts6">Let's say you have created two new policy files, </span><span class="rvts12">PolicyFile1.jl</span><span class="rvts6"> and </span><span class="rvts12">PolicyFile2.jl,</span><span class="rvts6"> saved to the \Policy folder, that you would like to run as a new scenario. See </span><a class="rvts11" href="PolicyAnalysis-PolicyVariablesan.html">Policy Analysis</a><span class="rvts6"> for instructions on how to create an ENERGY 2100 policy file.</span></li>
+  <li style="text-indent: 0px" class="rvps100 noindent"><span class="rvts6">Let's say you have created two new policy files, </span><span class="rvts68">PolicyFile1.jl</span><span class="rvts6"> and </span><span class="rvts68">PolicyFile2.jl,</span><span class="rvts6"> saved to the \Policy folder, that you would like to run as a new scenario. See </span><a class="rvts11" href="PolicyAnalysis-PolicyVariablesan.html">Policy Analysis</a><span class="rvts6"> for instructions on how to create an ENERGY 2100 policy file.</span></li>
  </ol>
 </ol>
-<p class="rvps5"><span class="rvts75"><br/></span></p>
+<p class="rvps5"><span class="rvts44"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: lower-alpha;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li value="2" style="text-indent: 0px" class="rvps38 noindent"><span class="rvts6">To test the impact of these two policies in the model, create a Julia scenario file that </span><span class="rvts12">includes</span><span class="rvts6"> these two policy files in the model environment and calls the control functions contained in the Julia policy files. Save the file with the name of the scenario.</span></li>
+  <li value="2" style="text-indent: 0px" class="rvps100 noindent"><span class="rvts6">To test the impact of these two policies in the model, create a Julia scenario file that </span><span class="rvts68">includes</span><span class="rvts6"> these two policy files in the model environment and calls the control functions contained in the Julia policy files. Save the file with the name of the scenario.</span></li>
  </ol>
 </ol>
-<p class="rvps38"><span class="rvts6"><br/></span></p>
-<p class="rvps42"><span class="rvts6">The code snippet below shows the contents of a policy test file named </span><span class="rvts12">PolicyExample.jl</span><span class="rvts6"> that incorporates PolicyFile1.jl and PolicyFile2.jl into the model.&nbsp;</span></p>
-<p class="rvps38"><span class="rvts22"><br/></span></p>
-<p class="rvps43"><span class="rvts22">Sample Scenario File with name, </span><span class="rvts84">ScenarioName</span></p>
-<div class="rvps41">
+<p class="rvps100"><span class="rvts6"><br/></span></p>
+<p class="rvps61"><span class="rvts6">The code snippet below shows the contents of a policy test file named </span><span class="rvts68">PolicyExample.jl</span><span class="rvts6"> that incorporates PolicyFile1.jl and PolicyFile2.jl into the model.&nbsp;</span></p>
+<p class="rvps100"><span class="rvts21"><br/></span></p>
+<p class="rvps104"><span class="rvts21">Sample Scenario File with name, </span><span class="rvts173">ScenarioName</span></p>
+<div class="rvps103">
 <table width="75%" style="border-color: #ffffff #969696 #969696 #ffffff; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #fafafa;">
-   <p class="rvps40"><span class="rvts69">#</span></p>
-   <p class="rvps40"><span class="rvts69"># ScenarioName.jl – Creates a new scenario</span></p>
-   <p class="rvps40"><span class="rvts69">#</span></p>
-   <p class="rvps40"><span class="rvts70"><br/></span></p>
-   <p class="rvps40"><span class="rvts71">module</span><span class="rvts52"> Policy</span></p>
-   <p class="rvps40"><span class="rvts52"><br/></span></p>
-   <p class="rvps40"><span class="rvts72">import</span><span class="rvts52"> </span><span class="rvts73">...</span><span class="rvts52">EnergyModel</span><span class="rvts57">:</span><span class="rvts52"> DB</span></p>
-   <p class="rvps40"><span class="rvts52"><br/></span></p>
-   <p class="rvps40"><span class="rvts58">include</span><span class="rvts52">(</span><span class="rvts59">"PolicyFile1.jl"</span><span class="rvts52">)</span></p>
-   <p class="rvps40"><span class="rvts58">include</span><span class="rvts52">(</span><span class="rvts59">"PolicyFile2.jl"</span><span class="rvts52">)</span></p>
-   <p class="rvps40"><span class="rvts52"><br/></span></p>
-   <p class="rvps40"><span class="rvts71">function</span><span class="rvts52"> </span><span class="rvts58">IncorporatePolicies()</span></p>
-   <p class="rvps40"><span class="rvts52">&nbsp; </span><span class="rvts58">@info</span><span class="rvts52"> </span><span class="rvts59">"IncorporatePolicies - ScenarioName"</span></p>
-   <p class="rvps40"><span class="rvts59"><br/></span></p>
-   <p class="rvps40"><span class="rvts52">PolicyFile1</span><span class="rvts73">.</span><span class="rvts58">PolicyControl</span><span class="rvts52">(DB)</span></p>
-   <p class="rvps40"><span class="rvts52">PolicyFile2</span><span class="rvts73">.</span><span class="rvts58">PolicyControl</span><span class="rvts52">(DB)</span></p>
-   <p class="rvps40"><span class="rvts72">end</span></p>
-   <p class="rvps40"><span class="rvts70"><br/></span></p>
-   <p class="rvps40"><span class="rvts72">end</span></p>
-   <p class="rvps39"><span class="rvts71"><br/></span></p>
+   <p class="rvps102"><span class="rvts162">#</span></p>
+   <p class="rvps102"><span class="rvts162"># ScenarioName.jl – Creates a new scenario</span></p>
+   <p class="rvps102"><span class="rvts162">#</span></p>
+   <p class="rvps102"><span class="rvts163"><br/></span></p>
+   <p class="rvps102"><span class="rvts146">module</span><span class="rvts124"> Policy</span></p>
+   <p class="rvps102"><span class="rvts124"><br/></span></p>
+   <p class="rvps102"><span class="rvts164">import</span><span class="rvts124"> </span><span class="rvts165">...</span><span class="rvts124">EnergyModel</span><span class="rvts125">:</span><span class="rvts124"> DB</span></p>
+   <p class="rvps102"><span class="rvts124"><br/></span></p>
+   <p class="rvps102"><span class="rvts126">include</span><span class="rvts124">(</span><span class="rvts127">"PolicyFile1.jl"</span><span class="rvts124">)</span></p>
+   <p class="rvps102"><span class="rvts126">include</span><span class="rvts124">(</span><span class="rvts127">"PolicyFile2.jl"</span><span class="rvts124">)</span></p>
+   <p class="rvps102"><span class="rvts124"><br/></span></p>
+   <p class="rvps102"><span class="rvts146">function</span><span class="rvts124"> </span><span class="rvts126">IncorporatePolicies()</span></p>
+   <p class="rvps102"><span class="rvts124">&nbsp; </span><span class="rvts126">@info</span><span class="rvts124"> </span><span class="rvts127">"IncorporatePolicies - ScenarioName"</span></p>
+   <p class="rvps102"><span class="rvts127"><br/></span></p>
+   <p class="rvps102"><span class="rvts124">PolicyFile1</span><span class="rvts165">.</span><span class="rvts126">PolicyControl</span><span class="rvts124">(DB)</span></p>
+   <p class="rvps102"><span class="rvts124">PolicyFile2</span><span class="rvts165">.</span><span class="rvts126">PolicyControl</span><span class="rvts124">(DB)</span></p>
+   <p class="rvps102"><span class="rvts164">end</span></p>
+   <p class="rvps102"><span class="rvts163"><br/></span></p>
+   <p class="rvps102"><span class="rvts164">end</span></p>
+   <p class="rvps101"><span class="rvts146"><br/></span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps42"><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
-<p class="rvps42"><span class="rvts6"><br/></span></p>
-<div class="rvps46">
+<p class="rvps61"><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="rvps61"><span class="rvts6"><br/></span></p>
+<div class="rvps74">
 <table width="90%" style="border-width: 0px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; background-color: #be0000; vertical-align: top; width: 5px;">
-   <p class="rvps48"><span class="rvts76"><br/></span></p>
+   <p class="rvps11"><span class="rvts19"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; background-color: #ffdada; vertical-align: top; width: 14px;">
-   <p class="rvps48"><span class="rvts77">☑</span></p>
+   <p class="rvps11"><span class="rvts166">☑</span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #ffdada; vertical-align: top; width: 269px;">
-   <p class="rvps49"><span class="rvts78">Important:</span><span class="rvts79"> &nbsp;For the above code to work properly, both </span><span class="rvts80">PolicyFile1.jl</span><span class="rvts79"> and </span><span class="rvts80">PolicyFile2.jl</span><span class="rvts79"> must contain a </span><span class="rvts78">function</span><span class="rvts79"> at the bottom of those files named </span><span class="rvts81">PolicyControl</span><span class="rvts82">.</span><span class="rvts79">&nbsp;</span></p>
+   <p class="rvps108"><span class="rvts167">Important:</span><span class="rvts168"> &nbsp;For the above code to work properly, both </span><span class="rvts169">PolicyFile1.jl</span><span class="rvts168"> and </span><span class="rvts169">PolicyFile2.jl</span><span class="rvts168"> must contain a </span><span class="rvts167">function</span><span class="rvts168"> at the bottom of those files named </span><span class="rvts170">PolicyControl</span><span class="rvts171">.</span><span class="rvts168">&nbsp;</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps47"><span class="rvts75"><br/></span></p>
+<p class="rvps107"><span class="rvts44"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: lower-alpha;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li value="3" style="text-indent: 0px" class="rvps38 noindent"><span class="rvts6">Set up and execute </span><span class="rvts22">RunE2100Runs.bat</span><span class="rvts6"> from \2020Model by making a call to RunE2100 and passing arguments specifying the name of the new file as the scenario name parameter.</span></li>
+  <li value="3" style="text-indent: 0px" class="rvps100 noindent"><span class="rvts6">Set up and execute </span><span class="rvts21">RunE2100Runs.bat</span><span class="rvts6"> from \2020Model by making a call to RunE2100 and passing arguments specifying the name of the new file as the scenario name parameter.</span></li>
  </ol>
 </ol>
-<p class="rvps38"><span class="rvts6"><br/></span></p>
-<p class="rvps50"><span class="rvts6">&nbsp; &nbsp;&nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp;&nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp;%1 &nbsp; &nbsp; %2</span><span class="rvts12"> &nbsp; &nbsp; &nbsp; %3 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;%4 &nbsp; &nbsp; &nbsp; &nbsp;%5 &nbsp; &nbsp; &nbsp; %6 &nbsp; &nbsp; &nbsp; %7 &nbsp; &nbsp; &nbsp; &nbsp;%8 &nbsp; &nbsp; &nbsp; %9</span></p>
-<p class="rvps42"><span class="rvts6">Call &nbsp; </span><span class="rvts22">RunE2100</span><span class="rvts6"> &nbsp; &nbsp;Ref25 &nbsp; Ref25 &nbsp; TestEmpty &nbsp; 2020 &nbsp; &nbsp;2050 &nbsp; &nbsp;Base &nbsp; &nbsp; Base &nbsp; &nbsp; Base &nbsp; &nbsp;All</span></p>
+<p class="rvps100"><span class="rvts6"><br/></span></p>
+<p class="rvps109"><span class="rvts6">&nbsp; &nbsp;&nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp;&nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp;%1 &nbsp; &nbsp; %2</span><span class="rvts68"> &nbsp; &nbsp; &nbsp; %3 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;%4 &nbsp; &nbsp; &nbsp; &nbsp;%5 &nbsp; &nbsp; &nbsp; %6 &nbsp; &nbsp; &nbsp; %7 &nbsp; &nbsp; &nbsp; &nbsp;%8 &nbsp; &nbsp; &nbsp; %9</span></p>
+<p class="rvps61"><span class="rvts6">Call &nbsp; </span><span class="rvts21">RunE2100</span><span class="rvts6"> &nbsp; &nbsp;Ref25 &nbsp; Ref25 &nbsp; TestEmpty &nbsp; 2020 &nbsp; &nbsp;2050 &nbsp; &nbsp;Base &nbsp; &nbsp; Base &nbsp; &nbsp; Base &nbsp; &nbsp;All</span></p>
 <p class="rvps5"><span class="rvts6"><br/></span></p>
-<p class="rvps42"><span class="rvts6">where:</span></p>
-<p class="rvps51"><span class="rvts6">Argument 1 (%1) - Scenario Name</span></p>
-<p class="rvps51"><span class="rvts6">Argument 2 (%2) - Reference Policy File</span></p>
-<p class="rvps51"><span class="rvts6">Argument 3 (%3) - Test Policy File</span></p>
-<p class="rvps51"><span class="rvts6">Argument 4 (%4) - Beginning Year</span></p>
-<p class="rvps51"><span class="rvts6">Argument 5 (%5) - Ending Year&nbsp;</span></p>
-<p class="rvps51"><span class="rvts6">Argument 6 (%6) - Reference Case</span></p>
-<p class="rvps51"><span class="rvts6">Argument 7 (%7) - Scenario for zInitial in Access outputs</span></p>
-<p class="rvps51"><span class="rvts6">Argument 8 (%8) - Economic Model Investments Case (see Jeff)</span></p>
-<p class="rvps51"><span class="rvts6">Argument 9 (%9) - Output Files (All, ExcelDTAs, AccessDTAs, or None)&nbsp;</span></p>
-<p class="rvps50"><span class="rvts6"><br/></span></p>
-<p class="rvps50"><span class="rvts6"><br/></span></p>
-<p class="rvps38"><span class="rvts6"><br/></span></p>
-<p class="rvps38"><span class="rvts6"><br/></span></p>
-<p class="rvps38"><span class="rvts6"><br/></span></p>
+<p class="rvps61"><span class="rvts6">where:</span></p>
+<p class="rvps110"><span class="rvts6">Argument 1 (%1) - Scenario Name</span></p>
+<p class="rvps110"><span class="rvts6">Argument 2 (%2) - Reference Policy File</span></p>
+<p class="rvps110"><span class="rvts6">Argument 3 (%3) - Test Policy File</span></p>
+<p class="rvps110"><span class="rvts6">Argument 4 (%4) - Beginning Year</span></p>
+<p class="rvps110"><span class="rvts6">Argument 5 (%5) - Ending Year&nbsp;</span></p>
+<p class="rvps110"><span class="rvts6">Argument 6 (%6) - Reference Case</span></p>
+<p class="rvps110"><span class="rvts6">Argument 7 (%7) - Scenario for zInitial in Access outputs</span></p>
+<p class="rvps110"><span class="rvts6">Argument 8 (%8) - Economic Model Investments Case (see Jeff)</span></p>
+<p class="rvps110"><span class="rvts6">Argument 9 (%9) - Output Files (All, ExcelDTAs, AccessDTAs, or None)&nbsp;</span></p>
+<p class="rvps109"><span class="rvts6"><br/></span></p>
+<p class="rvps109"><span class="rvts6"><br/></span></p>
+<p class="rvps100"><span class="rvts6"><br/></span></p>
+<p class="rvps100"><span class="rvts6"><br/></span></p>
+<p class="rvps100"><span class="rvts6"><br/></span></p>
 <p class="rvps5"><span class="rvts6"><br/></span></p>
-<p class="rvps5"><span class="rvts75"><br/></span></p>
-<p class="rvps5"><span class="rvts72"></span><span class="rvts6"></span></p>
+<p class="rvps5"><span class="rvts44"><br/></span></p>
+<p class="rvps5"><span class="rvts164"></span><span class="rvts6"></span></p>
 
             </div>
             
