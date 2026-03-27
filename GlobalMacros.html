@@ -881,7 +881,7 @@ details.example-toggle[open] > summary::before {
 }
 
 details.example-toggle > summary::after {
-  content: "📚";
+/*  content: "📚";*/
   font-size: 14px;
   margin-left: 2px;
   margin-right: 2px;
@@ -1072,40 +1072,40 @@ pre {
 
             <div class="main-content">
                 
-<p class="rvps85"><span class="rvts126">@finite_math</span><span class="rvts124">,finite_inverse,finite_divide,finite_power,finite_exp,finite_log</span></p>
-<p class="rvps85"><span class="rvts6"><br/></span></p>
-<p class="rvps85"><span class="rvts6">The global macros are created in \Core\Math.jl.</span></p>
-<p class="rvps85"><span class="rvts6"><br/></span></p>
-<div class="rvps85">
+<p class="rvps82"><span class="rvts126">@finite_math</span><span class="rvts124">,finite_inverse,finite_divide,finite_power,finite_exp,finite_log</span></p>
+<p class="rvps82"><span class="rvts6"><br/></span></p>
+<p class="rvps82"><span class="rvts6">The global macros are created in \Core\Math.jl.</span></p>
+<p class="rvps82"><span class="rvts6"><br/></span></p>
+<div class="rvps82">
 <table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 150px;">
-   <p class="rvps7"><span class="rvts31">Global Macros</span></p>
+   <p class="rvps6"><span class="rvts27">Global Macros</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 619px;">
-   <p class="rvps7"><span class="rvts31">Description</span></p>
+   <p class="rvps6"><span class="rvts27">Description</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 150px;">
-   <p class="rvps7"><span class="rvts150">@finite_math</span></p>
+   <p class="rvps6"><span class="rvts151">@finite_math</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 619px;">
-   <p class="rvps7"><span class="rvts15">The `@finite_math` macro transforms mathematical expressions in the input code to their finite versions.&nbsp;</span></p>
-   <p class="rvps7"><span class="rvts15">A macro that transforms the standard mathematical operations in the input expression `expr` to their finite versions.</span></p>
-   <p class="rvps7"><span class="rvts15">The macro replaces division, logarithm, exponentiation, and power operations with `finite_divide`, `finite_log`, `finite_exp`, and `finite_power` functions, respectively.</span></p>
-   <p class="rvps7"><span class="rvts15"><br/></span></p>
-   <p class="rvps51"><span class="rvts79">In Julia,&nbsp;</span><span class="rvts80">NaN</span><span class="rvts79">&nbsp;stands for&nbsp;</span><span class="rvts78">"Not a Number"</span><span class="rvts79">&nbsp;and is a special floating-point value used to represent undefined or unrepresentable numerical results, such as the result of&nbsp;0/0 or square root of -1. It is a standard feature of IEEE 754 floating-point arithmetic, designed to allow computations to continue without crashing, rather than halting execution when an indeterminate result occurs.</span></p>
-   <p class="rvps51"><span class="rvts79"><br/></span></p>
-   <p class="rvps7"><span class="rvts15">In other words, it handles math in which there is division by zero. Without the @finite_math macro, a division by zero is returned as "not a number" (NaN). This function will turn into zero.</span></p>
-   <p class="rvps7"><span class="rvts15">It takes a single expression `expr` as input.</span></p>
-   <p class="rvps7"><span class="rvts15">&nbsp; # The macro traverses the input expression, and for each mathematical operation, it replaces the standard operation with its corresponding finite version.</span></p>
-   <p class="rvps7"><span class="rvts15">&nbsp; # Once all the operations are replaced, the transformed expression is returned.</span></p>
+   <p class="rvps6"><span class="rvts14">The `@finite_math` macro transforms mathematical expressions in the input code to their finite versions.&nbsp;</span></p>
+   <p class="rvps6"><span class="rvts14">A macro that transforms the standard mathematical operations in the input expression `expr` to their finite versions.</span></p>
+   <p class="rvps6"><span class="rvts14">The macro replaces division, logarithm, exponentiation, and power operations with `finite_divide`, `finite_log`, `finite_exp`, and `finite_power` functions, respectively.</span></p>
+   <p class="rvps6"><span class="rvts14"><br/></span></p>
+   <p class="rvps62"><span class="rvts109">In Julia,&nbsp;</span><span class="rvts119">NaN</span><span class="rvts109">&nbsp;stands for&nbsp;</span><span class="rvts122">"Not a Number"</span><span class="rvts109">&nbsp;and is a special floating-point value used to represent undefined or unrepresentable numerical results, such as the result of&nbsp;0/0 or square root of -1. It is a standard feature of IEEE 754 floating-point arithmetic, designed to allow computations to continue without crashing, rather than halting execution when an indeterminate result occurs.</span></p>
+   <p class="rvps62"><span class="rvts109"><br/></span></p>
+   <p class="rvps6"><span class="rvts14">In other words, it handles math in which there is division by zero. Without the @finite_math macro, a division by zero is returned as "not a number" (NaN). This function will turn into zero.</span></p>
+   <p class="rvps6"><span class="rvts14">It takes a single expression `expr` as input.</span></p>
+   <p class="rvps6"><span class="rvts14">&nbsp; # The macro traverses the input expression, and for each mathematical operation, it replaces the standard operation with its corresponding finite version.</span></p>
+   <p class="rvps6"><span class="rvts14">&nbsp; # Once all the operations are replaced, the transformed expression is returned.</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps85"><span class="rvts6"></span><span class="rvts6"></span></p>
+<p class="rvps82"><span class="rvts6"></span><span class="rvts6"></span></p>
 
             </div>
             

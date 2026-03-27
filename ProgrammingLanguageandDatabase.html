@@ -881,7 +881,7 @@ details.example-toggle[open] > summary::before {
 }
 
 details.example-toggle > summary::after {
-  content: "📚";
+/*  content: "📚";*/
   font-size: 14px;
   margin-left: 2px;
   margin-right: 2px;
@@ -1072,51 +1072,30 @@ pre {
 
             <div class="main-content">
                 
-<h2 class="rvps6"><span class="rvts0"><span class="rvts12">ENERGY 2100 and Julia Language</span></span></h2>
-<p class="rvps2"><span class="rvts6">ENERGY 2100 was created using the </span><a class="rvts11" href="https://julialang.org/">Julia</a><span class="rvts6"> programming language. Julia has the advantage of being easy to use like high-level languages (like Python or R) and the high performance and speed of compiled languages (like C or Fortran).</span></p>
-<div class="rvps12">
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">ENERGY 2100 and Julia Language</span></span></h3>
+<p class="rvps2"><span class="rvts6">ENERGY 2100 was created using the </span><a class="rvts11" href="https://julialang.org/">Julia</a><span class="rvts6"> programming language. Julia has the advantage of being easy to use like high-level languages (like Python or R) and the high performance and speed of compiled languages (like C or Fortran). </span><span class="rvts13">See </span><a class="rvts11" href="InstallationGuide.html">Installation Guide</a><span class="rvts13"> for instructions on installing Julia.</span></p>
+<div class="rvps24">
 <table width="90%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #0080c0; vertical-align: top; width: 2px; height: 54px;">
-   <p class="rvps11"><span class="rvts19"><br/></span></p>
+   <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 986px; height: 54px;">
-   <p class="rvps26"><span class="rvts35">🛈</span><span class="rvts6">&nbsp;</span><span class="rvts20"> </span><span class="rvts21">Note: &nbsp;</span></p>
-   <p class="rvps27"><span class="rvts14">See </span><a class="rvts11" href="InstallationGuide.html">Installation Guide</a><span class="rvts14"> for instructions on installing Julia.</span></p>
+   <p class="rvps23"><span class="rvts33">🛈</span><span class="rvts6">&nbsp;</span><span class="rvts32"> </span><span class="rvts18">Note: &nbsp;</span></p>
+   <p class="rvps25"><span class="rvts6">ENERGY 2100 uses a static version of Julia, which is assigned in the Manifest.toml file. Locking the exact Julia version </span><span class="rvts13">ensures reproducibility and helps manage compatibility of Julia dependencies. Users will be warned if they are running a different version.</span></p>
+   <p class="rvps5"><span class="rvts6">The ENERGY 2100 directory makes up a Julia project defined by both a </span><span class="rvts37">Project.toml </span><span class="rvts6">and a </span><span class="rvts37">Manifest.toml</span><span class="rvts6"> file that work together to manage dependencies and ensure reproducibility. These files are automatically generated and updated when Julia package is activated. The </span><span class="rvts34">Project.toml</span><span class="rvts6"> defines the project's top-level dependencies, and the </span><span class="rvts34">Manifest.toml </span><span class="rvts6">provides a record of the state of the packages in the environment, consisting of a version-locked description of project dependencies.</span></p>
+   <p class="rvps5"><span class="rvts6">For more information on Project.toml and Manifest.toml, see </span><a class="rvts11" href="https://pkgdocs.julialang.org/v1/toml-files/">Julia Documentation</a><span class="rvts6">.</span></p>
   </td>
  </tr>
 </table>
 </div>
-<div class="rvps28">
-<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
-   <p class="rvps31"><span class="rvts6">Your version of ENERGY 2100 uses a static version of Julia, which is assigned in a Manifest.toml file. Locking the exact Julia version </span><span class="rvts14">ensures reproducibility and helps manage compatibility of Julia dependencies. Users will be warned if they are running a different version.</span></p>
-   <p class="rvps5"><span class="rvts6">The ENERGY 2100 directory makes up a Julia project defined by both a </span><span class="rvts40">Project.toml</span><span class="rvts6"> and a </span><span class="rvts40">Manifest.toml</span><span class="rvts6"> file that work together to manage dependencies and ensure reproducibility. These files are automatically generated and updated when Julia package is activated. The </span><span class="rvts37">Project.toml</span><span class="rvts6"> defines the project's top-level dependencies, and the </span><span class="rvts37">Manifest.toml </span><span class="rvts6">provides a record of the state of the packages in the environment, consisting of a version-locked description of project dependencies.</span></p>
-   <div class="rvps28">
-   <table width="90%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
-    <tr style="vertical-align: top;">
-     <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #0080c0; vertical-align: top; width: 2px; height: 54px;">
-      <p class="rvps29"><span class="rvts19"><br/></span></p>
-     </td>
-     <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 938px; height: 54px;">
-      <p class="rvps30"><span class="rvts35">🛈</span><span class="rvts6">&nbsp;</span><span class="rvts20"> </span><span class="rvts21">Note</span></p>
-      <p class="rvps30"><span class="rvts6">&nbsp;For more information on Project.toml and Manifest.toml, see </span><a class="rvts11" href="https://pkgdocs.julialang.org/v1/toml-files/">Julia Documentation</a><span class="rvts6">.</span></p>
-     </td>
-    </tr>
-   </table>
-   </div>
-  </td>
- </tr>
-</table>
-</div>
-<h2 class="rvps6"><span class="rvts0"><span class="rvts36">HDF5 </span></span><span class="rvts0"><span class="rvts38">(Hierarchical Data Format version 5)</span></span><span class="rvts0"><span class="rvts36"> Database</span></span></h2>
-<p class="rvps2"><span class="rvts6">ENERGY 2100's variables and data are stored, organized, and accessed </span><span class="rvts39">from </span><span class="rvts6">a built-in </span><a class="rvts11" href="https://www.hdfgroup.org/solutions/hdf5/" target="_blank">HDF5 database</a><span class="rvts6">. The HDF5 database was chosen due to its capability of fast I/O processing and storage.</span></p>
-<p class="rvps2"><span class="rvts6">To facilitate debugging, ENERGY 2100 saves and zips instances of the HDF5 model database at various steps during model execution. The database that is active during model execution, named </span><span class="rvts40">database.hdf5</span><span class="rvts37">,</span><span class="rvts6">is located in the \2020Model folder.</span></p>
-<p class="rvps2"><span class="rvts14"><br/></span></p>
-<p class="rvps2"><span class="rvts14"><br/></span></p>
-<p class="rvps2"><span class="rvts14"><br/></span></p>
-<p class="rvps2"><span class="rvts34"><br/></span></p>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts36">HDF5 Database</span></span></h3>
+<p class="rvps2"><span class="rvts6">ENERGY 2100's variables and data are stored, organized, and accessed </span><span class="rvts35">from </span><span class="rvts6">a built-in </span><a class="rvts11" href="https://www.hdfgroup.org/solutions/hdf5/" target="_blank">HDF5 database</a><span class="rvts6">. The HDF5 database was chosen due to its capability of fast I/O processing and storage.</span></p>
+<p class="rvps2"><span class="rvts6">To facilitate debugging, ENERGY 2100 saves and zips instances of the HDF5 model database at various steps during model execution. The database that is active during model execution, named </span><span class="rvts37">database.hdf5</span><span class="rvts34">,</span><span class="rvts6">is located in the \2020Model folder.</span></p>
+<p class="rvps2"><span class="rvts13"><br/></span></p>
+<p class="rvps2"><span class="rvts13"><br/></span></p>
+<p class="rvps2"><span class="rvts13"><br/></span></p>
+<p class="rvps2"><span class="rvts30"><br/></span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>

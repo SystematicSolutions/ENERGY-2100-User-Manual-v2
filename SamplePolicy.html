@@ -881,7 +881,7 @@ details.example-toggle[open] > summary::before {
 }
 
 details.example-toggle > summary::after {
-  content: "📚";
+/*  content: "📚";*/
   font-size: 14px;
   margin-left: 2px;
   margin-right: 2px;
@@ -1072,98 +1072,98 @@ pre {
 
             <div class="main-content">
                 
-<p class="rvps111"><span class="rvts162">#</span></p>
-<p class="rvps111"><span class="rvts162"># WholesalePrices_Fuel_Hi.jl</span></p>
-<p class="rvps111"><span class="rvts162">#</span></p>
-<p class="rvps111"><span class="rvts164">using</span><span class="rvts124"> SmallModel</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts146">module</span><span class="rvts124"> WholesalePrices_Fuel_Hi</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts164">import</span><span class="rvts124"> </span><span class="rvts125">...</span><span class="rvts124">SmallModel</span><span class="rvts125">:</span><span class="rvts124"> ReadDisk,WriteDisk,Select</span></p>
-<p class="rvps111"><span class="rvts164">import</span><span class="rvts124"> </span><span class="rvts125">...</span><span class="rvts124">SmallModel</span><span class="rvts125">:</span><span class="rvts124"> HisTime,ITime,MaxTime,Zero,First,Last,Future,Final,Yr</span></p>
-<p class="rvps111"><span class="rvts164">import</span><span class="rvts124"> </span><span class="rvts125">...</span><span class="rvts124">SmallModel</span><span class="rvts125">:</span><span class="rvts124"> </span><span class="rvts126">@finite_math</span><span class="rvts124">,finite_inverse,finite_divide,finite_power,finite_exp,finite_log</span></p>
-<p class="rvps111"><span class="rvts164">import</span><span class="rvts124"> </span><span class="rvts125">...</span><span class="rvts124">SmallModel</span><span class="rvts125">:</span><span class="rvts124"> DB</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts146">const</span><span class="rvts124"> VariableArray{N} </span><span class="rvts125">=</span><span class="rvts124"> Array{Float32,N} </span><span class="rvts146">where</span><span class="rvts124"> {N}</span></p>
-<p class="rvps111"><span class="rvts146">const</span><span class="rvts124"> SetArray </span><span class="rvts125">=</span><span class="rvts124"> Vector{String}</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts124">Base</span><span class="rvts125">.</span><span class="rvts126">@kwdef</span><span class="rvts124"> </span><span class="rvts146">struct</span><span class="rvts124"> WholesalePrices_Fuel_Hi_Data</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; db</span><span class="rvts125">::</span><span class="rvts148">String</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; BCNameDB</span><span class="rvts125">::</span><span class="rvts148">String</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/BCNameDB"</span><span class="rvts124">) </span><span class="rvts162"># Base Case Name</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; Area</span><span class="rvts125">::</span><span class="rvts148">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/AreaKey"</span><span class="rvts124">)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; AreaDS</span><span class="rvts125">::</span><span class="rvts148">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/AreaDS"</span><span class="rvts124">)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; Areas</span><span class="rvts125">::</span><span class="rvts148">Vector{Int}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">collect</span><span class="rvts124">(</span><span class="rvts126">Select</span><span class="rvts124">(Area))</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; ES</span><span class="rvts125">::</span><span class="rvts148">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/ESKey"</span><span class="rvts124">)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; ESDS</span><span class="rvts125">::</span><span class="rvts148">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/ESDS"</span><span class="rvts124">)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; ESs</span><span class="rvts125">::</span><span class="rvts148">Vector{Int}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">collect</span><span class="rvts124">(</span><span class="rvts126">Select</span><span class="rvts124">(ES))</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; Fuel</span><span class="rvts125">::</span><span class="rvts148">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/FuelKey"</span><span class="rvts124">)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; FuelDS</span><span class="rvts125">::</span><span class="rvts148">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/FuelDS"</span><span class="rvts124">)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; Fuels</span><span class="rvts125">::</span><span class="rvts148">Vector{Int}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">collect</span><span class="rvts124">(</span><span class="rvts126">Select</span><span class="rvts124">(Fuel))</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; Nation</span><span class="rvts125">::</span><span class="rvts148">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/NationKey"</span><span class="rvts124">)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; NationDS</span><span class="rvts125">::</span><span class="rvts148">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/NationDS"</span><span class="rvts124">)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; Nations</span><span class="rvts125">::</span><span class="rvts148">Vector{Int}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">collect</span><span class="rvts124">(</span><span class="rvts126">Select</span><span class="rvts124">(Nation))</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; Year</span><span class="rvts125">::</span><span class="rvts148">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/YearKey"</span><span class="rvts124">)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; YearDS</span><span class="rvts125">::</span><span class="rvts148">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/YearDS"</span><span class="rvts124">)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; Years</span><span class="rvts125">::</span><span class="rvts148">Vector{Int}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">collect</span><span class="rvts124">(</span><span class="rvts126">Select</span><span class="rvts124">(Year))</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; ANMap</span><span class="rvts125">::</span><span class="rvts148">VariableArray{2}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/ANMap"</span><span class="rvts124">) </span><span class="rvts162"># [Area,Nation] Map between Area and Nation</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; ENPN</span><span class="rvts125">::</span><span class="rvts148">VariableArray{3}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db, </span><span class="rvts127">"SOutput/ENPN"</span><span class="rvts124">) </span><span class="rvts162"># [Fuel,Nation,Year] Primary Fuel Price ($/mmBtu)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; xExchangeRateNation</span><span class="rvts125">::</span><span class="rvts148">VariableArray{2}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"MInput/xExchangeRateNation"</span><span class="rvts124">) </span><span class="rvts162"># [Nation,Year] Local Currency/US$ Exchange Rate (Local/US$)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; xENPN</span><span class="rvts125">::</span><span class="rvts148">VariableArray{3}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"SInput/xENPN"</span><span class="rvts124">) </span><span class="rvts162"># [Fuel,Nation,Year] Wholesale Energy Prices (1985 US$/mmBtu)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; xInflationNation</span><span class="rvts125">::</span><span class="rvts148">VariableArray{2}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"MInput/xInflationNation"</span><span class="rvts124">) </span><span class="rvts162"># [Nation,Year] Inflation Index ($/$)</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; </span><span class="rvts162"># Scratch Variables</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; AEOPrices</span><span class="rvts125">::</span><span class="rvts148">VariableArray{2}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">zeros</span><span class="rvts124">(Float32,</span><span class="rvts126">length</span><span class="rvts124">(Fuel),</span><span class="rvts126">length</span><span class="rvts124">(Year)) </span><span class="rvts162"># [Fuel,Year] AEO Wholesale Fuel Prices ($/mmBtu)</span></p>
-<p class="rvps111"><span class="rvts164">end</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts146">function</span><span class="rvts124"> </span><span class="rvts126">PricePolicy</span><span class="rvts124">(db)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; data </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">WholesalePrices_Fuel_Hi_Data</span><span class="rvts124">(; db)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; (;ES,Fuel,Fuels,Nation,Nations,Years) </span><span class="rvts125">=</span><span class="rvts124"> data</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; (;ANMap,ENPN,xExchangeRateNation,xENPN,xInflationNation) </span><span class="rvts125">=</span><span class="rvts124"> data</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; (;AEOPrices) </span><span class="rvts125">=</span><span class="rvts124"> data</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp;&nbsp;</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; CN </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">Select</span><span class="rvts124">(Nation,</span><span class="rvts127">"CN"</span><span class="rvts124">)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; fuel </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">Select</span><span class="rvts124">(Fuel,</span><span class="rvts127">"NaturalGas"</span><span class="rvts124">)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; xENPN[fuel,CN,</span><span class="rvts126">Yr</span><span class="rvts124">(</span><span class="rvts198">2026</span><span class="rvts124">)] </span><span class="rvts125">=</span><span class="rvts124"> xENPN[fuel,CN,</span><span class="rvts126">Yr</span><span class="rvts124">(</span><span class="rvts198">2026</span><span class="rvts124">)]</span><span class="rvts125">*</span><span class="rvts124">(</span><span class="rvts198">1</span><span class="rvts124"> </span><span class="rvts125">+</span><span class="rvts124"> </span><span class="rvts198">0.0</span><span class="rvts124"> )</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; </span><span class="rvts162">#</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; </span><span class="rvts162"># Light Crude Oil Price</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; </span><span class="rvts162">#</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; fuel </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">Select</span><span class="rvts124">(Fuel,</span><span class="rvts127">"LightCrudeOil"</span><span class="rvts124">)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; xENPN[fuel,CN,</span><span class="rvts126">Yr</span><span class="rvts124">(</span><span class="rvts198">2026</span><span class="rvts124">)] </span><span class="rvts125">=</span><span class="rvts124"> xENPN[fuel,CN,</span><span class="rvts126">Yr</span><span class="rvts124">(</span><span class="rvts198">2026</span><span class="rvts124">)]</span><span class="rvts125">*</span><span class="rvts124">(</span><span class="rvts198">1</span><span class="rvts124"> </span><span class="rvts125">+</span><span class="rvts124"> </span><span class="rvts198">0.704</span><span class="rvts124">)</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; </span><span class="rvts162">#</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; </span><span class="rvts162"># Heavy Crude Oil Price</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; </span><span class="rvts162">#</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; fuel </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">Select</span><span class="rvts124">(Fuel,</span><span class="rvts127">"HeavyCrudeOil"</span><span class="rvts124">)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; xENPN[fuel,CN,</span><span class="rvts126">Yr</span><span class="rvts124">(</span><span class="rvts198">2026</span><span class="rvts124">)] </span><span class="rvts125">=</span><span class="rvts124"> xENPN[fuel,CN,</span><span class="rvts126">Yr</span><span class="rvts124">(</span><span class="rvts198">2026</span><span class="rvts124">)]</span><span class="rvts125">*</span><span class="rvts124">(</span><span class="rvts198">1</span><span class="rvts124"> </span><span class="rvts125">+</span><span class="rvts124"> </span><span class="rvts198">0.716</span><span class="rvts124">)</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; fuels </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">Select</span><span class="rvts124">(Fuel,[</span><span class="rvts127">"LightCrudeOil"</span><span class="rvts124">,</span><span class="rvts127">"HeavyCrudeOil"</span><span class="rvts124">])</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; </span><span class="rvts164">for</span><span class="rvts124"> fuel </span><span class="rvts125">in</span><span class="rvts124"> Fuels</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; &nbsp; ENPN[fuel,CN,</span><span class="rvts126">Yr</span><span class="rvts124">(</span><span class="rvts198">2026</span><span class="rvts124">)] </span><span class="rvts125">=</span><span class="rvts124"> xENPN[fuel,CN,</span><span class="rvts126">Yr</span><span class="rvts124">(</span><span class="rvts198">2026</span><span class="rvts124">)]</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; </span><span class="rvts164">end</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; </span><span class="rvts126">WriteDisk</span><span class="rvts124">(db,</span><span class="rvts127">"SInput/xENPN"</span><span class="rvts124">,xENPN)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; </span><span class="rvts126">WriteDisk</span><span class="rvts124">(db,</span><span class="rvts127">"SOutput/ENPN"</span><span class="rvts124">,ENPN)</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts164">end</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts146">function</span><span class="rvts124"> </span><span class="rvts126">PolicyControl</span><span class="rvts124">(db)</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; </span><span class="rvts126">@info</span><span class="rvts124"> </span><span class="rvts127">"WholesalePrices_Fuel_Hi.jl - PolicyControl"</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; </span><span class="rvts126">PricePolicy</span><span class="rvts124">(db)</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts164">end</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts164">if</span><span class="rvts124"> </span><span class="rvts126">abspath</span><span class="rvts124">(PROGRAM_FILE) </span><span class="rvts125">==</span><span class="rvts124"> </span><span class="rvts126">@__FILE__</span></p>
-<p class="rvps111"><span class="rvts124">&nbsp; </span><span class="rvts126">PolicyControl</span><span class="rvts124">(DB)</span></p>
-<p class="rvps111"><span class="rvts164">end</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
-<p class="rvps111"><span class="rvts164">end</span></p>
-<p class="rvps111"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts163">#</span></p>
+<p class="rvps108"><span class="rvts163"># WholesalePrices_Fuel_Hi.jl</span></p>
+<p class="rvps108"><span class="rvts163">#</span></p>
+<p class="rvps108"><span class="rvts165">using</span><span class="rvts124"> SmallModel</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts147">module</span><span class="rvts124"> WholesalePrices_Fuel_Hi</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts165">import</span><span class="rvts124"> </span><span class="rvts125">...</span><span class="rvts124">SmallModel</span><span class="rvts125">:</span><span class="rvts124"> ReadDisk,WriteDisk,Select</span></p>
+<p class="rvps108"><span class="rvts165">import</span><span class="rvts124"> </span><span class="rvts125">...</span><span class="rvts124">SmallModel</span><span class="rvts125">:</span><span class="rvts124"> HisTime,ITime,MaxTime,Zero,First,Last,Future,Final,Yr</span></p>
+<p class="rvps108"><span class="rvts165">import</span><span class="rvts124"> </span><span class="rvts125">...</span><span class="rvts124">SmallModel</span><span class="rvts125">:</span><span class="rvts124"> </span><span class="rvts126">@finite_math</span><span class="rvts124">,finite_inverse,finite_divide,finite_power,finite_exp,finite_log</span></p>
+<p class="rvps108"><span class="rvts165">import</span><span class="rvts124"> </span><span class="rvts125">...</span><span class="rvts124">SmallModel</span><span class="rvts125">:</span><span class="rvts124"> DB</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts147">const</span><span class="rvts124"> VariableArray{N} </span><span class="rvts125">=</span><span class="rvts124"> Array{Float32,N} </span><span class="rvts147">where</span><span class="rvts124"> {N}</span></p>
+<p class="rvps108"><span class="rvts147">const</span><span class="rvts124"> SetArray </span><span class="rvts125">=</span><span class="rvts124"> Vector{String}</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts124">Base</span><span class="rvts125">.</span><span class="rvts126">@kwdef</span><span class="rvts124"> </span><span class="rvts147">struct</span><span class="rvts124"> WholesalePrices_Fuel_Hi_Data</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; db</span><span class="rvts125">::</span><span class="rvts149">String</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; BCNameDB</span><span class="rvts125">::</span><span class="rvts149">String</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/BCNameDB"</span><span class="rvts124">) </span><span class="rvts163"># Base Case Name</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; Area</span><span class="rvts125">::</span><span class="rvts149">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/AreaKey"</span><span class="rvts124">)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; AreaDS</span><span class="rvts125">::</span><span class="rvts149">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/AreaDS"</span><span class="rvts124">)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; Areas</span><span class="rvts125">::</span><span class="rvts149">Vector{Int}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">collect</span><span class="rvts124">(</span><span class="rvts126">Select</span><span class="rvts124">(Area))</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; ES</span><span class="rvts125">::</span><span class="rvts149">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/ESKey"</span><span class="rvts124">)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; ESDS</span><span class="rvts125">::</span><span class="rvts149">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/ESDS"</span><span class="rvts124">)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; ESs</span><span class="rvts125">::</span><span class="rvts149">Vector{Int}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">collect</span><span class="rvts124">(</span><span class="rvts126">Select</span><span class="rvts124">(ES))</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; Fuel</span><span class="rvts125">::</span><span class="rvts149">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/FuelKey"</span><span class="rvts124">)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; FuelDS</span><span class="rvts125">::</span><span class="rvts149">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/FuelDS"</span><span class="rvts124">)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; Fuels</span><span class="rvts125">::</span><span class="rvts149">Vector{Int}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">collect</span><span class="rvts124">(</span><span class="rvts126">Select</span><span class="rvts124">(Fuel))</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; Nation</span><span class="rvts125">::</span><span class="rvts149">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/NationKey"</span><span class="rvts124">)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; NationDS</span><span class="rvts125">::</span><span class="rvts149">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/NationDS"</span><span class="rvts124">)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; Nations</span><span class="rvts125">::</span><span class="rvts149">Vector{Int}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">collect</span><span class="rvts124">(</span><span class="rvts126">Select</span><span class="rvts124">(Nation))</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; Year</span><span class="rvts125">::</span><span class="rvts149">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/YearKey"</span><span class="rvts124">)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; YearDS</span><span class="rvts125">::</span><span class="rvts149">SetArray</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/YearDS"</span><span class="rvts124">)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; Years</span><span class="rvts125">::</span><span class="rvts149">Vector{Int}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">collect</span><span class="rvts124">(</span><span class="rvts126">Select</span><span class="rvts124">(Year))</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; ANMap</span><span class="rvts125">::</span><span class="rvts149">VariableArray{2}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"E2020DB/ANMap"</span><span class="rvts124">) </span><span class="rvts163"># [Area,Nation] Map between Area and Nation</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; ENPN</span><span class="rvts125">::</span><span class="rvts149">VariableArray{3}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db, </span><span class="rvts127">"SOutput/ENPN"</span><span class="rvts124">) </span><span class="rvts163"># [Fuel,Nation,Year] Primary Fuel Price ($/mmBtu)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; xExchangeRateNation</span><span class="rvts125">::</span><span class="rvts149">VariableArray{2}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"MInput/xExchangeRateNation"</span><span class="rvts124">) </span><span class="rvts163"># [Nation,Year] Local Currency/US$ Exchange Rate (Local/US$)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; xENPN</span><span class="rvts125">::</span><span class="rvts149">VariableArray{3}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"SInput/xENPN"</span><span class="rvts124">) </span><span class="rvts163"># [Fuel,Nation,Year] Wholesale Energy Prices (1985 US$/mmBtu)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; xInflationNation</span><span class="rvts125">::</span><span class="rvts149">VariableArray{2}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">ReadDisk</span><span class="rvts124">(db,</span><span class="rvts127">"MInput/xInflationNation"</span><span class="rvts124">) </span><span class="rvts163"># [Nation,Year] Inflation Index ($/$)</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; </span><span class="rvts163"># Scratch Variables</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; AEOPrices</span><span class="rvts125">::</span><span class="rvts149">VariableArray{2}</span><span class="rvts124"> </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">zeros</span><span class="rvts124">(Float32,</span><span class="rvts126">length</span><span class="rvts124">(Fuel),</span><span class="rvts126">length</span><span class="rvts124">(Year)) </span><span class="rvts163"># [Fuel,Year] AEO Wholesale Fuel Prices ($/mmBtu)</span></p>
+<p class="rvps108"><span class="rvts165">end</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts147">function</span><span class="rvts124"> </span><span class="rvts126">PricePolicy</span><span class="rvts124">(db)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; data </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">WholesalePrices_Fuel_Hi_Data</span><span class="rvts124">(; db)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; (;ES,Fuel,Fuels,Nation,Nations,Years) </span><span class="rvts125">=</span><span class="rvts124"> data</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; (;ANMap,ENPN,xExchangeRateNation,xENPN,xInflationNation) </span><span class="rvts125">=</span><span class="rvts124"> data</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; (;AEOPrices) </span><span class="rvts125">=</span><span class="rvts124"> data</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp;&nbsp;</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; CN </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">Select</span><span class="rvts124">(Nation,</span><span class="rvts127">"CN"</span><span class="rvts124">)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; fuel </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">Select</span><span class="rvts124">(Fuel,</span><span class="rvts127">"NaturalGas"</span><span class="rvts124">)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; xENPN[fuel,CN,</span><span class="rvts126">Yr</span><span class="rvts124">(</span><span class="rvts199">2026</span><span class="rvts124">)] </span><span class="rvts125">=</span><span class="rvts124"> xENPN[fuel,CN,</span><span class="rvts126">Yr</span><span class="rvts124">(</span><span class="rvts199">2026</span><span class="rvts124">)]</span><span class="rvts125">*</span><span class="rvts124">(</span><span class="rvts199">1</span><span class="rvts124"> </span><span class="rvts125">+</span><span class="rvts124"> </span><span class="rvts199">0.0</span><span class="rvts124"> )</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; </span><span class="rvts163">#</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; </span><span class="rvts163"># Light Crude Oil Price</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; </span><span class="rvts163">#</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; fuel </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">Select</span><span class="rvts124">(Fuel,</span><span class="rvts127">"LightCrudeOil"</span><span class="rvts124">)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; xENPN[fuel,CN,</span><span class="rvts126">Yr</span><span class="rvts124">(</span><span class="rvts199">2026</span><span class="rvts124">)] </span><span class="rvts125">=</span><span class="rvts124"> xENPN[fuel,CN,</span><span class="rvts126">Yr</span><span class="rvts124">(</span><span class="rvts199">2026</span><span class="rvts124">)]</span><span class="rvts125">*</span><span class="rvts124">(</span><span class="rvts199">1</span><span class="rvts124"> </span><span class="rvts125">+</span><span class="rvts124"> </span><span class="rvts199">0.704</span><span class="rvts124">)</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; </span><span class="rvts163">#</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; </span><span class="rvts163"># Heavy Crude Oil Price</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; </span><span class="rvts163">#</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; fuel </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">Select</span><span class="rvts124">(Fuel,</span><span class="rvts127">"HeavyCrudeOil"</span><span class="rvts124">)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; xENPN[fuel,CN,</span><span class="rvts126">Yr</span><span class="rvts124">(</span><span class="rvts199">2026</span><span class="rvts124">)] </span><span class="rvts125">=</span><span class="rvts124"> xENPN[fuel,CN,</span><span class="rvts126">Yr</span><span class="rvts124">(</span><span class="rvts199">2026</span><span class="rvts124">)]</span><span class="rvts125">*</span><span class="rvts124">(</span><span class="rvts199">1</span><span class="rvts124"> </span><span class="rvts125">+</span><span class="rvts124"> </span><span class="rvts199">0.716</span><span class="rvts124">)</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; fuels </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">Select</span><span class="rvts124">(Fuel,[</span><span class="rvts127">"LightCrudeOil"</span><span class="rvts124">,</span><span class="rvts127">"HeavyCrudeOil"</span><span class="rvts124">])</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; </span><span class="rvts165">for</span><span class="rvts124"> fuel </span><span class="rvts125">in</span><span class="rvts124"> Fuels</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; &nbsp; ENPN[fuel,CN,</span><span class="rvts126">Yr</span><span class="rvts124">(</span><span class="rvts199">2026</span><span class="rvts124">)] </span><span class="rvts125">=</span><span class="rvts124"> xENPN[fuel,CN,</span><span class="rvts126">Yr</span><span class="rvts124">(</span><span class="rvts199">2026</span><span class="rvts124">)]</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; </span><span class="rvts165">end</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; </span><span class="rvts126">WriteDisk</span><span class="rvts124">(db,</span><span class="rvts127">"SInput/xENPN"</span><span class="rvts124">,xENPN)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; </span><span class="rvts126">WriteDisk</span><span class="rvts124">(db,</span><span class="rvts127">"SOutput/ENPN"</span><span class="rvts124">,ENPN)</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts165">end</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts147">function</span><span class="rvts124"> </span><span class="rvts126">PolicyControl</span><span class="rvts124">(db)</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; </span><span class="rvts126">@info</span><span class="rvts124"> </span><span class="rvts127">"WholesalePrices_Fuel_Hi.jl - PolicyControl"</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; </span><span class="rvts126">PricePolicy</span><span class="rvts124">(db)</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts165">end</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts165">if</span><span class="rvts124"> </span><span class="rvts126">abspath</span><span class="rvts124">(PROGRAM_FILE) </span><span class="rvts125">==</span><span class="rvts124"> </span><span class="rvts126">@__FILE__</span></p>
+<p class="rvps108"><span class="rvts124">&nbsp; </span><span class="rvts126">PolicyControl</span><span class="rvts124">(DB)</span></p>
+<p class="rvps108"><span class="rvts165">end</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
+<p class="rvps108"><span class="rvts165">end</span></p>
+<p class="rvps108"><span class="rvts124"><br/></span></p>
 <p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
 
             </div>

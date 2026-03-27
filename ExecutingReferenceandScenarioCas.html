@@ -881,7 +881,7 @@ details.example-toggle[open] > summary::before {
 }
 
 details.example-toggle > summary::after {
-  content: "📚";
+/*  content: "📚";*/
   font-size: 14px;
   margin-left: 2px;
   margin-right: 2px;
@@ -1072,29 +1072,29 @@ pre {
 
             <div class="main-content">
                 
-<p class="rvps2"><span class="rvts21">RunE2100.bat</span><span class="rvts6"> is a batch file that executes ENERGY 2100 scenarios given a set of input parameters. The required parameters in the current version of the batch are listed at the top of the file and include the scenario, start and end years for execution, type of outputs to produce, and the starting, base case, and reference databases. These parameters are passed to the model for execution through to the specified end year. This batch file is rarely modified directly, but instead produces different forecasts by altering the parameters sent to it.</span></p>
+<p class="rvps2"><span class="rvts18">RunE2100.bat</span><span class="rvts6"> is a batch file that executes ENERGY 2100 scenarios given a set of input parameters. The required parameters in the current version of the batch are listed at the top of the file and include the scenario, start and end years for execution, type of outputs to produce, and the starting, base case, and reference databases. These parameters are passed to the model for execution through to the specified end year. This batch file is rarely modified directly, but instead produces different forecasts by altering the parameters sent to it.</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts6">RunModel.bat will usually include several RunE2100 calls that execute default forecast scenarios, such as for the base and reference cases. RunE2100 can also be executed individually to create a single scenario, or called in sequence from another batch file to queue multiple scenarios. </span><span class="rvts21">RunE2100Runs.bat</span><span class="rvts6"> serves as a template for executing forecast scenarios outside of RunModel. The parameters in this file can be adjusted by the user as needed. The descriptions for each parameter are listed at the top of the file for user reference.</span></p>
+<p class="rvps2"><span class="rvts6">RunModel.bat will usually include several RunE2100 calls that execute default forecast scenarios, such as for the base and reference cases. RunE2100 can also be executed individually to create a single scenario, or called in sequence from another batch file to queue multiple scenarios. </span><span class="rvts18">RunE2100Runs.bat</span><span class="rvts6"> serves as a template for executing forecast scenarios outside of RunModel. The parameters in this file can be adjusted by the user as needed. The descriptions for each parameter are listed at the top of the file for user reference.</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts6">To execute a reference case, follow the instructions below:</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <li class="rvps2 noindent"><span class="rvts6">These instructions to execute the Reference Case assume you have already executed a RunAll.bat previously and have databases created for the Base run.</span></li>
- <li class="rvps2 noindent"><span class="rvts6">To execute a reference case named Ref25, set up the batch file, </span><span class="rvts21">RunE2100Runs.bat,</span><span class="rvts6"> to call RunE2100 and pass the arguments listed below:</span></li>
+ <li class="rvps2 noindent"><span class="rvts6">To execute a reference case named Ref25, set up the batch file, </span><span class="rvts18">RunE2100Runs.bat,</span><span class="rvts6"> to call RunE2100 and pass the arguments listed below:</span></li>
 </ol>
-<p class="rvps2"><span class="rvts6">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp; &nbsp; %1 &nbsp; &nbsp; &nbsp; &nbsp; %2</span><span class="rvts68"> &nbsp; &nbsp; &nbsp; %3 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;%4 &nbsp; &nbsp; &nbsp; &nbsp;%5 &nbsp; &nbsp; &nbsp; %6 &nbsp; &nbsp; &nbsp; %7 &nbsp; &nbsp; &nbsp; &nbsp;%8 &nbsp; &nbsp; &nbsp; %9</span></p>
-<p class="rvps42"><span class="rvts6">Call &nbsp; </span><span class="rvts21">RunE2100</span><span class="rvts6"> &nbsp; &nbsp;Ref25 &nbsp; Ref25 &nbsp; TestEmpty &nbsp; 2020 &nbsp; &nbsp;2050 &nbsp; &nbsp;Base &nbsp; &nbsp; Base &nbsp; &nbsp; Base &nbsp; &nbsp;All</span></p>
+<p class="rvps2"><span class="rvts6">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp; &nbsp; %1 &nbsp; &nbsp; &nbsp; &nbsp; %2</span><span class="rvts66"> &nbsp; &nbsp; &nbsp; %3 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;%4 &nbsp; &nbsp; &nbsp; &nbsp;%5 &nbsp; &nbsp; &nbsp; %6 &nbsp; &nbsp; &nbsp; %7 &nbsp; &nbsp; &nbsp; &nbsp;%8 &nbsp; &nbsp; &nbsp; %9</span></p>
+<p class="rvps39"><span class="rvts6">Call &nbsp; </span><span class="rvts18">RunE2100</span><span class="rvts6"> &nbsp; &nbsp;Ref25 &nbsp; Ref25 &nbsp; TestEmpty &nbsp; 2020 &nbsp; &nbsp;2050 &nbsp; &nbsp;Base &nbsp; &nbsp; Base &nbsp; &nbsp; Base &nbsp; &nbsp;All</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps42"><span class="rvts6">where:</span></p>
-<p class="rvps88"><span class="rvts6">Argument 1 (%1) - Scenario Name</span></p>
-<p class="rvps88"><span class="rvts6">Argument 2 (%2) - Reference Policy File</span></p>
-<p class="rvps88"><span class="rvts6">Argument 3 (%3) - Test Policy File</span></p>
-<p class="rvps88"><span class="rvts6">Argument 4 (%4) - Beginning Year</span></p>
-<p class="rvps88"><span class="rvts6">Argument 5 (%5) - Ending Year&nbsp;</span></p>
-<p class="rvps88"><span class="rvts6">Argument 6 (%6) - Reference Case</span></p>
-<p class="rvps88"><span class="rvts6">Argument 7 (%7) - Scenario for zInitial in Access outputs</span></p>
-<p class="rvps88"><span class="rvts6">Argument 8 (%8) - Economic Model Investments Case (see Jeff)</span></p>
-<p class="rvps88"><span class="rvts6">Argument 9 (%9) - Output Files (All, ExcelDTAs, AccessDTAs, or None)&nbsp;</span></p>
+<p class="rvps39"><span class="rvts6">where:</span></p>
+<p class="rvps85"><span class="rvts6">Argument 1 (%1) - Scenario Name</span></p>
+<p class="rvps85"><span class="rvts6">Argument 2 (%2) - Reference Policy File</span></p>
+<p class="rvps85"><span class="rvts6">Argument 3 (%3) - Test Policy File</span></p>
+<p class="rvps85"><span class="rvts6">Argument 4 (%4) - Beginning Year</span></p>
+<p class="rvps85"><span class="rvts6">Argument 5 (%5) - Ending Year&nbsp;</span></p>
+<p class="rvps85"><span class="rvts6">Argument 6 (%6) - Reference Case</span></p>
+<p class="rvps85"><span class="rvts6">Argument 7 (%7) - Scenario for zInitial in Access outputs</span></p>
+<p class="rvps85"><span class="rvts6">Argument 8 (%8) - Economic Model Investments Case (see Jeff)</span></p>
+<p class="rvps85"><span class="rvts6">Argument 9 (%9) - Output Files (All, ExcelDTAs, AccessDTAs, or None)&nbsp;</span></p>
 <p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
 
             </div>

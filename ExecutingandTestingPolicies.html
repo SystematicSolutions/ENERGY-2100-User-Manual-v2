@@ -881,7 +881,7 @@ details.example-toggle[open] > summary::before {
 }
 
 details.example-toggle > summary::after {
-  content: "📚";
+/*  content: "📚";*/
   font-size: 14px;
   margin-left: 2px;
   margin-right: 2px;
@@ -1072,13 +1072,13 @@ pre {
 
             <div class="main-content">
                 
-<h2 class="rvps89"><span class="rvts0"><span class="rvts152">Executing and Testing Policies</span></span></h2>
-<h3 class="rvps17"><span class="rvts0"><span class="rvts29">Testing Policy Files</span></span></h3>
-<p class="rvps19"><span class="rvts6">Individual or groups of policies can be tested without modifying a scenario by including it in a ‘PolicyTest’ file. These files are designed as a quick way of testing the impacts of a new policy on top of an existing scenario. A template file is available in the Policy subfolder that can be used to test a policy by following the steps below:</span></p>
+<h2 class="rvps86"><span class="rvts0"><span class="rvts153">Executing and Testing Policies</span></span></h2>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Testing Policy Files</span></span></h3>
+<p class="rvps15"><span class="rvts6">Individual or groups of policies can be tested without modifying a scenario by including it in a ‘PolicyTest’ file. These files are designed as a quick way of testing the impacts of a new policy on top of an existing scenario. A template file is available in the Policy subfolder that can be used to test a policy by following the steps below:</span></p>
 <ol style="text-indent: -48px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li style="text-indent: -48px" class="rvps90 noindent"><span class="rvts6">Editing ‘PolicyTestTemplate.jl’ to include the files to be tested in the first section and adding the PolicyControl functions to be called in the IncorporatePolicyTest() function.</span></li>
- <li style="text-indent: -48px" class="rvps90 noindent"><span class="rvts6">Save the file with a different name describing the policies being tested. For example, a collection of building standard policies could be named ‘BuildStdTest.jl’</span></li>
- <li style="text-indent: -48px" class="rvps90 noindent"><span class="rvts6">Edit the batch file used to call the desired scenario to include the newly created file as the third parameter. The default is ‘TestEmpty’, which tells the model that there are no additional files to test. Modifying this to ‘BuildStdTest’ will add the files from ‘BuildStdTest.jl’ on top of the existing scenario in the second parameter.</span><span class="rvts6"></span></li>
+ <li style="text-indent: -48px" class="rvps87 noindent"><span class="rvts6">Editing ‘PolicyTestTemplate.jl’ to include the files to be tested in the first section and adding the PolicyControl functions to be called in the IncorporatePolicyTest() function.</span></li>
+ <li style="text-indent: -48px" class="rvps87 noindent"><span class="rvts6">Save the file with a different name describing the policies being tested. For example, a collection of building standard policies could be named ‘BuildStdTest.jl’</span></li>
+ <li style="text-indent: -48px" class="rvps87 noindent"><span class="rvts6">Edit the batch file used to call the desired scenario to include the newly created file as the third parameter. The default is ‘TestEmpty’, which tells the model that there are no additional files to test. Modifying this to ‘BuildStdTest’ will add the files from ‘BuildStdTest.jl’ on top of the existing scenario in the second parameter.</span><span class="rvts6"></span></li>
 </ol>
 
             </div>

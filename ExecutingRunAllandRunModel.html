@@ -881,7 +881,7 @@ details.example-toggle[open] > summary::before {
 }
 
 details.example-toggle > summary::after {
-  content: "📚";
+/*  content: "📚";*/
   font-size: 14px;
   margin-left: 2px;
   margin-right: 2px;
@@ -1072,20 +1072,20 @@ pre {
 
             <div class="main-content">
                 
-<h2 class="rvps6"><span class="rvts0"><span class="rvts12">Summary of RunAll and RunModel</span></span></h2>
-<p class="rvps5"><span class="rvts21">RunAll.bat</span><span class="rvts6"> - Executes the entire model from reading in input data through creating a reference case. RunAll.bat is housed in \2020Model.</span></p>
-<p class="rvps5"><span class="rvts21">RunAll_Debug.bat</span><span class="rvts6"> - Executes the entire model from reading in input data through creating a reference case, saving the databases at multiple steps in the process to aid in debugging. RunAll_Debug.bat is housed in \2020Model.</span></p>
-<p class="rvps5"><span class="rvts21">RunModel.bat</span><span class="rvts6"> - Executes the model after historical databases are populated, but before data adjustments and calibration. To start the model at RunModel.bat, your model must already have a \Process database created.</span></p>
-<h2 class="rvps6"><span class="rvts0"><span class="rvts12">Executing a RunAll</span></span></h2>
-<p class="rvps2"><span class="rvts6">A ‘RunAll’ is a shorthanded term for a full execution of the model, starting with the setting of default parameters and the creation of the initial database. </span><span class="rvts21">RunAll.bat</span><span class="rvts6"> is located in /2020Model and can be called without any other parameters to execute a full run. Optionally, </span><span class="rvts21">RunAll_Debug.bat </span><span class="rvts6">in /2020Model can be used to execute the same run but with additional databases saved during the model calibration for more finely-tuned review.</span></p>
+<h2 class="rvps12"><span class="rvts0"><span class="rvts23">Summary of RunAll and RunModel</span></span></h2>
+<p class="rvps5"><span class="rvts18">RunAll.bat</span><span class="rvts6"> - Executes the entire model from reading in input data through creating a reference case. RunAll.bat is housed in \2020Model.</span></p>
+<p class="rvps5"><span class="rvts18">RunAll_Debug.bat</span><span class="rvts6"> - Executes the entire model from reading in input data through creating a reference case, saving the databases at multiple steps in the process to aid in debugging. RunAll_Debug.bat is housed in \2020Model.</span></p>
+<p class="rvps5"><span class="rvts18">RunModel.bat</span><span class="rvts6"> - Executes the model after historical databases are populated, but before data adjustments and calibration. To start the model at RunModel.bat, your model must already have a \Process database created.</span></p>
+<h2 class="rvps12"><span class="rvts0"><span class="rvts23">Executing a RunAll</span></span></h2>
+<p class="rvps2"><span class="rvts6">A ‘RunAll’ is a shorthanded term for a full execution of the model, starting with the setting of default parameters and the creation of the initial database. </span><span class="rvts18">RunAll.bat</span><span class="rvts6"> is located in /2020Model and can be called without any other parameters to execute a full run. Optionally, </span><span class="rvts18">RunAll_Debug.bat </span><span class="rvts6">in /2020Model can be used to execute the same run but with additional databases saved during the model calibration for more finely-tuned review.</span></p>
 <p class="rvps2"><span class="rvts6">A RunAll generally should be executed with any modification to the source code or change to input data. Common changes that require a RunAll include:</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: '- ';">
- <li style="text-indent: 0px" class="rvps87 noindent"><span class="rvts15">Changes to the model parameters, such as modifying the values in a set.</span></li>
- <li style="text-indent: 0px" class="rvps87 noindent"><span class="rvts15">Adding a new variable to the model database</span></li>
- <li style="text-indent: 0px" class="rvps87 noindent"><span class="rvts15">Updates to any of the .dat files that contain input data</span></li>
- <li style="text-indent: 0px" class="rvps87 noindent"><span class="rvts15">Changes to the macroeconomic model, including updating the default forecast</span></li>
+ <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts14">Changes to the model parameters, such as modifying the values in a set.</span></li>
+ <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts14">Adding a new variable to the model database</span></li>
+ <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts14">Updates to any of the .dat files that contain input data</span></li>
+ <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts14">Changes to the macroeconomic model, including updating the default forecast</span></li>
 </ul>
-<h3 class="rvps17"><span class="rvts0"><span class="rvts29">Steps in RunAll:</span></span></h3>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Steps in RunAll:</span></span></h3>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li class="rvps2 noindent"><span class="rvts6">Initialize policies to be empty policy code</span></li>
  <li class="rvps2 noindent"><span class="rvts6">Create model databases</span></li>
@@ -1094,34 +1094,34 @@ pre {
  <li class="rvps2 noindent"><span class="rvts6">Save to \Process database</span></li>
  <li class="rvps2 noindent"><span class="rvts6">Call RunModel.bat</span></li>
 </ol>
-<h2 class="rvps6"><span class="rvts0"><span class="rvts12">Executing RunModel.bat</span></span></h2>
-<p class="rvps2"><span class="rvts6">A ‘RunModel’ describes the sequence of commands that the model after incorporating the input data to calibrate the model, apply adjustments, and produce base case and policy forecasts. This sequence is currently stored in batch file format in </span><span class="rvts21">RunModel.bat</span><span class="rvts6"> in the /2020Model folder. Double clicking this batch file will execute the model using the initial databases created during a RunAll.&nbsp;</span></p>
+<h2 class="rvps12"><span class="rvts0"><span class="rvts23">Executing RunModel.bat</span></span></h2>
+<p class="rvps2"><span class="rvts6">A ‘RunModel’ describes the sequence of commands that the model after incorporating the input data to calibrate the model, apply adjustments, and produce base case and policy forecasts. This sequence is currently stored in batch file format in </span><span class="rvts18">RunModel.bat</span><span class="rvts6"> in the /2020Model folder. Double clicking this batch file will execute the model using the initial databases created during a RunAll.&nbsp;</span></p>
 <p class="rvps2"><span class="rvts6">Opening RunModel.bat in a text editor will show the exact sequence of files called and model execution. There are numerous files called and hundreds of lines of the sequence in current model versions. &nbsp;</span></p>
-<p class="rvps2"><span class="rvts6">Steps in </span><span class="rvts21">RunModel</span><span class="rvts6">:</span></p>
+<p class="rvps2"><span class="rvts6">Steps in </span><span class="rvts18">RunModel</span><span class="rvts6">:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li style="text-indent: 0px" class="rvps87 noindent"><span class="rvts15">Opens up the initial database (currently known as ‘Process’) and populates historical variables with values from the data input process</span></li>
- <li style="text-indent: 0px" class="rvps87 noindent"><span class="rvts15">Reads in assumptions for the supply and macroeconomic segments and executes supply and macroeconomic calibration</span></li>
- <li style="text-indent: 0px" class="rvps87 noindent"><span class="rvts15">Reads in assumptions for demand segments and calibrates the demands sectors</span></li>
- <li style="text-indent: 0px" class="rvps87 noindent"><span class="rvts15">Reads in parameters for the electric generation segment and calibrates electric supply</span></li>
- <li style="text-indent: 0px" class="rvps87 noindent"><span class="rvts15">Activates and calibrates endogenous electric prices</span></li>
- <li style="text-indent: 0px" class="rvps87 noindent"><span class="rvts15">Creates and applies emissions coefficients</span></li>
- <li style="text-indent: 0px" class="rvps87 noindent"><span class="rvts15">Applies final calibration and forecast adjustments and creates the starting database for forecast scenarios (‘StartBase’)</span></li>
- <li style="text-indent: 0px" class="rvps87 noindent"><span class="rvts15">Executes the base case</span></li>
- <li style="text-indent: 0px" class="rvps87 noindent"><span class="rvts15">Executes policy scenarios</span></li>
+ <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts14">Opens up the initial database (currently known as ‘Process’) and populates historical variables with values from the data input process</span></li>
+ <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts14">Reads in assumptions for the supply and macroeconomic segments and executes supply and macroeconomic calibration</span></li>
+ <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts14">Reads in assumptions for demand segments and calibrates the demands sectors</span></li>
+ <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts14">Reads in parameters for the electric generation segment and calibrates electric supply</span></li>
+ <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts14">Activates and calibrates endogenous electric prices</span></li>
+ <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts14">Creates and applies emissions coefficients</span></li>
+ <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts14">Applies final calibration and forecast adjustments and creates the starting database for forecast scenarios (‘StartBase’)</span></li>
+ <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts14">Executes the base case</span></li>
+ <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts14">Executes policy scenarios</span></li>
 </ol>
-<p class="rvps2"><span class="rvts44"><br/></span></p>
+<p class="rvps2"><span class="rvts41"><br/></span></p>
 <p class="rvps2"><span class="rvts6">RunModel should be executed to incorporate any modifications to files that are used in the steps above. By convention, these files are generally located in the /Calibration or /Input/Scripts subfolders.</span></p>
-<h2 class="rvps6"><span class="rvts0"><span class="rvts12">Modifying RunModel</span></span></h2>
+<h2 class="rvps12"><span class="rvts0"><span class="rvts23">Modifying RunModel</span></span></h2>
 <p class="rvps2"><span class="rvts6">Depending on modeling computer speed, RunModel can take a significant amount of time to re-calibrate the model and produce a new forecast. Often, a file will be adjusted, added, or deleted near the bottom of RunModel.bat. To save execution time in these scenarios, RunModel creates ‘stopping points’, or zipped up databases than can be used to re-run the model calibration at specific points instead of needing to re-execute the entire sequence.</span></p>
 <p class="rvps2"><span class="rvts6">These stopping points can be found in the file as commented out ‘Call UnZip DB’ statements that point to the saved name of the database, located in a subfolder in /2020Model. Use the following steps to shorten RunModel to incorporate a change:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li style="text-indent: 0px" class="rvps87 noindent"><span class="rvts15">Identify where in the file the change is being made, or where the modified file is being called.&nbsp;</span></li>
- <li style="text-indent: 0px" class="rvps87 noindent"><span class="rvts15">From this location, move upwards until there is an UnZip statement.</span></li>
- <li style="text-indent: 0px" class="rvps87 noindent"><span class="rvts15">Verify that the subfolder with the name used in the UnZip statement contains a zipped database file matching the version you want to use. Remember that RunAll_Debug creates more stopping points, so make sure that the zip file was created. If it is not created, or has an older date, then search upwards for another UnZip statement</span></li>
- <li style="text-indent: 0px" class="rvps87 noindent"><span class="rvts15">Once the UnZip line is chosen, remove the comment (‘rem’) from in front of the line. Then delete all lines above until the UnZip statement is on the first line of the file.</span></li>
- <li style="text-indent: 0px" class="rvps87 noindent"><span class="rvts15">Save the edited batch file to 2020Model using a different name than ‘RunModel.bat’. This file can be considered temporary and deleted after use.</span></li>
+ <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts14">Identify where in the file the change is being made, or where the modified file is being called.&nbsp;</span></li>
+ <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts14">From this location, move upwards until there is an UnZip statement.</span></li>
+ <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts14">Verify that the subfolder with the name used in the UnZip statement contains a zipped database file matching the version you want to use. Remember that RunAll_Debug creates more stopping points, so make sure that the zip file was created. If it is not created, or has an older date, then search upwards for another UnZip statement</span></li>
+ <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts14">Once the UnZip line is chosen, remove the comment (‘rem’) from in front of the line. Then delete all lines above until the UnZip statement is on the first line of the file.</span></li>
+ <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts14">Save the edited batch file to 2020Model using a different name than ‘RunModel.bat’. This file can be considered temporary and deleted after use.</span></li>
 </ol>
-<p class="rvps2"><span class="rvts44"></span><span class="rvts6"></span></p>
+<p class="rvps2"><span class="rvts41"></span><span class="rvts6"></span></p>
 
             </div>
             

@@ -881,7 +881,7 @@ details.example-toggle[open] > summary::before {
 }
 
 details.example-toggle > summary::after {
-  content: "📚";
+/*  content: "📚";*/
   font-size: 14px;
   margin-left: 2px;
   margin-right: 2px;
@@ -1072,30 +1072,30 @@ pre {
 
             <div class="main-content">
                 
-<p class="rvps2"><span class="rvts189">Hydrogen Supply Policies</span></p>
+<p class="rvps2"><span class="rvts190">Hydrogen Supply Policies</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
  <li class="rvps2 noindent"><span class="rvts6">Modify hydrogen and ammonia production levels</span></li>
 </ul>
-<h3 class="rvps17"><span class="rvts0"><span class="rvts29">Prices</span></span></h3>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Prices</span></span></h3>
 <p class="rvps2"><span class="rvts6">ENPNSw set to 1 gets prices from hydrogen module for hydrogen and ammonia for the fuels and nations specified.</span></p>
-<h3 class="rvps17"><span class="rvts0"><span class="rvts29">Hydrogen Demands</span></span></h3>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Hydrogen Demands</span></span></h3>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps189"><span class="rvts6">HydrogenResCom.jl</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps189"><span class="rvts6">Ind_H2_Demands_RefA.jl</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps186"><span class="rvts6">HydrogenResCom.jl</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps186"><span class="rvts6">Ind_H2_Demands_RefA.jl</span></li>
 </ul>
 <p class="rvps2"><span class="rvts6">Modify DmFrac[Max|Min] and xDmFrac to mandate Hydrogen/Ammonia fuel use for specific enduse/tech combos. Setting DmFracTime to 1 ensures that transition happens immediately.</span></p>
 <p class="rvps2"><span class="rvts6">Alternatively, when affecting feedstocks, modify FsFrac[Max|Min] and xFsFrac to force fuel shares for specific techs (usually Gas)</span></p>
-<h3 class="rvps17"><span class="rvts0"><span class="rvts29">Supply</span></span></h3>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Supply</span></span></h3>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps189"><span class="rvts6">Ammonia_Exports.jl</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps189"><span class="rvts6">H2_Supply.jl</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps189"><span class="rvts6">Hydrogen_ITC.jl</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps186"><span class="rvts6">Ammonia_Exports.jl</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps186"><span class="rvts6">H2_Supply.jl</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps186"><span class="rvts6">Hydrogen_ITC.jl</span></li>
 </ul>
 <p class="rvps2"><span class="rvts6">Set xNH3Exports for specific area / year combination to exogenously set ammonia export levels.</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts6">Set NH3MSM0 to determine which H2Techs are available (0 &gt;= values &gt; -170) and unavailable (values = -170) for </span><span class="rvts21">ammonia</span><span class="rvts6"> production.</span></p>
+<p class="rvps2"><span class="rvts6">Set NH3MSM0 to determine which H2Techs are available (0 &gt;= values &gt; -170) and unavailable (values = -170) for </span><span class="rvts18">ammonia</span><span class="rvts6"> production.</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts6">Set H2MSM0 to determine which H2Techs are available (0 &gt;= values &gt; -170) and unavailable (values = -170) for </span><span class="rvts21">hydrogen</span><span class="rvts6"> production.</span></p>
+<p class="rvps2"><span class="rvts6">Set H2MSM0 to determine which H2Techs are available (0 &gt;= values &gt; -170) and unavailable (values = -170) for </span><span class="rvts18">hydrogen</span><span class="rvts6"> production.</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts6">Set physical lifetimes of plants to plan for retirements with H2PL. Setting it to zero means no retirements are required.</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>

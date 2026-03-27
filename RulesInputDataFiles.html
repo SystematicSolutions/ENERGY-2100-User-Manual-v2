@@ -881,7 +881,7 @@ details.example-toggle[open] > summary::before {
 }
 
 details.example-toggle > summary::after {
-  content: "📚";
+/*  content: "📚";*/
   font-size: 14px;
   margin-left: 2px;
   margin-right: 2px;
@@ -1072,121 +1072,121 @@ pre {
 
             <div class="main-content">
                 
-<h2 class="rvps6"><span class="rvts0"><span class="rvts12">Updating an Existing Input Data File</span></span></h2>
+<h2 class="rvps12"><span class="rvts0"><span class="rvts23">Updating an Existing Input Data File</span></span></h2>
 <p class="rvps2"><span class="rvts6">If you want to update input data that already has existing input data file, modify the existing file to revise or add new values or replace the existing file with a new .dat file having the same format.</span></p>
-<h2 class="rvps6"><span class="rvts0"><span class="rvts12">Creating a New Input Data File</span></span></h2>
-<div class="rvps12">
+<h2 class="rvps12"><span class="rvts0"><span class="rvts23">Creating a New Input Data File</span></span></h2>
+<div class="rvps26">
 <table width="100%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #f3f300; vertical-align: top; width: 2px; height: 54px;">
-   <p class="rvps11"><span class="rvts160"><br/></span></p>
+   <p class="rvps22"><span class="rvts161"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #ffffe7; vertical-align: top; width: 938px; height: 54px;">
-   <p class="rvps13"><span class="rvts156">⚠️</span><span class="rvts161">Warning</span></p>
-   <p class="rvps2"><span class="rvts156">Before adding a new input variable, verify the variable is defined in \Database\VBInput.jl.</span></p>
+   <p class="rvps28"><span class="rvts157">⚠️</span><span class="rvts162">Warning</span></p>
+   <p class="rvps2"><span class="rvts157">Before adding a new input variable, verify the variable is defined in \Database\VBInput.jl.</span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps2"><span class="rvts6">If you want to add new input data to the model:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li class="rvps2 noindent"><span class="rvts6">Create a semi-colon delimited text file saved with a </span><span class="rvts21">.dat</span><span class="rvts6"> extension.&nbsp;</span></li>
- <li class="rvps2 noindent"><span class="rvts6">Name the file the same as the variable name (ex: </span><span class="rvts40">vDmd.dat</span><span class="rvts6">). By convention, the input variables are named with a 'v' prefix. &nbsp;During processing of the input data, the "v" variables are assigned to model variables.&nbsp;</span></li>
- <li class="rvps36 noindent"><span class="rvts6">Set up the data file such that each row contains one year's data along with its qualifying information.&nbsp;</span></li>
+ <li class="rvps2 noindent"><span class="rvts6">Create a semi-colon delimited text file saved with a </span><span class="rvts18">.dat</span><span class="rvts6"> extension.&nbsp;</span></li>
+ <li class="rvps2 noindent"><span class="rvts6">Name the file the same as the variable name (ex: </span><span class="rvts140">vDmd.dat</span><span class="rvts6">). By convention, the input variables are named with a 'v' prefix. &nbsp;During processing of the input data, the "v" variables are assigned to model variables.&nbsp;</span></li>
+ <li class="rvps33 noindent"><span class="rvts6">Set up the data file such that each row contains one year's data along with its qualifying information.&nbsp;</span></li>
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li class="rvps36 noindent"><span class="rvts6">Put the name of the variable in the first column.&nbsp;</span></li>
-  <li class="rvps36 noindent"><span class="rvts6">The next columns will contain set descriptors for the given variable, listed in reverse order as how the variable is defined.</span></li>
-  <li class="rvps36 noindent"><span class="rvts6">Add the units to the next column. The units should match exactly the units that are listed for that variable in \Database\VBInput.jl.&nbsp;</span></li>
-  <li class="rvps36 noindent"><span class="rvts6">The last column should contain the data values.</span></li>
+  <li class="rvps33 noindent"><span class="rvts6">Put the name of the variable in the first column.&nbsp;</span></li>
+  <li class="rvps33 noindent"><span class="rvts6">The next columns will contain set descriptors for the given variable, listed in reverse order as how the variable is defined.</span></li>
+  <li class="rvps33 noindent"><span class="rvts6">Add the units to the next column. The units should match exactly the units that are listed for that variable in \Database\VBInput.jl.&nbsp;</span></li>
+  <li class="rvps33 noindent"><span class="rvts6">The last column should contain the data values.</span></li>
  </ol>
 </ol>
-<p class="rvps36"><span class="rvts6"><br/></span></p>
-<p class="rvps97"><span class="rvts6">Below shows an example of the column entries for the variable, </span><span class="rvts37">vGCPot[Plant,Node,Area,Year]</span></p>
+<p class="rvps33"><span class="rvts6"><br/></span></p>
+<p class="rvps94"><span class="rvts6">Below shows an example of the column entries for the variable, </span><span class="rvts34">vGCPot[Plant,Node,Area,Year]</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 96px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps36 noindent"><span class="rvts6">Column 1: Variable name (ex: &nbsp;vGCPot;)&nbsp;</span></li>
- <li class="rvps36 noindent"><span class="rvts6">Column 2: Year descriptors (ex: 2023;)</span></li>
- <li class="rvps36 noindent"><span class="rvts6">Column 3: Area descriptor (ex: Ontario;)</span></li>
- <li class="rvps36 noindent"><span class="rvts6">Column 4: Node descriptor (ex: Ontario;)</span></li>
- <li class="rvps36 noindent"><span class="rvts6">Column 5: Plant descriptor (Gas/Oil Combined Cycle;)</span></li>
- <li class="rvps36 noindent"><span class="rvts6">Column 6: &nbsp;Units (ex: MW;)</span></li>
- <li class="rvps36 noindent"><span class="rvts6">Column 7: Data value (ex: 6708.32)</span></li>
+ <li class="rvps33 noindent"><span class="rvts6">Column 1: Variable name (ex: &nbsp;vGCPot;)&nbsp;</span></li>
+ <li class="rvps33 noindent"><span class="rvts6">Column 2: Year descriptors (ex: 2023;)</span></li>
+ <li class="rvps33 noindent"><span class="rvts6">Column 3: Area descriptor (ex: Ontario;)</span></li>
+ <li class="rvps33 noindent"><span class="rvts6">Column 4: Node descriptor (ex: Ontario;)</span></li>
+ <li class="rvps33 noindent"><span class="rvts6">Column 5: Plant descriptor (Gas/Oil Combined Cycle;)</span></li>
+ <li class="rvps33 noindent"><span class="rvts6">Column 6: &nbsp;Units (ex: MW;)</span></li>
+ <li class="rvps33 noindent"><span class="rvts6">Column 7: Data value (ex: 6708.32)</span></li>
 </ul>
-<p class="rvps36"><span class="rvts6"><br/></span></p>
-<p class="rvps88"><span class="rvts159">vGCPot.dat</span></p>
-<p class="rvps96"><span class="rvts81">Variable;Year;Area;Node;Plant;Units;Data</span></p>
-<p class="rvps96"><span class="rvts81">vGCPot;2023;Ontario;Ontario;Gas/Oil Combined Cycle;MW;6708.32</span></p>
-<p class="rvps96"><span class="rvts81">vGCPot;2023;Ontario;Ontario;Onshore Wind;10000&nbsp;</span></p>
-<p class="rvps96"><span class="rvts81">...</span></p>
-<h2 class="rvps6"><span class="rvts0"><span class="rvts12">Incorporating a New .DAT File into the Model</span></span></h2>
-<p class="rvps2"><span class="rvts6">To incorporate the new </span><span class="rvts21">.dat</span><span class="rvts6"> file into the model, follow the steps below:</span></p>
+<p class="rvps33"><span class="rvts6"><br/></span></p>
+<p class="rvps85"><span class="rvts160">vGCPot.dat</span></p>
+<p class="rvps93"><span class="rvts129">Variable;Year;Area;Node;Plant;Units;Data</span></p>
+<p class="rvps93"><span class="rvts129">vGCPot;2023;Ontario;Ontario;Gas/Oil Combined Cycle;MW;6708.32</span></p>
+<p class="rvps93"><span class="rvts129">vGCPot;2023;Ontario;Ontario;Onshore Wind;10000&nbsp;</span></p>
+<p class="rvps93"><span class="rvts129">...</span></p>
+<h2 class="rvps12"><span class="rvts0"><span class="rvts23">Incorporating a New .DAT File into the Model</span></span></h2>
+<p class="rvps2"><span class="rvts6">To incorporate the new </span><span class="rvts18">.dat</span><span class="rvts6"> file into the model, follow the steps below:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li style="text-indent: 0px" class="rvps25 noindent"><span class="rvts15">Add variable to database source code (VBInput.jl, vData_ElectricUnits.jl, etc).</span></li>
+ <li style="text-indent: 0px" class="rvps21 noindent"><span class="rvts14">Add variable to database source code (VBInput.jl, vData_ElectricUnits.jl, etc).</span></li>
 </ol>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 96px; list-style-position: outside; list-style-type: disc;">
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 -24px; list-style-position: outside; list-style-type: circle;">
-  <li style="text-indent: 0px" class="rvps94 noindent"><span class="rvts15">Make sure to include units and generally format the declaration similar to the other variables.</span></li>
+  <li style="text-indent: 0px" class="rvps91 noindent"><span class="rvts14">Make sure to include units and generally format the declaration similar to the other variables.</span></li>
  </ul>
 </ul>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li value="2" style="text-indent: 0px" class="rvps25 noindent"><span class="rvts15">Add variable to \InputData\InputTablesForVariable.csv.</span></li>
+ <li value="2" style="text-indent: 0px" class="rvps21 noindent"><span class="rvts14">Add variable to \InputData\InputTablesForVariable.csv.</span></li>
 </ol>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 96px; list-style-position: outside; list-style-type: disc;">
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 -24px; list-style-position: outside; list-style-type: circle;">
-  <li style="text-indent: 0px" class="rvps94 noindent"><span class="rvts15">Include variable name, input data file name with no extension, and the folder inside \InputData\ where the data is located.&nbsp;</span></li>
+  <li style="text-indent: 0px" class="rvps91 noindent"><span class="rvts14">Include variable name, input data file name with no extension, and the folder inside \InputData\ where the data is located.&nbsp;</span></li>
  </ul>
 </ul>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li value="3" style="text-indent: 0px" class="rvps25 noindent"><span class="rvts15">Review \InputData\UnitMap.csv.</span></li>
+ <li value="3" style="text-indent: 0px" class="rvps21 noindent"><span class="rvts14">Review \InputData\UnitMap.csv.</span></li>
 </ol>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 96px; list-style-position: outside; list-style-type: disc;">
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 -24px; list-style-position: outside; list-style-type: circle;">
-  <li style="text-indent: 0px" class="rvps94 noindent"><span class="rvts15">The unit in the input file (.dat) must be in the first column.</span></li>
-  <li style="text-indent: 0px" class="rvps94 noindent"><span class="rvts15">The unit of the database source code variable (from step 1) must be in the second column.&nbsp;</span></li>
-  <li style="text-indent: 0px" class="rvps94 noindent"><span class="rvts15">If a unit conversion is required, input the Factor into column 3 (Factor). &nbsp; The input data will be divided by the factor.</span></li>
-  <li style="text-indent: 0px" class="rvps94 noindent"><span class="rvts15">If a currency conversion is required, the units must include ‘</span><span class="rvts158">Nominal CN$’, ‘US$’, or ‘CN$’.</span></li>
+  <li style="text-indent: 0px" class="rvps91 noindent"><span class="rvts14">The unit in the input file (.dat) must be in the first column.</span></li>
+  <li style="text-indent: 0px" class="rvps91 noindent"><span class="rvts14">The unit of the database source code variable (from step 1) must be in the second column.&nbsp;</span></li>
+  <li style="text-indent: 0px" class="rvps91 noindent"><span class="rvts14">If a unit conversion is required, input the Factor into column 3 (Factor). &nbsp; The input data will be divided by the factor.</span></li>
+  <li style="text-indent: 0px" class="rvps91 noindent"><span class="rvts14">If a currency conversion is required, the units must include ‘</span><span class="rvts159">Nominal CN$’, ‘US$’, or ‘CN$’.</span></li>
  </ul>
 </ul>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li value="4" style="text-indent: 0px" class="rvps25 noindent"><span class="rvts15">If the variable is in vData_ElectricUnits.jl, the input data will automatically be moved into the model variable. &nbsp;</span></li>
+ <li value="4" style="text-indent: 0px" class="rvps21 noindent"><span class="rvts14">If the variable is in vData_ElectricUnits.jl, the input data will automatically be moved into the model variable. &nbsp;</span></li>
 </ol>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 96px; list-style-position: outside; list-style-type: disc;">
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 -24px; list-style-position: outside; list-style-type: circle;">
-  <li style="text-indent: 0px" class="rvps94 noindent"><span class="rvts15">The assumption is the model variable name is the input variable name without the ‘v’</span></li>
+  <li style="text-indent: 0px" class="rvps91 noindent"><span class="rvts14">The assumption is the model variable name is the input variable name without the ‘v’</span></li>
  </ul>
 </ul>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li style="text-indent: 0px" class="rvps98 noindent"><span class="rvts15">vUnArea is moved to UnArea.</span></li>
-  <li style="text-indent: 0px" class="rvps98 noindent"><span class="rvts15">Many variables need to be moved to an “X” variable, for example vUnGC is moved to XUnGC.</span></li>
+  <li style="text-indent: 0px" class="rvps95 noindent"><span class="rvts14">vUnArea is moved to UnArea.</span></li>
+  <li style="text-indent: 0px" class="rvps95 noindent"><span class="rvts14">Many variables need to be moved to an “X” variable, for example vUnGC is moved to XUnGC.</span></li>
   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-roman;">
-   <li style="text-indent: 0px" class="rvps99 noindent"><span class="rvts15">This relationship is mapped in \InputData\InputVariableToModelVariable.csv.</span></li>
-   <li style="text-indent: 0px" class="rvps99 noindent"><span class="rvts15">Only exception variables need to be mapped.</span></li>
+   <li style="text-indent: 0px" class="rvps96 noindent"><span class="rvts14">This relationship is mapped in \InputData\InputVariableToModelVariable.csv.</span></li>
+   <li style="text-indent: 0px" class="rvps96 noindent"><span class="rvts14">Only exception variables need to be mapped.</span></li>
   </ol>
  </ol>
 </ol>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li value="5" style="text-indent: 0px" class="rvps25 noindent"><span class="rvts15">Note that for convenience and data uniformity reasons several headers in the input data do not correspond to model sets. &nbsp;For example, ECC is referred to as Sector.</span></li>
+ <li value="5" style="text-indent: 0px" class="rvps21 noindent"><span class="rvts14">Note that for convenience and data uniformity reasons several headers in the input data do not correspond to model sets. &nbsp;For example, ECC is referred to as Sector.</span></li>
 </ol>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li value="3" style="text-indent: 0px" class="rvps94 noindent"><span class="rvts15">A full list of the header exceptions can be found here:</span></li>
+  <li value="3" style="text-indent: 0px" class="rvps91 noindent"><span class="rvts14">A full list of the header exceptions can be found here:</span></li>
   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-roman;">
-   <li style="text-indent: 0px" class="rvps95 noindent"><span class="rvts15">\InputData\PromulaHeaders_ClientHeaders.txt</span></li>
+   <li style="text-indent: 0px" class="rvps92 noindent"><span class="rvts14">\InputData\PromulaHeaders_ClientHeaders.txt</span></li>
   </ol>
  </ol>
 </ol>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li value="6" style="text-indent: 0px" class="rvps25 noindent"><span class="rvts15">To test the variable, first re compile the Promula database, then run the input data process.</span></li>
+ <li value="6" style="text-indent: 0px" class="rvps21 noindent"><span class="rvts14">To test the variable, first re compile the Promula database, then run the input data process.</span></li>
 </ol>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li value="4" style="text-indent: 0px" class="rvps94 noindent"><span class="rvts15">You can use batch files in 2020Model.</span></li>
+  <li value="4" style="text-indent: 0px" class="rvps91 noindent"><span class="rvts14">You can use batch files in 2020Model.</span></li>
   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-roman;">
-   <li style="text-indent: 0px" class="rvps95 noindent"><span class="rvts15">CreateVBInput.bat/ CreateElectricUnitDBs.bat</span></li>
+   <li style="text-indent: 0px" class="rvps92 noindent"><span class="rvts14">CreateVBInput.bat/ CreateElectricUnitDBs.bat</span></li>
   </ol>
  </ol>
 </ol>
-<p class="rvps7"><span class="rvts15"><br/></span></p>
+<p class="rvps6"><span class="rvts14"><br/></span></p>
 <p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
 
             </div>
