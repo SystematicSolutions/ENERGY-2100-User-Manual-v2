@@ -17,15 +17,68 @@ $(function() {
 
   var lastSignature = "";
 
-  function getPageSignature() {
-    var h1 = document.querySelector("h1");
-    var title = h1 ? (h1.textContent || "").trim() : "";
-    return location.href + "||" + title;
-  }
+function getPageSignature() {
+  var h1 = Array.from(document.querySelectorAll("h1")).find(function (el) {
+    return isVisible(el) &&
+      !el.closest("nav") &&
+      !el.closest("aside") &&
+      !el.closest("#right-nav") &&
+      !el.closest("header");
+  });
 
-  function getHeaders() {
-    return Array.from(document.querySelectorAll("h2, h3, h4"));
-  }
+  var title = h1 ? (h1.textContent || "").trim() : "";
+  var headingCount = getHeaders().length;
+  return location.href + "||" + title + "||" + headingCount;
+}
+
+function getContentRoot() {
+  var candidates = [
+    document.querySelector("#topic_content"),
+    document.querySelector(".topic-content"),
+    document.querySelector(".topic"),
+    document.querySelector("article"),
+    document.querySelector("main")
+  ].filter(Boolean);
+
+  if (!candidates.length) return document.body;
+
+  var best = candidates[0];
+  var bestCount = 0;
+
+  candidates.forEach(function (el) {
+    var count = el.querySelectorAll("h2, h3, h4").length;
+    if (count > bestCount) {
+      best = el;
+      bestCount = count;
+    }
+  });
+
+  return best;
+}
+
+function isVisible(el) {
+  return !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+}
+
+function getHeaders() {
+  return Array.from(document.querySelectorAll("h2, h3, h4")).filter(function (h) {
+    var text = (h.textContent || "").trim();
+    if (!text) return false;
+    if (!isVisible(h)) return false;
+
+    /* Exclude headings inside navigation / chrome */
+    if (h.closest("#right-nav")) return false;
+    if (h.closest("nav")) return false;
+    if (h.closest("aside")) return false;
+    if (h.closest("#contents")) return false;
+    if (h.closest("#toc")) return false;
+    if (h.closest(".tree")) return false;
+    if (h.closest(".treeview")) return false;
+    if (h.closest("header")) return false;
+
+    return true;
+  });
+}
 
   function slugify(text) {
     return (text || "")
@@ -246,7 +299,9 @@ $(function() {
   refreshUi();
   setTimeout(refreshUi, 250);
   setTimeout(refreshUi, 700);
-  setTimeout(refreshUi, 1200);
+  setTimeout(refreshUi, 2500);
+  setTimeout(refreshUi, 4000);
+
 
   setInterval(refreshIfNeeded, 500);
 

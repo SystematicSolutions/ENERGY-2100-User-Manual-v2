@@ -125,35 +125,54 @@ p {
   margin-bottom: 0.82em;
 }
 
+
+/* =========================================================
+   LIST SYSTEM (CLEAN + CONSISTENT NUMBERING)
+   ========================================================= */
+
+/* Base spacing */
 ul,
 ol {
   margin-top: 0.4em;
   margin-bottom: 0.9em;
+}
+
+/* Unordered lists */
+ul {
   padding-left: 1.6em;
 }
 
-
-
-li {
+ul li {
   margin-bottom: 0.24em;
-}
-
-li p {
-  margin-bottom: 0.35em;
-}
-
-ol li {
-  padding-left: 0.2em;
-  margin-bottom: 0.4em;
-  font-size: 1em;
   line-height: 1.62;
 }
 
+/* Ordered lists */
+ol {
+  list-style: decimal;
+  padding-left: 1.8em;
+}
+
+/* Ordered list items */
+ol li {
+  margin-bottom: 0.4em;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.62;
+  color: #111827;
+}
+
+/* Number styling */
 ol li::marker {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 1.05em;
-  font-weight: 400;
+  font-size: 1.2em;
+  font-weight: 500;
   color: #111827;
+}
+
+/* Paragraphs inside list items */
+li p {
+  margin-bottom: 0.35em;
 }
 
 
@@ -525,13 +544,14 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child {
+/* Only style the OUTER Example/Exercise title */
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
   margin-bottom: 8px !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child::before {
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type::before {
   content: "📚";
   display: inline-block;
   margin-right: 8px;
@@ -609,7 +629,7 @@ table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box p
 table:has(td[style*="background-color: #00c030"]) td:last-child pre,
 table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
   margin: 0 !important;
-  padding: 10px 14px !important;
+  padding: 12px 16px !important;
   background: #f7f9fb !important;
   border: 1px solid #dde3ea !important;
   border-radius: 8px !important;
@@ -618,7 +638,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.3 !important;
+  line-height: 1.55 !important;  /* ⭐ key improvement */
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -924,20 +944,53 @@ details.example-toggle .html-code-box {
 }
 
 /* =========================================================
-   18) FINAL CODE SPACING OVERRIDE
+   18) FINAL CODE SPACING SYSTEM (v10.1 CLEAN)
    ========================================================= */
 
+/* Base <pre> fallback */
 pre {
-  line-height: 1.15 !important;
-  padding: 8px 14px !important;
+  line-height: 1.4;
+  padding: 10px 14px;
 }
 
-/* Fix html-code-box font size */
+/* Main HTML code boxes */
 .html-code-box pre {
-  font-size: 14.5px !important;
+  margin: 0;
+  padding: 12px 16px !important;
+  font-size: 14.5px;
+  line-height: 1.55 !important;
 }
 
-/* Syntax color for keywords */
+.html-code-box code {
+  display: block;
+  line-height: inherit !important;
+}
+
+/* Code inside exercise tables */
+table:has(td[style*="background-color: #cc99ff"]) td:last-child pre,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
+  line-height: 1.55 !important;
+  padding: 12px 16px !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child code,
+table:has(td[style*="background-color: #00c030"]) td:last-child code {
+  line-height: inherit !important;
+}
+
+/* Collapsible callout code */
+details.hnd-blue-callout pre {
+  line-height: 1.4;
+  padding: 10px 14px;
+}
+
+details.hnd-blue-callout code {
+  line-height: inherit !important;
+}
+
+/* Syntax color */
 .kw {
   color: #AF00DB;
   font-weight: 500;
@@ -1072,867 +1125,867 @@ pre {
 
             <div class="main-content">
                 
-<p class="rvps2"><span class="rvts18">EC sets</span><span class="rvts6">: &nbsp;</span><a class="rvts280" href="Area.html">Economic categories represented in the residential, commercial, industrial, and transportation demand sectors. Subset of ECC set.</a></p>
+<p class="rvps2"><span class="rvts18">EC sets</span><span class="rvts6">: &nbsp;</span><a class="rvts277" href="Area.html">Economic categories represented in the residential, commercial, industrial, and transportation demand sectors. Subset of ECC set.</a></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps73"><span class="rvts249">Residential EC Set</span></p>
+<p class="rvps74"><span class="rvts246">Residential EC Set</span></p>
 <div class="rvps201">
 <table style="border-width: 0px; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; background-color: #008000; vertical-align: top; width: 41px; height: 19px;">
-   <p class="rvps206"><span class="rvts254">No.</span></p>
+   <p class="rvps206"><span class="rvts251">No.</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; background-color: #008000; vertical-align: top; width: 151px; height: 19px;">
-   <p class="rvps73"><span class="rvts254">EC Descriptor</span></p>
+   <p class="rvps74"><span class="rvts251">EC Descriptor</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; background-color: #008000; vertical-align: top; width: 148px; height: 19px;">
-   <p class="rvps73"><span class="rvts254">EC Key</span></p>
+   <p class="rvps74"><span class="rvts251">EC Key</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 41px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">1</span></p>
+   <p class="rvps206"><span class="rvts231">1</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 151px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Single Family Detached</span></p>
+   <p class="rvps74"><span class="rvts231">Single Family Detached</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 148px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">SingleFamilyDetached</span></p>
+   <p class="rvps74"><span class="rvts231">SingleFamilyDetached</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 41px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">2</span></p>
+   <p class="rvps206"><span class="rvts231">2</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 151px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Single Family Attached</span></p>
+   <p class="rvps74"><span class="rvts231">Single Family Attached</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 148px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">SingleFamilyAttached</span></p>
+   <p class="rvps74"><span class="rvts231">SingleFamilyAttached</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 41px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">3</span></p>
+   <p class="rvps206"><span class="rvts231">3</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 151px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Multi Family</span></p>
+   <p class="rvps74"><span class="rvts231">Multi Family</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 148px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">MultiFamily</span></p>
+   <p class="rvps74"><span class="rvts231">MultiFamily</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 41px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">4</span></p>
+   <p class="rvps206"><span class="rvts231">4</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 151px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Other Residential</span></p>
+   <p class="rvps74"><span class="rvts231">Other Residential</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 148px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">OtherResidential</span></p>
+   <p class="rvps74"><span class="rvts231">OtherResidential</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps73"><span class="rvts234"><br/></span></p>
+<p class="rvps74"><span class="rvts231"><br/></span></p>
 <div class="rvps2">
 <table width="90%" style="border-width: 0px; background-color: #ffffff; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: rgba(76,162,11,0.5); width: 7px;">
-   <p class="rvps163"><span class="rvts173"><br/></span></p>
+   <p class="rvps163"><span class="rvts171"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: #f1fff1; vertical-align: top; width: 29px;">
-   <p class="rvps179"><span class="rvts134">🛈</span></p>
+   <p class="rvps179"><span class="rvts132">🛈</span></p>
   </td>
   <td style="border-width : 1px; border-color: #008000; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #f1fff1; vertical-align: top; width: 722px;">
-   <p class="rvps28"><span class="rvts249">Note: &nbsp;</span><span class="rvts248">This set is defined in: Database\Sets\</span><span class="rvts249">ECRes.csv</span><span class="rvts248">.</span></p>
+   <p class="rvps28"><span class="rvts246">Note: &nbsp;</span><span class="rvts245">This set is defined in: Database\Sets\</span><span class="rvts246">ECRes.csv</span><span class="rvts245">.</span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps2"><span class="rvts26"><br/></span></p>
-<p class="rvps73"><span class="rvts249">Commercial EC Set</span></p>
+<p class="rvps74"><span class="rvts246">Commercial EC Set</span></p>
 <div class="rvps201">
 <table style="border-width: 0px; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; background-color: #008000; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts254">No.</span></p>
+   <p class="rvps206"><span class="rvts251">No.</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; background-color: #008000; vertical-align: top; width: 223px; height: 19px;">
-   <p class="rvps73"><span class="rvts254">EC Descriptor</span></p>
+   <p class="rvps74"><span class="rvts251">EC Descriptor</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; background-color: #008000; vertical-align: top; width: 125px; height: 19px;">
-   <p class="rvps73"><span class="rvts254">EC Key</span></p>
+   <p class="rvps74"><span class="rvts251">EC Key</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">1</span></p>
+   <p class="rvps206"><span class="rvts231">1</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 223px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Wholesale Trade</span></p>
+   <p class="rvps74"><span class="rvts231">Wholesale Trade</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 125px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Wholesale</span></p>
+   <p class="rvps74"><span class="rvts231">Wholesale</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">2</span></p>
+   <p class="rvps206"><span class="rvts231">2</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 223px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Retail Trade</span></p>
+   <p class="rvps74"><span class="rvts231">Retail Trade</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 125px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Retail</span></p>
+   <p class="rvps74"><span class="rvts231">Retail</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">3</span></p>
+   <p class="rvps206"><span class="rvts231">3</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 223px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Warehousing and Storage</span></p>
+   <p class="rvps74"><span class="rvts231">Warehousing and Storage</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 125px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Warehouse</span></p>
+   <p class="rvps74"><span class="rvts231">Warehouse</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">4</span></p>
+   <p class="rvps206"><span class="rvts231">4</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 223px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Information and Cultural Industries</span></p>
+   <p class="rvps74"><span class="rvts231">Information and Cultural Industries</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 125px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Information</span></p>
+   <p class="rvps74"><span class="rvts231">Information</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">5</span></p>
+   <p class="rvps206"><span class="rvts231">5</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 223px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Offices</span></p>
+   <p class="rvps74"><span class="rvts231">Offices</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 125px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Offices</span></p>
+   <p class="rvps74"><span class="rvts231">Offices</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">6</span></p>
+   <p class="rvps206"><span class="rvts231">6</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 223px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Educational Services</span></p>
+   <p class="rvps74"><span class="rvts231">Educational Services</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 125px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Education</span></p>
+   <p class="rvps74"><span class="rvts231">Education</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">7</span></p>
+   <p class="rvps206"><span class="rvts231">7</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 223px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Health Care and Social Assistance</span></p>
+   <p class="rvps74"><span class="rvts231">Health Care and Social Assistance</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 125px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Health</span></p>
+   <p class="rvps74"><span class="rvts231">Health</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">8</span></p>
+   <p class="rvps206"><span class="rvts231">8</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 223px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Arts Accommodation Food Other</span></p>
+   <p class="rvps74"><span class="rvts231">Arts Accommodation Food Other</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 125px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">OtherCommercial</span></p>
+   <p class="rvps74"><span class="rvts231">OtherCommercial</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">9</span></p>
+   <p class="rvps206"><span class="rvts231">9</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 223px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Natural Gas Distribution</span></p>
+   <p class="rvps74"><span class="rvts231">Natural Gas Distribution</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 125px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">NGDistribution</span></p>
+   <p class="rvps74"><span class="rvts231">NGDistribution</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">10</span></p>
+   <p class="rvps206"><span class="rvts231">10</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 223px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Oil Pipelines</span></p>
+   <p class="rvps74"><span class="rvts231">Oil Pipelines</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 125px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">OilPipeline</span></p>
+   <p class="rvps74"><span class="rvts231">OilPipeline</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">11</span></p>
+   <p class="rvps206"><span class="rvts231">11</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 223px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Natural Gas Pipelines</span></p>
+   <p class="rvps74"><span class="rvts231">Natural Gas Pipelines</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 125px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">NGPipeline</span></p>
+   <p class="rvps74"><span class="rvts231">NGPipeline</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">12</span></p>
+   <p class="rvps206"><span class="rvts231">12</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 223px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Street Lighting</span></p>
+   <p class="rvps74"><span class="rvts231">Street Lighting</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 125px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">StreetLighting</span></p>
+   <p class="rvps74"><span class="rvts231">StreetLighting</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps73"><span class="rvts234"><br/></span></p>
+<p class="rvps74"><span class="rvts231"><br/></span></p>
 <div class="rvps2">
 <table width="90%" style="border-width: 0px; background-color: #ffffff; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: rgba(76,162,11,0.5); width: 7px;">
-   <p class="rvps163"><span class="rvts173"><br/></span></p>
+   <p class="rvps163"><span class="rvts171"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: #f1fff1; vertical-align: top; width: 29px;">
-   <p class="rvps179"><span class="rvts134">🛈</span></p>
+   <p class="rvps179"><span class="rvts132">🛈</span></p>
   </td>
   <td style="border-width : 1px; border-color: #008000; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #f1fff1; vertical-align: top; width: 722px;">
-   <p class="rvps28"><span class="rvts249">Note: &nbsp;</span><span class="rvts6">This set is defined in: Database\Sets\</span><span class="rvts18">ECCom.csv</span><span class="rvts6">.</span></p>
+   <p class="rvps28"><span class="rvts246">Note: &nbsp;</span><span class="rvts6">This set is defined in: Database\Sets\</span><span class="rvts18">ECCom.csv</span><span class="rvts6">.</span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps2"><span class="rvts26"><br/></span></p>
-<p class="rvps73"><span class="rvts249">Industrial EC Set</span></p>
+<p class="rvps74"><span class="rvts246">Industrial EC Set</span></p>
 <div class="rvps201">
 <table style="border-width: 0px; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; background-color: #008000; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts254">No.</span></p>
+   <p class="rvps206"><span class="rvts251">No.</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; background-color: #008000; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts254">EC Descriptor</span></p>
+   <p class="rvps74"><span class="rvts251">EC Descriptor</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; background-color: #008000; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts254">EC Key</span></p>
+   <p class="rvps74"><span class="rvts251">EC Key</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">1</span></p>
+   <p class="rvps206"><span class="rvts231">1</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Food &amp; Tobacco</span></p>
+   <p class="rvps74"><span class="rvts231">Food &amp; Tobacco</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Food</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">2</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Textiles Apparel &amp; Leather</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Textiles</span></p>
+   <p class="rvps74"><span class="rvts231">Food</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">3</span></p>
+   <p class="rvps206"><span class="rvts231">2</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Lumber</span></p>
+   <p class="rvps74"><span class="rvts231">Textiles Apparel &amp; Leather</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Lumber</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">4</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Furniture</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Furniture</span></p>
+   <p class="rvps74"><span class="rvts231">Textiles</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">5</span></p>
+   <p class="rvps206"><span class="rvts231">3</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Pulp and Paper Mills</span></p>
+   <p class="rvps74"><span class="rvts231">Lumber</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">PulpPaperMills</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">6</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Petrochemicals</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Petrochemicals</span></p>
+   <p class="rvps74"><span class="rvts231">Lumber</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">7</span></p>
+   <p class="rvps206"><span class="rvts231">4</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Industrial Gas</span></p>
+   <p class="rvps74"><span class="rvts231">Furniture</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">IndustrialGas</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">8</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Other Chemicals</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">OtherChemicals</span></p>
+   <p class="rvps74"><span class="rvts231">Furniture</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">9</span></p>
+   <p class="rvps206"><span class="rvts231">5</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Fertilizer</span></p>
+   <p class="rvps74"><span class="rvts231">Pulp and Paper Mills</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Fertilizer</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">10</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Petroleum Products</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Petroleum</span></p>
+   <p class="rvps74"><span class="rvts231">PulpPaperMills</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">11</span></p>
+   <p class="rvps206"><span class="rvts231">6</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Rubber</span></p>
+   <p class="rvps74"><span class="rvts231">Petrochemicals</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Rubber</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">12</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Cement</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Cement</span></p>
+   <p class="rvps74"><span class="rvts231">Petrochemicals</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">13</span></p>
+   <p class="rvps206"><span class="rvts231">7</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Glass</span></p>
+   <p class="rvps74"><span class="rvts231">Industrial Gas</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Glass</span></p>
+   <p class="rvps74"><span class="rvts231">IndustrialGas</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">14</span></p>
+   <p class="rvps206"><span class="rvts231">8</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Lime &amp; Gypsum</span></p>
+   <p class="rvps74"><span class="rvts231">Other Chemicals</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">LimeGypsum</span></p>
+   <p class="rvps74"><span class="rvts231">OtherChemicals</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">15</span></p>
+   <p class="rvps206"><span class="rvts231">9</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Other Non-Metallic</span></p>
+   <p class="rvps74"><span class="rvts231">Fertilizer</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">OtherNonMetallic</span></p>
+   <p class="rvps74"><span class="rvts231">Fertilizer</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">16</span></p>
+   <p class="rvps206"><span class="rvts231">10</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Iron &amp; Steel</span></p>
+   <p class="rvps74"><span class="rvts231">Petroleum Products</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">IronSteel</span></p>
+   <p class="rvps74"><span class="rvts231">Petroleum</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">17</span></p>
+   <p class="rvps206"><span class="rvts231">11</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Aluminum</span></p>
+   <p class="rvps74"><span class="rvts231">Rubber</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Aluminum</span></p>
+   <p class="rvps74"><span class="rvts231">Rubber</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">18</span></p>
+   <p class="rvps206"><span class="rvts231">12</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Other Nonferrous Metal</span></p>
+   <p class="rvps74"><span class="rvts231">Cement</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">OtherNonferrous</span></p>
+   <p class="rvps74"><span class="rvts231">Cement</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">19</span></p>
+   <p class="rvps206"><span class="rvts231">13</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Transport Equipment</span></p>
+   <p class="rvps74"><span class="rvts231">Glass</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">TransportEquipment</span></p>
+   <p class="rvps74"><span class="rvts231">Glass</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">20</span></p>
+   <p class="rvps206"><span class="rvts231">14</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Other Manufacturing</span></p>
+   <p class="rvps74"><span class="rvts231">Lime &amp; Gypsum</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">OtherManufacturing</span></p>
+   <p class="rvps74"><span class="rvts231">LimeGypsum</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">21</span></p>
+   <p class="rvps206"><span class="rvts231">15</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Iron Ore Mining</span></p>
+   <p class="rvps74"><span class="rvts231">Other Non-Metallic</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">IronOreMining</span></p>
+   <p class="rvps74"><span class="rvts231">OtherNonMetallic</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">22</span></p>
+   <p class="rvps206"><span class="rvts231">16</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Other Metal Mining</span></p>
+   <p class="rvps74"><span class="rvts231">Iron &amp; Steel</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">OtherMetalMining</span></p>
+   <p class="rvps74"><span class="rvts231">IronSteel</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">23</span></p>
+   <p class="rvps206"><span class="rvts231">17</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Non-Metal Mining</span></p>
+   <p class="rvps74"><span class="rvts231">Aluminum</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">NonMetalMining</span></p>
+   <p class="rvps74"><span class="rvts231">Aluminum</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">24</span></p>
+   <p class="rvps206"><span class="rvts231">18</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Light Oil Mining</span></p>
+   <p class="rvps74"><span class="rvts231">Other Nonferrous Metal</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">LightOilMining</span></p>
+   <p class="rvps74"><span class="rvts231">OtherNonferrous</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">25</span></p>
+   <p class="rvps206"><span class="rvts231">19</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Heavy Oil Mining</span></p>
+   <p class="rvps74"><span class="rvts231">Transport Equipment</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">HeavyOilMining</span></p>
+   <p class="rvps74"><span class="rvts231">TransportEquipment</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">26</span></p>
+   <p class="rvps206"><span class="rvts231">20</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Frontier Oil Mining</span></p>
+   <p class="rvps74"><span class="rvts231">Other Manufacturing</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">FrontierOilMining</span></p>
+   <p class="rvps74"><span class="rvts231">OtherManufacturing</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">27</span></p>
+   <p class="rvps206"><span class="rvts231">21</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Primary Oil Sands</span></p>
+   <p class="rvps74"><span class="rvts231">Iron Ore Mining</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">PrimaryOilSands</span></p>
+   <p class="rvps74"><span class="rvts231">IronOreMining</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">28</span></p>
+   <p class="rvps206"><span class="rvts231">22</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">SAGD Oil Sands</span></p>
+   <p class="rvps74"><span class="rvts231">Other Metal Mining</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">SAGDOilSands</span></p>
+   <p class="rvps74"><span class="rvts231">OtherMetalMining</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">29</span></p>
+   <p class="rvps206"><span class="rvts231">23</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">CSS Oil Sands</span></p>
+   <p class="rvps74"><span class="rvts231">Non-Metal Mining</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">CSSOilSands</span></p>
+   <p class="rvps74"><span class="rvts231">NonMetalMining</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">30</span></p>
+   <p class="rvps206"><span class="rvts231">24</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Oil Sands Mining</span></p>
+   <p class="rvps74"><span class="rvts231">Light Oil Mining</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">OilSandsMining</span></p>
+   <p class="rvps74"><span class="rvts231">LightOilMining</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">31</span></p>
+   <p class="rvps206"><span class="rvts231">25</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Oil Sands Upgraders</span></p>
+   <p class="rvps74"><span class="rvts231">Heavy Oil Mining</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">OilSandsUpgraders</span></p>
+   <p class="rvps74"><span class="rvts231">HeavyOilMining</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">32</span></p>
+   <p class="rvps206"><span class="rvts231">26</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Conventional Gas Production</span></p>
+   <p class="rvps74"><span class="rvts231">Frontier Oil Mining</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">ConventionalGasProduction</span></p>
+   <p class="rvps74"><span class="rvts231">FrontierOilMining</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">33</span></p>
+   <p class="rvps206"><span class="rvts231">27</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Sweet Gas Processing</span></p>
+   <p class="rvps74"><span class="rvts231">Primary Oil Sands</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">SweetGasProcessing</span></p>
+   <p class="rvps74"><span class="rvts231">PrimaryOilSands</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">34</span></p>
+   <p class="rvps206"><span class="rvts231">28</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Unconventional Gas Production</span></p>
+   <p class="rvps74"><span class="rvts231">SAGD Oil Sands</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">UnconventionalGasProduction</span></p>
+   <p class="rvps74"><span class="rvts231">SAGDOilSands</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">35</span></p>
+   <p class="rvps206"><span class="rvts231">29</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Sour Gas Processing</span></p>
+   <p class="rvps74"><span class="rvts231">CSS Oil Sands</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">SourGasProcessing</span></p>
+   <p class="rvps74"><span class="rvts231">CSSOilSands</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">36</span></p>
+   <p class="rvps206"><span class="rvts231">30</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">LNG Production</span></p>
+   <p class="rvps74"><span class="rvts231">Oil Sands Mining</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">LNGProduction</span></p>
+   <p class="rvps74"><span class="rvts231">OilSandsMining</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">37</span></p>
+   <p class="rvps206"><span class="rvts231">31</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Coal Mining</span></p>
+   <p class="rvps74"><span class="rvts231">Oil Sands Upgraders</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">CoalMining</span></p>
+   <p class="rvps74"><span class="rvts231">OilSandsUpgraders</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">38</span></p>
+   <p class="rvps206"><span class="rvts231">32</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Construction</span></p>
+   <p class="rvps74"><span class="rvts231">Conventional Gas Production</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Construction</span></p>
+   <p class="rvps74"><span class="rvts231">ConventionalGasProduction</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">39</span></p>
+   <p class="rvps206"><span class="rvts231">33</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Forestry</span></p>
+   <p class="rvps74"><span class="rvts231">Sweet Gas Processing</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Forestry</span></p>
+   <p class="rvps74"><span class="rvts231">SweetGasProcessing</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">40</span></p>
+   <p class="rvps206"><span class="rvts231">34</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">On Farm Fuel Use</span></p>
+   <p class="rvps74"><span class="rvts231">Unconventional Gas Production</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">OnFarmFuelUse</span></p>
+   <p class="rvps74"><span class="rvts231">UnconventionalGasProduction</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">41</span></p>
+   <p class="rvps206"><span class="rvts231">35</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Crop Production</span></p>
+   <p class="rvps74"><span class="rvts231">Sour Gas Processing</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">CropProduction</span></p>
+   <p class="rvps74"><span class="rvts231">SourGasProcessing</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">42</span></p>
+   <p class="rvps206"><span class="rvts231">36</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Animal Production</span></p>
+   <p class="rvps74"><span class="rvts231">LNG Production</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">AnimalProduction</span></p>
+   <p class="rvps74"><span class="rvts231">LNGProduction</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
+   <p class="rvps206"><span class="rvts231">37</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
+   <p class="rvps74"><span class="rvts231">Coal Mining</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
+   <p class="rvps74"><span class="rvts231">CoalMining</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
+   <p class="rvps206"><span class="rvts231">38</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
+   <p class="rvps74"><span class="rvts231">Construction</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
+   <p class="rvps74"><span class="rvts231">Construction</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
+   <p class="rvps206"><span class="rvts231">39</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
+   <p class="rvps74"><span class="rvts231">Forestry</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
+   <p class="rvps74"><span class="rvts231">Forestry</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
+   <p class="rvps206"><span class="rvts231">40</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
+   <p class="rvps74"><span class="rvts231">On Farm Fuel Use</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
+   <p class="rvps74"><span class="rvts231">OnFarmFuelUse</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
+   <p class="rvps206"><span class="rvts231">41</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
+   <p class="rvps74"><span class="rvts231">Crop Production</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
+   <p class="rvps74"><span class="rvts231">CropProduction</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 35px; height: 19px;">
+   <p class="rvps206"><span class="rvts231">42</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
+   <p class="rvps74"><span class="rvts231">Animal Production</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 199px; height: 19px;">
+   <p class="rvps74"><span class="rvts231">AnimalProduction</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps73"><span class="rvts234"><br/></span></p>
+<p class="rvps74"><span class="rvts231"><br/></span></p>
 <div class="rvps2">
 <table width="90%" style="border-width: 0px; background-color: #ffffff; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: rgba(76,162,11,0.5); width: 7px;">
-   <p class="rvps163"><span class="rvts173"><br/></span></p>
+   <p class="rvps163"><span class="rvts171"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: #f1fff1; vertical-align: top; width: 29px;">
-   <p class="rvps179"><span class="rvts134">🛈</span></p>
+   <p class="rvps179"><span class="rvts132">🛈</span></p>
   </td>
   <td style="border-width : 1px; border-color: #008000; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #f1fff1; vertical-align: top; width: 722px;">
-   <p class="rvps28"><span class="rvts249">Note: &nbsp;</span><span class="rvts6">This set is defined in: Database\Sets\</span><span class="rvts18">ECInd.csv</span><span class="rvts6">.</span></p>
+   <p class="rvps28"><span class="rvts246">Note: &nbsp;</span><span class="rvts6">This set is defined in: Database\Sets\</span><span class="rvts18">ECInd.csv</span><span class="rvts6">.</span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps2"><span class="rvts26"><br/></span></p>
-<p class="rvps73"><span class="rvts249">Transportation EC Set</span></p>
+<p class="rvps74"><span class="rvts246">Transportation EC Set</span></p>
 <div class="rvps201">
 <table style="border-width: 0px; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; background-color: #008000; vertical-align: top; width: 36px; height: 19px;">
-   <p class="rvps206"><span class="rvts254">No.</span></p>
+   <p class="rvps206"><span class="rvts251">No.</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; background-color: #008000; vertical-align: top; width: 146px; height: 19px;">
-   <p class="rvps73"><span class="rvts254">EC Descriptor</span></p>
+   <p class="rvps74"><span class="rvts251">EC Descriptor</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; background-color: #008000; vertical-align: top; width: 142px; height: 19px;">
-   <p class="rvps73"><span class="rvts254">EC Key</span></p>
+   <p class="rvps74"><span class="rvts251">EC Key</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 36px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">1</span></p>
+   <p class="rvps206"><span class="rvts231">1</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 146px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Passenger</span></p>
+   <p class="rvps74"><span class="rvts231">Passenger</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 142px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Passenger</span></p>
+   <p class="rvps74"><span class="rvts231">Passenger</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 36px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">2</span></p>
+   <p class="rvps206"><span class="rvts231">2</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 146px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Freight</span></p>
+   <p class="rvps74"><span class="rvts231">Freight</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 142px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Freight</span></p>
+   <p class="rvps74"><span class="rvts231">Freight</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 36px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">3</span></p>
+   <p class="rvps206"><span class="rvts231">3</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 146px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Air Passenger</span></p>
+   <p class="rvps74"><span class="rvts231">Air Passenger</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 142px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">AirPassenger</span></p>
+   <p class="rvps74"><span class="rvts231">AirPassenger</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 36px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">4</span></p>
+   <p class="rvps206"><span class="rvts231">4</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 146px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Air Freight</span></p>
+   <p class="rvps74"><span class="rvts231">Air Freight</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 142px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">AirFreight</span></p>
+   <p class="rvps74"><span class="rvts231">AirFreight</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 36px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">5</span></p>
+   <p class="rvps206"><span class="rvts231">5</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 146px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Foreign Passenger</span></p>
+   <p class="rvps74"><span class="rvts231">Foreign Passenger</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 142px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">ForeignPassenger</span></p>
+   <p class="rvps74"><span class="rvts231">ForeignPassenger</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 36px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">6</span></p>
+   <p class="rvps206"><span class="rvts231">6</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 146px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Foreign Freight</span></p>
+   <p class="rvps74"><span class="rvts231">Foreign Freight</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 142px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">ForeignFreight</span></p>
+   <p class="rvps74"><span class="rvts231">ForeignFreight</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 36px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">7</span></p>
+   <p class="rvps206"><span class="rvts231">7</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 146px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Residential Off-Road</span></p>
+   <p class="rvps74"><span class="rvts231">Residential Off-Road</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 142px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">ResidentialOffRoad</span></p>
+   <p class="rvps74"><span class="rvts231">ResidentialOffRoad</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 36px; height: 19px;">
-   <p class="rvps206"><span class="rvts234">8</span></p>
+   <p class="rvps206"><span class="rvts231">8</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 146px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">Commercial Off-Road</span></p>
+   <p class="rvps74"><span class="rvts231">Commercial Off-Road</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 142px; height: 19px;">
-   <p class="rvps73"><span class="rvts234">CommercialOffRoad</span></p>
+   <p class="rvps74"><span class="rvts231">CommercialOffRoad</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps2"><span class="rvts234"><br/></span></p>
+<p class="rvps2"><span class="rvts231"><br/></span></p>
 <div class="rvps2">
 <table width="90%" style="border-width: 0px; background-color: #ffffff; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: rgba(76,162,11,0.5); width: 7px;">
-   <p class="rvps163"><span class="rvts173"><br/></span></p>
+   <p class="rvps163"><span class="rvts171"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: #f1fff1; vertical-align: top; width: 29px;">
-   <p class="rvps179"><span class="rvts134">🛈</span></p>
+   <p class="rvps179"><span class="rvts132">🛈</span></p>
   </td>
   <td style="border-width : 1px; border-color: #008000; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #f1fff1; vertical-align: top; width: 722px;">
-   <p class="rvps28"><span class="rvts249">Note: &nbsp;</span><span class="rvts6">This set is defined in: Database\Sets\</span><span class="rvts18">ECTrans.csv</span><span class="rvts6">.</span></p>
+   <p class="rvps28"><span class="rvts246">Note: &nbsp;</span><span class="rvts6">This set is defined in: Database\Sets\</span><span class="rvts18">ECTrans.csv</span><span class="rvts6">.</span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps2"><span class="rvts26"><br/></span></p>
-<p class="rvps2"><span class="rvts234"></span><span class="rvts6"></span></p>
+<p class="rvps2"><span class="rvts231"></span><span class="rvts6"></span></p>
 
             </div>
             

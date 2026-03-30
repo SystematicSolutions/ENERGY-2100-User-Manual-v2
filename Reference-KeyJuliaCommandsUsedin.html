@@ -125,35 +125,54 @@ p {
   margin-bottom: 0.82em;
 }
 
+
+/* =========================================================
+   LIST SYSTEM (CLEAN + CONSISTENT NUMBERING)
+   ========================================================= */
+
+/* Base spacing */
 ul,
 ol {
   margin-top: 0.4em;
   margin-bottom: 0.9em;
+}
+
+/* Unordered lists */
+ul {
   padding-left: 1.6em;
 }
 
-
-
-li {
+ul li {
   margin-bottom: 0.24em;
-}
-
-li p {
-  margin-bottom: 0.35em;
-}
-
-ol li {
-  padding-left: 0.2em;
-  margin-bottom: 0.4em;
-  font-size: 1em;
   line-height: 1.62;
 }
 
+/* Ordered lists */
+ol {
+  list-style: decimal;
+  padding-left: 1.8em;
+}
+
+/* Ordered list items */
+ol li {
+  margin-bottom: 0.4em;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.62;
+  color: #111827;
+}
+
+/* Number styling */
 ol li::marker {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 1.05em;
-  font-weight: 400;
+  font-size: 1.2em;
+  font-weight: 500;
   color: #111827;
+}
+
+/* Paragraphs inside list items */
+li p {
+  margin-bottom: 0.35em;
 }
 
 
@@ -525,13 +544,14 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child {
+/* Only style the OUTER Example/Exercise title */
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
   margin-bottom: 8px !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child::before {
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type::before {
   content: "📚";
   display: inline-block;
   margin-right: 8px;
@@ -609,7 +629,7 @@ table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box p
 table:has(td[style*="background-color: #00c030"]) td:last-child pre,
 table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
   margin: 0 !important;
-  padding: 10px 14px !important;
+  padding: 12px 16px !important;
   background: #f7f9fb !important;
   border: 1px solid #dde3ea !important;
   border-radius: 8px !important;
@@ -618,7 +638,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.3 !important;
+  line-height: 1.55 !important;  /* ⭐ key improvement */
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -924,20 +944,53 @@ details.example-toggle .html-code-box {
 }
 
 /* =========================================================
-   18) FINAL CODE SPACING OVERRIDE
+   18) FINAL CODE SPACING SYSTEM (v10.1 CLEAN)
    ========================================================= */
 
+/* Base <pre> fallback */
 pre {
-  line-height: 1.15 !important;
-  padding: 8px 14px !important;
+  line-height: 1.4;
+  padding: 10px 14px;
 }
 
-/* Fix html-code-box font size */
+/* Main HTML code boxes */
 .html-code-box pre {
-  font-size: 14.5px !important;
+  margin: 0;
+  padding: 12px 16px !important;
+  font-size: 14.5px;
+  line-height: 1.55 !important;
 }
 
-/* Syntax color for keywords */
+.html-code-box code {
+  display: block;
+  line-height: inherit !important;
+}
+
+/* Code inside exercise tables */
+table:has(td[style*="background-color: #cc99ff"]) td:last-child pre,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
+  line-height: 1.55 !important;
+  padding: 12px 16px !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child code,
+table:has(td[style*="background-color: #00c030"]) td:last-child code {
+  line-height: inherit !important;
+}
+
+/* Collapsible callout code */
+details.hnd-blue-callout pre {
+  line-height: 1.4;
+  padding: 10px 14px;
+}
+
+details.hnd-blue-callout code {
+  line-height: inherit !important;
+}
+
+/* Syntax color */
 .kw {
   color: #AF00DB;
   font-weight: 500;
@@ -1081,9 +1134,9 @@ pre {
  <li class="rvps2 noindent"><span class="rvts18">Shell Mode</span><span class="rvts6">:&nbsp;Type</span><span class="rvts37">&nbsp;;</span><span class="rvts6">&nbsp;to run system shell commands </span><span class="rvts30">(e.g.,&nbsp;</span><span class="rvts37">ls</span><span class="rvts30">&nbsp;or&nbsp;</span><span class="rvts37">dir</span><span class="rvts30">)</span><span class="rvts6"> directly within the Julia REPL.</span></li>
 </ul>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps67 noindent"><span class="rvts18">To use module functions:</span><span class="rvts6"> first </span><span class="rvts37">import Module</span><span class="rvts6">&nbsp;to import the module, then&nbsp;</span><span class="rvts37">Module.fn(x)</span><span class="rvts6">&nbsp;to use the functions.</span></li>
- <li class="rvps67 noindent"><span class="rvts122">To include Sub-Modules and Code:</span><span class="rvts109">&nbsp;</span><span class="rvts37">include("EnergyModel.jl")&nbsp;</span><span class="rvts109">or </span><span class="rvts37">include("MyModule.jl)</span><span class="rvts109"> is always used at the top of each file to include ENERGY 2100's custom sub-modules or code.&nbsp;</span></li>
- <li class="rvps67 noindent"><span class="rvts122">To load Packages:</span><span class="rvts109">&nbsp;</span><span class="rvts37">using Module</span><span class="rvts6">&nbsp;loads the package to use its functionalities directly. To import all exported Module functions into the current namespace, </span><span class="rvts37">using Module</span><span class="rvts6">. For example, </span><span class="rvts37">using DataFrames</span><span class="rvts6"> or </span><span class="rvts37">using CSV</span><span class="rvts6">.</span></li>
+ <li class="rvps68 noindent"><span class="rvts18">To use module functions:</span><span class="rvts6"> first </span><span class="rvts37">import Module</span><span class="rvts6">&nbsp;to import the module, then&nbsp;</span><span class="rvts37">Module.fn(x)</span><span class="rvts6">&nbsp;to use the functions.</span></li>
+ <li class="rvps68 noindent"><span class="rvts120">To include Sub-Modules and Code:</span><span class="rvts107">&nbsp;</span><span class="rvts37">include("EnergyModel.jl")&nbsp;</span><span class="rvts107">or </span><span class="rvts37">include("MyModule.jl)</span><span class="rvts107"> is always used at the top of each file to include ENERGY 2100's custom sub-modules or code.&nbsp;</span></li>
+ <li class="rvps68 noindent"><span class="rvts120">To load Packages:</span><span class="rvts107">&nbsp;</span><span class="rvts37">using Module</span><span class="rvts6">&nbsp;loads the package to use its functionalities directly. To import all exported Module functions into the current namespace, </span><span class="rvts37">using Module</span><span class="rvts6">. For example, </span><span class="rvts37">using DataFrames</span><span class="rvts6"> or </span><span class="rvts37">using CSV</span><span class="rvts6">.</span></li>
 </ul>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts18">1. Open your ENERGY 2100 folder in VS Code</span></p>
@@ -1097,15 +1150,15 @@ pre {
  <li class="rvps5 noindent"><span class="rvts6">Select </span><span class="rvts37">Julia: Activate This Environment</span></li>
 </ul>
 <p class="rvps5"><span class="rvts13">By activating the Julia environment, Julia finds the Project.toml and Manifest.toml that defines the scope and packages of the current project.</span><span class="rvts6"> It tells Julia to look for packages in the local folder, not the default global environment.</span></p>
-<p class="rvps5"><span class="rvts6">Activating </span><span class="rvts13">a&nbsp;</span><span class="rvts22">Julia environment</span><span class="rvts6"> VS Code means&nbsp;setting a specific project folder as the active project for the Julia REPL and language server. This ensures that&nbsp;</span><span class="rvts37">using</span><span class="rvts6">&nbsp;or</span><span class="rvts109">&nbsp;</span><span class="rvts37">import</span><span class="rvts6">&nbsp;commands load the exact versions of packages specified in that project's&nbsp;</span><span class="rvts37">Project.toml</span><span class="rvts6">&nbsp;and</span><span class="rvts109">&nbsp;</span><span class="rvts37">Manifest.toml</span><span class="rvts6">&nbsp;files, ensuring reproducibility and avoiding conflicts.&nbsp;</span></p>
+<p class="rvps5"><span class="rvts6">Activating </span><span class="rvts13">a&nbsp;</span><span class="rvts22">Julia environment</span><span class="rvts6"> VS Code means&nbsp;setting a specific project folder as the active project for the Julia REPL and language server. This ensures that&nbsp;</span><span class="rvts37">using</span><span class="rvts6">&nbsp;or</span><span class="rvts107">&nbsp;</span><span class="rvts37">import</span><span class="rvts6">&nbsp;commands load the exact versions of packages specified in that project's&nbsp;</span><span class="rvts37">Project.toml</span><span class="rvts6">&nbsp;and</span><span class="rvts107">&nbsp;</span><span class="rvts37">Manifest.toml</span><span class="rvts6">&nbsp;files, ensuring reproducibility and avoiding conflicts.&nbsp;</span></p>
 <p class="rvps5"><span class="rvts13">The Julia REPL will automatically open in the terminal, and you should see a &nbsp;</span><span class="rvts37">julia&gt;</span><span class="rvts13"> prompt. See figure below.</span></p>
-<p class="rvps5"><span class="rvts13">Note, if you ever need to re-open the Julia REPL in an activated environment, you can open the command palette again t</span><span class="rvts109">ype&nbsp;</span><span class="rvts37">Julia: Start REPL</span><span class="rvts109">&nbsp;to open it.</span></p>
-<p class="rvps5"><span class="rvts6">Note: Alternative ways to activate a Julia environment: &nbsp;Click on the&nbsp;"Julia env" button&nbsp;on the bottom-left status bar in VS Code, or use</span><span class="rvts109">&nbsp;</span><span class="rvts37">] activate</span><span class="rvts119"> .</span><span class="rvts6">&nbsp;in the Julia REPL to activate the current directory. When you open a folder with a&nbsp;</span><span class="rvts37">Project.toml</span><span class="rvts6">&nbsp;file in VS Code, the extension often automatically activates it.</span></p>
+<p class="rvps5"><span class="rvts13">Note, if you ever need to re-open the Julia REPL in an activated environment, you can open the command palette again t</span><span class="rvts107">ype&nbsp;</span><span class="rvts37">Julia: Start REPL</span><span class="rvts107">&nbsp;to open it.</span></p>
+<p class="rvps5"><span class="rvts6">Note: Alternative ways to activate a Julia environment: &nbsp;Click on the&nbsp;"Julia env" button&nbsp;on the bottom-left status bar in VS Code, or use</span><span class="rvts107">&nbsp;</span><span class="rvts37">] activate</span><span class="rvts117"> .</span><span class="rvts6">&nbsp;in the Julia REPL to activate the current directory. When you open a folder with a&nbsp;</span><span class="rvts37">Project.toml</span><span class="rvts6">&nbsp;file in VS Code, the extension often automatically activates it.</span></p>
 <p class="rvps5"><img alt="" style="width : 624px; height : 392px; padding : 1px;" src="lib/NewItem%20156.png"></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts6">3. Import the&nbsp;</span><span class="rvts37">EnergyModel&nbsp;</span><span class="rvts6">Julia package:</span></p>
-<p class="rvps62"><span class="rvts109"><br/></span></p>
-<div class="rvps62">
+<p class="rvps63"><span class="rvts107"><br/></span></p>
+<div class="rvps63">
 <table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
@@ -1114,8 +1167,8 @@ pre {
  </tr>
 </table>
 </div>
-<p class="rvps62"><span class="rvts109"><br/></span></p>
-<p class="rvps62"><span class="rvts109"><br/></span></p>
+<p class="rvps63"><span class="rvts107"><br/></span></p>
+<p class="rvps63"><span class="rvts107"><br/></span></p>
 <p class="rvps2"><span class="rvts6">4. Now all the data, variables, and functions defined in </span><span class="rvts37">EnergyModel</span><span class="rvts6"> are available to use.</span></p>
 <p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
 

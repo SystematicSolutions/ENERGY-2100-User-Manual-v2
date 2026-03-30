@@ -125,35 +125,54 @@ p {
   margin-bottom: 0.82em;
 }
 
+
+/* =========================================================
+   LIST SYSTEM (CLEAN + CONSISTENT NUMBERING)
+   ========================================================= */
+
+/* Base spacing */
 ul,
 ol {
   margin-top: 0.4em;
   margin-bottom: 0.9em;
+}
+
+/* Unordered lists */
+ul {
   padding-left: 1.6em;
 }
 
-
-
-li {
+ul li {
   margin-bottom: 0.24em;
-}
-
-li p {
-  margin-bottom: 0.35em;
-}
-
-ol li {
-  padding-left: 0.2em;
-  margin-bottom: 0.4em;
-  font-size: 1em;
   line-height: 1.62;
 }
 
+/* Ordered lists */
+ol {
+  list-style: decimal;
+  padding-left: 1.8em;
+}
+
+/* Ordered list items */
+ol li {
+  margin-bottom: 0.4em;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.62;
+  color: #111827;
+}
+
+/* Number styling */
 ol li::marker {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 1.05em;
-  font-weight: 400;
+  font-size: 1.2em;
+  font-weight: 500;
   color: #111827;
+}
+
+/* Paragraphs inside list items */
+li p {
+  margin-bottom: 0.35em;
 }
 
 
@@ -525,13 +544,14 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child {
+/* Only style the OUTER Example/Exercise title */
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
   margin-bottom: 8px !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child::before {
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type::before {
   content: "📚";
   display: inline-block;
   margin-right: 8px;
@@ -609,7 +629,7 @@ table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box p
 table:has(td[style*="background-color: #00c030"]) td:last-child pre,
 table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
   margin: 0 !important;
-  padding: 10px 14px !important;
+  padding: 12px 16px !important;
   background: #f7f9fb !important;
   border: 1px solid #dde3ea !important;
   border-radius: 8px !important;
@@ -618,7 +638,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.3 !important;
+  line-height: 1.55 !important;  /* ⭐ key improvement */
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -924,20 +944,53 @@ details.example-toggle .html-code-box {
 }
 
 /* =========================================================
-   18) FINAL CODE SPACING OVERRIDE
+   18) FINAL CODE SPACING SYSTEM (v10.1 CLEAN)
    ========================================================= */
 
+/* Base <pre> fallback */
 pre {
-  line-height: 1.15 !important;
-  padding: 8px 14px !important;
+  line-height: 1.4;
+  padding: 10px 14px;
 }
 
-/* Fix html-code-box font size */
+/* Main HTML code boxes */
 .html-code-box pre {
-  font-size: 14.5px !important;
+  margin: 0;
+  padding: 12px 16px !important;
+  font-size: 14.5px;
+  line-height: 1.55 !important;
 }
 
-/* Syntax color for keywords */
+.html-code-box code {
+  display: block;
+  line-height: inherit !important;
+}
+
+/* Code inside exercise tables */
+table:has(td[style*="background-color: #cc99ff"]) td:last-child pre,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
+  line-height: 1.55 !important;
+  padding: 12px 16px !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child code,
+table:has(td[style*="background-color: #00c030"]) td:last-child code {
+  line-height: inherit !important;
+}
+
+/* Collapsible callout code */
+details.hnd-blue-callout pre {
+  line-height: 1.4;
+  padding: 10px 14px;
+}
+
+details.hnd-blue-callout code {
+  line-height: inherit !important;
+}
+
+/* Syntax color */
 .kw {
   color: #AF00DB;
   font-weight: 500;
@@ -1079,11 +1132,11 @@ pre {
 <table width="100%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #f3f300; vertical-align: top; width: 2px; height: 54px;">
-   <p class="rvps22"><span class="rvts161"><br/></span></p>
+   <p class="rvps22"><span class="rvts159"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #ffffe7; vertical-align: top; width: 938px; height: 54px;">
-   <p class="rvps28"><span class="rvts157">⚠️</span><span class="rvts162">Warning</span></p>
-   <p class="rvps2"><span class="rvts157">Before adding a new input variable, verify the variable is defined in \Database\VBInput.jl.</span></p>
+   <p class="rvps28"><span class="rvts155">⚠️</span><span class="rvts160">Warning</span></p>
+   <p class="rvps2"><span class="rvts155">Before adding a new input variable, verify the variable is defined in \Database\VBInput.jl.</span></p>
   </td>
  </tr>
 </table>
@@ -1091,7 +1144,7 @@ pre {
 <p class="rvps2"><span class="rvts6">If you want to add new input data to the model:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li class="rvps2 noindent"><span class="rvts6">Create a semi-colon delimited text file saved with a </span><span class="rvts18">.dat</span><span class="rvts6"> extension.&nbsp;</span></li>
- <li class="rvps2 noindent"><span class="rvts6">Name the file the same as the variable name (ex: </span><span class="rvts140">vDmd.dat</span><span class="rvts6">). By convention, the input variables are named with a 'v' prefix. &nbsp;During processing of the input data, the "v" variables are assigned to model variables.&nbsp;</span></li>
+ <li class="rvps2 noindent"><span class="rvts6">Name the file the same as the variable name (ex: </span><span class="rvts138">vDmd.dat</span><span class="rvts6">). By convention, the input variables are named with a 'v' prefix. &nbsp;During processing of the input data, the "v" variables are assigned to model variables.&nbsp;</span></li>
  <li class="rvps33 noindent"><span class="rvts6">Set up the data file such that each row contains one year's data along with its qualifying information.&nbsp;</span></li>
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
   <li class="rvps33 noindent"><span class="rvts6">Put the name of the variable in the first column.&nbsp;</span></li>
@@ -1112,11 +1165,11 @@ pre {
  <li class="rvps33 noindent"><span class="rvts6">Column 7: Data value (ex: 6708.32)</span></li>
 </ul>
 <p class="rvps33"><span class="rvts6"><br/></span></p>
-<p class="rvps85"><span class="rvts160">vGCPot.dat</span></p>
-<p class="rvps93"><span class="rvts129">Variable;Year;Area;Node;Plant;Units;Data</span></p>
-<p class="rvps93"><span class="rvts129">vGCPot;2023;Ontario;Ontario;Gas/Oil Combined Cycle;MW;6708.32</span></p>
-<p class="rvps93"><span class="rvts129">vGCPot;2023;Ontario;Ontario;Onshore Wind;10000&nbsp;</span></p>
-<p class="rvps93"><span class="rvts129">...</span></p>
+<p class="rvps85"><span class="rvts158">vGCPot.dat</span></p>
+<p class="rvps93"><span class="rvts127">Variable;Year;Area;Node;Plant;Units;Data</span></p>
+<p class="rvps93"><span class="rvts127">vGCPot;2023;Ontario;Ontario;Gas/Oil Combined Cycle;MW;6708.32</span></p>
+<p class="rvps93"><span class="rvts127">vGCPot;2023;Ontario;Ontario;Onshore Wind;10000&nbsp;</span></p>
+<p class="rvps93"><span class="rvts127">...</span></p>
 <h2 class="rvps12"><span class="rvts0"><span class="rvts23">Incorporating a New .DAT File into the Model</span></span></h2>
 <p class="rvps2"><span class="rvts6">To incorporate the new </span><span class="rvts18">.dat</span><span class="rvts6"> file into the model, follow the steps below:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
@@ -1143,7 +1196,7 @@ pre {
   <li style="text-indent: 0px" class="rvps91 noindent"><span class="rvts14">The unit in the input file (.dat) must be in the first column.</span></li>
   <li style="text-indent: 0px" class="rvps91 noindent"><span class="rvts14">The unit of the database source code variable (from step 1) must be in the second column.&nbsp;</span></li>
   <li style="text-indent: 0px" class="rvps91 noindent"><span class="rvts14">If a unit conversion is required, input the Factor into column 3 (Factor). &nbsp; The input data will be divided by the factor.</span></li>
-  <li style="text-indent: 0px" class="rvps91 noindent"><span class="rvts14">If a currency conversion is required, the units must include ‘</span><span class="rvts159">Nominal CN$’, ‘US$’, or ‘CN$’.</span></li>
+  <li style="text-indent: 0px" class="rvps91 noindent"><span class="rvts14">If a currency conversion is required, the units must include ‘</span><span class="rvts157">Nominal CN$’, ‘US$’, or ‘CN$’.</span></li>
  </ul>
 </ul>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">

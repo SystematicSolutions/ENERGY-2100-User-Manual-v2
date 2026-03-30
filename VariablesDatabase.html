@@ -125,35 +125,54 @@ p {
   margin-bottom: 0.82em;
 }
 
+
+/* =========================================================
+   LIST SYSTEM (CLEAN + CONSISTENT NUMBERING)
+   ========================================================= */
+
+/* Base spacing */
 ul,
 ol {
   margin-top: 0.4em;
   margin-bottom: 0.9em;
+}
+
+/* Unordered lists */
+ul {
   padding-left: 1.6em;
 }
 
-
-
-li {
+ul li {
   margin-bottom: 0.24em;
-}
-
-li p {
-  margin-bottom: 0.35em;
-}
-
-ol li {
-  padding-left: 0.2em;
-  margin-bottom: 0.4em;
-  font-size: 1em;
   line-height: 1.62;
 }
 
+/* Ordered lists */
+ol {
+  list-style: decimal;
+  padding-left: 1.8em;
+}
+
+/* Ordered list items */
+ol li {
+  margin-bottom: 0.4em;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.62;
+  color: #111827;
+}
+
+/* Number styling */
 ol li::marker {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 1.05em;
-  font-weight: 400;
+  font-size: 1.2em;
+  font-weight: 500;
   color: #111827;
+}
+
+/* Paragraphs inside list items */
+li p {
+  margin-bottom: 0.35em;
 }
 
 
@@ -525,13 +544,14 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child {
+/* Only style the OUTER Example/Exercise title */
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
   margin-bottom: 8px !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child::before {
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type::before {
   content: "📚";
   display: inline-block;
   margin-right: 8px;
@@ -609,7 +629,7 @@ table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box p
 table:has(td[style*="background-color: #00c030"]) td:last-child pre,
 table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
   margin: 0 !important;
-  padding: 10px 14px !important;
+  padding: 12px 16px !important;
   background: #f7f9fb !important;
   border: 1px solid #dde3ea !important;
   border-radius: 8px !important;
@@ -618,7 +638,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.3 !important;
+  line-height: 1.55 !important;  /* ⭐ key improvement */
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -924,20 +944,53 @@ details.example-toggle .html-code-box {
 }
 
 /* =========================================================
-   18) FINAL CODE SPACING OVERRIDE
+   18) FINAL CODE SPACING SYSTEM (v10.1 CLEAN)
    ========================================================= */
 
+/* Base <pre> fallback */
 pre {
-  line-height: 1.15 !important;
-  padding: 8px 14px !important;
+  line-height: 1.4;
+  padding: 10px 14px;
 }
 
-/* Fix html-code-box font size */
+/* Main HTML code boxes */
 .html-code-box pre {
-  font-size: 14.5px !important;
+  margin: 0;
+  padding: 12px 16px !important;
+  font-size: 14.5px;
+  line-height: 1.55 !important;
 }
 
-/* Syntax color for keywords */
+.html-code-box code {
+  display: block;
+  line-height: inherit !important;
+}
+
+/* Code inside exercise tables */
+table:has(td[style*="background-color: #cc99ff"]) td:last-child pre,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
+  line-height: 1.55 !important;
+  padding: 12px 16px !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child code,
+table:has(td[style*="background-color: #00c030"]) td:last-child code {
+  line-height: inherit !important;
+}
+
+/* Collapsible callout code */
+details.hnd-blue-callout pre {
+  line-height: 1.4;
+  padding: 10px 14px;
+}
+
+details.hnd-blue-callout code {
+  line-height: inherit !important;
+}
+
+/* Syntax color */
 .kw {
   color: #AF00DB;
   font-weight: 500;
@@ -1073,416 +1126,416 @@ pre {
             <div class="main-content">
                 
 <h2 class="rvps12"><span class="rvts0"><span class="rvts23">Variables as Arrays</span></span></h2>
-<p class="rvps2"><span class="rvts6">Variables in ENERGY 2020 are stored as multi-dimensional arrays whose dimensions are </span><a class="rvts11" href="Sets.html">sets</a><span class="rvts6">. The variables are defined and stored on an </span><a class="rvts11" href="https://www.hdfgroup.org/solutions/hdf5/" target="_blank">HDF5 database</a><span class="rvts6"> (named </span><span class="rvts18">database.hdf5</span><span class="rvts6">). As an example, the variable, </span><span class="rvts34">TotDemand[</span><a class="rvts131" href="Fuel.html">Fuel</a><span class="rvts34">,</span><a class="rvts131" href="ECC.html">ECC</a><span class="rvts34">,</span><a class="rvts131" href="Area.html">Area</a><span class="rvts34">,</span><a class="rvts131" href="Year.html">Year</a><a class="rvts130" href="Year.html">]</a><span class="rvts6">, is a multi-dimensional array having 4 sets - fuels, economic categories, areas, and years.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts6">Variables in ENERGY 2020 are stored as multi-dimensional arrays whose dimensions are </span><a class="rvts11" href="Sets.html">sets</a><span class="rvts6">. The variables are defined and stored on an </span><a class="rvts11" href="https://www.hdfgroup.org/solutions/hdf5/" target="_blank">HDF5 database</a><span class="rvts6"> (named </span><span class="rvts18">database.hdf5</span><span class="rvts6">). As an example, the variable, </span><span class="rvts34">TotDemand[</span><a class="rvts129" href="Fuel.html">Fuel</a><span class="rvts34">,</span><a class="rvts129" href="ECC.html">ECC</a><span class="rvts34">,</span><a class="rvts129" href="Area.html">Area</a><span class="rvts34">,</span><a class="rvts129" href="Year.html">Year</a><a class="rvts128" href="Year.html">]</a><span class="rvts6">, is a multi-dimensional array having 4 sets - fuels, economic categories, areas, and years.&nbsp;</span></p>
 <h2 class="rvps12"><span class="rvts0"><span class="rvts23">Variables Defined on HDF5 Database</span></span></h2>
 <p class="rvps2"><span class="rvts6">The Julia code that defines and creates the model variables on the HDF5 database is stored in the </span><span class="rvts18">\Database</span><span class="rvts6"> folder. The variables are organized on the HDF5 database based on the file names that create the variable.</span></p>
 <p class="rvps5"><span class="rvts6">An example of Julia code (extracted from </span><span class="rvts34">CCalDB.jl</span><span class="rvts6">) that creates a commercial variable, CERSM[</span><a class="rvts11" href="Enduse.html">Enduse</a><span class="rvts6">,</span><a class="rvts11" href="EC.html">EC</a><span class="rvts6">,</span><a class="rvts11" href="Area.html">Area</a><span class="rvts6">,</span><a class="rvts11" href="Year.html">Year</a><span class="rvts6">], on the HDF5 database is shown in Example 1 below.&nbsp;</span></p>
 <p class="rvps5"><span class="rvts6">The HDF5 database (referenced in the code above as "db") will store a 4-dimensional array named CERSM defined by the 4 sets - Enduse, EC, Area, and Year - on a partition, named CCalDB.</span></p>
-<h4 class="rvps77"><span class="rvts0"><span class="rvts132">Example 1: &nbsp;Creating a Variable, CERSM, on HDF5 Database (from CCalDB.jl):</span></span></h4>
-<div class="rvps74">
+<h4 class="rvps77"><span class="rvts0"><span class="rvts130">Example 1: &nbsp;Creating a Variable, CERSM, on HDF5 Database (from CCalDB.jl):</span></span></h4>
+<div class="rvps75">
 <table width="90%" style="border-color: #ffffff #969696 #969696 #ffffff; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #fafafa;">
-   <p class="rvps71"><span class="rvts124">CERSM </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(db, </span><span class="rvts127">"CCalDB/CERSM"</span><span class="rvts124">, (:Enduse, :EC, :Area, :Year),</span></p>
-   <p class="rvps71"><span class="rvts127">&nbsp; &nbsp; &nbsp; &nbsp; "Capital Energy Requirement Multiplier (Btu/Btu)"</span><span class="rvts124">,</span><span class="rvts127">"Btu/Btu"</span><span class="rvts124">)</span></p>
+   <p class="rvps72"><span class="rvts122">CERSM </span><span class="rvts123">=</span><span class="rvts122"> </span><span class="rvts124">CreateVariableInHDF5</span><span class="rvts122">(db, </span><span class="rvts125">"CCalDB/CERSM"</span><span class="rvts122">, (:Enduse, :EC, :Area, :Year),</span></p>
+   <p class="rvps72"><span class="rvts125">&nbsp; &nbsp; &nbsp; &nbsp; "Capital Energy Requirement Multiplier (Btu/Btu)"</span><span class="rvts122">,</span><span class="rvts125">"Btu/Btu"</span><span class="rvts122">)</span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps76"><span class="rvts6"><br/></span></p>
 <p class="rvps5"><span class="rvts6">Another example of Julia code (extracted from </span><span class="rvts34">SOutput.jl)</span><span class="rvts6"> that creates a model summary variable, </span><span class="rvts34">TotDemand[</span><a class="rvts11" href="Fuel.html">Fuel</a><span class="rvts34">, </span><a class="rvts11" href="ECC.html">ECC</a><span class="rvts34">,</span><a class="rvts11" href="Area.html">Area</a><span class="rvts34">,</span><a class="rvts11" href="Year.html">Year</a><span class="rvts34">],</span><span class="rvts6"> on the the HDF5 database is shown in Example 2 below. This variable is stored on partition within the database, named, SOutput.</span></p>
-<h4 class="rvps77"><span class="rvts0"><span class="rvts132">Example 2: &nbsp;Creating a Variable, TotDemand, on HDF5 Database (from SOutput.jl):</span></span></h4>
-<div class="rvps74">
+<h4 class="rvps77"><span class="rvts0"><span class="rvts130">Example 2: &nbsp;Creating a Variable, TotDemand, on HDF5 Database (from SOutput.jl):</span></span></h4>
+<div class="rvps75">
 <table width="90%" style="border-color: #ffffff #969696 #969696 #ffffff; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #fafafa;">
-   <p class="rvps72"><span class="rvts124">TotDemand </span><span class="rvts125">=</span><span class="rvts124"> </span><span class="rvts126">CreateVariableInHDF5</span><span class="rvts124">(db,</span><span class="rvts127">"SOutput/TotDemand"</span><span class="rvts124">, (:Fuel, :ECC, :Area, :Year),</span></p>
-   <p class="rvps78"><span class="rvts127">"Energy Demand (TBtu/Yr)"</span><span class="rvts124">,</span><span class="rvts127">"TBtu/Yr"</span><span class="rvts124">)</span></p>
+   <p class="rvps73"><span class="rvts122">TotDemand </span><span class="rvts123">=</span><span class="rvts122"> </span><span class="rvts124">CreateVariableInHDF5</span><span class="rvts122">(db,</span><span class="rvts125">"SOutput/TotDemand"</span><span class="rvts122">, (:Fuel, :ECC, :Area, :Year),</span></p>
+   <p class="rvps78"><span class="rvts125">"Energy Demand (TBtu/Yr)"</span><span class="rvts122">,</span><span class="rvts125">"TBtu/Yr"</span><span class="rvts122">)</span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps2"><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
 <p class="rvps2"><span class="rvts6">Julia script files that create all the model variables are stored in the \Database folder and are listed in the table below.</span></p>
-<div class="rvps73">
+<div class="rvps74">
 <table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; background-color: #ebf5ff; width: 126px;">
-   <p class="rvps75"><span class="rvts128">Julia FileName</span></p>
+   <p class="rvps56"><span class="rvts126">Julia FileName</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; background-color: #ebf5ff; width: 112px;">
-   <p class="rvps75"><span class="rvts128">Database Partition</span></p>
+   <p class="rvps56"><span class="rvts126">Database Partition</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; background-color: #ebf5ff; width: 540px;">
-   <p class="rvps75"><span class="rvts128">Description of Variables Created&nbsp;</span></p>
+   <p class="rvps56"><span class="rvts126">Description of Variables Created&nbsp;</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">CCalDB.jl</span></p>
+   <p class="rvps56"><span class="rvts127">CCalDB.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">CCalDB</span></p>
+   <p class="rvps56"><span class="rvts127">CCalDB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Commercial demand calibration variables</span></p>
+   <p class="rvps56"><span class="rvts127">Commercial demand calibration variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">CInput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">CInput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">CInput</span></p>
+   <p class="rvps56"><span class="rvts127">CInput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Commercial demand input variables and commercial set descriptors and keys</span></p>
+   <p class="rvps56"><span class="rvts127">Commercial demand input variables and commercial set descriptors and keys</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">COutput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">COutput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">COutput</span></p>
+   <p class="rvps56"><span class="rvts127">COutput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Commercial demand output variables</span></p>
+   <p class="rvps56"><span class="rvts127">Commercial demand output variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">ECalDB.jl</span></p>
+   <p class="rvps56"><span class="rvts127">ECalDB.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">ECalDB</span></p>
+   <p class="rvps56"><span class="rvts127">ECalDB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Electric price calibration variables</span></p>
+   <p class="rvps56"><span class="rvts127">Electric price calibration variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">EGCalDB.jl</span></p>
+   <p class="rvps56"><span class="rvts127">EGCalDB.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">EGCalDB</span></p>
+   <p class="rvps56"><span class="rvts127">EGCalDB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Electric generating unit dispatch calibration variables</span></p>
+   <p class="rvps56"><span class="rvts127">Electric generating unit dispatch calibration variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">EGInput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">EGInput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">EGInput</span></p>
+   <p class="rvps56"><span class="rvts127">EGInput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Electric generating unit input variables</span></p>
+   <p class="rvps56"><span class="rvts127">Electric generating unit input variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">EGOutput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">EGOutput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">EGOutput</span></p>
+   <p class="rvps56"><span class="rvts127">EGOutput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Electric generating unit output variables</span></p>
+   <p class="rvps56"><span class="rvts127">Electric generating unit output variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">EInput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">EInput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">EInput</span></p>
+   <p class="rvps56"><span class="rvts127">EInput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Electricity module input variables</span></p>
+   <p class="rvps56"><span class="rvts127">Electricity module input variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">EOutput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">EOutput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">EOutput</span></p>
+   <p class="rvps56"><span class="rvts127">EOutput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Electricity module output variables</span></p>
+   <p class="rvps56"><span class="rvts127">Electricity module output variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">ICalDB.jl</span></p>
+   <p class="rvps56"><span class="rvts127">ICalDB.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">ICalDB</span></p>
+   <p class="rvps56"><span class="rvts127">ICalDB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Industrial demand calibration variables</span></p>
+   <p class="rvps56"><span class="rvts127">Industrial demand calibration variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">IInput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">IInput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">IInput</span></p>
+   <p class="rvps56"><span class="rvts127">IInput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Industrial demand input variables, sets, descriptors and keys</span></p>
+   <p class="rvps56"><span class="rvts127">Industrial demand input variables, sets, descriptors and keys</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">IOutput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">IOutput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">IOutput</span></p>
+   <p class="rvps56"><span class="rvts127">IOutput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Industrial demand output variables</span></p>
+   <p class="rvps56"><span class="rvts127">Industrial demand output variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">KInput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">KInput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">KInput</span></p>
+   <p class="rvps56"><span class="rvts127">KInput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Macroeconomic input variables from the Oxford Model (TOM)</span></p>
+   <p class="rvps56"><span class="rvts127">Macroeconomic input variables from the Oxford Model (TOM)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">KOutput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">KOutput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">KOutput</span></p>
+   <p class="rvps56"><span class="rvts127">KOutput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Macroeconomic output variables from the Oxford Model (TOM)</span></p>
+   <p class="rvps56"><span class="rvts127">Macroeconomic output variables from the Oxford Model (TOM)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">MainDB.jl</span></p>
+   <p class="rvps56"><span class="rvts127">MainDB.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">MainDB</span></p>
+   <p class="rvps56"><span class="rvts127">MainDB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Global sets, set descriptors and set keys</span></p>
+   <p class="rvps56"><span class="rvts127">Global sets, set descriptors and set keys</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">MCalDB.jl</span></p>
+   <p class="rvps56"><span class="rvts127">MCalDB.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">MCalDB</span></p>
+   <p class="rvps56"><span class="rvts127">MCalDB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Economic sector calibration variable/economic growth rate</span></p>
+   <p class="rvps56"><span class="rvts127">Economic sector calibration variable/economic growth rate</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">MEInput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">MEInput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">MEInput</span></p>
+   <p class="rvps56"><span class="rvts127">MEInput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Emissions-related input variables</span></p>
+   <p class="rvps56"><span class="rvts127">Emissions-related input variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">MEOutput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">MEOutput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">MEOutput</span></p>
+   <p class="rvps56"><span class="rvts127">MEOutput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Emissions-related output variables</span></p>
+   <p class="rvps56"><span class="rvts127">Emissions-related output variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">MInput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">MInput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">MInput</span></p>
+   <p class="rvps56"><span class="rvts127">MInput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Macroeconomic input variables</span></p>
+   <p class="rvps56"><span class="rvts127">Macroeconomic input variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">MOutput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">MOutput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">MOutput</span></p>
+   <p class="rvps56"><span class="rvts127">MOutput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Macroeconomic output variables</span></p>
+   <p class="rvps56"><span class="rvts127">Macroeconomic output variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">RCalDB.jl</span></p>
+   <p class="rvps56"><span class="rvts127">RCalDB.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">RCalDB</span></p>
+   <p class="rvps56"><span class="rvts127">RCalDB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Residential demand calibration variables</span></p>
+   <p class="rvps56"><span class="rvts127">Residential demand calibration variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">RInput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">RInput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">RInput</span></p>
+   <p class="rvps56"><span class="rvts127">RInput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Residential demand input variables, set descriptors and keys</span></p>
+   <p class="rvps56"><span class="rvts127">Residential demand input variables, set descriptors and keys</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">ROutput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">ROutput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">ROutput</span></p>
+   <p class="rvps56"><span class="rvts127">ROutput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Residential demand output variables</span></p>
+   <p class="rvps56"><span class="rvts127">Residential demand output variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">SCalDB.jl</span></p>
+   <p class="rvps56"><span class="rvts127">SCalDB.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">SCalDB</span></p>
+   <p class="rvps56"><span class="rvts127">SCalDB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Summary module calibration variables</span></p>
+   <p class="rvps56"><span class="rvts127">Summary module calibration variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">SInput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">SInput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">SInput</span></p>
+   <p class="rvps56"><span class="rvts127">SInput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Summary module input variables</span></p>
+   <p class="rvps56"><span class="rvts127">Summary module input variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">SOutput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">SOutput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">SOutput</span></p>
+   <p class="rvps56"><span class="rvts127">SOutput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Summary module output variables</span></p>
+   <p class="rvps56"><span class="rvts127">Summary module output variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">SpInput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">SpInput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">SpInput</span></p>
+   <p class="rvps56"><span class="rvts127">SpInput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Supply module input variables</span></p>
+   <p class="rvps56"><span class="rvts127">Supply module input variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">SpOutput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">SpOutput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">SpOutput</span></p>
+   <p class="rvps56"><span class="rvts127">SpOutput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Supply module output variables</span></p>
+   <p class="rvps56"><span class="rvts127">Supply module output variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">TCalDB.jl</span></p>
+   <p class="rvps56"><span class="rvts127">TCalDB.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">TCalDB</span></p>
+   <p class="rvps56"><span class="rvts127">TCalDB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Transportation demand calibration variables</span></p>
+   <p class="rvps56"><span class="rvts127">Transportation demand calibration variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">TInput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">TInput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">TInput</span></p>
+   <p class="rvps56"><span class="rvts127">TInput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Transportation demand input variables, set descriptors and keys</span></p>
+   <p class="rvps56"><span class="rvts127">Transportation demand input variables, set descriptors and keys</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">TOutput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">TOutput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">TOutput</span></p>
+   <p class="rvps56"><span class="rvts127">TOutput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Transportation demand output variables</span></p>
+   <p class="rvps56"><span class="rvts127">Transportation demand output variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">VBInput.jl</span></p>
+   <p class="rvps56"><span class="rvts127">VBInput.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">VBInput</span></p>
+   <p class="rvps56"><span class="rvts127">VBInput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Input variables read in through the DAT input data files</span></p>
+   <p class="rvps56"><span class="rvts127">Input variables read in through the DAT input data files</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 126px;">
-   <p class="rvps75"><span class="rvts129">vData_ElectricUnits.jl</span></p>
+   <p class="rvps56"><span class="rvts127">vData_ElectricUnits.jl</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 112px;">
-   <p class="rvps75"><span class="rvts129">vData_ElectricUnits</span></p>
+   <p class="rvps56"><span class="rvts127">vData_ElectricUnits</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 540px;">
-   <p class="rvps75"><span class="rvts129">Electric unit input variables read in through the DAT input data files</span></p>
+   <p class="rvps56"><span class="rvts127">Electric unit input variables read in through the DAT input data files</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps73"><span class="rvts6"><br/></span></p>
+<p class="rvps74"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
 

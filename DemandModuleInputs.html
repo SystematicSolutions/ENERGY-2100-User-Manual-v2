@@ -125,35 +125,54 @@ p {
   margin-bottom: 0.82em;
 }
 
+
+/* =========================================================
+   LIST SYSTEM (CLEAN + CONSISTENT NUMBERING)
+   ========================================================= */
+
+/* Base spacing */
 ul,
 ol {
   margin-top: 0.4em;
   margin-bottom: 0.9em;
+}
+
+/* Unordered lists */
+ul {
   padding-left: 1.6em;
 }
 
-
-
-li {
+ul li {
   margin-bottom: 0.24em;
-}
-
-li p {
-  margin-bottom: 0.35em;
-}
-
-ol li {
-  padding-left: 0.2em;
-  margin-bottom: 0.4em;
-  font-size: 1em;
   line-height: 1.62;
 }
 
+/* Ordered lists */
+ol {
+  list-style: decimal;
+  padding-left: 1.8em;
+}
+
+/* Ordered list items */
+ol li {
+  margin-bottom: 0.4em;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.62;
+  color: #111827;
+}
+
+/* Number styling */
 ol li::marker {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 1.05em;
-  font-weight: 400;
+  font-size: 1.2em;
+  font-weight: 500;
   color: #111827;
+}
+
+/* Paragraphs inside list items */
+li p {
+  margin-bottom: 0.35em;
 }
 
 
@@ -525,13 +544,14 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child {
+/* Only style the OUTER Example/Exercise title */
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
   margin-bottom: 8px !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child::before {
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type::before {
   content: "📚";
   display: inline-block;
   margin-right: 8px;
@@ -609,7 +629,7 @@ table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box p
 table:has(td[style*="background-color: #00c030"]) td:last-child pre,
 table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
   margin: 0 !important;
-  padding: 10px 14px !important;
+  padding: 12px 16px !important;
   background: #f7f9fb !important;
   border: 1px solid #dde3ea !important;
   border-radius: 8px !important;
@@ -618,7 +638,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.3 !important;
+  line-height: 1.55 !important;  /* ⭐ key improvement */
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -924,20 +944,53 @@ details.example-toggle .html-code-box {
 }
 
 /* =========================================================
-   18) FINAL CODE SPACING OVERRIDE
+   18) FINAL CODE SPACING SYSTEM (v10.1 CLEAN)
    ========================================================= */
 
+/* Base <pre> fallback */
 pre {
-  line-height: 1.15 !important;
-  padding: 8px 14px !important;
+  line-height: 1.4;
+  padding: 10px 14px;
 }
 
-/* Fix html-code-box font size */
+/* Main HTML code boxes */
 .html-code-box pre {
-  font-size: 14.5px !important;
+  margin: 0;
+  padding: 12px 16px !important;
+  font-size: 14.5px;
+  line-height: 1.55 !important;
 }
 
-/* Syntax color for keywords */
+.html-code-box code {
+  display: block;
+  line-height: inherit !important;
+}
+
+/* Code inside exercise tables */
+table:has(td[style*="background-color: #cc99ff"]) td:last-child pre,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
+  line-height: 1.55 !important;
+  padding: 12px 16px !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child code,
+table:has(td[style*="background-color: #00c030"]) td:last-child code {
+  line-height: inherit !important;
+}
+
+/* Collapsible callout code */
+details.hnd-blue-callout pre {
+  line-height: 1.4;
+  padding: 10px 14px;
+}
+
+details.hnd-blue-callout code {
+  line-height: inherit !important;
+}
+
+/* Syntax color */
 .kw {
   color: #AF00DB;
   font-weight: 500;
@@ -1084,299 +1137,299 @@ pre {
 <table width="98%" style="border-width: 0px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts275">Table Name</span></p>
+   <p class="rvps2"><span class="rvts272">Table Name</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts275">Variable (Sets)</span></p>
+   <p class="rvps2"><span class="rvts272">Variable (Sets)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts275">Title</span></p>
+   <p class="rvps2"><span class="rvts272">Title</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vDCC.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vDCC.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vDCC[vEnduse,vTech,ECC,Area,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vDCC[vEnduse,vTech,ECC,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Device Capital Cost (Local 1985\$/mmBtu/Yr)</span></p>
+   <p class="rvps2"><span class="rvts175">Device Capital Cost (Local 1985\$/mmBtu/Yr)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vDDay.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vDDay.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vDDay[vEnduse,Area,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vDDay[vEnduse,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Degree days(Degree Days)</span></p>
+   <p class="rvps2"><span class="rvts175">Degree days(Degree Days)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vDDayNorm.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vDDayNorm.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vDDayNorm[vEnduse,Area]</span></p>
+   <p class="rvps2"><span class="rvts175">vDDayNorm[vEnduse,Area]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Normal Annual Degree days(Degree Days)</span></p>
+   <p class="rvps2"><span class="rvts175">Normal Annual Degree days(Degree Days)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vDEE.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vDEE.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vDEE[vEnduse,vTech,ECC,Area,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vDEE[vEnduse,vTech,ECC,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Historical Device Efficiency (Btu/Btu)</span></p>
+   <p class="rvps2"><span class="rvts175">Historical Device Efficiency (Btu/Btu)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vDEETrend.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vDEETrend.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vDEETrend [vEnduse,TechRes,ECRes,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vDEETrend [vEnduse,TechRes,ECRes,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Trend (Trend)</span></p>
+   <p class="rvps2"><span class="rvts175">Trend (Trend)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vDEM.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vDEM.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vDEM[vEnduse,vTech,ECC,Area,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vDEM[vEnduse,vTech,ECC,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Maximum Device Efficiency (Btu/Btu)</span></p>
+   <p class="rvps2"><span class="rvts175">Maximum Device Efficiency (Btu/Btu)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vDEStd.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vDEStd.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vDEStd[vEnduse,vTech,ECC,Area,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vDEStd[vEnduse,vTech,ECC,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Device Efficiency Standards (Btu/Btu)</span></p>
+   <p class="rvps2"><span class="rvts175">Device Efficiency Standards (Btu/Btu)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vDmd.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vDmd.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vDmd[vEnduse,Fuel,ECC,Area,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vDmd[vEnduse,Fuel,ECC,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Enduse Demands (TBtu/Yr)</span></p>
+   <p class="rvps2"><span class="rvts175">Enduse Demands (TBtu/Yr)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vDmd_OG.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vDmd_OG.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vDmd[vEnduse,Fuel,ECC,Area,Year], for oil and gas industries</span></p>
+   <p class="rvps2"><span class="rvts175">vDmd[vEnduse,Fuel,ECC,Area,Year], for oil and gas industries</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Enduse Demands (TBtu/Yr)</span></p>
+   <p class="rvps2"><span class="rvts175">Enduse Demands (TBtu/Yr)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vDOCF.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vDOCF.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vDOCF[vEnduse,vTech,ECC,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vDOCF[vEnduse,vTech,ECC,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Device Operating Cost Fraction (\$/\$)</span></p>
+   <p class="rvps2"><span class="rvts175">Device Operating Cost Fraction (\$/\$)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vDPL.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vDPL.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vDPL[vEnduse,vTech,ECC,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vDPL[vEnduse,vTech,ECC,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Physical Life of Equipment (Years)</span></p>
+   <p class="rvps2"><span class="rvts175">Physical Life of Equipment (Years)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vDST.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vDST.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vDST[vEnduse,ECC,Area,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vDST[vEnduse,ECC,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Device Saturation (Btu/Btu)</span></p>
+   <p class="rvps2"><span class="rvts175">Device Saturation (Btu/Btu)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vEUDmd.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vEUDmd.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vEUDmd[Fuel,Area,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vEUDmd[Fuel,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Electric Utility Demands (TBtu/Yr)</span></p>
+   <p class="rvps2"><span class="rvts175">Electric Utility Demands (TBtu/Yr)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vFsDmd.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vFsDmd.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vFsDmd[Fuel,ECC,Area,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vFsDmd[Fuel,ECC,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Feedstock Demands (TBtu/Yr)</span></p>
+   <p class="rvps2"><span class="rvts175">Feedstock Demands (TBtu/Yr)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vFSUnit.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vFSUnit.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vFSUnit[ECC,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vFSUnit[ECC,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Floorspace per Unit (Sq Units/Building)</span></p>
+   <p class="rvps2"><span class="rvts175">Floorspace per Unit (Sq Units/Building)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vStDmd.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vStDmd.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vStDmd[FuelEP,Area,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vStDmd[FuelEP,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Steam Generation Fuel Demands (TBtu/Yr)</span></p>
+   <p class="rvps2"><span class="rvts175">Steam Generation Fuel Demands (TBtu/Yr)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vTrDAct.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vTrDAct.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vTrDAct[TechTrans,ECTrans,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vTrDAct[TechTrans,ECTrans,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Device Activity Level (Ton-Miles/Vehicle-Mile)</span></p>
+   <p class="rvps2"><span class="rvts175">Device Activity Level (Ton-Miles/Vehicle-Mile)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vTrDCC.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vTrDCC.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vTrDCC[TechTrans,ECTrans,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vTrDCC[TechTrans,ECTrans,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Device Capital Cost (Real \$/mmBtu/Yr)</span></p>
+   <p class="rvps2"><span class="rvts175">Device Capital Cost (Real \$/mmBtu/Yr)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vTrDCMM.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vTrDCMM.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vTrDCMM [TechTrans,ECTrans,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vTrDCMM [TechTrans,ECTrans,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Capital Cost Maximum Multiplier (1=2008)</span></p>
+   <p class="rvps2"><span class="rvts175">Capital Cost Maximum Multiplier (1=2008)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vTrDEE.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vTrDEE.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vTrDEE[TechTrans,ECTrans,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vTrDEE[TechTrans,ECTrans,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Device Efficiency (miles/mmBtu)</span></p>
+   <p class="rvps2"><span class="rvts175">Device Efficiency (miles/mmBtu)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vTrDEE_Default.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vTrDEE_Default.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vTrDEE[TechTrans,ECTrans,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vTrDEE[TechTrans,ECTrans,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Device Efficiency (miles/mmBtu)</span></p>
+   <p class="rvps2"><span class="rvts175">Device Efficiency (miles/mmBtu)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vTrDEM.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vTrDEM.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vTrDEM[TechTrans,ECTrans,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vTrDEM[TechTrans,ECTrans,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Maximum Device Efficiency (miles/mmBtu)</span></p>
+   <p class="rvps2"><span class="rvts175">Maximum Device Efficiency (miles/mmBtu)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vTrDmd.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vTrDmd.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vTrDmd [Fuel,TechTrans,ECTrans,Area,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vTrDmd [Fuel,TechTrans,ECTrans,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Transportation Enduse Demand (TBtu/Yr)</span></p>
+   <p class="rvps2"><span class="rvts175">Transportation Enduse Demand (TBtu/Yr)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vTrDPConv.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vTrDPConv.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vTrDPConv [TechTrans,ECTrans,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vTrDPConv [TechTrans,ECTrans,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Device Process Conversion (Vehicle Mile/Passenger Mile)</span></p>
+   <p class="rvps2"><span class="rvts175">Device Process Conversion (Vehicle Mile/Passenger Mile)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vTrDST.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vTrDST.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vTrDST[ECTrans,Area,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vTrDST[ECTrans,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Transportation Device Saturation (Btu/Btu)</span></p>
+   <p class="rvps2"><span class="rvts175">Transportation Device Saturation (Btu/Btu)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; vertical-align: middle; width: 129px;">
-   <p class="rvps2"><span class="rvts177">vTrFsDmd.dat</span></p>
+   <p class="rvps2"><span class="rvts175">vTrFsDmd.dat</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 246px;">
-   <p class="rvps2"><span class="rvts177">vTrFsDmd [FuelFs,TechTrans,ECTrans,Area,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">vTrFsDmd [FuelFs,TechTrans,ECTrans,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-left: none; vertical-align: middle; width: 321px;">
-   <p class="rvps2"><span class="rvts177">Transportation Feedstock Demands (TBtu/Yr)</span></p>
+   <p class="rvps2"><span class="rvts175">Transportation Feedstock Demands (TBtu/Yr)</span></p>
   </td>
  </tr>
 </table>

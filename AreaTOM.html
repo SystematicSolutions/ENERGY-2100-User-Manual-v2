@@ -125,35 +125,54 @@ p {
   margin-bottom: 0.82em;
 }
 
+
+/* =========================================================
+   LIST SYSTEM (CLEAN + CONSISTENT NUMBERING)
+   ========================================================= */
+
+/* Base spacing */
 ul,
 ol {
   margin-top: 0.4em;
   margin-bottom: 0.9em;
+}
+
+/* Unordered lists */
+ul {
   padding-left: 1.6em;
 }
 
-
-
-li {
+ul li {
   margin-bottom: 0.24em;
-}
-
-li p {
-  margin-bottom: 0.35em;
-}
-
-ol li {
-  padding-left: 0.2em;
-  margin-bottom: 0.4em;
-  font-size: 1em;
   line-height: 1.62;
 }
 
+/* Ordered lists */
+ol {
+  list-style: decimal;
+  padding-left: 1.8em;
+}
+
+/* Ordered list items */
+ol li {
+  margin-bottom: 0.4em;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.62;
+  color: #111827;
+}
+
+/* Number styling */
 ol li::marker {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 1.05em;
-  font-weight: 400;
+  font-size: 1.2em;
+  font-weight: 500;
   color: #111827;
+}
+
+/* Paragraphs inside list items */
+li p {
+  margin-bottom: 0.35em;
 }
 
 
@@ -525,13 +544,14 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child {
+/* Only style the OUTER Example/Exercise title */
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
   margin-bottom: 8px !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child::before {
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type::before {
   content: "📚";
   display: inline-block;
   margin-right: 8px;
@@ -609,7 +629,7 @@ table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box p
 table:has(td[style*="background-color: #00c030"]) td:last-child pre,
 table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
   margin: 0 !important;
-  padding: 10px 14px !important;
+  padding: 12px 16px !important;
   background: #f7f9fb !important;
   border: 1px solid #dde3ea !important;
   border-radius: 8px !important;
@@ -618,7 +638,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.3 !important;
+  line-height: 1.55 !important;  /* ⭐ key improvement */
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -924,20 +944,53 @@ details.example-toggle .html-code-box {
 }
 
 /* =========================================================
-   18) FINAL CODE SPACING OVERRIDE
+   18) FINAL CODE SPACING SYSTEM (v10.1 CLEAN)
    ========================================================= */
 
+/* Base <pre> fallback */
 pre {
-  line-height: 1.15 !important;
-  padding: 8px 14px !important;
+  line-height: 1.4;
+  padding: 10px 14px;
 }
 
-/* Fix html-code-box font size */
+/* Main HTML code boxes */
 .html-code-box pre {
-  font-size: 14.5px !important;
+  margin: 0;
+  padding: 12px 16px !important;
+  font-size: 14.5px;
+  line-height: 1.55 !important;
 }
 
-/* Syntax color for keywords */
+.html-code-box code {
+  display: block;
+  line-height: inherit !important;
+}
+
+/* Code inside exercise tables */
+table:has(td[style*="background-color: #cc99ff"]) td:last-child pre,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
+  line-height: 1.55 !important;
+  padding: 12px 16px !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child code,
+table:has(td[style*="background-color: #00c030"]) td:last-child code {
+  line-height: inherit !important;
+}
+
+/* Collapsible callout code */
+details.hnd-blue-callout pre {
+  line-height: 1.4;
+  padding: 10px 14px;
+}
+
+details.hnd-blue-callout code {
+  line-height: inherit !important;
+}
+
+/* Syntax color */
 .kw {
   color: #AF00DB;
   font-weight: 500;
@@ -1077,282 +1130,282 @@ pre {
 <table style="border-width: 0px; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts288">No.</span></p>
+   <p class="rvps3"><span class="rvts285">No.</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts288">AreaTOM Descriptor</span></p>
+   <p class="rvps2"><span class="rvts285">AreaTOM Descriptor</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts288">AreaTOM Key</span></p>
+   <p class="rvps2"><span class="rvts285">AreaTOM Key</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">1</span></p>
+   <p class="rvps3"><span class="rvts231">1</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">ALBERTA</span></p>
+   <p class="rvps2"><span class="rvts231">ALBERTA</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">AB</span></p>
+   <p class="rvps2"><span class="rvts231">AB</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">2</span></p>
+   <p class="rvps3"><span class="rvts231">2</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">B_COLUMB</span></p>
+   <p class="rvps2"><span class="rvts231">B_COLUMB</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">BC</span></p>
+   <p class="rvps2"><span class="rvts231">BC</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">3</span></p>
+   <p class="rvps3"><span class="rvts231">3</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">MANITOBA</span></p>
+   <p class="rvps2"><span class="rvts231">MANITOBA</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">MB</span></p>
+   <p class="rvps2"><span class="rvts231">MB</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">4</span></p>
+   <p class="rvps3"><span class="rvts231">4</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">NBRUNSWK</span></p>
+   <p class="rvps2"><span class="rvts231">NBRUNSWK</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">NB</span></p>
+   <p class="rvps2"><span class="rvts231">NB</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">5</span></p>
+   <p class="rvps3"><span class="rvts231">5</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">NFOUNLND</span></p>
+   <p class="rvps2"><span class="rvts231">NFOUNLND</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">NL</span></p>
+   <p class="rvps2"><span class="rvts231">NL</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">6</span></p>
+   <p class="rvps3"><span class="rvts231">6</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">NORTHWT</span></p>
+   <p class="rvps2"><span class="rvts231">NORTHWT</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">NT</span></p>
+   <p class="rvps2"><span class="rvts231">NT</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">7</span></p>
+   <p class="rvps3"><span class="rvts231">7</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">NOVA_SCO</span></p>
+   <p class="rvps2"><span class="rvts231">NOVA_SCO</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">NS</span></p>
+   <p class="rvps2"><span class="rvts231">NS</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">8</span></p>
+   <p class="rvps3"><span class="rvts231">8</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">NUNAVUT</span></p>
+   <p class="rvps2"><span class="rvts231">NUNAVUT</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">NU</span></p>
+   <p class="rvps2"><span class="rvts231">NU</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">9</span></p>
+   <p class="rvps3"><span class="rvts231">9</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">ONTARIO</span></p>
+   <p class="rvps2"><span class="rvts231">ONTARIO</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">ON</span></p>
+   <p class="rvps2"><span class="rvts231">ON</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">10</span></p>
+   <p class="rvps3"><span class="rvts231">10</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">PRINCE_E</span></p>
+   <p class="rvps2"><span class="rvts231">PRINCE_E</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">PE</span></p>
+   <p class="rvps2"><span class="rvts231">PE</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">11</span></p>
+   <p class="rvps3"><span class="rvts231">11</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">QUEBEC</span></p>
+   <p class="rvps2"><span class="rvts231">QUEBEC</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">QC</span></p>
+   <p class="rvps2"><span class="rvts231">QC</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">12</span></p>
+   <p class="rvps3"><span class="rvts231">12</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">SASKCHWN</span></p>
+   <p class="rvps2"><span class="rvts231">SASKCHWN</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">SK</span></p>
+   <p class="rvps2"><span class="rvts231">SK</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">13</span></p>
+   <p class="rvps3"><span class="rvts231">13</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">YUKON</span></p>
+   <p class="rvps2"><span class="rvts231">YUKON</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">YT</span></p>
+   <p class="rvps2"><span class="rvts231">YT</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">14</span></p>
+   <p class="rvps3"><span class="rvts231">14</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">NEWENG</span></p>
+   <p class="rvps2"><span class="rvts231">NEWENG</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">NEng</span></p>
+   <p class="rvps2"><span class="rvts231">NEng</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">15</span></p>
+   <p class="rvps3"><span class="rvts231">15</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">MIDATLAN</span></p>
+   <p class="rvps2"><span class="rvts231">MIDATLAN</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">MAtl</span></p>
+   <p class="rvps2"><span class="rvts231">MAtl</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">16</span></p>
+   <p class="rvps3"><span class="rvts231">16</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">ENC</span></p>
+   <p class="rvps2"><span class="rvts231">ENC</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">ENC</span></p>
+   <p class="rvps2"><span class="rvts231">ENC</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">17</span></p>
+   <p class="rvps3"><span class="rvts231">17</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">WNC</span></p>
+   <p class="rvps2"><span class="rvts231">WNC</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">WNC</span></p>
+   <p class="rvps2"><span class="rvts231">WNC</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">18</span></p>
+   <p class="rvps3"><span class="rvts231">18</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">SATLAN</span></p>
+   <p class="rvps2"><span class="rvts231">SATLAN</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">SAtl</span></p>
+   <p class="rvps2"><span class="rvts231">SAtl</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">19</span></p>
+   <p class="rvps3"><span class="rvts231">19</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">ESC</span></p>
+   <p class="rvps2"><span class="rvts231">ESC</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">ESC</span></p>
+   <p class="rvps2"><span class="rvts231">ESC</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">20</span></p>
+   <p class="rvps3"><span class="rvts231">20</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">WSC</span></p>
+   <p class="rvps2"><span class="rvts231">WSC</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">WSC</span></p>
+   <p class="rvps2"><span class="rvts231">WSC</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">21</span></p>
+   <p class="rvps3"><span class="rvts231">21</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">MOUNTAIN</span></p>
+   <p class="rvps2"><span class="rvts231">MOUNTAIN</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">Mtn</span></p>
+   <p class="rvps2"><span class="rvts231">Mtn</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">22</span></p>
+   <p class="rvps3"><span class="rvts231">22</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">PACIFIC</span></p>
+   <p class="rvps2"><span class="rvts231">PACIFIC</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">Pac</span></p>
+   <p class="rvps2"><span class="rvts231">Pac</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts234">23</span></p>
+   <p class="rvps3"><span class="rvts231">23</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 136px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">CALI</span></p>
+   <p class="rvps2"><span class="rvts231">CALI</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 92px; height: 19px;">
-   <p class="rvps2"><span class="rvts234">CA</span></p>
+   <p class="rvps2"><span class="rvts231">CA</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps73"><span class="rvts234"><br/></span></p>
+<p class="rvps74"><span class="rvts231"><br/></span></p>
 <div class="rvps2">
 <table width="90%" style="border-width: 0px; background-color: #ffffff; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: rgba(76,162,11,0.5); width: 7px;">
-   <p class="rvps163"><span class="rvts173"><br/></span></p>
+   <p class="rvps163"><span class="rvts171"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: #f1fff1; vertical-align: top; width: 29px;">
-   <p class="rvps179"><span class="rvts134">🛈</span></p>
+   <p class="rvps179"><span class="rvts132">🛈</span></p>
   </td>
   <td style="border-width : 1px; border-color: #008000; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #f1fff1; vertical-align: top; width: 722px;">
-   <p class="rvps28"><span class="rvts249">Note: &nbsp;</span><span class="rvts6">This set is defined in: Database\Sets\</span><span class="rvts18">AreaTOM.csv</span><span class="rvts6">.</span></p>
+   <p class="rvps28"><span class="rvts246">Note: &nbsp;</span><span class="rvts6">This set is defined in: Database\Sets\</span><span class="rvts18">AreaTOM.csv</span><span class="rvts6">.</span></p>
   </td>
  </tr>
 </table>

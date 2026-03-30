@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="favicon.ico"/>
 
-  <title>Viewing Variables using the Julia REPL</title>
+  <title>Viewing Variables Using the Julia REPL</title>
   <meta name="description" content="" /> 
   <meta name="keywords" content="">
 
@@ -22,11 +22,11 @@
 
   <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Viewing Variables using the Julia REPL">
+  <meta name="twitter:title" content="Viewing Variables Using the Julia REPL">
   <meta name="twitter:description" content="">
 
   <!-- Open Graph data -->
-  <meta property="og:title" content="Viewing Variables using the Julia REPL" />
+  <meta property="og:title" content="Viewing Variables Using the Julia REPL" />
   <meta property="og:type" content="article" />
   <meta property="og:description" content="" />
   <meta property="og:site_name" content="ENERGY 2100 User Manual" /> 
@@ -125,35 +125,54 @@ p {
   margin-bottom: 0.82em;
 }
 
+
+/* =========================================================
+   LIST SYSTEM (CLEAN + CONSISTENT NUMBERING)
+   ========================================================= */
+
+/* Base spacing */
 ul,
 ol {
   margin-top: 0.4em;
   margin-bottom: 0.9em;
+}
+
+/* Unordered lists */
+ul {
   padding-left: 1.6em;
 }
 
-
-
-li {
+ul li {
   margin-bottom: 0.24em;
-}
-
-li p {
-  margin-bottom: 0.35em;
-}
-
-ol li {
-  padding-left: 0.2em;
-  margin-bottom: 0.4em;
-  font-size: 1em;
   line-height: 1.62;
 }
 
+/* Ordered lists */
+ol {
+  list-style: decimal;
+  padding-left: 1.8em;
+}
+
+/* Ordered list items */
+ol li {
+  margin-bottom: 0.4em;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.62;
+  color: #111827;
+}
+
+/* Number styling */
 ol li::marker {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 1.05em;
-  font-weight: 400;
+  font-size: 1.2em;
+  font-weight: 500;
   color: #111827;
+}
+
+/* Paragraphs inside list items */
+li p {
+  margin-bottom: 0.35em;
 }
 
 
@@ -525,13 +544,14 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child {
+/* Only style the OUTER Example/Exercise title */
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
   margin-bottom: 8px !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child::before {
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type::before {
   content: "📚";
   display: inline-block;
   margin-right: 8px;
@@ -609,7 +629,7 @@ table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box p
 table:has(td[style*="background-color: #00c030"]) td:last-child pre,
 table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
   margin: 0 !important;
-  padding: 10px 14px !important;
+  padding: 12px 16px !important;
   background: #f7f9fb !important;
   border: 1px solid #dde3ea !important;
   border-radius: 8px !important;
@@ -618,7 +638,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.3 !important;
+  line-height: 1.55 !important;  /* ⭐ key improvement */
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -924,20 +944,53 @@ details.example-toggle .html-code-box {
 }
 
 /* =========================================================
-   18) FINAL CODE SPACING OVERRIDE
+   18) FINAL CODE SPACING SYSTEM (v10.1 CLEAN)
    ========================================================= */
 
+/* Base <pre> fallback */
 pre {
-  line-height: 1.15 !important;
-  padding: 8px 14px !important;
+  line-height: 1.4;
+  padding: 10px 14px;
 }
 
-/* Fix html-code-box font size */
+/* Main HTML code boxes */
 .html-code-box pre {
-  font-size: 14.5px !important;
+  margin: 0;
+  padding: 12px 16px !important;
+  font-size: 14.5px;
+  line-height: 1.55 !important;
 }
 
-/* Syntax color for keywords */
+.html-code-box code {
+  display: block;
+  line-height: inherit !important;
+}
+
+/* Code inside exercise tables */
+table:has(td[style*="background-color: #cc99ff"]) td:last-child pre,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
+  line-height: 1.55 !important;
+  padding: 12px 16px !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child code,
+table:has(td[style*="background-color: #00c030"]) td:last-child code {
+  line-height: inherit !important;
+}
+
+/* Collapsible callout code */
+details.hnd-blue-callout pre {
+  line-height: 1.4;
+  padding: 10px 14px;
+}
+
+details.hnd-blue-callout code {
+  line-height: inherit !important;
+}
+
+/* Syntax color */
 .kw {
   color: #AF00DB;
   font-weight: 500;
@@ -1051,9 +1104,9 @@ pre {
 
     <article>
         <div id="topic-content" class="container-fluid" 
-		  data-hnd-id="ViewingVariablesusingtheJuliaREP"
+		  data-hnd-id="ViewingVariablesUsingtheJuliaREP"
 		  data-hnd-context="210"
-		  data-hnd-title="Viewing Variables using the Julia REPL"
+		  data-hnd-title="Viewing Variables Using the Julia REPL"
 		>
             
                 <div class="navigation">
@@ -1068,7 +1121,7 @@ pre {
 
             <a id="main-content"></a>
 
-            <h2>Viewing Variables using the Julia REPL</h2>
+            <h2>Viewing Variables Using the Julia REPL</h2>
 
             <div class="main-content">
                 
@@ -1077,10 +1130,10 @@ pre {
 <p class="rvps2"><span class="rvts6">Once you have a VS Code session set up, you are ready to view variables from the REPL.</span></p>
 <p class="rvps2"><span class="rvts6">There are multiple ways to view variables from the Julia REPL, including:&nbsp;</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps19 noindent"><a class="rvts11" href="TestingaPolicyFileintheJuliaREPL.html#WriteToCSV">Write variable to a CSV file using a DataFrame</a></li>
- <li class="rvps19 noindent"><a class="rvts11" href="TestingaPolicyFileintheJuliaREPL.html#DataFrameSubset">View variable in REPL using a DataFrame subset</a></li>
- <li class="rvps19 noindent"><a class="rvts11" href="TestingaPolicyFileintheJuliaREPL.html#Println">Write println statements in the REPL</a></li>
- <li class="rvps2 noindent"><a class="rvts11" href="ViewingVariablesusingtheJuliaREP.html#OutputFile">Run an existing output .jl file from the REPL</a><span class="rvts6">.</span></li>
+ <li class="rvps19 noindent"><a class="rvts11" href="ViewingVariablesUsingtheJuliaREP.html#WriteToCSV">Write variable to a CSV file using a DataFrame</a></li>
+ <li class="rvps19 noindent"><a class="rvts11" href="ViewingVariablesUsingtheJuliaREP.html#DataFrameSubset">View variable in REPL using a DataFrame subset</a></li>
+ <li class="rvps19 noindent"><a class="rvts11" href="ViewingVariablesUsingtheJuliaREP.html#Println">Write println statements in the REPL</a></li>
+ <li class="rvps2 noindent"><a class="rvts11" href="ViewingVariablesUsingtheJuliaREP.html#OutputFile">Run an existing output .jl file from the REPL</a><span class="rvts6">.</span></li>
 </ul>
 <p class="rvps2"><span class="rvts6">The sections below provide instructions for each of these methods.&nbsp;</span></p>
 <p class="rvps2"><span class="rvts6">The instructions that follow assume you have performed all the steps above to import the required functions and packages into your Julia workspace.</span></p>
@@ -1109,11 +1162,12 @@ pre {
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts69">df = </span><span class="rvts87">ReadDisk</span><span class="rvts69">(DataFrame, DB, "DBPartition/VariableName")</span></p>
+   <p class="rvps45"><span class="rvts69">df = </span><span class="rvts85">ReadDisk</span><span class="rvts69">(DataFrame, DB, "DBPartition/VariableName")</span></p>
   </td>
  </tr>
 </table>
 </div>
+<p class="rvps39"><span class="rvts80">The example below shows a DataFrame of </span><span class="rvts67">the residential </span><span class="rvts37">xPkSav</span><span class="rvts67"> variable, which is stored on </span><span class="rvts37">RInput</span><span class="rvts67"> in the database:</span></p>
 <div class="rvps43">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
@@ -1124,8 +1178,18 @@ pre {
    <p class="rvps42"><span class="rvts79">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
-   <p class="rvps2"><span class="rvts13">Exercise</span></p>
-   <p class="rvps45"><span class="rvts69">df = ReadDisk(DataFrame, DB, "RInput/xPkSav")</span></p>
+   <p class="rvps55"><span class="rvts96">Example</span></p>
+   <div class="rvps55">
+   <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+    <tr style="vertical-align: top;">
+     <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 6px 8px; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+      <p class="rvps45"><span class="rvts69">df = </span><span class="rvts70">ReadDisk</span><span class="rvts69">(DataFrame, DB, "RInput/xPkSav")</span></p>
+     </td>
+    </tr>
+   </table>
+   </div>
+   <p class="rvps45"><span class="rvts69">Julia Output</span></p>
+   <p class="rvps56"><img alt="" style="padding : 1px;" src="lib/NewItem%20164.png"></p>
   </td>
  </tr>
 </table>
@@ -1149,7 +1213,7 @@ pre {
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 28px; height: 42px;">
-   <p class="rvps44"><span class="rvts82"></span></p>
+   <p class="rvps44"><span class="rvts81"></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 590px; height: 42px;">
    <p class="rvps50"><span class="rvts67">By default, the .csv file will be saved to the root model directory. If you want to store the .csv files to a separate folder, first create the folder, then revise the command include the folder name: &nbsp;</span><span class="rvts37">CSV.write("newfolder/output.csv", df)</span></p>
@@ -1162,7 +1226,7 @@ pre {
   <li class="rvps51 noindent"><span class="rvts6">You can append the variable to an existing csv file by using </span><span class="rvts37">append = true.</span></li>
  </ul>
 </ul>
-<div class="rvps53">
+<div class="rvps52">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
@@ -1176,10 +1240,10 @@ pre {
   <li class="rvps2 noindent"><span class="rvts6">If you don’t want to read any zero values, you can set the&nbsp;skip_zeros&nbsp;keyword argument to&nbsp;true:</span></li>
  </ul>
 </ul>
-<p class="rvps54"><span class="rvts67"><div class="html-code-box indent-3">
+<p class="rvps53"><span class="rvts67"><div class="html-code-box indent-3">
 <pre><code>df = ReadDisk(DataFrame, DB, "DBPartition/VariableName", skip_zeros = true)</code></pre>
 </div></span></p>
-<div class="rvps55">
+<div class="rvps54">
 <table width="100%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
@@ -1189,8 +1253,19 @@ pre {
    <p class="rvps42"><span class="rvts79">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 830px; height: 58px;">
-   <p class="rvps2"><span class="rvts13">Exercise</span></p>
-   <p class="rvps45"><span class="rvts69">df = </span><span class="rvts88">ReadDisk</span><span class="rvts69">(DataFrame, DB, "RInput/xPkSav", skip_zeros = </span><span class="rvts97">true</span><span class="rvts69">)</span></p>
+   <p class="rvps55"><span class="rvts97">Example</span></p>
+   <div class="rvps55">
+   <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+    <tr style="vertical-align: top;">
+     <td style="padding: 6px 8px;">
+      <p class="rvps45"><span class="rvts77">julia&gt;</span><span class="rvts69"> df = </span><span class="rvts86">ReadDisk</span><span class="rvts69">(DataFrame, DB, "RInput/xPkSav", skip_zeros = </span><span class="rvts94">true</span><span class="rvts69">)</span></p>
+     </td>
+    </tr>
+   </table>
+   </div>
+   <p class="rvps45"><span class="rvts69"><br/></span></p>
+   <p class="rvps45"><span class="rvts69">Julia Output</span></p>
+   <p class="rvps55"><img alt="" style="padding : 1px;" src="lib/NewItem%20165.png"></p>
   </td>
  </tr>
 </table>
@@ -1206,29 +1281,7 @@ pre {
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 12px 8px;">
-   <p class="rvps45"><span class="rvts69">df = </span><span class="rvts88">ReadDisk</span><span class="rvts69">(DataFrame, DB, "DBPartition/VariableName")</span></p>
-  </td>
- </tr>
-</table>
-</div>
-<div class="rvps43">
-<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
- <tr style="vertical-align: top;">
-  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
-   <p class="rvps22"><span class="rvts31"><br/></span></p>
-  </td>
-  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
-   <p class="rvps42"><span class="rvts79">🕮</span></p>
-  </td>
-  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
-   <p class="rvps2"><span class="rvts13">Exercise</span></p>
-   <p class="rvps33"><span class="rvts67">Create a DataFrame of the </span><span class="rvts37">xPkSav</span><span class="rvts67"> variable, which is stored on </span><span class="rvts37">RInput</span><span class="rvts67"> in the database:</span></p>
-   <p class="rvps33"><span class="rvts67"><br/></span></p>
-   <p class="rvps2"><span class="rvts13"><details class="example-toggle">
-  <summary>View Solution</summary>
-  <div class="html-code-box"><pre><code>df = ReadDisk(DataFrame, DB, "RInput/xPkSav")</pre></code>
-  </div>
-</details></span></p>
+   <p class="rvps45"><span class="rvts69">df = </span><span class="rvts86">ReadDisk</span><span class="rvts69">(DataFrame, DB, "DBPartition/VariableName")</span></p>
   </td>
  </tr>
 </table>
@@ -1260,8 +1313,8 @@ pre {
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
    <p class="rvps49"><span class="rvts67">Exercise</span></p>
-   <p class="rvps49"><span class="rvts67">Create a subset of DataFrame subset that selects&nbsp;</span></p>
-   <p class="rvps49"><span class="rvts84"><details class="example-toggle">
+   <p class="rvps49"><span class="rvts67">Create a subset of a residential xPkSav DataFrame that selects British Columbia, Single Family Detached, Lighting for year 2030.</span></p>
+   <p class="rvps49"><span class="rvts83"><details class="example-toggle">
   <summary>View Solution</summary>
   <div class="html-code-box"><pre><code>df_subset = @rsubset df begin
 :EC == "SingleFamilyDetached"
@@ -1283,7 +1336,7 @@ end</pre></code>
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 27px; height: 42px;">
-   <p class="rvps44"><span class="rvts83"></span></p>
+   <p class="rvps44"><span class="rvts82"></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 591px; height: 42px;">
    <p class="rvps34"><span class="rvts6">You must select the set elements using </span><span class="rvts18">set keys</span><span class="rvts6"> rather than </span><span class="rvts18">set descriptors</span><span class="rvts6">.</span></p>
@@ -1315,6 +1368,8 @@ end</pre></code>
    <p class="rvps42"><span class="rvts79">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
+   <p class="rvps2"><span class="rvts6">Exercise</span></p>
+   <p class="rvps2"><span class="rvts67">Create a DataFrame subset of the residential variable, xPkSav, using @rsubset. Select 3 ECs: SingleFamilyDetached, SingleFamilyAttached, and MultiFamily for British Columbia Lighting in the year 2030.</span></p>
    <p class="rvps45"><span class="rvts69"><details class="example-toggle">
   <summary>View Solution</summary>
   <div class="html-code-box"><pre><code>df_subset = @rsubset df begin
@@ -1353,15 +1408,16 @@ end</code></pre>
    <p class="rvps42"><span class="rvts79">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
-   <p class="rvps2"><span class="rvts99">Exercise</span></p>
-   <p class="rvps45"><span class="rvts89"><details class="example-toggle">
+   <p class="rvps2"><span class="rvts67">Exercise</span></p>
+   <p class="rvps2"><span class="rvts67">Modify the DataFrame subset you created above for the residential variable, xPkSav, using @rsubset. Select 3 ECs: SingleFamilyDetached, SingleFamilyAttached, and MultiFamily using the ":EC in [...]" method to select the set elements.</span></p>
+   <p class="rvps45"><span class="rvts87"><details class="example-toggle">
   <summary>View Solution</summary>
   <div class="html-code-box"><pre><code>df_subset = @rsubset df begin
 <b>:EC in ["SingleFamilyDetached","SingleFamilyAttached","MultiFamily"]</b>
 :Enduse == "Light"
 :Area == "BC"
 :Year == 2030
-  end</code></pre>
+end</code></pre>
   </div>
 </details></span></p>
   </td>
@@ -1393,8 +1449,9 @@ end</code></pre>
    <p class="rvps42"><span class="rvts79">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
-   <p class="rvps2"><span class="rvts99">Exercise</span></p>
-   <p class="rvps45"><span class="rvts89"><details class="example-toggle">
+   <p class="rvps2"><span class="rvts67">Exercise</span></p>
+   <p class="rvps2"><span class="rvts67">Modify the DataFrame subset you created above for the residential variable, xPkSav, using @rsubset. Replace the year selection of 2030 with a range of years: 2028 to 2030.</span></p>
+   <p class="rvps45"><span class="rvts87"><details class="example-toggle">
   <summary>View Solution</summary>
   <div class="html-code-box"><pre><code>df_subset = @rsubset df begin
 :EC in ["SingleFamilyDetached","SingleFamilyAttached","MultiFamily"]
@@ -1431,8 +1488,9 @@ end</code></pre>
    <p class="rvps42"><span class="rvts79">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
-   <p class="rvps2"><span class="rvts6">Exercise</span></p>
-   <p class="rvps45"><span class="rvts90"><details class="example-toggle">
+   <p class="rvps2"><span class="rvts67">Exercise</span></p>
+   <p class="rvps2"><span class="rvts67">View the DataFrame and the DataFrame subset you created in the previous exercises.</span></p>
+   <p class="rvps45"><span class="rvts88"><details class="example-toggle">
   <summary>View Solution</summary>
   <div class="html-code-box">
     <pre><code>julia> df
@@ -1490,7 +1548,7 @@ end</code></pre>
  </tr>
 </table>
 </div>
-<p class="rvps39"><span class="rvts6">Below shows an example of obtaining the attributes for the variable, </span><span class="rvts34">xPkSav</span><span class="rvts6"> stored on </span><span class="rvts34">IInput</span><span class="rvts6">:</span></p>
+<p class="rvps38"><span class="rvts64">The example below shows the results of calling the data attributes function for the variable </span><span class="rvts95">xPkSav</span><span class="rvts64"> in the industrial sector (stored on </span><span class="rvts95">IInput)</span><span class="rvts64">:</span></p>
 <div class="rvps39">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
@@ -1501,17 +1559,15 @@ end</code></pre>
    <p class="rvps42"><span class="rvts79">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
-   <p class="rvps2"><span class="rvts13">Exercise</span></p>
-   <p class="rvps45"><span class="rvts72">julia&gt; </span><span class="rvts85">import EnergyModel.data_attrs</span></p>
-   <p class="rvps45"><span class="rvts72">julia&gt; </span><span class="rvts85">data_attrs(DB, "IInput/xPkSav")</span></p>
-  </td>
- </tr>
-</table>
-</div>
-<p class="rvps38"><span class="rvts92"><div class="html-code-box indent-2">
+   <p class="rvps2"><span class="rvts80">Example</span></p>
+   <p class="rvps55"><span class="rvts89">  <div class="html-code-box">
+    <pre><code>julia> import EnergyModel.data_attrs
+julia> data_attrs(DB, "IInput/xPkSav")</code></pre>
+
+
   <p>🗎 Julia Output</p>
 
-  <pre><code>Dict{String, Any} with 7 entries:
+<pre><code>Dict{String, Any} with 7 entries:
   "units"             => "MW"
   "doc"               => "Exogenous Peak Savings (MW)"
   "setdesc_locations" => ["IInput/EnduseDS", "IInput/ECDS", "MainDB/AreaDS", "MainDB/YearDS"]
@@ -1521,12 +1577,16 @@ end</code></pre>
   "type"              => "variable"
   </code></pre>
 </div></span></p>
-<p class="rvps38"><span class="rvts64">From the output of data_attrs, we see that xPkSav is defined by the sets &nbsp;</span><span class="rvts94">"Enduse", "EC", "Area",</span><span class="rvts92"> and </span><span class="rvts94">"Year".</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps38"><span class="rvts64">From the output of data_attrs, we see that xPkSav is defined by the sets &nbsp;</span><span class="rvts91">"Enduse", "EC", "Area",</span><span class="rvts89"> and </span><span class="rvts91">"Year".</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li value="2" class="rvps2 noindent"><span class="rvts6">Read the desired variable and sets into your workspace.&nbsp;</span></li>
 </ol>
 <p class="rvps39"><span class="rvts6">By importing and using </span><span class="rvts37">ReadDiskAndSets</span><span class="rvts6">, you will read in the variable and sets to the names you specify on the left-hand-side of the equation as follows:</span></p>
-<p class="rvps38"><span class="rvts93"><div class="html-code-box indent-2">
+<p class="rvps38"><span class="rvts90"><div class="html-code-box indent-2">
 <pre><code>import EnergyModel.ReadDiskAndSets
 (;VariableName, Set1Name, Set2Name, ...) = ReadDiskAndSets(DB, "DBPartition/VariableName")</code></pre>
 </div></span></p>
@@ -1540,8 +1600,9 @@ end</code></pre>
    <p class="rvps42"><span class="rvts79">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
-   <p class="rvps49"><span class="rvts84">Exercise</span></p>
-   <p class="rvps45"><span class="rvts86"><details class="example-toggle">
+   <p class="rvps49"><span class="rvts83">Exercise</span></p>
+   <p class="rvps2"><span class="rvts67">Import Read the variable and sets for xPkSav from the industrial sector. If you don't know the sets, first find them using the data.attrs function.</span></p>
+   <p class="rvps45"><span class="rvts84"><details class="example-toggle">
   <summary>View Solution</summary>
 
   <div class="html-code-box">
@@ -1574,7 +1635,8 @@ end</code></pre>
    <p class="rvps42"><span class="rvts79">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
-   <p class="rvps45"><span class="rvts71">Exercise</span></p>
+   <p class="rvps2"><span class="rvts83">Exercise</span></p>
+   <p class="rvps2"><span class="rvts80">Generate the .dta outputs created by ElectricSummary.jl (stored in Output/ExcelOutput). Locate and view the .dta files that were generated.</span></p>
    <p class="rvps45"><span class="rvts69"><details class="example-toggle">
   <summary>View Solution</summary>
 
@@ -1603,7 +1665,7 @@ xPkSav(Heat,IronSteel,BC,2026) = 0.0951572</code></pre>
  </tr>
 </table>
 </div>
-<p class="rvps2"><span class="rvts91"></span><br/><a name="OutputFile"></a><span class="rvts98">Run an Existing Output .jl File from the REPL</span></p>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19"></span></span><br/><a name="OutputFile"></a><span class="rvts0"><span class="rvts19">Run an Existing Output .jl File from the REPL</span></span></h3>
 <p class="rvps2"><span class="rvts6">To run an output file from the REPL, follow the instructions below:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li class="rvps39 noindent"><span class="rvts6">Include the path to the desired output file in your workspace:</span></li>
@@ -1625,12 +1687,13 @@ xPkSav(Heat,IronSteel,BC,2026) = 0.0951572</code></pre>
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts96">ModuleName_DtaControl</span><span class="rvts95">(DB)</span></p>
+   <p class="rvps45"><span class="rvts93">ModuleName_DtaControl</span><span class="rvts92">(DB)</span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps38"><span class="rvts64">Output will be generated and saved with .dta extensions in the </span><span class="rvts73">\2020Model\out</span><span class="rvts64"> folder.</span></p>
+<p class="rvps38"><span class="rvts64"><br/></span></p>
 <div class="rvps24">
 <table width="100%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
@@ -1641,15 +1704,27 @@ xPkSav(Heat,IronSteel,BC,2026) = 0.0951572</code></pre>
    <p class="rvps42"><span class="rvts79">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 830px; height: 58px;">
-   <p class="rvps2"><span class="rvts13">Exercise</span></p>
-   <p class="rvps45"><span class="rvts72">include(Output/ExcelOutput/ElectricSummary.jl")</span></p>
-   <p class="rvps45"><span class="rvts72">ElectricSummary_DtaControl(DB)</span></p>
+   <p class="rvps2"><span class="rvts80">Exercise</span></p>
+   <p class="rvps2"><span class="rvts80">Generate the .dta outputs created by ElectricSummary.jl (stored in Output/ExcelOutput). Locate and view the .dta files that were generated.</span></p>
+   <p class="rvps2"><span class="rvts13"><details class="example-toggle">
+  <summary>View Solution</summary>
+  <div class="html-code-box">
+    <pre><code>include(Output/ExcelOutput/ElectricSummary.jl")
+ElectricSummary_DtaControl(DB)
+</code></pre>
+
+  <p class="code-label">
+  🗎 Julia Output</p>
+    <div class="html-code-box">
+    <pre><code>
+  <img src="lib/outfolder-ElectricSummaryDTAs.png" alt="Output Folder"></code></pre>
+  </div>
+</details></span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps5"><span class="rvts6">Output from </span><span class="rvts37">ElectrcSummary_DtaControl(DB)</span><span class="rvts6"> is saved to </span><span class="rvts37">\2020Model\out </span><span class="rvts6">folder:</span></p>
-<p class="rvps52"><img alt="" style="width : 298px; height : 435px; padding : 1px;" src="lib/NewItem%20163.png"><span class="rvts129"></span></p>
+<p class="rvps24"><span class="rvts6"></span><span class="rvts6"></span></p>
 
             </div>
             

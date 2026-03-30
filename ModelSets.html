@@ -125,35 +125,54 @@ p {
   margin-bottom: 0.82em;
 }
 
+
+/* =========================================================
+   LIST SYSTEM (CLEAN + CONSISTENT NUMBERING)
+   ========================================================= */
+
+/* Base spacing */
 ul,
 ol {
   margin-top: 0.4em;
   margin-bottom: 0.9em;
+}
+
+/* Unordered lists */
+ul {
   padding-left: 1.6em;
 }
 
-
-
-li {
+ul li {
   margin-bottom: 0.24em;
-}
-
-li p {
-  margin-bottom: 0.35em;
-}
-
-ol li {
-  padding-left: 0.2em;
-  margin-bottom: 0.4em;
-  font-size: 1em;
   line-height: 1.62;
 }
 
+/* Ordered lists */
+ol {
+  list-style: decimal;
+  padding-left: 1.8em;
+}
+
+/* Ordered list items */
+ol li {
+  margin-bottom: 0.4em;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.62;
+  color: #111827;
+}
+
+/* Number styling */
 ol li::marker {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 1.05em;
-  font-weight: 400;
+  font-size: 1.2em;
+  font-weight: 500;
   color: #111827;
+}
+
+/* Paragraphs inside list items */
+li p {
+  margin-bottom: 0.35em;
 }
 
 
@@ -525,13 +544,14 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child {
+/* Only style the OUTER Example/Exercise title */
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
   margin-bottom: 8px !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child::before {
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type::before {
   content: "📚";
   display: inline-block;
   margin-right: 8px;
@@ -609,7 +629,7 @@ table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box p
 table:has(td[style*="background-color: #00c030"]) td:last-child pre,
 table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
   margin: 0 !important;
-  padding: 10px 14px !important;
+  padding: 12px 16px !important;
   background: #f7f9fb !important;
   border: 1px solid #dde3ea !important;
   border-radius: 8px !important;
@@ -618,7 +638,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.3 !important;
+  line-height: 1.55 !important;  /* ⭐ key improvement */
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -924,20 +944,53 @@ details.example-toggle .html-code-box {
 }
 
 /* =========================================================
-   18) FINAL CODE SPACING OVERRIDE
+   18) FINAL CODE SPACING SYSTEM (v10.1 CLEAN)
    ========================================================= */
 
+/* Base <pre> fallback */
 pre {
-  line-height: 1.15 !important;
-  padding: 8px 14px !important;
+  line-height: 1.4;
+  padding: 10px 14px;
 }
 
-/* Fix html-code-box font size */
+/* Main HTML code boxes */
 .html-code-box pre {
-  font-size: 14.5px !important;
+  margin: 0;
+  padding: 12px 16px !important;
+  font-size: 14.5px;
+  line-height: 1.55 !important;
 }
 
-/* Syntax color for keywords */
+.html-code-box code {
+  display: block;
+  line-height: inherit !important;
+}
+
+/* Code inside exercise tables */
+table:has(td[style*="background-color: #cc99ff"]) td:last-child pre,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
+  line-height: 1.55 !important;
+  padding: 12px 16px !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child code,
+table:has(td[style*="background-color: #00c030"]) td:last-child code {
+  line-height: inherit !important;
+}
+
+/* Collapsible callout code */
+details.hnd-blue-callout pre {
+  line-height: 1.4;
+  padding: 10px 14px;
+}
+
+details.hnd-blue-callout code {
+  line-height: inherit !important;
+}
+
+/* Syntax color */
 .kw {
   color: #AF00DB;
   font-weight: 500;
@@ -1079,103 +1132,103 @@ pre {
 <table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="Area.html">Area</a></p>
+   <p class="rvps2"><a class="rvts276" href="Area.html">Area</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><a class="rvts280" href="Area.html">All areas represented in ENERGY 2100</a></p>
+   <p class="rvps199"><a class="rvts277" href="Area.html">All areas represented in ENERGY 2100</a></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="Biofuel.html">Biofuel</a></p>
+   <p class="rvps2"><a class="rvts276" href="Biofuel.html">Biofuel</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><a class="rvts280" href="Area.html">Biofuels included in the Biofuel Module</a></p>
+   <p class="rvps199"><a class="rvts277" href="Area.html">Biofuels included in the Biofuel Module</a></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="Class.html">Class</a></p>
+   <p class="rvps2"><a class="rvts276" href="Class.html">Class</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><a class="rvts280" href="Area.html">Consumer classes represented in the Electricity Module. Used to delineate electricity sales and loads.</a></p>
+   <p class="rvps199"><a class="rvts277" href="Area.html">Consumer classes represented in the Electricity Module. Used to delineate electricity sales and loads.</a></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="CNArea.html">CNArea</a></p>
+   <p class="rvps2"><a class="rvts276" href="CNArea.html">CNArea</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><a class="rvts280" href="Area.html">Subset of Area set containing only the Canada areas</a></p>
+   <p class="rvps199"><a class="rvts277" href="Area.html">Subset of Area set containing only the Canada areas</a></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="Crude.html">Crude</a></p>
+   <p class="rvps2"><a class="rvts276" href="Crude.html">Crude</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><a class="rvts280" href="Area.html">Types of crude oil contained in Refinery Module</a></p>
+   <p class="rvps199"><a class="rvts277" href="Area.html">Types of crude oil contained in Refinery Module</a></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="DACTech.html">DACTech</a></p>
+   <p class="rvps2"><a class="rvts276" href="DACTech.html">DACTech</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><a class="rvts280" href="Area.html">Direct Air Capture technology types&nbsp;</a></p>
+   <p class="rvps199"><a class="rvts277" href="Area.html">Direct Air Capture technology types&nbsp;</a></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="Day.html">Day</a></p>
+   <p class="rvps2"><a class="rvts276" href="Day.html">Day</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><a class="rvts280" href="Area.html">Categories of times day (peak, average, minimum) used in the electricity dispatch</a></p>
+   <p class="rvps199"><a class="rvts277" href="Area.html">Categories of times day (peak, average, minimum) used in the electricity dispatch</a></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps200"><a class="rvts279" href="EC.html">EC</a></p>
+   <p class="rvps200"><a class="rvts276" href="EC.html">EC</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><a class="rvts280" href="Area.html">Economic categories represented in the residential, commercial, industrial, and transportation demand sectors. Subset of ECC set.</a></p>
+   <p class="rvps199"><a class="rvts277" href="Area.html">Economic categories represented in the residential, commercial, industrial, and transportation demand sectors. Subset of ECC set.</a></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="ECC.html">ECC</a></p>
+   <p class="rvps2"><a class="rvts276" href="ECC.html">ECC</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><a class="rvts280" href="Area.html">Master list of all economic categories represented in the demand module</a></p>
+   <p class="rvps199"><a class="rvts277" href="Area.html">Master list of all economic categories represented in the demand module</a></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="Enduse.html">Enduse</a></p>
+   <p class="rvps2"><a class="rvts276" href="Enduse.html">Enduse</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><a class="rvts280" href="Area.html">Enduses simulated in the residential, commercial, industrial, and transportation demand sectors</a></p>
+   <p class="rvps199"><a class="rvts277" href="Area.html">Enduses simulated in the residential, commercial, industrial, and transportation demand sectors</a></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="ES.html">ES</a></p>
+   <p class="rvps2"><a class="rvts276" href="ES.html">ES</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><a class="rvts280" href="Area.html">Energy Sectors represented in the energy market&nbsp;</a></p>
+   <p class="rvps199"><a class="rvts277" href="Area.html">Energy Sectors represented in the energy market&nbsp;</a></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="Feedstock.html">Feedstock</a></p>
+   <p class="rvps2"><a class="rvts276" href="Feedstock.html">Feedstock</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><a class="rvts280" href="Area.html">Types of feedstock energy used in the Biofuel Module</a></p>
+   <p class="rvps199"><a class="rvts277" href="Area.html">Types of feedstock energy used in the Biofuel Module</a></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="Fuel.html">Fuel</a></p>
+   <p class="rvps2"><a class="rvts276" href="Fuel.html">Fuel</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
    <p class="rvps199"><span class="rvts6">Master list of detailed fuel types</span></p>
@@ -1183,15 +1236,15 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="FuelEP.html">FuelEP</a></p>
+   <p class="rvps2"><a class="rvts276" href="FuelEP.html">FuelEP</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><a class="rvts280" href="Area.html">Emission-producing fuels</a></p>
+   <p class="rvps199"><a class="rvts277" href="Area.html">Emission-producing fuels</a></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="FuelFS.html">FuelFS</a></p>
+   <p class="rvps2"><a class="rvts276" href="FuelFS.html">FuelFS</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
    <p class="rvps199"><span class="rvts6">Fuels used as feedstock in the Demand and Emissions Modules. Subset of Fuel set.</span></p>
@@ -1199,7 +1252,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="FuelOG.html">FuelOG</a></p>
+   <p class="rvps2"><a class="rvts276" href="FuelOG.html">FuelOG</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
    <p class="rvps199"><span class="rvts6">Fuels used in the oil and gas production sector. Subset of Fuel set.</span></p>
@@ -1207,7 +1260,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="GenCo.html">GenCo</a></p>
+   <p class="rvps2"><a class="rvts276" href="GenCo.html">GenCo</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
    <p class="rvps199"><span class="rvts6">Generating companies simulated in Electricity Module</span></p>
@@ -1215,7 +1268,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="GNode.html">GNode</a></p>
+   <p class="rvps2"><a class="rvts276" href="GNode.html">GNode</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
    <p class="rvps199"><span class="rvts6">Natural Gas Transmission Module nodes</span></p>
@@ -1223,7 +1276,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px; height: 24px;">
-   <p class="rvps2"><a class="rvts279" href="H2Tech.html">H2Tech</a></p>
+   <p class="rvps2"><a class="rvts276" href="H2Tech.html">H2Tech</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px; height: 24px;">
    <p class="rvps199"><span class="rvts6">Types of Hydrogen Supply technologies</span></p>
@@ -1231,7 +1284,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="Hour.html">Hour</a></p>
+   <p class="rvps2"><a class="rvts276" href="Hour.html">Hour</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
    <p class="rvps199"><span class="rvts6">Representative hour in Electricity Module</span></p>
@@ -1239,7 +1292,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="Market.html">Market</a></p>
+   <p class="rvps2"><a class="rvts276" href="Market.html">Market</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
    <p class="rvps199"><span class="rvts6">Placeholders for user-defined carbon markets (up to 220 market definitions possible)</span></p>
@@ -1247,7 +1300,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="Month.html">Month</a></p>
+   <p class="rvps2"><a class="rvts276" href="Month.html">Month</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
    <p class="rvps199"><span class="rvts6">Months represented for electric dispatch</span></p>
@@ -1255,7 +1308,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="Nation.html">Nation</a></p>
+   <p class="rvps2"><a class="rvts276" href="Nation.html">Nation</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
    <p class="rvps199"><span class="rvts6">Nations represented in the model</span></p>
@@ -1263,7 +1316,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="NationX.html">NationX</a></p>
+   <p class="rvps2"><a class="rvts276" href="NationX.html">NationX</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
    <p class="rvps199"><span class="rvts6">From Nations used to represent source of flows for imports and exports</span></p>
@@ -1271,7 +1324,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="Node.html">Node</a></p>
+   <p class="rvps2"><a class="rvts276" href="Node.html">Node</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
    <p class="rvps199"><span class="rvts6">Nodes represented in the Electricity Module</span></p>
@@ -1279,50 +1332,42 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="NodeX.html">NodeX</a></p>
+   <p class="rvps2"><a class="rvts276" href="NodeX.html">NodeX</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><span class="rvts280">From NodeX used in electricity dispatch</span></p>
+   <p class="rvps199"><span class="rvts277">From NodeX used in electricity dispatch</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="Offset.html">Offset</a></p>
+   <p class="rvps2"><a class="rvts276" href="Offset.html">Offset</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><span class="rvts280">Types of offsets used for reduction curves</span></p>
+   <p class="rvps199"><span class="rvts277">Types of offsets used for reduction curves</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="OGUnit.html">OGUnit</a></p>
+   <p class="rvps2"><a class="rvts276" href="OGUnit.html">OGUnit</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><span class="rvts280">Oil and gas supply individual units represented in ENERGY 2100</span><span class="rvts6">&nbsp;</span></p>
+   <p class="rvps199"><span class="rvts277">Oil and gas supply individual units represented in ENERGY 2100</span><span class="rvts6">&nbsp;</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="PCov.html">PCov</a></p>
+   <p class="rvps2"><a class="rvts276" href="PCov.html">PCov</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><span class="rvts280">Types of pollution that can be covered in a carbon market</span></p>
+   <p class="rvps199"><span class="rvts277">Types of pollution that can be covered in a carbon market</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="Plant.html">Plant</a></p>
+   <p class="rvps2"><a class="rvts276" href="Plant.html">Plant</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><a class="rvts280" href="Area.html">Electricity module plant types</a></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><span class="rvts6"><br/></span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><span class="rvts6"><br/></span></p>
+   <p class="rvps199"><a class="rvts277" href="Area.html">Electricity module plant types</a></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
@@ -1335,23 +1380,31 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="Tech.html">Tech</a></p>
+   <p class="rvps2"><span class="rvts6"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><a class="rvts280" href="Area.html">Technology types within the residential, commercial, industrial, and transportation sectors</a></p>
+   <p class="rvps199"><span class="rvts6"><br/></span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
-   <p class="rvps2"><a class="rvts279" href="Year.html">Year</a></p>
+   <p class="rvps2"><a class="rvts276" href="Tech.html">Tech</a></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
-   <p class="rvps199"><a class="rvts280" href="Area.html">Historical and forecast years represented in ENERGY 2100</a></p>
+   <p class="rvps199"><a class="rvts277" href="Area.html">Technology types within the residential, commercial, industrial, and transportation sectors</a></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 97px;">
+   <p class="rvps2"><a class="rvts276" href="Year.html">Year</a></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 626px;">
+   <p class="rvps199"><a class="rvts277" href="Area.html">Historical and forecast years represented in ENERGY 2100</a></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps2"><a class="rvts278" href="Area.html"><br/></a></p>
+<p class="rvps2"><a class="rvts275" href="Area.html"><br/></a></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
 

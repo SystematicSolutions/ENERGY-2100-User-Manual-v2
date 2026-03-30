@@ -125,35 +125,54 @@ p {
   margin-bottom: 0.82em;
 }
 
+
+/* =========================================================
+   LIST SYSTEM (CLEAN + CONSISTENT NUMBERING)
+   ========================================================= */
+
+/* Base spacing */
 ul,
 ol {
   margin-top: 0.4em;
   margin-bottom: 0.9em;
+}
+
+/* Unordered lists */
+ul {
   padding-left: 1.6em;
 }
 
-
-
-li {
+ul li {
   margin-bottom: 0.24em;
-}
-
-li p {
-  margin-bottom: 0.35em;
-}
-
-ol li {
-  padding-left: 0.2em;
-  margin-bottom: 0.4em;
-  font-size: 1em;
   line-height: 1.62;
 }
 
+/* Ordered lists */
+ol {
+  list-style: decimal;
+  padding-left: 1.8em;
+}
+
+/* Ordered list items */
+ol li {
+  margin-bottom: 0.4em;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.62;
+  color: #111827;
+}
+
+/* Number styling */
 ol li::marker {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 1.05em;
-  font-weight: 400;
+  font-size: 1.2em;
+  font-weight: 500;
   color: #111827;
+}
+
+/* Paragraphs inside list items */
+li p {
+  margin-bottom: 0.35em;
 }
 
 
@@ -525,13 +544,14 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child {
+/* Only style the OUTER Example/Exercise title */
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
   margin-bottom: 8px !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child::before {
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type::before {
   content: "📚";
   display: inline-block;
   margin-right: 8px;
@@ -609,7 +629,7 @@ table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box p
 table:has(td[style*="background-color: #00c030"]) td:last-child pre,
 table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
   margin: 0 !important;
-  padding: 10px 14px !important;
+  padding: 12px 16px !important;
   background: #f7f9fb !important;
   border: 1px solid #dde3ea !important;
   border-radius: 8px !important;
@@ -618,7 +638,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.3 !important;
+  line-height: 1.55 !important;  /* ⭐ key improvement */
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -924,20 +944,53 @@ details.example-toggle .html-code-box {
 }
 
 /* =========================================================
-   18) FINAL CODE SPACING OVERRIDE
+   18) FINAL CODE SPACING SYSTEM (v10.1 CLEAN)
    ========================================================= */
 
+/* Base <pre> fallback */
 pre {
-  line-height: 1.15 !important;
-  padding: 8px 14px !important;
+  line-height: 1.4;
+  padding: 10px 14px;
 }
 
-/* Fix html-code-box font size */
+/* Main HTML code boxes */
 .html-code-box pre {
-  font-size: 14.5px !important;
+  margin: 0;
+  padding: 12px 16px !important;
+  font-size: 14.5px;
+  line-height: 1.55 !important;
 }
 
-/* Syntax color for keywords */
+.html-code-box code {
+  display: block;
+  line-height: inherit !important;
+}
+
+/* Code inside exercise tables */
+table:has(td[style*="background-color: #cc99ff"]) td:last-child pre,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
+  line-height: 1.55 !important;
+  padding: 12px 16px !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child code,
+table:has(td[style*="background-color: #00c030"]) td:last-child code {
+  line-height: inherit !important;
+}
+
+/* Collapsible callout code */
+details.hnd-blue-callout pre {
+  line-height: 1.4;
+  padding: 10px 14px;
+}
+
+details.hnd-blue-callout code {
+  line-height: inherit !important;
+}
+
+/* Syntax color */
 .kw {
   color: #AF00DB;
   font-weight: 500;
@@ -1076,22 +1129,22 @@ pre {
 <p class="rvps15"><span class="rvts6">Establishing appliance/equipment efficiency standards and promoting appliance/equipment energy efficiency programs are examples of device energy efficiency policies. Equipment standards establish minimum device energy efficiencies for residential appliances, commercial and industrial equipment, and transportation vehicles. Each type of appliance, such as furnaces, could have a different efficiency standard for each fuel type. Policies that simulate energy efficiency programs are designed to encourage consumers to reduce energy consumption, such as programs to promote purchasing energy efficient light bulbs.&nbsp;</span></p>
 <p class="rvps15"><span class="rvts6">The principles of increasing device efficiency mimic those of increasing process efficiency. </span><a class="rvts24" href="ENERGY2100UserManual.html#_Ref480396751">Figure 7</a><span class="rvts6"> illustrates the variables that are used to calculate device energy efficiency. The device efficiency of a specific enduse and fuel is determined using a device efficiency fuel trade-off curve. The coefficient that defines the trade-off curve, DFTC, is developed during model initialization and held constant through the model run. Marginal device efficiency (DEE) is determined by the relative energy price (ECFP, DFPN) and the device efficiency curve parameters (DEM, DFTC). The device efficiency multiplier (DEMM), the domestic grant fraction (DGF) and the device price multiplier (DEPM) are policy variables. The ultimate device energy efficiency (DEE) is assigned the maximum of the calculated device efficiency and any device efficiency standards (either existing or policy-related).</span></p>
 <p class="rvps16"><span class="rvts18">Other Factors to Consider</span></p>
-<p class="rvps175"><span class="rvts6">Other factors to consider when simulating policies that modify device energy efficiency are: 1) capital cost of the new energy efficient devices, and 2) lifetime of the new energy efficiency devices. The model equations related to device capital cost are described below. Modifying the device lifetime will impact the rate of retirements and new additions of device energy. Model equations related to device lifetime are described in </span><span class="rvts66">Section </span><a class="rvts253" href="ENERGY2100UserManual.html#_Ref484173530">3.6</a><span class="rvts6"> related to policies impacting stock levels.</span></p>
+<p class="rvps175"><span class="rvts6">Other factors to consider when simulating policies that modify device energy efficiency are: 1) capital cost of the new energy efficient devices, and 2) lifetime of the new energy efficiency devices. The model equations related to device capital cost are described below. Modifying the device lifetime will impact the rate of retirements and new additions of device energy. Model equations related to device lifetime are described in </span><span class="rvts66">Section </span><a class="rvts250" href="ENERGY2100UserManual.html#_Ref484173530">3.6</a><span class="rvts6"> related to policies impacting stock levels.</span></p>
 <p class="rvps175"><span class="rvts6">Device energy capital costs are calculated based on the level of device efficiency using a device capital trade off curve coefficient (DCTC), developed during model initialization and held constant through the model run, combined with cost and efficiency multipliers and subject to a maximum efficiency. </span><a class="rvts24" href="ENERGY2100UserManual.html#_Ref480398107">Figure 8</a><span class="rvts6"> identifies the inputs to the device capital cost equation.&nbsp;</span></p>
-<p class="rvps177"><span class="rvts256">Device Energy Capital Costs &nbsp;</span><span class="rvts257">When simulating a device energy efficiency policy, the resulting capital costs should be examined. With an increase in energy efficiency, the capital costs increase based on a curve developed from historical relationships calculated during model initialization. As part of the policy simulation, you may want to adjust the capital cost curve up or down to reflect current thinking as to the relationship of cost and efficiency levels.</span></p>
-<p class="rvps178"><span class="rvts258">Device Capital Costs Inputs</span></p>
+<p class="rvps177"><span class="rvts253">Device Energy Capital Costs &nbsp;</span><span class="rvts254">When simulating a device energy efficiency policy, the resulting capital costs should be examined. With an increase in energy efficiency, the capital costs increase based on a curve developed from historical relationships calculated during model initialization. As part of the policy simulation, you may want to adjust the capital cost curve up or down to reflect current thinking as to the relationship of cost and efficiency levels.</span></p>
+<p class="rvps178"><span class="rvts255">Device Capital Costs Inputs</span></p>
 <p class="rvps175"><img alt="" style="width : 549px; height : 269px; padding : 1px;" src="lib/NewItem%2091.png"></p>
 <div class="rvps2">
 <table width="90%" style="border-width: 0px; background-color: #ffffff; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: rgba(76,162,11,0.5); width: 7px;">
-   <p class="rvps79"><span class="rvts173"><br/></span></p>
+   <p class="rvps79"><span class="rvts171"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: #f1fff1; vertical-align: top; width: 29px;">
-   <p class="rvps28"><span class="rvts134">🛈</span></p>
+   <p class="rvps28"><span class="rvts132">🛈</span></p>
   </td>
   <td style="border-width : 1px; border-color: #008000; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #f1fff1; vertical-align: top; width: 722px;">
-   <p class="rvps28"><span class="rvts249">Note:</span><span class="rvts248"> &nbsp;Several methods are available to calculate </span><span class="rvts249">device efficiency</span><span class="rvts248">. The specific method used is determined based on a switch (</span><a class="rvts11" href="PEESw.html">DEESw</a><span class="rvts248">).</span></p>
+   <p class="rvps28"><span class="rvts246">Note:</span><span class="rvts245"> &nbsp;Several methods are available to calculate </span><span class="rvts246">device efficiency</span><span class="rvts245">. The specific method used is determined based on a switch (</span><a class="rvts11" href="PEESw.html">DEESw</a><span class="rvts245">).</span></p>
   </td>
  </tr>
 </table>
@@ -1103,40 +1156,40 @@ pre {
 <table style="border-width: 0px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td colspan="2" style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; background-color: #0070c0; vertical-align: middle; width: 608px; height: 28px;">
-   <p class="rvps2"><span class="rvts254">Device Energy Efficiency Policy Variables</span></p>
+   <p class="rvps2"><span class="rvts251">Device Energy Efficiency Policy Variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; background-color: #0070c0; vertical-align: middle; width: 189px; height: 28px;">
-   <p class="rvps2"><span class="rvts254">Variable Name</span></p>
+   <p class="rvps2"><span class="rvts251">Variable Name</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; background-color: #0070c0; vertical-align: middle; width: 405px; height: 28px;">
-   <p class="rvps2"><span class="rvts254">Description</span></p>
+   <p class="rvps2"><span class="rvts251">Description</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 189px;">
-   <p class="rvps2"><span class="rvts157">DEStdP</span><span class="rvts255">(Enduse,Tech,EC,Area,Year)</span></p>
-   <p class="rvps15"><span class="rvts157"><br/></span></p>
+   <p class="rvps2"><span class="rvts155">DEStdP</span><span class="rvts252">(Enduse,Tech,EC,Area,Year)</span></p>
+   <p class="rvps15"><span class="rvts155"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 405px;">
-   <p class="rvps18"><span class="rvts157">Device efficiency standard policy (Btu/Btu). Assign a device efficiency standard policy which establishes the minimum level of device efficiency chosen by the model. This option can be used when the level of desired efficiency is known and can be directly input. An efficiency standard can also be set to allow for the model to increase capital cost based on the efficiency curve parameters.</span></p>
+   <p class="rvps18"><span class="rvts155">Device efficiency standard policy (Btu/Btu). Assign a device efficiency standard policy which establishes the minimum level of device efficiency chosen by the model. This option can be used when the level of desired efficiency is known and can be directly input. An efficiency standard can also be set to allow for the model to increase capital cost based on the efficiency curve parameters.</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 189px;">
-   <p class="rvps15"><span class="rvts157">DEMM</span><span class="rvts255">(Enduse,Tech,EC,Area,Year)</span></p>
+   <p class="rvps15"><span class="rvts155">DEMM</span><span class="rvts252">(Enduse,Tech,EC,Area,Year)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 405px;">
-   <p class="rvps18"><span class="rvts157">Device Efficiency Maximum Multiplier (Btu/Btu). Adjusting the device efficiency maximum multiplier (DEMM) modifies the efficiency curve by increasing its maximum level and results in an increase in the marginal efficiency selected at each fuel price. Changing the efficiency maximum multiplier will produce a response in efficiency without a corresponding change in capital cost given the same level of fuel price.</span></p>
+   <p class="rvps18"><span class="rvts155">Device Efficiency Maximum Multiplier (Btu/Btu). Adjusting the device efficiency maximum multiplier (DEMM) modifies the efficiency curve by increasing its maximum level and results in an increase in the marginal efficiency selected at each fuel price. Changing the efficiency maximum multiplier will produce a response in efficiency without a corresponding change in capital cost given the same level of fuel price.</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 189px;">
-   <p class="rvps15"><span class="rvts157">DPL</span><span class="rvts255">(Enduse,Tech,EC,Area,Year)</span></p>
+   <p class="rvps15"><span class="rvts155">DPL</span><span class="rvts252">(Enduse,Tech,EC,Area,Year)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 405px;">
-   <p class="rvps18"><span class="rvts157">Physical life of devices (Years).</span><span class="rvts162"> &nbsp;</span><span class="rvts157">With increased appliance energy efficiency, the lifetime of devices may need to be increased if appropriate, for example, CFL or LED lighting have longer lifetimes than incandescent. The physical lifetime of devices is used to calculate the retirement rate of the device. Policies that promote early scrappage of devices, such as vehicles, in favor of new efficient devices can be applied by adjusting the device physical lifetime variable.</span></p>
+   <p class="rvps18"><span class="rvts155">Physical life of devices (Years).</span><span class="rvts160"> &nbsp;</span><span class="rvts155">With increased appliance energy efficiency, the lifetime of devices may need to be increased if appropriate, for example, CFL or LED lighting have longer lifetimes than incandescent. The physical lifetime of devices is used to calculate the retirement rate of the device. Policies that promote early scrappage of devices, such as vehicles, in favor of new efficient devices can be applied by adjusting the device physical lifetime variable.</span></p>
   </td>
  </tr>
 </table>

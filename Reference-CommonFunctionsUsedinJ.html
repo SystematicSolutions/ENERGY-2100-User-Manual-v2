@@ -125,35 +125,54 @@ p {
   margin-bottom: 0.82em;
 }
 
+
+/* =========================================================
+   LIST SYSTEM (CLEAN + CONSISTENT NUMBERING)
+   ========================================================= */
+
+/* Base spacing */
 ul,
 ol {
   margin-top: 0.4em;
   margin-bottom: 0.9em;
+}
+
+/* Unordered lists */
+ul {
   padding-left: 1.6em;
 }
 
-
-
-li {
+ul li {
   margin-bottom: 0.24em;
-}
-
-li p {
-  margin-bottom: 0.35em;
-}
-
-ol li {
-  padding-left: 0.2em;
-  margin-bottom: 0.4em;
-  font-size: 1em;
   line-height: 1.62;
 }
 
+/* Ordered lists */
+ol {
+  list-style: decimal;
+  padding-left: 1.8em;
+}
+
+/* Ordered list items */
+ol li {
+  margin-bottom: 0.4em;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.62;
+  color: #111827;
+}
+
+/* Number styling */
 ol li::marker {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 1.05em;
-  font-weight: 400;
+  font-size: 1.2em;
+  font-weight: 500;
   color: #111827;
+}
+
+/* Paragraphs inside list items */
+li p {
+  margin-bottom: 0.35em;
 }
 
 
@@ -525,13 +544,14 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child {
+/* Only style the OUTER Example/Exercise title */
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
   margin-bottom: 8px !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child::before {
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type::before {
   content: "📚";
   display: inline-block;
   margin-right: 8px;
@@ -609,7 +629,7 @@ table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box p
 table:has(td[style*="background-color: #00c030"]) td:last-child pre,
 table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
   margin: 0 !important;
-  padding: 10px 14px !important;
+  padding: 12px 16px !important;
   background: #f7f9fb !important;
   border: 1px solid #dde3ea !important;
   border-radius: 8px !important;
@@ -618,7 +638,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.3 !important;
+  line-height: 1.55 !important;  /* ⭐ key improvement */
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -924,20 +944,53 @@ details.example-toggle .html-code-box {
 }
 
 /* =========================================================
-   18) FINAL CODE SPACING OVERRIDE
+   18) FINAL CODE SPACING SYSTEM (v10.1 CLEAN)
    ========================================================= */
 
+/* Base <pre> fallback */
 pre {
-  line-height: 1.15 !important;
-  padding: 8px 14px !important;
+  line-height: 1.4;
+  padding: 10px 14px;
 }
 
-/* Fix html-code-box font size */
+/* Main HTML code boxes */
 .html-code-box pre {
-  font-size: 14.5px !important;
+  margin: 0;
+  padding: 12px 16px !important;
+  font-size: 14.5px;
+  line-height: 1.55 !important;
 }
 
-/* Syntax color for keywords */
+.html-code-box code {
+  display: block;
+  line-height: inherit !important;
+}
+
+/* Code inside exercise tables */
+table:has(td[style*="background-color: #cc99ff"]) td:last-child pre,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
+  line-height: 1.55 !important;
+  padding: 12px 16px !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child code,
+table:has(td[style*="background-color: #00c030"]) td:last-child code {
+  line-height: inherit !important;
+}
+
+/* Collapsible callout code */
+details.hnd-blue-callout pre {
+  line-height: 1.4;
+  padding: 10px 14px;
+}
+
+details.hnd-blue-callout code {
+  line-height: inherit !important;
+}
+
+/* Syntax color */
 .kw {
   color: #AF00DB;
   font-weight: 500;
@@ -1074,7 +1127,7 @@ pre {
                 
 <p class="rvps2"><span class="rvts6">The database, functions, and modules defined in ENERGY 2100's Julia project, </span><span class="rvts37">EnergyModel</span><span class="rvts6"> are available to use in the Julia REPL.</span></p>
 <p class="rvps2"><span class="rvts6">To use the structures in the REPL, you need to specifically import what you want to use. You can see many of these structures imported at the top of each Julia file &nbsp;For example:</span></p>
-<div class="rvps62">
+<div class="rvps63">
 <table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
@@ -1088,9 +1141,9 @@ pre {
  </tr>
 </table>
 </div>
-<p class="rvps62"><span class="rvts109"><br/></span></p>
-<p class="rvps66"><span class="rvts115">Model Database and Global Functions</span></p>
-<div class="rvps63">
+<p class="rvps63"><span class="rvts107"><br/></span></p>
+<p class="rvps67"><span class="rvts113">Model Database and Global Functions</span></p>
+<div class="rvps64">
 <table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 150px;">
@@ -1102,74 +1155,74 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps64"><span class="rvts114">DB</span></p>
+   <p class="rvps65"><span class="rvts112">DB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 587px;">
-   <p class="rvps2"><span class="rvts110">DB holds the pathname of the model's database</span></p>
-   <p class="rvps2"><span class="rvts110">DB </span><span class="rvts113">=</span><span class="rvts110"> </span><span class="rvts112">abspath</span><span class="rvts110">(</span><span class="rvts112">joinpath</span><span class="rvts110">(E2020Folder, </span><span class="rvts111">"database.hdf5"</span><span class="rvts110">))</span></p>
+   <p class="rvps2"><span class="rvts108">DB holds the pathname of the model's database</span></p>
+   <p class="rvps2"><span class="rvts108">DB </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">abspath</span><span class="rvts108">(</span><span class="rvts110">joinpath</span><span class="rvts108">(E2020Folder, </span><span class="rvts109">"database.hdf5"</span><span class="rvts108">))</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps64"><span class="rvts114">Select</span></p>
+   <p class="rvps65"><span class="rvts112">Select</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 587px;">
-   <p class="rvps65"><span class="rvts110"><br/></span></p>
+   <p class="rvps66"><span class="rvts108"><br/></span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps64"><span class="rvts114">ReadDisk</span></p>
+   <p class="rvps65"><span class="rvts112">ReadDisk</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 587px;">
-   <p class="rvps65"><span class="rvts110"><br/></span></p>
+   <p class="rvps66"><span class="rvts108"><br/></span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps64"><span class="rvts114">ReadDiskAndSets</span></p>
+   <p class="rvps65"><span class="rvts112">ReadDiskAndSets</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 587px;">
-   <p class="rvps65"><span class="rvts110"><br/></span></p>
+   <p class="rvps66"><span class="rvts108"><br/></span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps64"><span class="rvts114"><br/></span></p>
+   <p class="rvps65"><span class="rvts112"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 587px;">
-   <p class="rvps65"><span class="rvts110"><br/></span></p>
+   <p class="rvps66"><span class="rvts108"><br/></span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps64"><span class="rvts114"><br/></span></p>
+   <p class="rvps65"><span class="rvts112"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 587px;">
-   <p class="rvps65"><span class="rvts110"><br/></span></p>
+   <p class="rvps66"><span class="rvts108"><br/></span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps64"><span class="rvts114"><br/></span></p>
+   <p class="rvps65"><span class="rvts112"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 587px;">
-   <p class="rvps65"><span class="rvts110"><br/></span></p>
+   <p class="rvps66"><span class="rvts108"><br/></span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps64"><span class="rvts114"><br/></span></p>
+   <p class="rvps65"><span class="rvts112"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 587px;">
-   <p class="rvps65"><span class="rvts110"><br/></span></p>
+   <p class="rvps66"><span class="rvts108"><br/></span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps66"><span class="rvts109">Global Constants</span></p>
-<div class="rvps63">
+<p class="rvps67"><span class="rvts107">Global Constants</span></p>
+<div class="rvps64">
 <table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 201px;">
@@ -1181,117 +1234,117 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 201px;">
-   <p class="rvps64"><span class="rvts114">DB</span></p>
+   <p class="rvps65"><span class="rvts112">DB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 665px;">
-   <p class="rvps65"><span class="rvts110">DB </span><span class="rvts113">=</span><span class="rvts110"> </span><span class="rvts112">abspath</span><span class="rvts110">(</span><span class="rvts112">joinpath</span><span class="rvts110">(E2020Folder, </span><span class="rvts111">"database.hdf5"</span><span class="rvts110">))</span></p>
+   <p class="rvps66"><span class="rvts108">DB </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">abspath</span><span class="rvts108">(</span><span class="rvts110">joinpath</span><span class="rvts108">(E2020Folder, </span><span class="rvts109">"database.hdf5"</span><span class="rvts108">))</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 201px;">
-   <p class="rvps64"><span class="rvts114">Select</span></p>
+   <p class="rvps65"><span class="rvts112">Select</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 665px;">
-   <p class="rvps65"><span class="rvts110"><br/></span></p>
+   <p class="rvps66"><span class="rvts108"><br/></span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 201px;">
-   <p class="rvps64"><span class="rvts114">ReadDisk</span></p>
+   <p class="rvps65"><span class="rvts112">ReadDisk</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 665px;">
-   <p class="rvps65"><span class="rvts110"><br/></span></p>
+   <p class="rvps66"><span class="rvts108"><br/></span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 201px;">
-   <p class="rvps64"><span class="rvts114">ReadDiskAndSets</span></p>
+   <p class="rvps65"><span class="rvts112">ReadDiskAndSets</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 665px;">
-   <p class="rvps65"><span class="rvts110"><br/></span></p>
+   <p class="rvps66"><span class="rvts108"><br/></span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 201px;">
-   <p class="rvps64"><span class="rvts114">WriteDisk</span></p>
+   <p class="rvps65"><span class="rvts112">WriteDisk</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 665px;">
-   <p class="rvps65"><span class="rvts110"><br/></span></p>
+   <p class="rvps66"><span class="rvts108"><br/></span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 201px;">
-   <p class="rvps64"><span class="rvts114"><br/></span></p>
+   <p class="rvps65"><span class="rvts112"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 665px;">
-   <p class="rvps65"><span class="rvts110"><br/></span></p>
+   <p class="rvps66"><span class="rvts108"><br/></span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 201px;">
-   <p class="rvps64"><span class="rvts114"><br/></span></p>
+   <p class="rvps65"><span class="rvts112"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 665px;">
-   <p class="rvps65"><span class="rvts110"><br/></span></p>
+   <p class="rvps66"><span class="rvts108"><br/></span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 201px;">
-   <p class="rvps64"><span class="rvts114"><br/></span></p>
+   <p class="rvps65"><span class="rvts112"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 665px;">
-   <p class="rvps65"><span class="rvts110"><br/></span></p>
+   <p class="rvps66"><span class="rvts108"><br/></span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<h3 class="rvps10"><span class="rvts0"><span class="rvts123">Accessing a Variable's Attributes</span></span></h3>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts121">Accessing a Variable's Attributes</span></span></h3>
 <p class="rvps2"><span class="rvts6">You can find out more about a variable's sets by calling the attributes function </span><span class="rvts37">data_attrs</span><span class="rvts6">.</span></p>
-<p class="rvps33"><span class="rvts116">data_attrs</span><span class="rvts117">(DB, </span><span class="rvts118">"iinput/xMMSF"</span><span class="rvts117">)</span></p>
+<p class="rvps33"><span class="rvts114">data_attrs</span><span class="rvts115">(DB, </span><span class="rvts116">"iinput/xMMSF"</span><span class="rvts115">)</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Julia's Revise Package</span></span></h3>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps33 noindent"><span class="rvts6">To access the package manager (</span><span class="rvts119">pkg</span><span class="rvts30">) in the Julia REPL within VS Code, you need to first open the integrated Julia REPL and then press the&nbsp;</span><span class="rvts120">]</span><span class="rvts30">&nbsp;key at the&nbsp;</span><span class="rvts119">julia&gt;</span><span class="rvts30">&nbsp;prompt.</span></li>
+ <li class="rvps33 noindent"><span class="rvts6">To access the package manager (</span><span class="rvts117">pkg</span><span class="rvts30">) in the Julia REPL within VS Code, you need to first open the integrated Julia REPL and then press the&nbsp;</span><span class="rvts118">]</span><span class="rvts30">&nbsp;key at the&nbsp;</span><span class="rvts117">julia&gt;</span><span class="rvts30">&nbsp;prompt.</span></li>
  <li class="rvps33 noindent"><span class="rvts30"><br/></span></li>
 </ul>
-<p class="rvps33"><span class="rvts30">For Revise to work properly with your own code or packages you are developing, it is recommended to use the package manager command&nbsp;</span><span class="rvts119">pkg&gt; dev YourPackageName</span><span class="rvts30">&nbsp;to ensure the files are tracked correctly. For non-package files, you can use&nbsp;</span><span class="rvts119">Revise.includet("filename.jl")</span><span class="rvts30">&nbsp;instead of the standard&nbsp;</span><span class="rvts119">include</span><span class="rvts30">.&nbsp;</span></p>
+<p class="rvps33"><span class="rvts30">For Revise to work properly with your own code or packages you are developing, it is recommended to use the package manager command&nbsp;</span><span class="rvts117">pkg&gt; dev YourPackageName</span><span class="rvts30">&nbsp;to ensure the files are tracked correctly. For non-package files, you can use&nbsp;</span><span class="rvts117">Revise.includet("filename.jl")</span><span class="rvts30">&nbsp;instead of the standard&nbsp;</span><span class="rvts117">include</span><span class="rvts30">.&nbsp;</span></p>
 <p class="rvps33"><span class="rvts30"><br/></span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps67 noindent"><span class="rvts120">pkg&gt; dev &lt;path&gt;</span><span class="rvts109">: This command links your current Julia environment to the specified local path of a package. Any changes you make to the source code at that path are immediately reflected in your Julia session, which is crucial for active development and testing.</span></li>
- <li class="rvps68 noindent"><span class="rvts121">Step-by-Step Guide</span></li>
+ <li class="rvps68 noindent"><span class="rvts118">pkg&gt; dev &lt;path&gt;</span><span class="rvts107">: This command links your current Julia environment to the specified local path of a package. Any changes you make to the source code at that path are immediately reflected in your Julia session, which is crucial for active development and testing.</span></li>
+ <li class="rvps69 noindent"><span class="rvts119">Step-by-Step Guide</span></li>
 </ul>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside;">
- <li class="rvps62 noindent"><span class="rvts122">Open the Julia REPL</span><span class="rvts109">:</span></li>
+ <li class="rvps63 noindent"><span class="rvts120">Open the Julia REPL</span><span class="rvts107">:</span></li>
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
-  <li class="rvps67 noindent"><span class="rvts109">Open the VS Code Command Palette by pressing&nbsp;</span><span class="rvts120">Ctrl+Shift+P</span><span class="rvts109">&nbsp;(Windows/Linux) or&nbsp;</span><span class="rvts120">Cmd+Shift+P</span><span class="rvts109">&nbsp;(Mac).</span></li>
-  <li class="rvps69 noindent"><span class="rvts109">Type&nbsp;</span><span class="rvts119">Julia: Start REPL</span><span class="rvts109">&nbsp;and select the command to launch the integrated Julia REPL in the terminal panel at the bottom of the screen.</span></li>
+  <li class="rvps68 noindent"><span class="rvts107">Open the VS Code Command Palette by pressing&nbsp;</span><span class="rvts118">Ctrl+Shift+P</span><span class="rvts107">&nbsp;(Windows/Linux) or&nbsp;</span><span class="rvts118">Cmd+Shift+P</span><span class="rvts107">&nbsp;(Mac).</span></li>
+  <li class="rvps70 noindent"><span class="rvts107">Type&nbsp;</span><span class="rvts117">Julia: Start REPL</span><span class="rvts107">&nbsp;and select the command to launch the integrated Julia REPL in the terminal panel at the bottom of the screen.</span></li>
  </ul>
- <li class="rvps62 noindent"><span class="rvts122">Enter Pkg mode</span><span class="rvts109">:</span></li>
+ <li class="rvps63 noindent"><span class="rvts120">Enter Pkg mode</span><span class="rvts107">:</span></li>
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
-  <li class="rvps67 noindent"><span class="rvts109">Once the REPL has started, you will see the standard Julia prompt, which looks like&nbsp;</span><span class="rvts119">julia&gt;</span><span class="rvts109">.</span></li>
-  <li class="rvps67 noindent"><span class="rvts109">Press the&nbsp;</span><span class="rvts120">]</span><span class="rvts109">&nbsp;(closing square bracket) key on your keyboard.</span></li>
-  <li class="rvps69 noindent"><span class="rvts109">The prompt will change to&nbsp;</span><span class="rvts119">pkg&gt;</span><span class="rvts109">, indicating you are now in the package manager mode.</span></li>
+  <li class="rvps68 noindent"><span class="rvts107">Once the REPL has started, you will see the standard Julia prompt, which looks like&nbsp;</span><span class="rvts117">julia&gt;</span><span class="rvts107">.</span></li>
+  <li class="rvps68 noindent"><span class="rvts107">Press the&nbsp;</span><span class="rvts118">]</span><span class="rvts107">&nbsp;(closing square bracket) key on your keyboard.</span></li>
+  <li class="rvps70 noindent"><span class="rvts107">The prompt will change to&nbsp;</span><span class="rvts117">pkg&gt;</span><span class="rvts107">, indicating you are now in the package manager mode.</span></li>
  </ul>
- <li class="rvps62 noindent"><span class="rvts122">Use Pkg commands</span><span class="rvts109">:</span></li>
+ <li class="rvps63 noindent"><span class="rvts120">Use Pkg commands</span><span class="rvts107">:</span></li>
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
-  <li class="rvps62 noindent"><span class="rvts109">You can now use package manager commands, such as:</span></li>
+  <li class="rvps63 noindent"><span class="rvts107">You can now use package manager commands, such as:</span></li>
   <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: circle;">
-   <li class="rvps67 noindent"><span class="rvts119">add PackageName</span><span class="rvts109">: to install a new package.</span></li>
-   <li class="rvps67 noindent"><span class="rvts119">status</span><span class="rvts109">: to list installed packages.</span></li>
-   <li class="rvps67 noindent"><span class="rvts119">activate .</span><span class="rvts109">: to activate the environment in your current working directory.</span></li>
-   <li class="rvps70 noindent"><span class="rvts119">help</span><span class="rvts109">&nbsp;or&nbsp;</span><span class="rvts119">?</span><span class="rvts109">: to see a list of available Pkg commands.</span></li>
+   <li class="rvps68 noindent"><span class="rvts117">add PackageName</span><span class="rvts107">: to install a new package.</span></li>
+   <li class="rvps68 noindent"><span class="rvts117">status</span><span class="rvts107">: to list installed packages.</span></li>
+   <li class="rvps68 noindent"><span class="rvts117">activate .</span><span class="rvts107">: to activate the environment in your current working directory.</span></li>
+   <li class="rvps71 noindent"><span class="rvts117">help</span><span class="rvts107">&nbsp;or&nbsp;</span><span class="rvts117">?</span><span class="rvts107">: to see a list of available Pkg commands.</span></li>
   </ul>
  </ul>
- <li class="rvps62 noindent"><span class="rvts122">Exit Pkg mode</span><span class="rvts109">:</span></li>
+ <li class="rvps63 noindent"><span class="rvts120">Exit Pkg mode</span><span class="rvts107">:</span></li>
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
-  <li class="rvps69 noindent"><span class="rvts109">To return to the normal&nbsp;</span><span class="rvts119">julia&gt;</span><span class="rvts109">&nbsp;prompt, press the&nbsp;</span><span class="rvts120">Backspace</span><span class="rvts109">&nbsp;key (at the beginning of the line) or&nbsp;</span><span class="rvts120">Ctrl+C</span><span class="rvts109">.</span></li>
+  <li class="rvps70 noindent"><span class="rvts107">To return to the normal&nbsp;</span><span class="rvts117">julia&gt;</span><span class="rvts107">&nbsp;prompt, press the&nbsp;</span><span class="rvts118">Backspace</span><span class="rvts107">&nbsp;key (at the beginning of the line) or&nbsp;</span><span class="rvts118">Ctrl+C</span><span class="rvts107">.</span></li>
  </ul>
 </ol>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
  <li class="rvps33 noindent"><span class="rvts30"><br/></span></li>
 </ul>
-<p class="rvps62"><span class="rvts109"></span><span class="rvts6"></span></p>
+<p class="rvps63"><span class="rvts107"></span><span class="rvts6"></span></p>
 
             </div>
             

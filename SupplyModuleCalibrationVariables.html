@@ -125,35 +125,54 @@ p {
   margin-bottom: 0.82em;
 }
 
+
+/* =========================================================
+   LIST SYSTEM (CLEAN + CONSISTENT NUMBERING)
+   ========================================================= */
+
+/* Base spacing */
 ul,
 ol {
   margin-top: 0.4em;
   margin-bottom: 0.9em;
+}
+
+/* Unordered lists */
+ul {
   padding-left: 1.6em;
 }
 
-
-
-li {
+ul li {
   margin-bottom: 0.24em;
-}
-
-li p {
-  margin-bottom: 0.35em;
-}
-
-ol li {
-  padding-left: 0.2em;
-  margin-bottom: 0.4em;
-  font-size: 1em;
   line-height: 1.62;
 }
 
+/* Ordered lists */
+ol {
+  list-style: decimal;
+  padding-left: 1.8em;
+}
+
+/* Ordered list items */
+ol li {
+  margin-bottom: 0.4em;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.62;
+  color: #111827;
+}
+
+/* Number styling */
 ol li::marker {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 1.05em;
-  font-weight: 400;
+  font-size: 1.2em;
+  font-weight: 500;
   color: #111827;
+}
+
+/* Paragraphs inside list items */
+li p {
+  margin-bottom: 0.35em;
 }
 
 
@@ -525,13 +544,14 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child {
+/* Only style the OUTER Example/Exercise title */
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
   margin-bottom: 8px !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child::before {
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type::before {
   content: "📚";
   display: inline-block;
   margin-right: 8px;
@@ -609,7 +629,7 @@ table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box p
 table:has(td[style*="background-color: #00c030"]) td:last-child pre,
 table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
   margin: 0 !important;
-  padding: 10px 14px !important;
+  padding: 12px 16px !important;
   background: #f7f9fb !important;
   border: 1px solid #dde3ea !important;
   border-radius: 8px !important;
@@ -618,7 +638,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.3 !important;
+  line-height: 1.55 !important;  /* ⭐ key improvement */
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -924,20 +944,53 @@ details.example-toggle .html-code-box {
 }
 
 /* =========================================================
-   18) FINAL CODE SPACING OVERRIDE
+   18) FINAL CODE SPACING SYSTEM (v10.1 CLEAN)
    ========================================================= */
 
+/* Base <pre> fallback */
 pre {
-  line-height: 1.15 !important;
-  padding: 8px 14px !important;
+  line-height: 1.4;
+  padding: 10px 14px;
 }
 
-/* Fix html-code-box font size */
+/* Main HTML code boxes */
 .html-code-box pre {
-  font-size: 14.5px !important;
+  margin: 0;
+  padding: 12px 16px !important;
+  font-size: 14.5px;
+  line-height: 1.55 !important;
 }
 
-/* Syntax color for keywords */
+.html-code-box code {
+  display: block;
+  line-height: inherit !important;
+}
+
+/* Code inside exercise tables */
+table:has(td[style*="background-color: #cc99ff"]) td:last-child pre,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
+  line-height: 1.55 !important;
+  padding: 12px 16px !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child code,
+table:has(td[style*="background-color: #00c030"]) td:last-child code {
+  line-height: inherit !important;
+}
+
+/* Collapsible callout code */
+details.hnd-blue-callout pre {
+  line-height: 1.4;
+  padding: 10px 14px;
+}
+
+details.hnd-blue-callout code {
+  line-height: inherit !important;
+}
+
+/* Syntax color */
 .kw {
   color: #AF00DB;
   font-weight: 500;
@@ -1079,96 +1132,96 @@ pre {
 <table width="628" style="border-width: 0px; border-collapse: collapse; margin: 0px auto;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; background-color: #0070c0; vertical-align: middle; width: 171px; height: 25px;">
-   <p class="rvps3"><span class="rvts254">Equation Calibrated</span></p>
+   <p class="rvps3"><span class="rvts251">Equation Calibrated</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; background-color: #0070c0; vertical-align: middle; width: 201px; height: 25px;">
-   <p class="rvps3"><span class="rvts254">Calibration Variable</span></p>
+   <p class="rvps3"><span class="rvts251">Calibration Variable</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; background-color: #0070c0; vertical-align: top; width: 214px; height: 25px;">
-   <p class="rvps3"><span class="rvts254">Variable Title (Units)</span></p>
+   <p class="rvps3"><span class="rvts251">Variable Title (Units)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: middle; width: 171px; height: 59px;">
-   <p class="rvps2"><span class="rvts162">Electric Loads</span><span class="rvts157">&nbsp;</span></p>
-   <p class="rvps2"><span class="rvts157">(MonOut, PkLoad, MinLd)</span></p>
+   <p class="rvps2"><span class="rvts160">Electric Loads</span><span class="rvts155">&nbsp;</span></p>
+   <p class="rvps2"><span class="rvts155">(MonOut, PkLoad, MinLd)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: middle; width: 201px; height: 59px;">
-   <p class="rvps2"><span class="rvts157">BaseAdj [Day,Month,Area,Year]</span></p>
+   <p class="rvps2"><span class="rvts155">BaseAdj [Day,Month,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: middle; width: 214px; height: 59px;">
-   <p class="rvps2"><span class="rvts157">Adjustment Factor (MW/MW)</span></p>
+   <p class="rvps2"><span class="rvts155">Adjustment Factor (MW/MW)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: middle; width: 171px; height: 32px;">
-   <p class="rvps2"><span class="rvts162">Electric generating capacity</span><span class="rvts157"> (UnGCD)</span></p>
+   <p class="rvps2"><span class="rvts160">Electric generating capacity</span><span class="rvts155"> (UnGCD)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: middle; width: 201px; height: 32px;">
-   <p class="rvps2"><span class="rvts157">UnOOR [Unit,Year]</span></p>
+   <p class="rvps2"><span class="rvts155">UnOOR [Unit,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: middle; width: 214px; height: 32px;">
-   <p class="rvps2"><span class="rvts157">Operational Outage Rate (MW/MW)</span></p>
+   <p class="rvps2"><span class="rvts155">Operational Outage Rate (MW/MW)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: middle; width: 171px; height: 42px;">
-   <p class="rvps2"><span class="rvts162">Electric retail price</span><span class="rvts157">&nbsp;</span></p>
-   <p class="rvps2"><span class="rvts157">(PE)</span></p>
+   <p class="rvps2"><span class="rvts160">Electric retail price</span><span class="rvts155">&nbsp;</span></p>
+   <p class="rvps2"><span class="rvts155">(PE)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: middle; width: 201px; height: 42px;">
-   <p class="rvps2"><span class="rvts157">PEDC [ECC,ReCo,Year]</span></p>
+   <p class="rvps2"><span class="rvts155">PEDC [ECC,ReCo,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: middle; width: 214px; height: 42px;">
-   <p class="rvps2"><span class="rvts157">Electricity Delivery Charge ($/MWh)</span></p>
+   <p class="rvps2"><span class="rvts155">Electricity Delivery Charge ($/MWh)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: middle; width: 171px; height: 42px;">
-   <p class="rvps2"><span class="rvts162">Non-electric fuel prices</span><span class="rvts157"> (FPF)</span></p>
+   <p class="rvps2"><span class="rvts160">Non-electric fuel prices</span><span class="rvts155"> (FPF)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: middle; width: 201px; height: 42px;">
-   <p class="rvps2"><span class="rvts157">FPDChg [Prices,Area,Year]</span></p>
+   <p class="rvps2"><span class="rvts155">FPDChg [Prices,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: middle; width: 214px; height: 42px;">
-   <p class="rvps2"><span class="rvts157">Fuel Delivery Charge ($/mmBtu)</span></p>
+   <p class="rvps2"><span class="rvts155">Fuel Delivery Charge ($/mmBtu)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: middle; width: 171px; height: 41px;">
-   <p class="rvps2"><span class="rvts162">Oil-gas development rate</span><span class="rvts157"> (DvRateM)</span></p>
+   <p class="rvps2"><span class="rvts160">Oil-gas development rate</span><span class="rvts155"> (DvRateM)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 201px; height: 41px;">
-   <p class="rvps2"><span class="rvts157">DevVF [OGUnit,Year]</span></p>
+   <p class="rvps2"><span class="rvts155">DevVF [OGUnit,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 214px; height: 41px;">
-   <p class="rvps2"><span class="rvts157">Development Rate Variance Factor for ROI (Btu/Btu)</span></p>
+   <p class="rvps2"><span class="rvts155">Development Rate Variance Factor for ROI (Btu/Btu)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: middle; width: 171px; height: 41px;">
-   <p class="rvps2"><span class="rvts162">Oil-gas production rate</span><span class="rvts157"> (PdRateM)</span></p>
+   <p class="rvps2"><span class="rvts160">Oil-gas production rate</span><span class="rvts155"> (PdRateM)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 201px; height: 41px;">
-   <p class="rvps2"><span class="rvts157">PdVF [OGUnit,Year]</span></p>
+   <p class="rvps2"><span class="rvts155">PdVF [OGUnit,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 214px; height: 41px;">
-   <p class="rvps2"><span class="rvts157">Production Rate Variance Factor for ROI (Btu/Btu)</span></p>
+   <p class="rvps2"><span class="rvts155">Production Rate Variance Factor for ROI (Btu/Btu)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: middle; width: 171px; height: 41px;">
-   <p class="rvps2"><span class="rvts162">Oil refinery production</span><span class="rvts157"> (RfProd)</span></p>
+   <p class="rvps2"><span class="rvts160">Oil refinery production</span><span class="rvts155"> (RfProd)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 201px; height: 41px;">
-   <p class="rvps2"><span class="rvts157">RfOOR[RfUnit,Fuel,Year]</span></p>
-   <p class="rvps2"><span class="rvts157"><br/></span></p>
-   <p class="rvps2"><span class="rvts157">RfMaxCrude[RfUnit,Crude,Year]&nbsp;</span></p>
+   <p class="rvps2"><span class="rvts155">RfOOR[RfUnit,Fuel,Year]</span></p>
+   <p class="rvps2"><span class="rvts155"><br/></span></p>
+   <p class="rvps2"><span class="rvts155">RfMaxCrude[RfUnit,Crude,Year]&nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 214px; height: 41px;">
-   <p class="rvps2"><span class="rvts157">Refinery Unit Operational Outage Rate (Btu/Btu)&nbsp;</span></p>
-   <p class="rvps2"><span class="rvts157"><br/></span></p>
-   <p class="rvps2"><span class="rvts157">Refinery Maximum Input of Crude Types (TBtu/Yr)</span></p>
+   <p class="rvps2"><span class="rvts155">Refinery Unit Operational Outage Rate (Btu/Btu)&nbsp;</span></p>
+   <p class="rvps2"><span class="rvts155"><br/></span></p>
+   <p class="rvps2"><span class="rvts155">Refinery Maximum Input of Crude Types (TBtu/Yr)</span></p>
   </td>
  </tr>
 </table>

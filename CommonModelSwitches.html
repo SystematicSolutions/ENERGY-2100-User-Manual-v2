@@ -125,35 +125,54 @@ p {
   margin-bottom: 0.82em;
 }
 
+
+/* =========================================================
+   LIST SYSTEM (CLEAN + CONSISTENT NUMBERING)
+   ========================================================= */
+
+/* Base spacing */
 ul,
 ol {
   margin-top: 0.4em;
   margin-bottom: 0.9em;
+}
+
+/* Unordered lists */
+ul {
   padding-left: 1.6em;
 }
 
-
-
-li {
+ul li {
   margin-bottom: 0.24em;
-}
-
-li p {
-  margin-bottom: 0.35em;
-}
-
-ol li {
-  padding-left: 0.2em;
-  margin-bottom: 0.4em;
-  font-size: 1em;
   line-height: 1.62;
 }
 
+/* Ordered lists */
+ol {
+  list-style: decimal;
+  padding-left: 1.8em;
+}
+
+/* Ordered list items */
+ol li {
+  margin-bottom: 0.4em;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.62;
+  color: #111827;
+}
+
+/* Number styling */
 ol li::marker {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 1.05em;
-  font-weight: 400;
+  font-size: 1.2em;
+  font-weight: 500;
   color: #111827;
+}
+
+/* Paragraphs inside list items */
+li p {
+  margin-bottom: 0.35em;
 }
 
 
@@ -525,13 +544,14 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child {
+/* Only style the OUTER Example/Exercise title */
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
   margin-bottom: 8px !important;
 }
 
-table:has(td[style*="background-color: #cc99ff"]) td:last-child p:first-child::before {
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type::before {
   content: "📚";
   display: inline-block;
   margin-right: 8px;
@@ -609,7 +629,7 @@ table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box p
 table:has(td[style*="background-color: #00c030"]) td:last-child pre,
 table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
   margin: 0 !important;
-  padding: 10px 14px !important;
+  padding: 12px 16px !important;
   background: #f7f9fb !important;
   border: 1px solid #dde3ea !important;
   border-radius: 8px !important;
@@ -618,7 +638,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.3 !important;
+  line-height: 1.55 !important;  /* ⭐ key improvement */
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -924,20 +944,53 @@ details.example-toggle .html-code-box {
 }
 
 /* =========================================================
-   18) FINAL CODE SPACING OVERRIDE
+   18) FINAL CODE SPACING SYSTEM (v10.1 CLEAN)
    ========================================================= */
 
+/* Base <pre> fallback */
 pre {
-  line-height: 1.15 !important;
-  padding: 8px 14px !important;
+  line-height: 1.4;
+  padding: 10px 14px;
 }
 
-/* Fix html-code-box font size */
+/* Main HTML code boxes */
 .html-code-box pre {
-  font-size: 14.5px !important;
+  margin: 0;
+  padding: 12px 16px !important;
+  font-size: 14.5px;
+  line-height: 1.55 !important;
 }
 
-/* Syntax color for keywords */
+.html-code-box code {
+  display: block;
+  line-height: inherit !important;
+}
+
+/* Code inside exercise tables */
+table:has(td[style*="background-color: #cc99ff"]) td:last-child pre,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
+  line-height: 1.55 !important;
+  padding: 12px 16px !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child code,
+table:has(td[style*="background-color: #00c030"]) td:last-child code {
+  line-height: inherit !important;
+}
+
+/* Collapsible callout code */
+details.hnd-blue-callout pre {
+  line-height: 1.4;
+  padding: 10px 14px;
+}
+
+details.hnd-blue-callout code {
+  line-height: inherit !important;
+}
+
+/* Syntax color */
 .kw {
   color: #AF00DB;
   font-weight: 500;
@@ -1088,7 +1141,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 214px;">
-   <p class="rvps197"><span class="rvts6">BaseSw</span><span class="rvts273">[tv]</span></p>
+   <p class="rvps197"><span class="rvts6">BaseSw</span><span class="rvts270">[tv]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 262px;">
    <p class="rvps197"><span class="rvts6">Base Case Switch (1=Base Case)</span></p>
@@ -1099,7 +1152,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 214px;">
-   <p class="rvps197"><span class="rvts6">RefSwitch</span><span class="rvts273">[tv]</span></p>
+   <p class="rvps197"><span class="rvts6">RefSwitch</span><span class="rvts270">[tv]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 262px;">
    <p class="rvps197"><span class="rvts6">Reference Case Switch (1=Reference Case)&nbsp;</span></p>
@@ -1110,7 +1163,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 214px;">
-   <p class="rvps197"><span class="rvts6">xProcSw</span><span class="rvts273">[PI,Year]&nbsp;</span></p>
+   <p class="rvps197"><span class="rvts6">xProcSw</span><span class="rvts270">[PI,Year]&nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 262px;">
    <p class="rvps197"><span class="rvts6">Procedure on/off Switch</span></p>
@@ -1121,7 +1174,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 214px;">
-   <p class="rvps197"><span class="rvts6">xSegSw</span><span class="rvts273">[Seg]&nbsp;</span></p>
+   <p class="rvps197"><span class="rvts6">xSegSw</span><span class="rvts270">[Seg]&nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 262px;">
    <p class="rvps197"><span class="rvts6">Segment Execution Switch</span></p>
@@ -1150,7 +1203,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 214px;">
-   <p class="rvps197"><span class="rvts6">DrSwitch</span><span class="rvts273">[ECC,Area,Year] &nbsp;</span></p>
+   <p class="rvps197"><span class="rvts6">DrSwitch</span><span class="rvts270">[ECC,Area,Year] &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 262px;">
    <p class="rvps197"><span class="rvts6">Economic Driver Switch</span></p>
@@ -1161,7 +1214,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 214px;">
-   <p class="rvps197"><span class="rvts6">MacroSwitch</span><span class="rvts273">[Nation]&nbsp;</span></p>
+   <p class="rvps197"><span class="rvts6">MacroSwitch</span><span class="rvts270">[Nation]&nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 262px;">
    <p class="rvps197"><span class="rvts6">String Indicator of Macroeconomic Forecast (TIM,TOM,Stokes,AEO,CER)</span></p>
@@ -1190,7 +1243,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 215px;">
-   <p class="rvps197"><span class="rvts6">CgDmSw</span><span class="rvts273">[Tech]</span></p>
+   <p class="rvps197"><span class="rvts6">CgDmSw</span><span class="rvts270">[Tech]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps197"><span class="rvts6">Depletion Multiplier Switch for Selecting Technology</span></p>
@@ -1201,7 +1254,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 215px;">
-   <p class="rvps197"><span class="rvts177">CgPotSw</span><span class="rvts274">[Tech,EC,Area]</span></p>
+   <p class="rvps197"><span class="rvts175">CgPotSw</span><span class="rvts271">[Tech,EC,Area]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps197"><span class="rvts6">Cogeneration Potential Switch (0 = Steam,1=Electric)</span></p>
@@ -1212,18 +1265,18 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 215px;">
-   <p class="rvps197"><span class="rvts177">CgVCSw</span><span class="rvts274">[Tech]</span></p>
+   <p class="rvps197"><span class="rvts175">CgVCSw</span><span class="rvts271">[Tech]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
-   <p class="rvps197"><span class="rvts177">Cogeneration Switch for Incorporating Fuel Costs in Variable Costs (1 = Include)</span></p>
+   <p class="rvps197"><span class="rvts175">Cogeneration Switch for Incorporating Fuel Costs in Variable Costs (1 = Include)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 244px;">
-   <p class="rvps197"><span class="rvts177"><br/></span></p>
+   <p class="rvps197"><span class="rvts175"><br/></span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 215px;">
-   <p class="rvps197"><span class="rvts177">CMSFSwitch</span><span class="rvts274">[Enduse,Tech,CTech,EC,Area,Year]</span></p>
+   <p class="rvps197"><span class="rvts175">CMSFSwitch</span><span class="rvts271">[Enduse,Tech,CTech,EC,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps197"><span class="rvts6">Conversion Market Share Switch (1=Endogenous, 0=Exogenous)</span></p>
@@ -1234,7 +1287,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 215px;">
-   <p class="rvps197"><span class="rvts177">CnvrtEU</span><span class="rvts274">[Enduse,EC,Area,Year]</span></p>
+   <p class="rvps197"><span class="rvts175">CnvrtEU</span><span class="rvts271">[Enduse,EC,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps197"><span class="rvts6">Conversion Switch</span></p>
@@ -1245,7 +1298,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 215px;">
-   <p class="rvps197"><span class="rvts6">DEESw</span><span class="rvts273">[Enduse,Tech,EC,Area,Year]&nbsp;</span></p>
+   <p class="rvps197"><span class="rvts6">DEESw</span><span class="rvts270">[Enduse,Tech,EC,Area,Year]&nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps197"><span class="rvts6">Switch for Device Efficiency (Switch)&nbsp;</span></p>
@@ -1256,7 +1309,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 215px;">
-   <p class="rvps197"><span class="rvts177">DEEFloorSw</span><span class="rvts274">[EC,Area,Year]</span></p>
+   <p class="rvps197"><span class="rvts175">DEEFloorSw</span><span class="rvts271">[EC,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps197"><span class="rvts6">Switch to Activate Floor for Device Efficiency (1=Activate)</span></p>
@@ -1267,18 +1320,18 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 215px; height: 23px;">
-   <p class="rvps197"><span class="rvts177">DmdSw</span><span class="rvts274">[Tech,EC,Area]</span></p>
+   <p class="rvps197"><span class="rvts175">DmdSw</span><span class="rvts271">[Tech,EC,Area]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px; height: 23px;">
-   <p class="rvps197"><span class="rvts177">Demand Switch (0 = Exogenous)</span></p>
+   <p class="rvps197"><span class="rvts175">Demand Switch (0 = Exogenous)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 244px; height: 23px;">
-   <p class="rvps197"><span class="rvts177"><br/></span></p>
+   <p class="rvps197"><span class="rvts175"><br/></span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 215px;">
-   <p class="rvps197"><span class="rvts177">DUCFSw</span><span class="rvts274">[Enduse]&nbsp;</span></p>
+   <p class="rvps197"><span class="rvts175">DUCFSw</span><span class="rvts271">[Enduse]&nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps197"><span class="rvts6">Switch for Cogeneration and Feedstock Demand</span></p>
@@ -1289,7 +1342,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 215px;">
-   <p class="rvps197"><span class="rvts177">EESw</span><span class="rvts274">[Year]</span></p>
+   <p class="rvps197"><span class="rvts175">EESw</span><span class="rvts271">[Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps197"><span class="rvts6">Energy Efficiency Switch (Endogenous=1, Exogenous=0, Skip=-1)</span></p>
@@ -1300,7 +1353,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 215px;">
-   <p class="rvps197"><span class="rvts177">ETSwitch</span><span class="rvts274">[Tech,Area,Year]</span></p>
+   <p class="rvps197"><span class="rvts175">ETSwitch</span><span class="rvts271">[Tech,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps197"><span class="rvts6">Emerging Technology Switch (1=Emerging Technology)</span></p>
@@ -1311,7 +1364,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 215px;">
-   <p class="rvps197"><span class="rvts6">PEEFloorSw</span><span class="rvts273">[EC,Area,Year]</span></p>
+   <p class="rvps197"><span class="rvts6">PEEFloorSw</span><span class="rvts270">[EC,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps197"><span class="rvts6">Switch to Activate Floor for Process Efficiency (1=Activate)</span></p>
@@ -1322,7 +1375,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 215px;">
-   <p class="rvps197"><span class="rvts6">PEESw</span><span class="rvts273">[Enduse,Tech,EC,Area,Year]&nbsp;</span></p>
+   <p class="rvps197"><span class="rvts6">PEESw</span><span class="rvts270">[Enduse,Tech,EC,Area,Year]&nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps197"><span class="rvts6">Switch for Process Efficiency (Switch)&nbsp;</span></p>
@@ -1333,7 +1386,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 215px;">
-   <p class="rvps197"><span class="rvts6">PrPCostSw</span><span class="rvts273">[Year]</span></p>
+   <p class="rvps197"><span class="rvts6">PrPCostSw</span><span class="rvts270">[Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps197"><span class="rvts6">Pollution Cost Switch</span></p>
@@ -1344,7 +1397,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 215px;">
-   <p class="rvps197"><span class="rvts6">MMSFSwitch</span><span class="rvts273">[Enduse,Tech,EC,Area,Year]</span></p>
+   <p class="rvps197"><span class="rvts6">MMSFSwitch</span><span class="rvts270">[Enduse,Tech,EC,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps197"><span class="rvts6">Market Share Switch (1=Endogenous, 0=Exogenous)</span></p>
@@ -1355,7 +1408,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 215px;">
-   <p class="rvps197"><span class="rvts6">RetroSw</span><span class="rvts273">[Enduse,EC,Area,Year]</span></p>
+   <p class="rvps197"><span class="rvts6">RetroSw</span><span class="rvts270">[Enduse,EC,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps197"><span class="rvts6">Retrofit Selection (1=Device, 2=Process, 3=Both, 4=Exogenous)</span></p>
@@ -1366,7 +1419,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 215px;">
-   <p class="rvps197"><span class="rvts6">RetroSwExo</span><span class="rvts273">[Year]</span></p>
+   <p class="rvps197"><span class="rvts6">RetroSwExo</span><span class="rvts270">[Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps197"><span class="rvts6">Switch for Exogenous Retrofit Policy (=Method)</span></p>
@@ -1377,7 +1430,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 215px;">
-   <p class="rvps197"><span class="rvts6">RPCSw</span><span class="rvts273">[EC,Poll,Area,Year]</span></p>
+   <p class="rvps197"><span class="rvts6">RPCSw</span><span class="rvts270">[EC,Poll,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps197"><span class="rvts6">Pollution Reduction Curve Switch (1=2009,2=2004)</span></p>
@@ -1406,7 +1459,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 214px;">
-   <p class="rvps2"><span class="rvts177">BCarbonSw</span><span class="rvts274">[Year]</span></p>
+   <p class="rvps2"><span class="rvts175">BCarbonSw</span><span class="rvts271">[Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps2"><span class="rvts6">Black Carbon coefficient switch (1=POCX set relative to PM25)</span></p>
@@ -1417,7 +1470,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 214px;">
-   <p class="rvps2"><span class="rvts177">CapTrade</span><span class="rvts274">[Market,Year]</span></p>
+   <p class="rvps2"><span class="rvts175">CapTrade</span><span class="rvts271">[Market,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps2"><span class="rvts6">Emission Cap and Trading Switch (1=Trade, Cap Only=2)</span></p>
@@ -1428,7 +1481,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 214px;">
-   <p class="rvps2"><span class="rvts177">CBSw</span><span class="rvts274">[Market,Year]</span><span class="rvts177"> &nbsp;</span></p>
+   <p class="rvps2"><span class="rvts175">CBSw</span><span class="rvts271">[Market,Year]</span><span class="rvts175"> &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps2"><span class="rvts6">Market Switch (0 = CT no Auction, 1=CT with Auction, 2=Tax)</span></p>
@@ -1439,7 +1492,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 214px;">
-   <p class="rvps2"><span class="rvts177">CreditSwitch</span><span class="rvts274">[Fuel,ECC,Area]</span></p>
+   <p class="rvps2"><span class="rvts175">CreditSwitch</span><span class="rvts271">[Fuel,ECC,Area]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps2"><span class="rvts6">Switch to Indicate Fuels which must Purchase Credits (1=Purchase)</span></p>
@@ -1450,7 +1503,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 214px;">
-   <p class="rvps2"><span class="rvts177">ElecSw</span><span class="rvts274">[Poll,Area,Year]</span><span class="rvts177"> &nbsp;</span></p>
+   <p class="rvps2"><span class="rvts175">ElecSw</span><span class="rvts271">[Poll,Area,Year]</span><span class="rvts175"> &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps2"><span class="rvts6">Electricity Emission Allocation Switch</span></p>
@@ -1461,7 +1514,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 214px;">
-   <p class="rvps2"><span class="rvts177">ETRSw</span><span class="rvts274">[Market]</span></p>
+   <p class="rvps2"><span class="rvts175">ETRSw</span><span class="rvts271">[Market]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps2"><span class="rvts6">Permit Cost Switch (1 = Iterate Credits,2=Iterate Emissions,0 = Exogenous)</span></p>
@@ -1472,7 +1525,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 214px;">
-   <p class="rvps2"><span class="rvts177">GoalPolSw</span><span class="rvts274">[Market]</span><span class="rvts177"> &nbsp;</span></p>
+   <p class="rvps2"><span class="rvts175">GoalPolSw</span><span class="rvts271">[Market]</span><span class="rvts175"> &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps2"><span class="rvts6">Pollution Goal Switch (1=Gratis Permits, 0 = Exogenous)</span></p>
@@ -1483,7 +1536,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 214px;">
-   <p class="rvps2"><span class="rvts177">GPNGSw</span><span class="rvts274">[Market,Year]</span><span class="rvts177"> &nbsp;</span></p>
+   <p class="rvps2"><span class="rvts175">GPNGSw</span><span class="rvts271">[Market,Year]</span><span class="rvts175"> &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps2"><span class="rvts6">Gratis Permit Allocation Switch for Gas Distribution</span></p>
@@ -1494,7 +1547,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 214px;">
-   <p class="rvps2"><span class="rvts177">GPOilSw</span><span class="rvts274">[Market,Year] &nbsp;</span></p>
+   <p class="rvps2"><span class="rvts175">GPOilSw</span><span class="rvts271">[Market,Year] &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps2"><span class="rvts6">Gratis Permit Allocation Switch for Gas Distribution</span></p>
@@ -1505,7 +1558,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 214px;">
-   <p class="rvps2"><span class="rvts177">GratSw</span><span class="rvts274">[Market]</span></p>
+   <p class="rvps2"><span class="rvts175">GratSw</span><span class="rvts271">[Market]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps2"><span class="rvts6">Gratis Permit Allocation Switch (1=Grandfather, 2=Output, 0 = Exogenous)</span></p>
@@ -1516,7 +1569,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 214px;">
-   <p class="rvps2"><span class="rvts177">ISaleSw</span><span class="rvts274">[Market,Year]</span><span class="rvts177"> &nbsp;</span></p>
+   <p class="rvps2"><span class="rvts175">ISaleSw</span><span class="rvts271">[Market,Year]</span><span class="rvts175"> &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps2"><span class="rvts6">Switch for Unlimited Sales (1 = International Permits, 2 = Domestic Permits)</span></p>
@@ -1527,7 +1580,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 214px;">
-   <p class="rvps2"><span class="rvts177">PBnkSw</span><span class="rvts274">[Market,Year]</span><span class="rvts177"> &nbsp;</span></p>
+   <p class="rvps2"><span class="rvts175">PBnkSw</span><span class="rvts271">[Market,Year]</span><span class="rvts175"> &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 261px;">
    <p class="rvps2"><span class="rvts6">Banking Switch (1=Endo Prices, 2=Exog Prices)</span></p>
@@ -1557,7 +1610,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 213px;">
-   <p class="rvps2"><span class="rvts6">CreditSwitch</span><span class="rvts273">[Fuel,ECC,Area,Year]</span></p>
+   <p class="rvps2"><span class="rvts6">CreditSwitch</span><span class="rvts270">[Fuel,ECC,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 262px;">
    <p class="rvps2"><span class="rvts6">Switch to Indicate Fuels which must Purchase CFS Credits (1=Purchase)</span></p>
@@ -1568,7 +1621,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 213px;">
-   <p class="rvps2"><span class="rvts6">FPCFSSwitch</span><span class="rvts273">[ECC,Area,Year]</span><span class="rvts6"> &nbsp;</span></p>
+   <p class="rvps2"><span class="rvts6">FPCFSSwitch</span><span class="rvts270">[ECC,Area,Year]</span><span class="rvts6"> &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 262px;">
    <p class="rvps2"><span class="rvts6">CFS Price Switch (1=Full, 2=Partial, 0 = None)</span></p>
@@ -1579,7 +1632,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 213px;">
-   <p class="rvps2"><span class="rvts6">TFP3Switch</span><span class="rvts273">[Market,Year]</span></p>
+   <p class="rvps2"><span class="rvts6">TFP3Switch</span><span class="rvts270">[Market,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 262px;">
    <p class="rvps2"><span class="rvts6">Tech Fund or Part3 Switch (1=Tech Fund, 2=Part3)</span></p>
@@ -1609,7 +1662,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 211px;">
-   <p class="rvps197"><span class="rvts177">FlPolSwitch</span><span class="rvts274">[ECC,Poll,Area,Year]</span><span class="rvts177"> &nbsp;</span></p>
+   <p class="rvps197"><span class="rvts175">FlPolSwitch</span><span class="rvts271">[ECC,Poll,Area,Year]</span><span class="rvts175"> &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 264px;">
    <p class="rvps197"><span class="rvts6">Flaring Pollution Switch (0 = Exogenous)</span></p>
@@ -1620,7 +1673,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 211px;">
-   <p class="rvps197"><span class="rvts177">FuPolSwitch</span><span class="rvts274">[ECC,Poll,Area,Year]</span><span class="rvts177">&nbsp;</span></p>
+   <p class="rvps197"><span class="rvts175">FuPolSwitch</span><span class="rvts271">[ECC,Poll,Area,Year]</span><span class="rvts175">&nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 264px;">
    <p class="rvps197"><span class="rvts6">Other Fugitives Pollution Switch (0 = Exogenous)</span></p>
@@ -1631,7 +1684,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 211px;">
-   <p class="rvps197"><span class="rvts177">FuPriceSw</span><span class="rvts274">[Year]</span><span class="rvts177"> &nbsp;</span></p>
+   <p class="rvps197"><span class="rvts175">FuPriceSw</span><span class="rvts271">[Year]</span><span class="rvts175"> &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 264px;">
    <p class="rvps197"><span class="rvts6">Other Fugitives Reduction Curve Price Switch (1=Endogenous, 0 = Exogenous)</span></p>
@@ -1642,7 +1695,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 211px;">
-   <p class="rvps197"><span class="rvts177">MEPolSwitch</span><span class="rvts274">[ECC,Poll,Area]</span></p>
+   <p class="rvps197"><span class="rvts175">MEPolSwitch</span><span class="rvts271">[ECC,Poll,Area]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 264px;">
    <p class="rvps197"><span class="rvts6">Process Pollution Switch (0 = Exogenous)</span></p>
@@ -1653,7 +1706,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 211px;">
-   <p class="rvps197"><span class="rvts177">MEPriceSw</span><span class="rvts274">[Year]</span></p>
+   <p class="rvps197"><span class="rvts175">MEPriceSw</span><span class="rvts271">[Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 264px;">
    <p class="rvps197"><span class="rvts6">Process Emission Reduction Curve Price Switch (1=Endogenous, 0 = Exogenous)</span></p>
@@ -1664,7 +1717,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 211px;">
-   <p class="rvps197"><span class="rvts177">MERCSw</span><span class="rvts274">[ECC,Poll,Area,Year] &nbsp;</span></p>
+   <p class="rvps197"><span class="rvts175">MERCSw</span><span class="rvts271">[ECC,Poll,Area,Year] &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 264px;">
    <p class="rvps197"><span class="rvts6">Emission Reduction Curve Switch (1=Old, 2=New, 0 = None)</span></p>
@@ -1675,7 +1728,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 211px;">
-   <p class="rvps197"><span class="rvts177">PolSw</span><span class="rvts274">[Tech,EC,Poll,Area,Year]</span></p>
+   <p class="rvps197"><span class="rvts175">PolSw</span><span class="rvts271">[Tech,EC,Poll,Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 264px;">
    <p class="rvps197"><span class="rvts6">Switch for Pollution Coefficients</span></p>
@@ -1686,7 +1739,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 211px;">
-   <p class="rvps197"><span class="rvts177">SqCCSw</span><span class="rvts274">[ECC,Area,Year] &nbsp;</span></p>
+   <p class="rvps197"><span class="rvts175">SqCCSw</span><span class="rvts271">[ECC,Area,Year] &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 264px;">
    <p class="rvps197"><span class="rvts6">Sequestering Capital Cost Switch (1=CC Curve)</span></p>
@@ -1697,7 +1750,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 211px;">
-   <p class="rvps197"><span class="rvts177">VnPolSwitch</span><span class="rvts274">[ECC,Poll,Area,Year]&nbsp;</span><span class="rvts177">&nbsp;</span></p>
+   <p class="rvps197"><span class="rvts175">VnPolSwitch</span><span class="rvts271">[ECC,Poll,Area,Year]&nbsp;</span><span class="rvts175">&nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 264px;">
    <p class="rvps197"><span class="rvts6">Venting Pollution Switch (0 = Exogenous)</span></p>
@@ -1708,7 +1761,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 211px;">
-   <p class="rvps197"><span class="rvts177">VnPriceSw</span><span class="rvts274">[Year]</span></p>
+   <p class="rvps197"><span class="rvts175">VnPriceSw</span><span class="rvts271">[Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 264px;">
    <p class="rvps197"><span class="rvts6">Venting Reduction Curve Price Switch (1=Endogenous, 0 = Exogenous)</span></p>
@@ -1726,18 +1779,18 @@ pre {
 <table style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts275">Variable</span></p>
+   <p class="rvps197"><span class="rvts272">Variable</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 265px;">
-   <p class="rvps197"><span class="rvts275">Title</span></p>
+   <p class="rvps197"><span class="rvts272">Title</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 238px;">
-   <p class="rvps197"><span class="rvts275">Purpose</span></p>
+   <p class="rvps197"><span class="rvts272">Purpose</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts177">ENPNSw</span><span class="rvts274">[Fuel,Nation,Year]</span></p>
+   <p class="rvps197"><span class="rvts175">ENPNSw</span><span class="rvts271">[Fuel,Nation,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 265px;">
    <p class="rvps197"><span class="rvts6">Wholesale Price (ENPN) Switch (1=Endogenous)</span></p>
@@ -1748,7 +1801,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts177">ElecPrSw</span><span class="rvts274">[Area,Year]</span><span class="rvts177"> &nbsp;</span></p>
+   <p class="rvps197"><span class="rvts175">ElecPrSw</span><span class="rvts271">[Area,Year]</span><span class="rvts175"> &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 265px;">
    <p class="rvps197"><span class="rvts6">Electricity Price Switch (0 = Exogenous Prices)</span></p>
@@ -1759,7 +1812,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts177">OIPSw</span><span class="rvts274">[Year]</span></p>
+   <p class="rvps197"><span class="rvts175">OIPSw</span><span class="rvts271">[Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 265px;">
    <p class="rvps197"><span class="rvts6">Oil Import Price Switch</span></p>
@@ -1770,7 +1823,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts177">GPOPrSw</span><span class="rvts274">[Market,Year]</span></p>
+   <p class="rvps197"><span class="rvts175">GPOPrSw</span><span class="rvts271">[Market,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 265px;">
    <p class="rvps197"><span class="rvts6">Oil Production Intensity based Gratis Permits (2=Intensity)</span></p>
@@ -1781,7 +1834,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts177">xSalSw</span><span class="rvts274">[Class]</span><span class="rvts177"> &nbsp;</span></p>
+   <p class="rvps197"><span class="rvts175">xSalSw</span><span class="rvts271">[Class]</span><span class="rvts175"> &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 265px;">
    <p class="rvps197"><span class="rvts6">Switch for Exogenous Sales (True=Exogenous)</span></p>
@@ -1799,18 +1852,18 @@ pre {
 <table style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts275">Variable</span></p>
+   <p class="rvps197"><span class="rvts272">Variable</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 266px;">
-   <p class="rvps197"><span class="rvts275">Title</span></p>
+   <p class="rvps197"><span class="rvts272">Title</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 238px;">
-   <p class="rvps197"><span class="rvts275">Purpose</span></p>
+   <p class="rvps197"><span class="rvts272">Purpose</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts177">CCMDemSw</span><span class="rvts274">[OGUnit,Year] &nbsp;</span></p>
+   <p class="rvps197"><span class="rvts175">CCMDemSw</span><span class="rvts271">[OGUnit,Year] &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 266px;">
    <p class="rvps197"><span class="rvts6">Switch to Activate the Capital Cost Multiplier (1 = on)</span></p>
@@ -1821,7 +1874,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts177">DevSw</span><span class="rvts274">[OGUnit,Year] &nbsp;</span></p>
+   <p class="rvps197"><span class="rvts175">DevSw</span><span class="rvts271">[OGUnit,Year] &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 266px;">
    <p class="rvps197"><span class="rvts6">Development Switch</span></p>
@@ -1832,7 +1885,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts177">GasProcessingSwitch</span><span class="rvts274">[Area,Year] &nbsp;</span></p>
+   <p class="rvps197"><span class="rvts175">GasProcessingSwitch</span><span class="rvts271">[Area,Year] &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 266px;">
    <p class="rvps197"><span class="rvts6">Gas Processing Switch (1=Endogenous, 0 = Exogenous)</span></p>
@@ -1843,7 +1896,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts177">GPNGSw</span><span class="rvts274">[Market,Year]&nbsp;</span><span class="rvts177">&nbsp;</span></p>
+   <p class="rvps197"><span class="rvts175">GPNGSw</span><span class="rvts271">[Market,Year]&nbsp;</span><span class="rvts175">&nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 266px;">
    <p class="rvps197"><span class="rvts6">Gratis Permit Allocation Switch for Gas Distribution</span></p>
@@ -1854,7 +1907,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts177">GSPMSw</span><span class="rvts274">[Year]</span></p>
+   <p class="rvps197"><span class="rvts175">GSPMSw</span><span class="rvts271">[Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 266px;">
    <p class="rvps197"><span class="rvts6">Gas Price Multiplier from Supply Changes Switch</span></p>
@@ -1865,7 +1918,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts177">OGOGSw</span><span class="rvts274">[OGUnit]&nbsp;</span><span class="rvts177">&nbsp;</span></p>
+   <p class="rvps197"><span class="rvts175">OGOGSw</span><span class="rvts271">[OGUnit]&nbsp;</span><span class="rvts175">&nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 266px;">
    <p class="rvps197"><span class="rvts6">OG Unit Oil or Gas Switch</span></p>
@@ -1876,7 +1929,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts177">OGPrSw</span><span class="rvts274">[OGUnit,Year]</span></p>
+   <p class="rvps197"><span class="rvts175">OGPrSw</span><span class="rvts271">[OGUnit,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 266px;">
    <p class="rvps197"><span class="rvts6">OG Price Switch</span></p>
@@ -1887,7 +1940,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts177">PdSw</span><span class="rvts274">[OGUnit,Year]</span></p>
+   <p class="rvps197"><span class="rvts175">PdSw</span><span class="rvts271">[OGUnit,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 266px;">
    <p class="rvps197"><span class="rvts6">Production Switch</span></p>
@@ -1916,7 +1969,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts6">GPOilSw</span><span class="rvts273">[Market,Year]</span></p>
+   <p class="rvps197"><span class="rvts6">GPOilSw</span><span class="rvts270">[Market,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 265px;">
    <p class="rvps197"><span class="rvts6">Gratis Permit Allocation Switch for Oil Distribution</span></p>
@@ -1927,7 +1980,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts6">OPDDSw</span><span class="rvts273">[Nation,Year]</span></p>
+   <p class="rvps197"><span class="rvts6">OPDDSw</span><span class="rvts270">[Nation,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 265px;">
    <p class="rvps197"><span class="rvts6">Switch to Adjust Oil Production (1=New &amp; Existing, 2=New Only)</span></p>
@@ -1938,7 +1991,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts6">RfCalSw</span><span class="rvts273">[Nation,Year]</span></p>
+   <p class="rvps197"><span class="rvts6">RfCalSw</span><span class="rvts270">[Nation,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 265px;">
    <p class="rvps197"><span class="rvts6">Switch for Years to Calibration Production (1-Calibrate)</span></p>
@@ -1949,7 +2002,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts6">RPPASw</span><span class="rvts273">[Area,Year]</span></p>
+   <p class="rvps197"><span class="rvts6">RPPASw</span><span class="rvts270">[Area,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 265px;">
    <p class="rvps197"><span class="rvts6">Refined Petroleum Products (RPP) Area Production Switch</span></p>
@@ -1960,7 +2013,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 210px;">
-   <p class="rvps197"><span class="rvts6">RPPSw</span><span class="rvts273">[Area,Year] &nbsp;</span></p>
+   <p class="rvps197"><span class="rvts6">RPPSw</span><span class="rvts270">[Area,Year] &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 265px;">
    <p class="rvps197"><span class="rvts6">Refined Petroleum Products (RPP) Switch</span></p>
@@ -1989,7 +2042,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 207px;">
-   <p class="rvps197"><span class="rvts6">H2MSFSwitch</span><span class="rvts273">[Area]&nbsp;</span></p>
+   <p class="rvps197"><span class="rvts6">H2MSFSwitch</span><span class="rvts270">[Area]&nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 268px;">
    <p class="rvps197"><span class="rvts6">Hydrogen Market Share Non-Price Factor (mmBtu/mmBtu)</span></p>
@@ -2018,7 +2071,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 204px;">
-   <p class="rvps197"><span class="rvts6">DisposedSwitch</span><span class="rvts273">[Waste,Area,Year]</span><span class="rvts6"> &nbsp;</span></p>
+   <p class="rvps197"><span class="rvts6">DisposedSwitch</span><span class="rvts270">[Waste,Area,Year]</span><span class="rvts6"> &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 271px;">
    <p class="rvps197"><span class="rvts6">Disposed Waste Policy Switch (1=Active)</span></p>
@@ -2029,7 +2082,7 @@ pre {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 204px;">
-   <p class="rvps197"><span class="rvts6">WasteSwitch</span><span class="rvts273">[Year]</span></p>
+   <p class="rvps197"><span class="rvts6">WasteSwitch</span><span class="rvts270">[Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 271px;">
    <p class="rvps197"><span class="rvts6">Waste Switch (1=Use Waste Sector)</span></p>
