@@ -425,16 +425,28 @@ aside li li a,
   100% { background: transparent; }
 }
 
-
 /* =========================================================
-   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   7) ONE-CELL CODE TABLES ONLY
+   Turn true one-cell tables into code-style boxes
+   Leave all other tables alone so HelpNDoc formatting shows
    ========================================================= */
 
-table:not(:has(td[style*="background-color"])) {
+/* One-cell, non-callout tables only */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child),
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) {
   border: 1px solid #dde3ea !important;
   border-radius: 8px;
   background: #f7f9fb !important;
   border-collapse: separate !important;
+  border-spacing: 0 !important;
   overflow: hidden;
   margin: 14px 0;
   box-sizing: border-box;
@@ -443,23 +455,62 @@ table:not(:has(td[style*="background-color"])) {
   max-width: 100% !important;
 }
 
-table:not(:has(td[style*="background-color"])) td {
+/* The single cell inside the one-cell code table */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) > tbody > tr:only-child > td:only-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) > tr:only-child > td:only-child {
   padding: 10px 14px !important;
   border: none !important;
   background: transparent !important;
+  vertical-align: top !important;
 }
 
-table:not(:has(td[style*="background-color"])) p {
+/* Text inside one-cell code tables */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p {
   font-weight: 400 !important;
   color: #111827 !important;
   margin: 0 0 6px 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:first-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:first-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:first-child {
   margin-top: 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:last-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:last-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -544,7 +595,6 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-/* Only style the OUTER Example/Exercise title */
 table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
@@ -586,16 +636,12 @@ table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::b
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  
   width: 18px;
   height: 18px;
-  
   font-size: 12px;
   font-weight: 600;
-  
   color: #ffffff;
   background: #2b9af3;
-  
   border-radius: 50%;
 }
 
@@ -638,7 +684,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.55 !important;  /* ⭐ key improvement */
+  line-height: 1.55 !important;
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -1111,10 +1157,10 @@ details.hnd-blue-callout code {
             
                 <div class="navigation">
                     <ol class="breadcrumb">
-                        <li><a href="PolicyAnalysis-PolicyVariablesan.html">Policy Analysis - Policy Variables and Sample Files</a></li><li><a href="DemandSectorPolicies.html">Demand Sector Policies</a></li><li><a href="WhatareEnergyEfficiencyPolicies.html">What are Energy Efficiency Policies?</a></li>
+                        <li><a href="PolicyAnalysis.html">Policy Analysis</a></li><li><a href="DemandSectorPolicies.html">Demand Sector Policies</a></li><li><a href="EnergyEfficiencyPolicies.html">Energy Efficiency Policies</a></li><li><a href="MethodologyandModelRelationships.html">Methodology and Model Relationships</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="WhatareEnergyEfficiencyPolicies.html" title="What are Energy Efficiency Policies?" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="ProcessandDeviceEnergyEfficiency.html" title="Process and Device Energy Efficiency Curves" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="DeviceEnergyEfficiencyModelRelat.html" title="Device Energy Efficiency Model Relationships" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="MethodologyandModelRelationships.html" title="Methodology and Model Relationships" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="EnergyEfficiencyCapitalCostTrade.html" title="Energy Efficiency/Capital Cost Trade Off Curves" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="DeviceEnergyEfficiencyModelRelat.html" title="Device Energy Efficiency Model Relationships" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
@@ -1125,59 +1171,59 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<h4 class="rvps168"><span class="rvts0"><span class="rvts233">Process Energy Efficiency Model Relationships</span></span></h4>
+<h4 class="rvps169"><span class="rvts0"><span class="rvts251">Process Energy Efficiency Model Relationships</span></span></h4>
 <p class="rvps15"><span class="rvts6">Consumers choices of efficiency levels, by default, are based on trade-offs between capital costs and efficiency levels and are impacted largely by energy prices.</span></p>
 <div class="rvps2">
 <table width="90%" style="border-width: 0px; background-color: #ffffff; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: rgba(76,162,11,0.5); width: 7px;">
-   <p class="rvps79"><span class="rvts171"><br/></span></p>
+   <p class="rvps79"><span class="rvts187"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: #f1fff1; vertical-align: top; width: 29px;">
-   <p class="rvps28"><span class="rvts132">🛈</span></p>
+   <p class="rvps28"><span class="rvts135">🛈</span></p>
   </td>
   <td style="border-width : 1px; border-color: #008000; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #f1fff1; vertical-align: top; width: 722px;">
-   <p class="rvps28"><span class="rvts246">Note:</span><span class="rvts245"> &nbsp;Several methods are available to calculate </span><span class="rvts246">process efficiency</span><span class="rvts245">. The specific method used is determined based on a switch (</span><a class="rvts11" href="PEESw.html">PEESw</a><span class="rvts245">).</span></p>
+   <p class="rvps28"><span class="rvts264">Note:</span><span class="rvts263"> &nbsp;Several methods are available to calculate </span><span class="rvts264">process efficiency</span><span class="rvts263">. The specific method used is determined based on a switch (</span><a class="rvts11" href="PEESw.html">PEESw</a><span class="rvts263">).</span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts18">Marginal process efficiency</span><span class="rvts6"> (PEE) is determined by the energy cost (MCFU), the process efficiency curve and the process efficiency multiplier (PEMM). Changes in capital charge rates (PCCRB/PCCR) assume Cobb-Douglas substitution from Capital. The diagram below illustrates the model variables that impact Process Energy Efficiency (PEE).&nbsp;</span></p>
-<p class="rvps3"><span class="rvts235"><br/></span></p>
+<p class="rvps3"><span class="rvts253"><br/></span></p>
 <p class="rvps3"><span class="rvts18">Inputs to Process Energy (PEE)</span></p>
 <p class="rvps3"><img alt="" style="width : 521px; height : 258px; padding : 1px;" src="lib/NewItem%2089.png"></p>
-<p class="rvps3"><span class="rvts235"><br/></span></p>
-<p class="rvps2"><span class="rvts235"><br/></span></p>
+<p class="rvps3"><span class="rvts253"><br/></span></p>
+<p class="rvps2"><span class="rvts253"><br/></span></p>
 <p class="rvps5"><span class="rvts18">Model Equation for Process Efficiency, PEE (Simplified):</span></p>
-<div class="rvps174">
+<div class="rvps175">
 <table width="90%" style="border-color: #ffffff #969696 #969696 #ffffff; border-style: solid; border-width: 1px; border-spacing: 2px 0px; padding: 2px 0px;">
  <tr style="vertical-align: top;">
   <td style="padding: 1px; background-color: #fafafa; vertical-align: top; width: 722px;">
-   <p class="rvps170"><span class="rvts247"><br/></span></p>
-   <p class="rvps171"><span class="rvts237">PEE </span><span class="rvts238">= </span><span class="rvts237">PEM</span><span class="rvts238">*</span><span class="rvts237">PEMM</span><span class="rvts238">*</span><span class="rvts237">(</span><span class="rvts239">1</span><span class="rvts238">/</span><span class="rvts237">(</span><span class="rvts239">1</span><span class="rvts238">+</span><span class="rvts237">(MCFU</span><span class="rvts238">/</span><span class="rvts237">Inflation</span><span class="rvts238">*</span><span class="rvts237">PEPM</span><span class="rvts238">/</span><span class="rvts237">PFPN)</span><span class="rvts238">^</span><span class="rvts237">PFTC</span><span class="rvts238">*</span><span class="rvts237">(PCCR</span><span class="rvts238">/</span><span class="rvts237">PCCRB)))</span></p>
-   <p class="rvps172"><span class="rvts248"><br/></span></p>
-   <p class="rvps170"><span class="rvts243">PEE must </span><span class="rvts244">not</span><span class="rvts243"> be higher than any standards incorporated or higher than a preassigned&nbsp;</span></p>
-   <p class="rvps170"><span class="rvts243">process efficiency maximum (PEM) adjusted by the process efficiency multiplier (PEMM).&nbsp;</span></p>
-   <p class="rvps170"><span class="rvts247"><br/></span></p>
-   <p class="rvps173"><span class="rvts237">PEE </span><span class="rvts238">=</span><span class="rvts237"> </span><span class="rvts240">min</span><span class="rvts237">(</span><span class="rvts240">max</span><span class="rvts237">(PEE,PEStd,PEStdP),PEM</span><span class="rvts238">*</span><span class="rvts237">PEMM</span><span class="rvts238">*</span><span class="rvts239">0.98</span><span class="rvts237">)</span></p>
-   <p class="rvps170"><span class="rvts247"><br/></span></p>
-   <p class="rvps172"><span class="rvts122">where:</span></p>
-   <p class="rvps170"><span class="rvts241">PEM[</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Enduse">Enduse</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Tech">Tech</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_EC">EC</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Area">Area</a><span class="rvts241">] </span><span class="rvts122">- </span><span class="rvts161">Maximum Process Efficiency ($/Btu)</span></p>
-   <p class="rvps170"><span class="rvts241">PEMM[</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Enduse">Enduse</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Tech">Tech</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_EC">EC</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Area">Area</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Year">Year</a><span class="rvts241">]</span><span class="rvts122"> - </span><span class="rvts161">Process Efficiency Maximum Multiplier ($/Btu/($/Btu))</span></p>
-   <p class="rvps170"><span class="rvts241">MCFU[</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Enduse">Enduse</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Tech">Tech</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_EC">EC</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Area">Area</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Year">Year</a><span class="rvts241">] </span><span class="rvts122">- </span><span class="rvts161">Marginal Cost of Fuel Use ($/mmBtu)&nbsp;</span></p>
-   <p class="rvps170"><span class="rvts241">Inflation[</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Area">Area</a><span class="rvts241">,Year] - </span><span class="rvts161">Inflation Index ($/$)</span></p>
-   <p class="rvps170"><span class="rvts241">PEPM[</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Enduse">Enduse</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Tech">Tech</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_EC">EC</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Area">Area</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Year">Year</a><span class="rvts241">] -</span><span class="rvts161"> Process Energy Price Multiplier ($/$)</span></p>
-   <p class="rvps170"><span class="rvts241">PFPN[</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Enduse">Enduse</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Tech">Tech</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_EC">EC</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Area">Area</a><span class="rvts241">] -</span><span class="rvts161"> Process Normalized Fuel Price ($/mmBtu)</span></p>
-   <p class="rvps170"><span class="rvts241">PFTC[</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Enduse">Enduse</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Tech">Tech</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_EC">EC</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Area">Area</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Year">Year</a><span class="rvts241">] -</span><span class="rvts161"> Process Fuel Trade Off Coefficient&nbsp;</span></p>
-   <p class="rvps170"><span class="rvts241">PCCR[</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Enduse">Enduse</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Tech">Tech</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_EC">EC</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Area">Area</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Year">Year</a><span class="rvts241">] - </span><span class="rvts161">Process Capital Charge Rate ($/Yr/$)&nbsp;</span></p>
-   <p class="rvps170"><span class="rvts241">PCCRB[</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Enduse">Enduse</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Tech">Tech</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_EC">EC</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Area">Area</a><span class="rvts249">,</span><a class="rvts242" href="ENERGY2100UserManual.html#_topic_Year">Year</a><span class="rvts241">] - </span><span class="rvts161">Process Capital Charge Rate in Base Case ($/Yr/$)&nbsp;</span></p>
-   <p class="rvps170"><span class="rvts247"><br/></span></p>
+   <p class="rvps171"><span class="rvts265"><br/></span></p>
+   <p class="rvps172"><span class="rvts255">PEE </span><span class="rvts256">= </span><span class="rvts255">PEM</span><span class="rvts256">*</span><span class="rvts255">PEMM</span><span class="rvts256">*</span><span class="rvts255">(</span><span class="rvts257">1</span><span class="rvts256">/</span><span class="rvts255">(</span><span class="rvts257">1</span><span class="rvts256">+</span><span class="rvts255">(MCFU</span><span class="rvts256">/</span><span class="rvts255">Inflation</span><span class="rvts256">*</span><span class="rvts255">PEPM</span><span class="rvts256">/</span><span class="rvts255">PFPN)</span><span class="rvts256">^</span><span class="rvts255">PFTC</span><span class="rvts256">*</span><span class="rvts255">(PCCR</span><span class="rvts256">/</span><span class="rvts255">PCCRB)))</span></p>
+   <p class="rvps173"><span class="rvts266"><br/></span></p>
+   <p class="rvps171"><span class="rvts261">PEE must </span><span class="rvts262">not</span><span class="rvts261"> be higher than any standards incorporated or higher than a preassigned&nbsp;</span></p>
+   <p class="rvps171"><span class="rvts261">process efficiency maximum (PEM) adjusted by the process efficiency multiplier (PEMM).&nbsp;</span></p>
+   <p class="rvps171"><span class="rvts265"><br/></span></p>
+   <p class="rvps174"><span class="rvts255">PEE </span><span class="rvts256">=</span><span class="rvts255"> </span><span class="rvts258">min</span><span class="rvts255">(</span><span class="rvts258">max</span><span class="rvts255">(PEE,PEStd,PEStdP),PEM</span><span class="rvts256">*</span><span class="rvts255">PEMM</span><span class="rvts256">*</span><span class="rvts257">0.98</span><span class="rvts255">)</span></p>
+   <p class="rvps171"><span class="rvts265"><br/></span></p>
+   <p class="rvps173"><span class="rvts125">where:</span></p>
+   <p class="rvps171"><span class="rvts259">PEM[</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Enduse">Enduse</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Tech">Tech</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_EC">EC</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Area">Area</a><span class="rvts259">] </span><span class="rvts125">- </span><span class="rvts177">Maximum Process Efficiency ($/Btu)</span></p>
+   <p class="rvps171"><span class="rvts259">PEMM[</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Enduse">Enduse</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Tech">Tech</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_EC">EC</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Area">Area</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Year">Year</a><span class="rvts259">]</span><span class="rvts125"> - </span><span class="rvts177">Process Efficiency Maximum Multiplier ($/Btu/($/Btu))</span></p>
+   <p class="rvps171"><span class="rvts259">MCFU[</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Enduse">Enduse</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Tech">Tech</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_EC">EC</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Area">Area</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Year">Year</a><span class="rvts259">] </span><span class="rvts125">- </span><span class="rvts177">Marginal Cost of Fuel Use ($/mmBtu)&nbsp;</span></p>
+   <p class="rvps171"><span class="rvts259">Inflation[</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Area">Area</a><span class="rvts259">,Year] - </span><span class="rvts177">Inflation Index ($/$)</span></p>
+   <p class="rvps171"><span class="rvts259">PEPM[</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Enduse">Enduse</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Tech">Tech</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_EC">EC</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Area">Area</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Year">Year</a><span class="rvts259">] -</span><span class="rvts177"> Process Energy Price Multiplier ($/$)</span></p>
+   <p class="rvps171"><span class="rvts259">PFPN[</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Enduse">Enduse</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Tech">Tech</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_EC">EC</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Area">Area</a><span class="rvts259">] -</span><span class="rvts177"> Process Normalized Fuel Price ($/mmBtu)</span></p>
+   <p class="rvps171"><span class="rvts259">PFTC[</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Enduse">Enduse</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Tech">Tech</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_EC">EC</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Area">Area</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Year">Year</a><span class="rvts259">] -</span><span class="rvts177"> Process Fuel Trade Off Coefficient&nbsp;</span></p>
+   <p class="rvps171"><span class="rvts259">PCCR[</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Enduse">Enduse</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Tech">Tech</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_EC">EC</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Area">Area</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Year">Year</a><span class="rvts259">] - </span><span class="rvts177">Process Capital Charge Rate ($/Yr/$)&nbsp;</span></p>
+   <p class="rvps171"><span class="rvts259">PCCRB[</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Enduse">Enduse</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Tech">Tech</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_EC">EC</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Area">Area</a><span class="rvts267">,</span><a class="rvts260" href="ENERGY2100UserManual.html#_topic_Year">Year</a><span class="rvts259">] - </span><span class="rvts177">Process Capital Charge Rate in Base Case ($/Yr/$)&nbsp;</span></p>
+   <p class="rvps171"><span class="rvts265"><br/></span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps2"><span class="rvts235"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"></span></p>
+<p class="rvps2"><span class="rvts253"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"></span></p>
 
             </div>
             

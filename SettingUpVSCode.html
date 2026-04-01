@@ -425,16 +425,28 @@ aside li li a,
   100% { background: transparent; }
 }
 
-
 /* =========================================================
-   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   7) ONE-CELL CODE TABLES ONLY
+   Turn true one-cell tables into code-style boxes
+   Leave all other tables alone so HelpNDoc formatting shows
    ========================================================= */
 
-table:not(:has(td[style*="background-color"])) {
+/* One-cell, non-callout tables only */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child),
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) {
   border: 1px solid #dde3ea !important;
   border-radius: 8px;
   background: #f7f9fb !important;
   border-collapse: separate !important;
+  border-spacing: 0 !important;
   overflow: hidden;
   margin: 14px 0;
   box-sizing: border-box;
@@ -443,23 +455,62 @@ table:not(:has(td[style*="background-color"])) {
   max-width: 100% !important;
 }
 
-table:not(:has(td[style*="background-color"])) td {
+/* The single cell inside the one-cell code table */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) > tbody > tr:only-child > td:only-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) > tr:only-child > td:only-child {
   padding: 10px 14px !important;
   border: none !important;
   background: transparent !important;
+  vertical-align: top !important;
 }
 
-table:not(:has(td[style*="background-color"])) p {
+/* Text inside one-cell code tables */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p {
   font-weight: 400 !important;
   color: #111827 !important;
   margin: 0 0 6px 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:first-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:first-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:first-child {
   margin-top: 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:last-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:last-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -544,7 +595,6 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-/* Only style the OUTER Example/Exercise title */
 table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
@@ -586,16 +636,12 @@ table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::b
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  
   width: 18px;
   height: 18px;
-  
   font-size: 12px;
   font-weight: 600;
-  
   color: #ffffff;
   background: #2b9af3;
-  
   border-radius: 50%;
 }
 
@@ -638,7 +684,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.55 !important;  /* ⭐ key improvement */
+  line-height: 1.55 !important;
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -1114,7 +1160,7 @@ details.hnd-blue-callout code {
                         <li><a href="GettingStarted.html">Getting Started</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="GettingStarted.html" title="Getting Started" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="DevelopmentEnvironment1.html" title="Development Environment" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="InstallationGuide.html" title="Installation Guide" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="GettingStarted.html" title="Getting Started" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="InstallationGuide.html" title="Installation Guide" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="InitialRun.html" title="Initial Run" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
@@ -1133,36 +1179,38 @@ details.hnd-blue-callout code {
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 938px; height: 54px;">
    <p class="rvps28"><span class="rvts33">🛈</span><span class="rvts6">&nbsp;</span><span class="rvts32"> </span><span class="rvts18">Note</span></p>
-   <p class="rvps6"><span class="rvts55">This VS Code Tutorial is adapted from a tutorial written by Dheepak Krishnamurthy while affiliated with Environment and Climate Change Canada. Email: me@kdheepak.com.</span></p>
+   <p class="rvps6"><span class="rvts63">This VS Code Tutorial is adapted from a tutorial written by Dheepak Krishnamurthy while affiliated with Environment and Climate Change Canada. Email: me@kdheepak.com.</span></p>
   </td>
  </tr>
 </table>
 </div>
-<h3 class="rvps10"><span class="rvts0"><span class="rvts56">Install VSCode</span></span></h3>
-<p class="rvps29"><span class="rvts42">Go to&nbsp;</span><a class="rvts43" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a><span class="rvts42">&nbsp;and download VSCode.</span></p>
-<p class="rvps33"><img alt="" style="width : 652px; height : 324px; padding : 1px;" src="lib/NewItem%20134.png"></p>
-<p class="rvps34"><span class="rvts6">Download the installer and run it.</span></p>
-<p class="rvps34"><span class="rvts6">These are the options I like to enable:</span></p>
-<p class="rvps29"><img alt="" style="width : 649px; height : 531px; padding : 1px;" src="lib/NewItem%20137.png"></p>
-<p class="rvps29"><span class="rvts42">After you install VSCode, you can go to the Windows File Explorer, and open the&nbsp;</span><span class="rvts44">Tutorial</span><span class="rvts42">&nbsp;folder using VSCode. Once your installation is complete, you can&nbsp;</span><span class="rvts45">Right Click</span><span class="rvts42">&nbsp;on a folder and click on&nbsp;“Open with Code”&nbsp;to open that folder in VSCode.</span></p>
-<p class="rvps29"><img alt="" style="width : 651px; height : 532px; padding : 1px;" src="lib/NewItem%20136.png"></p>
-<p class="rvps29"><span class="rvts42">You’ll see a warning which you can agree to.</span></p>
-<p class="rvps33"><img alt="" style="width : 655px; height : 535px; padding : 1px;" src="lib/NewItem%20141.png"></p>
-<p class="rvps35"><span class="rvts42">Now you are ready to use VSCode.</span></p>
-<h3 class="rvps10"><a name="install-julia-extension-in-vscode"></a><span class="rvts0"><span class="rvts57">Install Julia extension in VSCode</span></span></h3>
-<p class="rvps29"><span class="rvts42">VSCode is a very powerful text editor and has lots of features. It also has the ability to install extensions.</span></p>
-<p class="rvps29"><span class="rvts42">Click on the extension button in the left Activity Bar (the bottom most icon that has 4 squares with the top left square removed), and search for&nbsp;</span><span class="rvts44">Julia</span><span class="rvts42">.</span></p>
-<p class="rvps29"><img alt="" style="width : 704px; height : 272px; padding : 1px;" src="lib/NewItem%20140.png"></p>
-<p class="rvps29"><span class="rvts42">Then install the&nbsp;</span><span class="rvts44">Julia</span><span class="rvts42">&nbsp;extension by&nbsp;</span><span class="rvts44">julialang</span><span class="rvts42">.</span></p>
-<p class="rvps29"><span class="rvts42">You might also be able to go here&nbsp;</span><a class="rvts43" href="https://marketplace.visualstudio.com/items?itemName=julialang.language-julia">https://marketplace.visualstudio.com/items?itemName=julialang.language-julia</a><span class="rvts42">&nbsp;and click on&nbsp;</span><span class="rvts44">Install</span><span class="rvts42">.</span></p>
-<h3 class="rvps10"><a name="change-theme-in-vscode"></a><span class="rvts0"><span class="rvts57">Change theme in VSCode</span></span></h3>
-<p class="rvps29"><span class="rvts42">VSCode has a number of different color themes available.</span></p>
-<p class="rvps29"><span class="rvts42">Type&nbsp;</span><span class="rvts45">Ctrl</span><span class="rvts42">&nbsp;+&nbsp;</span><span class="rvts45">Shift</span><span class="rvts42">&nbsp;+&nbsp;</span><span class="rvts45">P</span><span class="rvts42">&nbsp;to open the&nbsp;“command pallete”&nbsp;and type&nbsp;</span><span class="rvts44">color theme</span><span class="rvts42">.</span></p>
-<p class="rvps29"><img alt="" style="padding : 1px;" src="lib/NewItem%20139.png"></p>
-<p class="rvps29"><span class="rvts42">When you select&nbsp;</span><span class="rvts44">Preferences: Color Theme</span><span class="rvts42">, you’ll see a number of built-in themes that you can choose from.</span></p>
-<p class="rvps29"><img alt="" style="padding : 1px;" src="lib/NewItem%20138.png"></p>
-<p class="rvps29"><span class="rvts42">You can also install more themes from the extensions tab in the activity bar.</span></p>
-<p class="rvps29"><span class="rvts42">You can use&nbsp;</span><span class="rvts47">Ctrl</span><span class="rvts42">&nbsp;+&nbsp;</span><span class="rvts47">+</span><span class="rvts42">&nbsp;or&nbsp;</span><span class="rvts47">Ctrl</span><span class="rvts42">&nbsp;+&nbsp;</span><span class="rvts47">-</span><span class="rvts42">&nbsp;to increase or decrease the font size based on your screen and comfort preferences.</span></p>
+<p class="rvps2"><span class="rvts66"><br/></span></p>
+<p class="rvps2"><span class="rvts67">From Robin: &nbsp;Would be useful to indicate a few of the additional VS Code extensions that should be included.</span></p>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts64">Install VSCode</span></span></h3>
+<p class="rvps34"><span class="rvts50">Go to&nbsp;</span><a class="rvts51" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a><span class="rvts50">&nbsp;and download VSCode.</span></p>
+<p class="rvps38"><img alt="" style="width : 652px; height : 324px; padding : 1px;" src="lib/NewItem%20134.png"></p>
+<p class="rvps39"><span class="rvts6">Download the installer and run it.</span></p>
+<p class="rvps39"><span class="rvts6">These are the options I like to enable:</span></p>
+<p class="rvps34"><img alt="" style="width : 649px; height : 531px; padding : 1px;" src="lib/NewItem%20137.png"></p>
+<p class="rvps34"><span class="rvts50">After you install VSCode, you can go to the Windows File Explorer, and open the&nbsp;</span><span class="rvts52">Tutorial</span><span class="rvts50">&nbsp;folder using VSCode. Once your installation is complete, you can&nbsp;</span><span class="rvts53">Right Click</span><span class="rvts50">&nbsp;on a folder and click on&nbsp;“Open with Code”&nbsp;to open that folder in VSCode.</span></p>
+<p class="rvps34"><img alt="" style="width : 651px; height : 532px; padding : 1px;" src="lib/NewItem%20136.png"></p>
+<p class="rvps34"><span class="rvts50">You’ll see a warning which you can agree to.</span></p>
+<p class="rvps38"><img alt="" style="width : 655px; height : 535px; padding : 1px;" src="lib/NewItem%20141.png"></p>
+<p class="rvps40"><span class="rvts50">Now you are ready to use VSCode.</span></p>
+<h3 class="rvps10"><a name="install-julia-extension-in-vscode"></a><span class="rvts0"><span class="rvts65">Install Julia extension in VSCode</span></span></h3>
+<p class="rvps34"><span class="rvts50">VSCode is a very powerful text editor and has lots of features. It also has the ability to install extensions.</span></p>
+<p class="rvps34"><span class="rvts50">Click on the extension button in the left Activity Bar (the bottom most icon that has 4 squares with the top left square removed), and search for&nbsp;</span><span class="rvts52">Julia</span><span class="rvts50">.</span></p>
+<p class="rvps34"><img alt="" style="width : 704px; height : 272px; padding : 1px;" src="lib/NewItem%20140.png"></p>
+<p class="rvps34"><span class="rvts50">Then install the&nbsp;</span><span class="rvts52">Julia</span><span class="rvts50">&nbsp;extension by&nbsp;</span><span class="rvts52">julialang</span><span class="rvts50">.</span></p>
+<p class="rvps34"><span class="rvts50">You might also be able to go here&nbsp;</span><a class="rvts51" href="https://marketplace.visualstudio.com/items?itemName=julialang.language-julia">https://marketplace.visualstudio.com/items?itemName=julialang.language-julia</a><span class="rvts50">&nbsp;and click on&nbsp;</span><span class="rvts52">Install</span><span class="rvts50">.</span></p>
+<h3 class="rvps10"><a name="change-theme-in-vscode"></a><span class="rvts0"><span class="rvts65">Change theme in VSCode</span></span></h3>
+<p class="rvps34"><span class="rvts50">VSCode has a number of different color themes available.</span></p>
+<p class="rvps34"><span class="rvts50">Type&nbsp;</span><span class="rvts53">Ctrl</span><span class="rvts50">&nbsp;+&nbsp;</span><span class="rvts53">Shift</span><span class="rvts50">&nbsp;+&nbsp;</span><span class="rvts53">P</span><span class="rvts50">&nbsp;to open the&nbsp;“command pallete”&nbsp;and type&nbsp;</span><span class="rvts52">color theme</span><span class="rvts50">.</span></p>
+<p class="rvps34"><img alt="" style="padding : 1px;" src="lib/NewItem%20139.png"></p>
+<p class="rvps34"><span class="rvts50">When you select&nbsp;</span><span class="rvts52">Preferences: Color Theme</span><span class="rvts50">, you’ll see a number of built-in themes that you can choose from.</span></p>
+<p class="rvps34"><img alt="" style="padding : 1px;" src="lib/NewItem%20138.png"></p>
+<p class="rvps34"><span class="rvts50">You can also install more themes from the extensions tab in the activity bar.</span></p>
+<p class="rvps34"><span class="rvts50">You can use&nbsp;</span><span class="rvts55">Ctrl</span><span class="rvts50">&nbsp;+&nbsp;</span><span class="rvts55">+</span><span class="rvts50">&nbsp;or&nbsp;</span><span class="rvts55">Ctrl</span><span class="rvts50">&nbsp;+&nbsp;</span><span class="rvts55">-</span><span class="rvts50">&nbsp;to increase or decrease the font size based on your screen and comfort preferences.</span></p>
 <div class="rvps26">
 <table width="90%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
@@ -1170,133 +1218,133 @@ details.hnd-blue-callout code {
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 938px; height: 54px;">
-   <p class="rvps28"><span class="rvts52">🖉</span><span class="rvts6">&nbsp;</span><span class="rvts32"> </span><span class="rvts18">Exercise</span></p>
+   <p class="rvps28"><span class="rvts60">🖉</span><span class="rvts6">&nbsp;</span><span class="rvts32"> </span><span class="rvts18">Exercise</span></p>
    <p class="rvps6"><span class="rvts14">VSCode's Command Palette is your friend.&nbsp;</span></p>
    <p class="rvps6"><span class="rvts14">It has a lot of features built-in and has features that can be extended by extensions.</span></p>
-   <p class="rvps6"><span class="rvts14">Open the command palette with </span><span class="rvts48">&nbsp;</span><span class="rvts49">Ctrl</span><span class="rvts48">&nbsp;</span><span class="rvts50">+</span><span class="rvts48">&nbsp;</span><span class="rvts49">Shift</span><span class="rvts48">&nbsp;</span><span class="rvts50">+&nbsp;</span><span class="rvts51">P</span><span class="rvts50">&nbsp;</span><span class="rvts14">and search for&nbsp;</span><span class="rvts53">Julia</span><span class="rvts14">. Take a look at the various options available.</span></p>
+   <p class="rvps6"><span class="rvts14">Open the command palette with </span><span class="rvts56">&nbsp;</span><span class="rvts57">Ctrl</span><span class="rvts56">&nbsp;</span><span class="rvts58">+</span><span class="rvts56">&nbsp;</span><span class="rvts57">Shift</span><span class="rvts56">&nbsp;</span><span class="rvts58">+&nbsp;</span><span class="rvts59">P</span><span class="rvts58">&nbsp;</span><span class="rvts14">and search for&nbsp;</span><span class="rvts61">Julia</span><span class="rvts14">. Take a look at the various options available.</span></p>
   </td>
  </tr>
 </table>
 </div>
-<h3 class="rvps10"><span class="rvts0"><span class="rvts57">Changing Settings</span></span></h3>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts65">Changing Settings</span></span></h3>
 <p class="rvps6"><span class="rvts14">There are a LOT of settings in VSCode and many things you can customize.</span></p>
 <p class="rvps6"><span class="rvts14">Here’s a few that I recommend changing.</span></p>
 <p class="rvps6"><span class="rvts14">If you want to read what every setting does, you can search for the following and change it to the value I have listed on the right.</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 72px; list-style-position: outside;">
- <li class="rvps6 noindent"><span class="rvts14">Workbench: Editor Preview:&nbsp;</span><span class="rvts53">false</span></li>
- <li class="rvps6 noindent"><span class="rvts14">Files: Insert Final New Line:&nbsp;</span><span class="rvts53">true</span></li>
- <li class="rvps6 noindent"><span class="rvts14">Files: Trim Auto Whitespace:&nbsp;</span><span class="rvts53">true</span></li>
- <li class="rvps6 noindent"><span class="rvts14">Editor: Format on Save:&nbsp;</span><span class="rvts53">true</span></li>
- <li class="rvps6 noindent"><span class="rvts14">Editor: Render whitespace:&nbsp;"</span><span class="rvts53">boundary</span><span class="rvts14">"</span></li>
- <li class="rvps6 noindent"><span class="rvts14">Editor: Word Wrap:&nbsp;"</span><span class="rvts53">off</span><span class="rvts14">"</span></li>
- <li class="rvps6 noindent"><span class="rvts14">Editor: Rulers:&nbsp;</span><span class="rvts53">[120]</span></li>
- <li class="rvps6 noindent"><span class="rvts14">Files: Encoding:&nbsp;"</span><span class="rvts53">utf8</span><span class="rvts14">"</span></li>
- <li class="rvps6 noindent"><span class="rvts14">Terminal: Integrated Scrollback:&nbsp;</span><span class="rvts53">1000000</span></li>
- <li class="rvps6 noindent"><span class="rvts14">Terminal: Right Click:&nbsp;"</span><span class="rvts53">default</span><span class="rvts14">"</span></li>
+ <li class="rvps6 noindent"><span class="rvts14">Workbench: Editor Preview:&nbsp;</span><span class="rvts61">false</span></li>
+ <li class="rvps6 noindent"><span class="rvts14">Files: Insert Final New Line:&nbsp;</span><span class="rvts61">true</span></li>
+ <li class="rvps6 noindent"><span class="rvts14">Files: Trim Auto Whitespace:&nbsp;</span><span class="rvts61">true</span></li>
+ <li class="rvps6 noindent"><span class="rvts14">Editor: Format on Save:&nbsp;</span><span class="rvts61">true</span></li>
+ <li class="rvps6 noindent"><span class="rvts14">Editor: Render whitespace:&nbsp;"</span><span class="rvts61">boundary</span><span class="rvts14">"</span></li>
+ <li class="rvps6 noindent"><span class="rvts14">Editor: Word Wrap:&nbsp;"</span><span class="rvts61">off</span><span class="rvts14">"</span></li>
+ <li class="rvps6 noindent"><span class="rvts14">Editor: Rulers:&nbsp;</span><span class="rvts61">[120]</span></li>
+ <li class="rvps6 noindent"><span class="rvts14">Files: Encoding:&nbsp;"</span><span class="rvts61">utf8</span><span class="rvts14">"</span></li>
+ <li class="rvps6 noindent"><span class="rvts14">Terminal: Integrated Scrollback:&nbsp;</span><span class="rvts61">1000000</span></li>
+ <li class="rvps6 noindent"><span class="rvts14">Terminal: Right Click:&nbsp;"</span><span class="rvts61">default</span><span class="rvts14">"</span></li>
 </ol>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts6">If you want to change your settings quickly, you can use the command pallete&nbsp;</span><span class="rvts34">Ctrl</span><span class="rvts6">&nbsp;+&nbsp;</span><span class="rvts34">Shift</span><span class="rvts6">&nbsp;+</span><span class="rvts34">&nbsp;P</span><span class="rvts6">&nbsp;and type&nbsp;“</span><span class="rvts34">Open User Settings JSON</span><span class="rvts6">”&nbsp;and copy the following and paste it in there:</span></p>
-<p class="rvps9"><span class="rvts54">&nbsp; "workbench.editor.enablePreview": false,</span></p>
-<p class="rvps9"><span class="rvts54">&nbsp; "files.insertFinalNewline": true,</span></p>
-<p class="rvps9"><span class="rvts54">&nbsp; "files.trimTrailingWhitespace": true,</span></p>
-<p class="rvps9"><span class="rvts54">&nbsp; "editor.formatOnSave": true,</span></p>
-<p class="rvps9"><span class="rvts54">&nbsp; "editor.renderWhitespace": "boundary",</span></p>
-<p class="rvps9"><span class="rvts54">&nbsp; "editor.wordWrap": "off",</span></p>
-<p class="rvps9"><span class="rvts54">&nbsp; "editor.rulers": [120],</span></p>
-<p class="rvps9"><span class="rvts54">&nbsp; "files.encoding": "utf8",</span></p>
-<p class="rvps9"><span class="rvts54">&nbsp; "terminal.integrated.scrollback": 1000000,</span></p>
-<p class="rvps9"><span class="rvts54">&nbsp; "terminal.integrated.rightClickBehavior": "default",</span></p>
-<p class="rvps29"><span class="rvts42"><br/></span></p>
+<p class="rvps9"><span class="rvts62">&nbsp; "workbench.editor.enablePreview": false,</span></p>
+<p class="rvps9"><span class="rvts62">&nbsp; "files.insertFinalNewline": true,</span></p>
+<p class="rvps9"><span class="rvts62">&nbsp; "files.trimTrailingWhitespace": true,</span></p>
+<p class="rvps9"><span class="rvts62">&nbsp; "editor.formatOnSave": true,</span></p>
+<p class="rvps9"><span class="rvts62">&nbsp; "editor.renderWhitespace": "boundary",</span></p>
+<p class="rvps9"><span class="rvts62">&nbsp; "editor.wordWrap": "off",</span></p>
+<p class="rvps9"><span class="rvts62">&nbsp; "editor.rulers": [120],</span></p>
+<p class="rvps9"><span class="rvts62">&nbsp; "files.encoding": "utf8",</span></p>
+<p class="rvps9"><span class="rvts62">&nbsp; "terminal.integrated.scrollback": 1000000,</span></p>
+<p class="rvps9"><span class="rvts62">&nbsp; "terminal.integrated.rightClickBehavior": "default",</span></p>
+<p class="rvps34"><span class="rvts50"><br/></span></p>
 <p class="rvps2"><span class="rvts6">As mentioned above, you can hit&nbsp;</span><span class="rvts34">Ctrl</span><span class="rvts6"> + </span><span class="rvts34">Shift</span><span class="rvts6"> + </span><span class="rvts34">P</span><span class="rvts6">&nbsp;and type&nbsp;“</span><span class="rvts34">Open Settings (JSON)</span><span class="rvts6">”. Or alternatively, you can hit&nbsp;Ctrl + ,&nbsp;and hit the button at the top right that says&nbsp;“</span><span class="rvts34">Open Settings (JSON)</span><span class="rvts6">”&nbsp;to convert it into a JSON format.</span></p>
 <p class="rvps2"><span class="rvts6">Then you can copy paste the these settings in that file. If you want to preserve your settings, you’ll need to paste only the following contents&nbsp;inside&nbsp;the curly braces, i.e.&nbsp;inside the&nbsp;{...}&nbsp;into your settings inside your&nbsp;{...}&nbsp;as well, keeping the existing content as it is.</span></p>
 <p class="rvps2"><span class="rvts6">Remember, you’ll need to add a comma i.e.&nbsp;,&nbsp;after every key value pair&nbsp;except&nbsp;the last key value pair.</span></p>
 <p class="rvps2"><span class="rvts6">Here are some recommended settings for VS Code:</span></p>
-<p class="rvps30"><a name="cb2"></a><span class="rvts46">{</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Enable telemetry data collection for the Julia extension</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "julia.enableTelemetry": true,</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Enable downloading of the symbol cache for the Julia extension</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "julia.symbolCacheDownload": true,</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Enable crash reporter for the Julia extension</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "julia.enableCrashReporter": true,</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Enable runtime completions for the Julia extension</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "julia.runtimeCompletions": true,</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Always copy the environment when starting a new Julia session</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "julia.persistentSession.alwaysCopy": true,</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Print executed code in REPL and append it to the REPL history</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "julia.execution.codeInREPL": true,</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Show inline results for cell evaluation in Julia files</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "julia.execution.inlineResultsForCellEvaluation": true,</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Enable linting for missing references in Julia code</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "julia.lint.missingrefs": "all",</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Set the default formatter for Julia files</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "[julia]": {</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; &nbsp; "editor.defaultFormatter": "julialang.language-julia"</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; },</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Enable font ligatures in the editor</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "editor.fontLigatures": true,</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Enable colorization of matching brackets</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "editor.bracketPairColorization.enabled": true,</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Show whitespace characters only on boundaries between words</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "editor.renderWhitespace": "boundary",</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Set the tab size to 2 spaces</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "editor.tabSize": 2,</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Disable word wrapping in the editor</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "editor.wordWrap": "off",</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Display a vertical ruler at column 150</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "editor.rulers": [150],</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Enable automatic find in selection when multiple lines are selected</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "editor.find.autoFindInSelection": "multiline",</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Disable automatic detection of indentation settings</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "editor.detectIndentation": false,</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Set the indentation size to the value of tabSize</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "editor.indentSize": "tabSize",</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Enable automatic formatting of the document when it is saved</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "editor.formatOnSave": true,</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Set the default file encoding to UTF-8</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "files.encoding": "utf8",</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Set the default end of line (EOL) character to LF</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "files.eol": "\n",</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Enable automatic removal of trailing whitespace when a file is saved</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "files.trimTrailingWhitespace": true,</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Ensure a newline is inserted at the end of a file when it is saved</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "files.insertFinalNewline": true</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; },</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Enable case-sensitive search when using both upper and lowercase letters</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "search.smartCase": true,</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Set the terminal scrollback buffer size to 1,000,000 lines</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "terminal.integrated.scrollback": 1000000,</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Set the right-click behavior in the integrated terminal to the default</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "terminal.integrated.rightClickBehavior": "default",</span></p>
-<p class="rvps31"><span class="rvts46"><br/></span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; // Show whitespace changes in the diff editor</span></p>
-<p class="rvps31"><span class="rvts46">&nbsp; "diffEditor.ignoreTrimWhitespace": false // this line doesn't have a comma</span></p>
-<p class="rvps32"><span class="rvts46">}</span><span class="rvts287"></span></p>
+<p class="rvps35"><a name="cb2"></a><span class="rvts54">{</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Enable telemetry data collection for the Julia extension</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "julia.enableTelemetry": true,</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Enable downloading of the symbol cache for the Julia extension</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "julia.symbolCacheDownload": true,</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Enable crash reporter for the Julia extension</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "julia.enableCrashReporter": true,</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Enable runtime completions for the Julia extension</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "julia.runtimeCompletions": true,</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Always copy the environment when starting a new Julia session</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "julia.persistentSession.alwaysCopy": true,</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Print executed code in REPL and append it to the REPL history</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "julia.execution.codeInREPL": true,</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Show inline results for cell evaluation in Julia files</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "julia.execution.inlineResultsForCellEvaluation": true,</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Enable linting for missing references in Julia code</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "julia.lint.missingrefs": "all",</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Set the default formatter for Julia files</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "[julia]": {</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; &nbsp; "editor.defaultFormatter": "julialang.language-julia"</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; },</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Enable font ligatures in the editor</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "editor.fontLigatures": true,</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Enable colorization of matching brackets</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "editor.bracketPairColorization.enabled": true,</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Show whitespace characters only on boundaries between words</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "editor.renderWhitespace": "boundary",</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Set the tab size to 2 spaces</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "editor.tabSize": 2,</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Disable word wrapping in the editor</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "editor.wordWrap": "off",</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Display a vertical ruler at column 150</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "editor.rulers": [150],</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Enable automatic find in selection when multiple lines are selected</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "editor.find.autoFindInSelection": "multiline",</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Disable automatic detection of indentation settings</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "editor.detectIndentation": false,</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Set the indentation size to the value of tabSize</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "editor.indentSize": "tabSize",</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Enable automatic formatting of the document when it is saved</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "editor.formatOnSave": true,</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Set the default file encoding to UTF-8</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "files.encoding": "utf8",</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Set the default end of line (EOL) character to LF</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "files.eol": "\n",</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Enable automatic removal of trailing whitespace when a file is saved</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "files.trimTrailingWhitespace": true,</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Ensure a newline is inserted at the end of a file when it is saved</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "files.insertFinalNewline": true</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; },</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Enable case-sensitive search when using both upper and lowercase letters</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "search.smartCase": true,</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Set the terminal scrollback buffer size to 1,000,000 lines</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "terminal.integrated.scrollback": 1000000,</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Set the right-click behavior in the integrated terminal to the default</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "terminal.integrated.rightClickBehavior": "default",</span></p>
+<p class="rvps36"><span class="rvts54"><br/></span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; // Show whitespace changes in the diff editor</span></p>
+<p class="rvps36"><span class="rvts54">&nbsp; "diffEditor.ignoreTrimWhitespace": false // this line doesn't have a comma</span></p>
+<p class="rvps37"><span class="rvts54">}</span><span class="rvts306"></span></p>
 
             </div>
             

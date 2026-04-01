@@ -425,16 +425,28 @@ aside li li a,
   100% { background: transparent; }
 }
 
-
 /* =========================================================
-   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   7) ONE-CELL CODE TABLES ONLY
+   Turn true one-cell tables into code-style boxes
+   Leave all other tables alone so HelpNDoc formatting shows
    ========================================================= */
 
-table:not(:has(td[style*="background-color"])) {
+/* One-cell, non-callout tables only */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child),
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) {
   border: 1px solid #dde3ea !important;
   border-radius: 8px;
   background: #f7f9fb !important;
   border-collapse: separate !important;
+  border-spacing: 0 !important;
   overflow: hidden;
   margin: 14px 0;
   box-sizing: border-box;
@@ -443,23 +455,62 @@ table:not(:has(td[style*="background-color"])) {
   max-width: 100% !important;
 }
 
-table:not(:has(td[style*="background-color"])) td {
+/* The single cell inside the one-cell code table */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) > tbody > tr:only-child > td:only-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) > tr:only-child > td:only-child {
   padding: 10px 14px !important;
   border: none !important;
   background: transparent !important;
+  vertical-align: top !important;
 }
 
-table:not(:has(td[style*="background-color"])) p {
+/* Text inside one-cell code tables */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p {
   font-weight: 400 !important;
   color: #111827 !important;
   margin: 0 0 6px 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:first-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:first-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:first-child {
   margin-top: 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:last-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:last-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -544,7 +595,6 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-/* Only style the OUTER Example/Exercise title */
 table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
@@ -586,16 +636,12 @@ table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::b
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  
   width: 18px;
   height: 18px;
-  
   font-size: 12px;
   font-weight: 600;
-  
   color: #ffffff;
   background: #2b9af3;
-  
   border-radius: 50%;
 }
 
@@ -638,7 +684,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.55 !important;  /* ⭐ key improvement */
+  line-height: 1.55 !important;
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -1114,7 +1160,7 @@ details.hnd-blue-callout code {
                         <li><a href="GettingStarted.html">Getting Started</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="GettingStarted.html" title="Getting Started" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="SettingUpVSCode.html" title="Setting Up VS Code" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="InitialRun.html" title="Initial Run" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="GettingStarted.html" title="Getting Started" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="DevelopmentEnvironment1.html" title="Development Environment" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="SettingUpVSCode.html" title="Setting Up VS Code" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
@@ -1127,7 +1173,7 @@ details.hnd-blue-callout code {
                 
 <p class="rvps2"><span class="rvts6">ENERGY 2100 requires installation of Julia, its dependencies, and 7zip. By also installing Visual Studio Code (VS Code) with the Julia extension add-on, you will have access to a development environment that facilitates programming in Julia.&nbsp;</span></p>
 <p class="rvps2"><span class="rvts6">Follow the instructions below to install ENERGY 2100 and its required dependencies:</span></p>
-<p class="rvps5"><span class="rvts61">1. &nbsp;Download ENERGY 2100 Model Files </span><span class="rvts60">(See </span><a class="rvts11" href="ObtainENERGY2100Model.html">Obtain ENERGY 2100 Model</a><span class="rvts60">)</span></p>
+<p class="rvps5"><span class="rvts45">1. &nbsp;Download ENERGY 2100 Model Files </span><span class="rvts44">(See </span><a class="rvts11" href="ObtainENERGY2100Model.html">Obtain ENERGY 2100 Model</a><span class="rvts44">)</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: lower-alpha;">
   <li class="rvps9 noindent"><span class="rvts14">Create a subdirectory for the entire model directly on the computer’s main hard drive, such as </span><span class="rvts17">2100CanadaOak</span><span class="rvts14">.</span></li>
@@ -1136,28 +1182,28 @@ details.hnd-blue-callout code {
  </ol>
 </ol>
 <p class="rvps9"><span class="rvts14"><br/></span></p>
-<p class="rvps37"><span class="rvts62">2. &nbsp;Install Julia and Julia Dependencies</span></p>
+<p class="rvps30"><span class="rvts46">2. &nbsp;Install Julia and Julia Dependencies</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li class="rvps38 noindent"><span class="rvts64">Double-click </span><span class="rvts65">SSIJuliaInstall.bat</span><span class="rvts64"> to install Julia and its associated dependencies.</span></li>
-  <li class="rvps38 noindent"><span class="rvts64">When you see prompts, like the one below, asking if you agree to the terms. Type in </span><span class="rvts65">Y</span><span class="rvts64"> and hit </span><span class="rvts65">&lt;ENTER&gt;</span><span class="rvts64">. &nbsp;</span></li>
+  <li class="rvps31 noindent"><span class="rvts48">Double-click </span><span class="rvts49">SSIJuliaInstall.bat</span><span class="rvts48"> to install Julia and its associated dependencies.</span></li>
+  <li class="rvps31 noindent"><span class="rvts48">When you see prompts, like the one below, asking if you agree to the terms. Type in </span><span class="rvts49">Y</span><span class="rvts48"> and hit </span><span class="rvts49">&lt;ENTER&gt;</span><span class="rvts48">. &nbsp;</span></li>
  </ol>
 </ol>
-<p class="rvps39"><img alt="" style="width : 735px; height : 68px; padding : 1px;" src="lib/NewItem%2098.png"></p>
-<p class="rvps39"><span class="rvts6">Using this batch file to install Julia will automatically add the Julia executable to the system PATH.</span></p>
+<p class="rvps32"><img alt="" style="width : 735px; height : 68px; padding : 1px;" src="lib/NewItem%2098.png"></p>
+<p class="rvps32"><span class="rvts6">Using this batch file to install Julia will automatically add the Julia executable to the system PATH.</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: circle;">
  <li class="rvps2 noindent"><span class="rvts6"><br/></span></li>
 </ul>
-<p class="rvps5"><span class="rvts61">4. &nbsp;Verify 7-Zip is Installed on Computer</span></p>
+<p class="rvps5"><span class="rvts45">4. &nbsp;Verify 7-Zip is Installed on Computer</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
   <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: square;">
-   <li class="rvps40 noindent"><a class="rvts40" href="https://www.7-zip.org/download.html">If 7-Zip is not installed, download and install from: &nbsp;</a><a class="rvts58" href="https://www.7-zip.org/download.html">www.7-zip.org/download.html</a></li>
+   <li class="rvps33 noindent"><a class="rvts40" href="https://www.7-zip.org/download.html">If 7-Zip is not installed, download and install from: &nbsp;</a><a class="rvts42" href="https://www.7-zip.org/download.html">www.7-zip.org/download.html</a></li>
   </ul>
  </ul>
 </ul>
-<p class="rvps36"><span class="rvts59"><br/></span></p>
-<p class="rvps5"><span class="rvts61">5. &nbsp;Install Visual Studio Code (VSCode)</span></p>
+<p class="rvps29"><span class="rvts43"><br/></span></p>
+<p class="rvps5"><span class="rvts45">5. &nbsp;Install Visual Studio Code (VSCode)</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: lower-alpha;">
   <li class="rvps5 noindent"><a class="rvts40" href="https://www.7-zip.org/download.html">Download the VS Code installer for your operating system </a><a class="rvts11" href="https://code.visualstudio.com/docs/setup/setup-overview">here</a><a class="rvts40" href="https://code.visualstudio.com/docs/setup/setup-overview">.</a></li>
@@ -1168,14 +1214,14 @@ details.hnd-blue-callout code {
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
-   <li class="rvps39 noindent"><span class="rvts6">Click the Extensions icon in the Activity Bar</span></li>
-   <li class="rvps39 noindent"><span class="rvts6">Search for an extension (e.g., "Julia")</span></li>
-   <li class="rvps39 noindent"><span class="rvts6">Click "Install"</span></li>
+   <li class="rvps32 noindent"><span class="rvts6">Click the Extensions icon in the Activity Bar</span></li>
+   <li class="rvps32 noindent"><span class="rvts6">Search for an extension (e.g., "Julia")</span></li>
+   <li class="rvps32 noindent"><span class="rvts6">Click "Install"</span></li>
   </ol>
  </ol>
 </ol>
 <p class="rvps2"><span class="rvts12"><br/></span></p>
-<p class="rvps2"><span class="rvts63"></span><span class="rvts6"></span></p>
+<p class="rvps2"><span class="rvts47"></span><span class="rvts6"></span></p>
 
             </div>
             

@@ -425,16 +425,28 @@ aside li li a,
   100% { background: transparent; }
 }
 
-
 /* =========================================================
-   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   7) ONE-CELL CODE TABLES ONLY
+   Turn true one-cell tables into code-style boxes
+   Leave all other tables alone so HelpNDoc formatting shows
    ========================================================= */
 
-table:not(:has(td[style*="background-color"])) {
+/* One-cell, non-callout tables only */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child),
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) {
   border: 1px solid #dde3ea !important;
   border-radius: 8px;
   background: #f7f9fb !important;
   border-collapse: separate !important;
+  border-spacing: 0 !important;
   overflow: hidden;
   margin: 14px 0;
   box-sizing: border-box;
@@ -443,23 +455,62 @@ table:not(:has(td[style*="background-color"])) {
   max-width: 100% !important;
 }
 
-table:not(:has(td[style*="background-color"])) td {
+/* The single cell inside the one-cell code table */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) > tbody > tr:only-child > td:only-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) > tr:only-child > td:only-child {
   padding: 10px 14px !important;
   border: none !important;
   background: transparent !important;
+  vertical-align: top !important;
 }
 
-table:not(:has(td[style*="background-color"])) p {
+/* Text inside one-cell code tables */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p {
   font-weight: 400 !important;
   color: #111827 !important;
   margin: 0 0 6px 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:first-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:first-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:first-child {
   margin-top: 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:last-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:last-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -544,7 +595,6 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-/* Only style the OUTER Example/Exercise title */
 table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
@@ -586,16 +636,12 @@ table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::b
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  
   width: 18px;
   height: 18px;
-  
   font-size: 12px;
   font-weight: 600;
-  
   color: #ffffff;
   background: #2b9af3;
-  
   border-radius: 50%;
 }
 
@@ -638,7 +684,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.55 !important;  /* ⭐ key improvement */
+  line-height: 1.55 !important;
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -1114,7 +1160,7 @@ details.hnd-blue-callout code {
                         <li><a href="MacroeconomicModule.html">Macroeconomic Module</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="MacroeconomicModule.html" title="Macroeconomic Module" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="MacroeconomicModule.html" title="Macroeconomic Module" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="IncorporatingaNewEconomicForecas.html" title="Incorporating a New Economic Forecast" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="MacroeconomicModule.html" title="Macroeconomic Module" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="MacroeconomicModule.html" title="Macroeconomic Module" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="HowtoIncorporateaNewEconomicFore.html" title="How to Incorporate a New Economic Forecast" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
@@ -1125,7 +1171,7 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<h1 class="rvps191"><span class="rvts0"><span class="rvts267">Overview of Linkage to Macroeconomic Module</span></span></h1>
+<h1 class="rvps193"><span class="rvts0"><span class="rvts286">Overview of Linkage to Macroeconomic Module</span></span></h1>
 <p class="rvps16"><span class="rvts6">ENERGY 2100 is able to be dynamically linked to a macroeconomic model to obtain a fully-integrated energy-environment-economy (E3) system. The model integration is performed using a controlling module which, for each year of simulation: &nbsp;1) calls ENERGY 2020, 2) passes energy model results to the macroeconomic model, 3) executes the macroeconomic model, then 4) passes those results back to ENERGY 2100. This process is iterated up to five times each year until a set of convergence criteria is met. Model runs are able to be made stand-alone (non-integrated) or linked to the macroeconomic model (integrated).</span></p>
 <h2 class="rvps12"><span class="rvts0"><span class="rvts23">Current Interface Linking to Canadian Macroeconomic Model</span></span></h2>
 <p class="rvps2"><span class="rvts6">An interface currently exists which was written specifically to integrate ENERGY 2100 to Oxford Economics’ macroeconomic model (TOM) which is a version of Oxford Economics’ GEM model, customized for Environmental and Climate Change Canada. The TOM macroeconomic model simulates the economies of both Canada and the United States.</span></p>
@@ -1134,7 +1180,7 @@ details.hnd-blue-callout code {
 <h2 class="rvps12"><span class="rvts0"><span class="rvts23">Data Transfers&nbsp;</span></span></h2>
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Transfers from ENERGY 2020 to Macroeconomic Model</span></span></h3>
 <p class="rvps2"><span class="rvts6">The list below identifies variables that are typically sent from the energy model to a macroeconomic model during integrated runs.</span></p>
-<p class="rvps190"><span class="rvts6"><br/></span></p>
+<p class="rvps192"><span class="rvts6"><br/></span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
  <li style="text-indent: 0px" class="rvps97 noindent"><span class="rvts18">Energy production by Fuel Type and Province/Territory (PJ per year)</span><span class="rvts6"> – Annual production of natural gas, oil, coal, and electricity.</span></li>
  <li style="text-indent: 0px" class="rvps97 noindent"><span class="rvts18">Consumption of Energy by Fuel Type and Province/Territory (PJ per year)</span><span class="rvts6"> – Total annual crude oil, electricity, natural gas, coal, and refined petroleum products consumption.</span></li>
@@ -1154,40 +1200,40 @@ details.hnd-blue-callout code {
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
  <li style="text-indent: 0px" class="rvps97 noindent"><span class="rvts18">Residential Housing Stock by Type and Province/Territory</span></li>
 </ul>
-<p class="rvps39"><span class="rvts6">ENERGY 2100 uses growth in housing stock as an indicator of growth in energy demand for the residential sector. &nbsp;The change in housing stock contributes to the estimate of the rate of new construction, which is used in conjunction with marginal fuel choices, process efficiencies, and device efficiencies to determine energy usage. &nbsp;The housing stock is broken out into single family, multi-family, and other family types.</span></p>
+<p class="rvps32"><span class="rvts6">ENERGY 2100 uses growth in housing stock as an indicator of growth in energy demand for the residential sector. &nbsp;The change in housing stock contributes to the estimate of the rate of new construction, which is used in conjunction with marginal fuel choices, process efficiencies, and device efficiencies to determine energy usage. &nbsp;The housing stock is broken out into single family, multi-family, and other family types.</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
  <li style="text-indent: 0px" class="rvps97 noindent"><span class="rvts18">Commercial and Residential Floorspace by Economic Sector and &nbsp;Province/Territory</span></li>
 </ul>
-<p class="rvps39"><span class="rvts6">Within the commercial and residential sectors, ENERGY 2100 uses floor space by type of building as an indicator of energy demand. &nbsp;The change in floor space contributes to the estimate of the rate of new construction, which is used in conjunction with marginal fuel choices, process efficiencies, and device efficiencies to determine energy usage. &nbsp;The commercial floor space is specified for each commercial sector while residential floor space is specified by housing type.&nbsp;</span></p>
+<p class="rvps32"><span class="rvts6">Within the commercial and residential sectors, ENERGY 2100 uses floor space by type of building as an indicator of energy demand. &nbsp;The change in floor space contributes to the estimate of the rate of new construction, which is used in conjunction with marginal fuel choices, process efficiencies, and device efficiencies to determine energy usage. &nbsp;The commercial floor space is specified for each commercial sector while residential floor space is specified by housing type.&nbsp;</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
  <li style="text-indent: 0px" class="rvps97 noindent"><span class="rvts18">Real Gross Output by Industry by Province/Territory</span></li>
 </ul>
-<p class="rvps39"><span class="rvts6">Gross output by industry type and province is passed from the macroeconomic model to ENERGY 2100 and used to drive the growth in the industrial sector. &nbsp;The change in industrial gross output contributes to the estimate of the rate of new factory construction, which is used in conjunction with marginal fuel choices, process efficiencies, and device efficiencies to determine energy usage. &nbsp;Gross output is specified for each relevant industrial sector, as well as, mining, construction, forestry, and agriculture.&nbsp;</span></p>
+<p class="rvps32"><span class="rvts6">Gross output by industry type and province is passed from the macroeconomic model to ENERGY 2100 and used to drive the growth in the industrial sector. &nbsp;The change in industrial gross output contributes to the estimate of the rate of new factory construction, which is used in conjunction with marginal fuel choices, process efficiencies, and device efficiencies to determine energy usage. &nbsp;Gross output is specified for each relevant industrial sector, as well as, mining, construction, forestry, and agriculture.&nbsp;</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
  <li style="text-indent: 0px" class="rvps97 noindent"><span class="rvts18">Real GDP by Province/Territory&nbsp;</span></li>
 </ul>
-<p class="rvps39"><span class="rvts6">ENERGY 2100 uses gross domestic product as a driver for energy demand within several transportation categories, such as freight and off-road. &nbsp;Gross Domestic Product is used as a surrogate for increases in the demand for transportation by these sectors.&nbsp;</span></p>
+<p class="rvps32"><span class="rvts6">ENERGY 2100 uses gross domestic product as a driver for energy demand within several transportation categories, such as freight and off-road. &nbsp;Gross Domestic Product is used as a surrogate for increases in the demand for transportation by these sectors.&nbsp;</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
  <li style="text-indent: 0px" class="rvps97 noindent"><span class="rvts18">GDP Deflator at the National Level</span></li>
 </ul>
-<p class="rvps39"><span class="rvts6">ENERGY 2100 uses the GDP deflator from the macroeconomic model as an indicator of the inflation rate.</span></p>
+<p class="rvps32"><span class="rvts6">ENERGY 2100 uses the GDP deflator from the macroeconomic model as an indicator of the inflation rate.</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
  <li style="text-indent: 0px" class="rvps97 noindent"><span class="rvts18">Canada-US Exchange Rate</span></li>
 </ul>
-<p class="rvps39"><span class="rvts6">Within ENERGY 2100, all data are converted to US dollars and converted back to Canadian dollars on the output side. &nbsp;ENERGY 2100 uses the Canada-US exchange rate from the macroeconomic model to do these conversions.</span></p>
+<p class="rvps32"><span class="rvts6">Within ENERGY 2100, all data are converted to US dollars and converted back to Canadian dollars on the output side. &nbsp;ENERGY 2100 uses the Canada-US exchange rate from the macroeconomic model to do these conversions.</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
  <li style="text-indent: 0px" class="rvps97 noindent"><span class="rvts18">Population by Province/Territory</span></li>
 </ul>
-<p class="rvps39"><span class="rvts6">Population is used to calculate total households, the economic driver for passenger transportation energy demands, and is used to compute per capita outputs.</span></p>
+<p class="rvps32"><span class="rvts6">Population is used to calculate total households, the economic driver for passenger transportation energy demands, and is used to compute per capita outputs.</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
  <li style="text-indent: 0px" class="rvps97 noindent"><span class="rvts18">Personal Income by Province/Territory</span></li>
 </ul>
-<p class="rvps39"><span class="rvts6">ENERGY 2100 uses personal income as an indicator of demands within the air passenger industry.</span></p>
+<p class="rvps32"><span class="rvts6">ENERGY 2100 uses personal income as an indicator of demands within the air passenger industry.</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
  <li style="text-indent: 0px" class="rvps97 noindent"><span class="rvts18">Employment by Province/Territory</span></li>
 </ul>
-<p class="rvps39"><span class="rvts6">Employment is not used directly for the energy calculations in ENERGY 2100, but is used as an output and to generate energy use per employee ratios.</span></p>
-<p class="rvps39"><span class="rvts6"><br/></span></p>
+<p class="rvps32"><span class="rvts6">Employment is not used directly for the energy calculations in ENERGY 2100, but is used as an output and to generate energy use per employee ratios.</span></p>
+<p class="rvps32"><span class="rvts6"><br/></span></p>
 <p class="rvps16"><span class="rvts6"></span><span class="rvts6"></span></p>
 
             </div>

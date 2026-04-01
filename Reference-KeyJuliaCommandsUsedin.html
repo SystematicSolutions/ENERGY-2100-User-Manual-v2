@@ -425,16 +425,28 @@ aside li li a,
   100% { background: transparent; }
 }
 
-
 /* =========================================================
-   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   7) ONE-CELL CODE TABLES ONLY
+   Turn true one-cell tables into code-style boxes
+   Leave all other tables alone so HelpNDoc formatting shows
    ========================================================= */
 
-table:not(:has(td[style*="background-color"])) {
+/* One-cell, non-callout tables only */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child),
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) {
   border: 1px solid #dde3ea !important;
   border-radius: 8px;
   background: #f7f9fb !important;
   border-collapse: separate !important;
+  border-spacing: 0 !important;
   overflow: hidden;
   margin: 14px 0;
   box-sizing: border-box;
@@ -443,23 +455,62 @@ table:not(:has(td[style*="background-color"])) {
   max-width: 100% !important;
 }
 
-table:not(:has(td[style*="background-color"])) td {
+/* The single cell inside the one-cell code table */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) > tbody > tr:only-child > td:only-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) > tr:only-child > td:only-child {
   padding: 10px 14px !important;
   border: none !important;
   background: transparent !important;
+  vertical-align: top !important;
 }
 
-table:not(:has(td[style*="background-color"])) p {
+/* Text inside one-cell code tables */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p {
   font-weight: 400 !important;
   color: #111827 !important;
   margin: 0 0 6px 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:first-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:first-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:first-child {
   margin-top: 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:last-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:last-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -544,7 +595,6 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-/* Only style the OUTER Example/Exercise title */
 table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
@@ -586,16 +636,12 @@ table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::b
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  
   width: 18px;
   height: 18px;
-  
   font-size: 12px;
   font-weight: 600;
-  
   color: #ffffff;
   background: #2b9af3;
-  
   border-radius: 50%;
 }
 
@@ -638,7 +684,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.55 !important;  /* ⭐ key improvement */
+  line-height: 1.55 !important;
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -1135,8 +1181,8 @@ details.hnd-blue-callout code {
 </ul>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
  <li class="rvps68 noindent"><span class="rvts18">To use module functions:</span><span class="rvts6"> first </span><span class="rvts37">import Module</span><span class="rvts6">&nbsp;to import the module, then&nbsp;</span><span class="rvts37">Module.fn(x)</span><span class="rvts6">&nbsp;to use the functions.</span></li>
- <li class="rvps68 noindent"><span class="rvts120">To include Sub-Modules and Code:</span><span class="rvts107">&nbsp;</span><span class="rvts37">include("EnergyModel.jl")&nbsp;</span><span class="rvts107">or </span><span class="rvts37">include("MyModule.jl)</span><span class="rvts107"> is always used at the top of each file to include ENERGY 2100's custom sub-modules or code.&nbsp;</span></li>
- <li class="rvps68 noindent"><span class="rvts120">To load Packages:</span><span class="rvts107">&nbsp;</span><span class="rvts37">using Module</span><span class="rvts6">&nbsp;loads the package to use its functionalities directly. To import all exported Module functions into the current namespace, </span><span class="rvts37">using Module</span><span class="rvts6">. For example, </span><span class="rvts37">using DataFrames</span><span class="rvts6"> or </span><span class="rvts37">using CSV</span><span class="rvts6">.</span></li>
+ <li class="rvps68 noindent"><span class="rvts123">To include Sub-Modules and Code:</span><span class="rvts110">&nbsp;</span><span class="rvts37">include("EnergyModel.jl")&nbsp;</span><span class="rvts110">or </span><span class="rvts37">include("MyModule.jl)</span><span class="rvts110"> is always used at the top of each file to include ENERGY 2100's custom sub-modules or code.&nbsp;</span></li>
+ <li class="rvps68 noindent"><span class="rvts123">To load Packages:</span><span class="rvts110">&nbsp;</span><span class="rvts37">using Module</span><span class="rvts6">&nbsp;loads the package to use its functionalities directly. To import all exported Module functions into the current namespace, </span><span class="rvts37">using Module</span><span class="rvts6">. For example, </span><span class="rvts37">using DataFrames</span><span class="rvts6"> or </span><span class="rvts37">using CSV</span><span class="rvts6">.</span></li>
 </ul>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts18">1. Open your ENERGY 2100 folder in VS Code</span></p>
@@ -1150,25 +1196,25 @@ details.hnd-blue-callout code {
  <li class="rvps5 noindent"><span class="rvts6">Select </span><span class="rvts37">Julia: Activate This Environment</span></li>
 </ul>
 <p class="rvps5"><span class="rvts13">By activating the Julia environment, Julia finds the Project.toml and Manifest.toml that defines the scope and packages of the current project.</span><span class="rvts6"> It tells Julia to look for packages in the local folder, not the default global environment.</span></p>
-<p class="rvps5"><span class="rvts6">Activating </span><span class="rvts13">a&nbsp;</span><span class="rvts22">Julia environment</span><span class="rvts6"> VS Code means&nbsp;setting a specific project folder as the active project for the Julia REPL and language server. This ensures that&nbsp;</span><span class="rvts37">using</span><span class="rvts6">&nbsp;or</span><span class="rvts107">&nbsp;</span><span class="rvts37">import</span><span class="rvts6">&nbsp;commands load the exact versions of packages specified in that project's&nbsp;</span><span class="rvts37">Project.toml</span><span class="rvts6">&nbsp;and</span><span class="rvts107">&nbsp;</span><span class="rvts37">Manifest.toml</span><span class="rvts6">&nbsp;files, ensuring reproducibility and avoiding conflicts.&nbsp;</span></p>
+<p class="rvps5"><span class="rvts6">Activating </span><span class="rvts13">a&nbsp;</span><span class="rvts22">Julia environment</span><span class="rvts6"> VS Code means&nbsp;setting a specific project folder as the active project for the Julia REPL and language server. This ensures that&nbsp;</span><span class="rvts37">using</span><span class="rvts6">&nbsp;or</span><span class="rvts110">&nbsp;</span><span class="rvts37">import</span><span class="rvts6">&nbsp;commands load the exact versions of packages specified in that project's&nbsp;</span><span class="rvts37">Project.toml</span><span class="rvts6">&nbsp;and</span><span class="rvts110">&nbsp;</span><span class="rvts37">Manifest.toml</span><span class="rvts6">&nbsp;files, ensuring reproducibility and avoiding conflicts.&nbsp;</span></p>
 <p class="rvps5"><span class="rvts13">The Julia REPL will automatically open in the terminal, and you should see a &nbsp;</span><span class="rvts37">julia&gt;</span><span class="rvts13"> prompt. See figure below.</span></p>
-<p class="rvps5"><span class="rvts13">Note, if you ever need to re-open the Julia REPL in an activated environment, you can open the command palette again t</span><span class="rvts107">ype&nbsp;</span><span class="rvts37">Julia: Start REPL</span><span class="rvts107">&nbsp;to open it.</span></p>
-<p class="rvps5"><span class="rvts6">Note: Alternative ways to activate a Julia environment: &nbsp;Click on the&nbsp;"Julia env" button&nbsp;on the bottom-left status bar in VS Code, or use</span><span class="rvts107">&nbsp;</span><span class="rvts37">] activate</span><span class="rvts117"> .</span><span class="rvts6">&nbsp;in the Julia REPL to activate the current directory. When you open a folder with a&nbsp;</span><span class="rvts37">Project.toml</span><span class="rvts6">&nbsp;file in VS Code, the extension often automatically activates it.</span></p>
+<p class="rvps5"><span class="rvts13">Note, if you ever need to re-open the Julia REPL in an activated environment, you can open the command palette again t</span><span class="rvts110">ype&nbsp;</span><span class="rvts37">Julia: Start REPL</span><span class="rvts110">&nbsp;to open it.</span></p>
+<p class="rvps5"><span class="rvts6">Note: Alternative ways to activate a Julia environment: &nbsp;Click on the&nbsp;"Julia env" button&nbsp;on the bottom-left status bar in VS Code, or use</span><span class="rvts110">&nbsp;</span><span class="rvts37">] activate</span><span class="rvts120"> .</span><span class="rvts6">&nbsp;in the Julia REPL to activate the current directory. When you open a folder with a&nbsp;</span><span class="rvts37">Project.toml</span><span class="rvts6">&nbsp;file in VS Code, the extension often automatically activates it.</span></p>
 <p class="rvps5"><img alt="" style="width : 624px; height : 392px; padding : 1px;" src="lib/NewItem%20156.png"></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts6">3. Import the&nbsp;</span><span class="rvts37">EnergyModel&nbsp;</span><span class="rvts6">Julia package:</span></p>
-<p class="rvps63"><span class="rvts107"><br/></span></p>
+<p class="rvps63"><span class="rvts110"><br/></span></p>
 <div class="rvps63">
 <table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts69">julia&gt; import EnergyModel as M</span></p>
+   <p class="rvps45"><span class="rvts72">julia&gt; import EnergyModel as M</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps63"><span class="rvts107"><br/></span></p>
-<p class="rvps63"><span class="rvts107"><br/></span></p>
+<p class="rvps63"><span class="rvts110"><br/></span></p>
+<p class="rvps63"><span class="rvts110"><br/></span></p>
 <p class="rvps2"><span class="rvts6">4. Now all the data, variables, and functions defined in </span><span class="rvts37">EnergyModel</span><span class="rvts6"> are available to use.</span></p>
 <p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
 

@@ -425,16 +425,28 @@ aside li li a,
   100% { background: transparent; }
 }
 
-
 /* =========================================================
-   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   7) ONE-CELL CODE TABLES ONLY
+   Turn true one-cell tables into code-style boxes
+   Leave all other tables alone so HelpNDoc formatting shows
    ========================================================= */
 
-table:not(:has(td[style*="background-color"])) {
+/* One-cell, non-callout tables only */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child),
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) {
   border: 1px solid #dde3ea !important;
   border-radius: 8px;
   background: #f7f9fb !important;
   border-collapse: separate !important;
+  border-spacing: 0 !important;
   overflow: hidden;
   margin: 14px 0;
   box-sizing: border-box;
@@ -443,23 +455,62 @@ table:not(:has(td[style*="background-color"])) {
   max-width: 100% !important;
 }
 
-table:not(:has(td[style*="background-color"])) td {
+/* The single cell inside the one-cell code table */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) > tbody > tr:only-child > td:only-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) > tr:only-child > td:only-child {
   padding: 10px 14px !important;
   border: none !important;
   background: transparent !important;
+  vertical-align: top !important;
 }
 
-table:not(:has(td[style*="background-color"])) p {
+/* Text inside one-cell code tables */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p {
   font-weight: 400 !important;
   color: #111827 !important;
   margin: 0 0 6px 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:first-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:first-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:first-child {
   margin-top: 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:last-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:last-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -544,7 +595,6 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-/* Only style the OUTER Example/Exercise title */
 table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
@@ -586,16 +636,12 @@ table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::b
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  
   width: 18px;
   height: 18px;
-  
   font-size: 12px;
   font-weight: 600;
-  
   color: #ffffff;
   background: #2b9af3;
-  
   border-radius: 50%;
 }
 
@@ -638,7 +684,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.55 !important;  /* ⭐ key improvement */
+  line-height: 1.55 !important;
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -1126,77 +1172,77 @@ details.hnd-blue-callout code {
             <div class="main-content">
                 
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<div class="rvps209">
+<div class="rvps212">
 <table style="border-width: 0px; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts285">No.</span></p>
+   <p class="rvps3"><span class="rvts304">No.</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 152px; height: 19px;">
-   <p class="rvps2"><span class="rvts285">ECCResTOM Descriptor</span></p>
+   <p class="rvps2"><span class="rvts304">ECCResTOM Descriptor</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 109px; height: 19px;">
-   <p class="rvps2"><span class="rvts285">ECCResTOM Key</span></p>
+   <p class="rvps2"><span class="rvts304">ECCResTOM Key</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts231">1</span></p>
+   <p class="rvps3"><span class="rvts248">1</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 152px; height: 19px;">
-   <p class="rvps2"><span class="rvts231">Apartment (APT)</span></p>
+   <p class="rvps2"><span class="rvts248">Apartment (APT)</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 109px; height: 19px;">
-   <p class="rvps2"><span class="rvts231">Apartments</span></p>
+   <p class="rvps2"><span class="rvts248">Apartments</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts231">2</span></p>
+   <p class="rvps3"><span class="rvts248">2</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 152px; height: 19px;">
-   <p class="rvps2"><span class="rvts231">Attached Home (ATT)</span></p>
+   <p class="rvps2"><span class="rvts248">Attached Home (ATT)</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 109px; height: 19px;">
-   <p class="rvps2"><span class="rvts231">Attached</span></p>
+   <p class="rvps2"><span class="rvts248">Attached</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts231">3</span></p>
+   <p class="rvps3"><span class="rvts248">3</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 152px; height: 19px;">
-   <p class="rvps2"><span class="rvts231">Detached Home (DET)</span></p>
+   <p class="rvps2"><span class="rvts248">Detached Home (DET)</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 109px; height: 19px;">
-   <p class="rvps2"><span class="rvts231">Detached</span></p>
+   <p class="rvps2"><span class="rvts248">Detached</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="padding: 0px; vertical-align: top; width: 28px; height: 19px;">
-   <p class="rvps3"><span class="rvts231">4</span></p>
+   <p class="rvps3"><span class="rvts248">4</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 152px; height: 19px;">
-   <p class="rvps2"><span class="rvts231">Mobile Home(MOB)</span></p>
+   <p class="rvps2"><span class="rvts248">Mobile Home(MOB)</span></p>
   </td>
   <td style="padding: 0px; vertical-align: top; width: 109px; height: 19px;">
-   <p class="rvps2"><span class="rvts231">MobileHomes</span></p>
+   <p class="rvps2"><span class="rvts248">MobileHomes</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps74"><span class="rvts231"><br/></span></p>
+<p class="rvps74"><span class="rvts248"><br/></span></p>
 <div class="rvps2">
 <table width="90%" style="border-width: 0px; background-color: #ffffff; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: rgba(76,162,11,0.5); width: 7px;">
-   <p class="rvps163"><span class="rvts171"><br/></span></p>
+   <p class="rvps164"><span class="rvts187"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: #f1fff1; vertical-align: top; width: 29px;">
-   <p class="rvps179"><span class="rvts132">🛈</span></p>
+   <p class="rvps180"><span class="rvts135">🛈</span></p>
   </td>
   <td style="border-width : 1px; border-color: #008000; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #f1fff1; vertical-align: top; width: 722px;">
-   <p class="rvps28"><span class="rvts246">Note: &nbsp;</span><span class="rvts6">This set is defined in: Database\Sets\</span><span class="rvts18">ECCResTOM.csv</span><span class="rvts6">.</span></p>
+   <p class="rvps28"><span class="rvts264">Note: &nbsp;</span><span class="rvts6">This set is defined in: Database\Sets\</span><span class="rvts18">ECCResTOM.csv</span><span class="rvts6">.</span></p>
   </td>
  </tr>
 </table>

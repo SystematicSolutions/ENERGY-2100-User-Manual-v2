@@ -425,16 +425,28 @@ aside li li a,
   100% { background: transparent; }
 }
 
-
 /* =========================================================
-   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   7) ONE-CELL CODE TABLES ONLY
+   Turn true one-cell tables into code-style boxes
+   Leave all other tables alone so HelpNDoc formatting shows
    ========================================================= */
 
-table:not(:has(td[style*="background-color"])) {
+/* One-cell, non-callout tables only */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child),
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) {
   border: 1px solid #dde3ea !important;
   border-radius: 8px;
   background: #f7f9fb !important;
   border-collapse: separate !important;
+  border-spacing: 0 !important;
   overflow: hidden;
   margin: 14px 0;
   box-sizing: border-box;
@@ -443,23 +455,62 @@ table:not(:has(td[style*="background-color"])) {
   max-width: 100% !important;
 }
 
-table:not(:has(td[style*="background-color"])) td {
+/* The single cell inside the one-cell code table */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) > tbody > tr:only-child > td:only-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) > tr:only-child > td:only-child {
   padding: 10px 14px !important;
   border: none !important;
   background: transparent !important;
+  vertical-align: top !important;
 }
 
-table:not(:has(td[style*="background-color"])) p {
+/* Text inside one-cell code tables */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p {
   font-weight: 400 !important;
   color: #111827 !important;
   margin: 0 0 6px 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:first-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:first-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:first-child {
   margin-top: 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:last-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:last-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -544,7 +595,6 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-/* Only style the OUTER Example/Exercise title */
 table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
@@ -586,16 +636,12 @@ table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::b
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  
   width: 18px;
   height: 18px;
-  
   font-size: 12px;
   font-weight: 600;
-  
   color: #ffffff;
   background: #2b9af3;
-  
   border-radius: 50%;
 }
 
@@ -638,7 +684,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.55 !important;  /* ⭐ key improvement */
+  line-height: 1.55 !important;
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -1111,7 +1157,7 @@ details.hnd-blue-callout code {
             
                 <div class="navigation">
                     <ol class="breadcrumb">
-                        <li><a href="PolicyAnalysis-PolicyVariablesan.html">Policy Analysis - Policy Variables and Sample Files</a></li><li><a href="Cross-SectorEmissionsPolicies.html">Cross-Sector Emissions Policies</a></li>
+                        <li><a href="PolicyAnalysis.html">Policy Analysis</a></li><li><a href="Cross-SectorEmissionsPolicies.html">Cross-Sector Emissions Policies</a></li>
                     </ol>
                     <div class="nav-arrows">
                         <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="Cross-SectorEmissionsPolicies.html" title="Cross-Sector Emissions Policies" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="CarbonMarkets.html" title="Carbon Markets" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="CarbonPricing.html" title="Carbon Pricing" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
@@ -1125,34 +1171,34 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<p class="rvps15"><span class="rvts262">Enabling Direct Air Capture</span></p>
+<p class="rvps15"><span class="rvts280">Enabling Direct Air Capture</span></p>
 <p class="rvps15"><span class="rvts6">Direct Air Capture (DAC) is a module in the model that contains code to simulate energy consumption, emissions, and carbon sequestration of direct air capture devices for each modeled year. Demand and emission values from this module can be found in the </span><span class="rvts18">DirectAirCapture</span><span class="rvts6"> economic sector in the model results. &nbsp;Reduction in carbon emissions from running devices can be also be seen in the overall GHG inventory totals.&nbsp;</span></p>
 <p class="rvps15"><span class="rvts6">The DAC module requires inputs to produce an impact in the model results. These inputs can vary depending on which option (</span><span class="rvts18">DACSw</span><span class="rvts6">) is selected for simulating DAC in the model. Below is a list of options and the inputs required for each:</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 51px; list-style-position: outside; list-style-type: disc;">
- <li style="text-indent: 0px" class="rvps188 noindent"><span class="rvts14">Exogenous DAC (DACSw = 0)&nbsp;</span></li>
+ <li style="text-indent: 0px" class="rvps190 noindent"><span class="rvts14">Exogenous DAC (DACSw = 0)&nbsp;</span></li>
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
-  <li style="text-indent: 0px" class="rvps189 noindent"><span class="rvts14">xDACDem[Area,Year] &nbsp;- Exogenous demand for DAC&nbsp;</span></li>
+  <li style="text-indent: 0px" class="rvps191 noindent"><span class="rvts14">xDACDem[Area,Year] &nbsp;- Exogenous demand for DAC&nbsp;</span></li>
  </ul>
- <li style="text-indent: 0px" class="rvps188 noindent"><span class="rvts14">DAC used to meet emissions goal (DACSw = 1)</span></li>
+ <li style="text-indent: 0px" class="rvps190 noindent"><span class="rvts14">DAC used to meet emissions goal (DACSw = 1)</span></li>
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
-  <li style="text-indent: 0px" class="rvps189 noindent"><span class="rvts14">xPolGoal[Area,Year] – Emissions goal</span></li>
+  <li style="text-indent: 0px" class="rvps191 noindent"><span class="rvts14">xPolGoal[Area,Year] – Emissions goal</span></li>
  </ul>
- <li style="text-indent: 0px" class="rvps188 noindent"><span class="rvts14">DAC used to meet emissions goal or produce to an exogenous level (whichever is higher) (DACSw = 2)</span></li>
+ <li style="text-indent: 0px" class="rvps190 noindent"><span class="rvts14">DAC used to meet emissions goal or produce to an exogenous level (whichever is higher) (DACSw = 2)</span></li>
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
-  <li style="text-indent: 0px" class="rvps189 noindent"><span class="rvts14">xDACDem[Area,Year] &nbsp;- Exogenous demand for DAC&nbsp;</span></li>
-  <li style="text-indent: 0px" class="rvps189 noindent"><span class="rvts14">xPolGoal[Area,Year] – Emissions goal</span></li>
+  <li style="text-indent: 0px" class="rvps191 noindent"><span class="rvts14">xDACDem[Area,Year] &nbsp;- Exogenous demand for DAC&nbsp;</span></li>
+  <li style="text-indent: 0px" class="rvps191 noindent"><span class="rvts14">xPolGoal[Area,Year] – Emissions goal</span></li>
  </ul>
- <li style="text-indent: 0px" class="rvps188 noindent"><span class="rvts14">DAC meets national Goal, with production split by exogenous weights (DACSw = 3)</span></li>
+ <li style="text-indent: 0px" class="rvps190 noindent"><span class="rvts14">DAC meets national Goal, with production split by exogenous weights (DACSw = 3)</span></li>
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
-  <li style="text-indent: 0px" class="rvps189 noindent"><span class="rvts14">DACDemNation[Nation,Year] – National DAC demands</span></li>
-  <li style="text-indent: 0px" class="rvps189 noindent"><span class="rvts14">xGoalPolNation[Nation,Year] – National emissions goal</span></li>
-  <li style="text-indent: 0px" class="rvps189 noindent"><span class="rvts14">DACWeight[Area,Year] - Share of area DAC demands of national total</span></li>
+  <li style="text-indent: 0px" class="rvps191 noindent"><span class="rvts14">DACDemNation[Nation,Year] – National DAC demands</span></li>
+  <li style="text-indent: 0px" class="rvps191 noindent"><span class="rvts14">xGoalPolNation[Nation,Year] – National emissions goal</span></li>
+  <li style="text-indent: 0px" class="rvps191 noindent"><span class="rvts14">DACWeight[Area,Year] - Share of area DAC demands of national total</span></li>
  </ul>
- <li style="text-indent: 0px" class="rvps188 noindent"><span class="rvts14">DAC response to Carbon Price (DACSw = 4)</span></li>
+ <li style="text-indent: 0px" class="rvps190 noindent"><span class="rvts14">DAC response to Carbon Price (DACSw = 4)</span></li>
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
-  <li style="text-indent: 0px" class="rvps189 noindent"><span class="rvts14">eCO2Price[Area,Year] – Carbon price</span></li>
-  <li style="text-indent: 0px" class="rvps189 noindent"><span class="rvts14">DACWeight[Area,Year] - Share of area DAC demands of national total</span></li>
-  <li style="text-indent: 0px" class="rvps189 noindent"><span class="rvts14">DACPriceDiffMax[Area,Year] – Price difference fraction for building DAC</span><span class="rvts14"></span></li>
+  <li style="text-indent: 0px" class="rvps191 noindent"><span class="rvts14">eCO2Price[Area,Year] – Carbon price</span></li>
+  <li style="text-indent: 0px" class="rvps191 noindent"><span class="rvts14">DACWeight[Area,Year] - Share of area DAC demands of national total</span></li>
+  <li style="text-indent: 0px" class="rvps191 noindent"><span class="rvts14">DACPriceDiffMax[Area,Year] – Price difference fraction for building DAC</span><span class="rvts14"></span></li>
  </ul>
 </ul>
 

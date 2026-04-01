@@ -425,16 +425,28 @@ aside li li a,
   100% { background: transparent; }
 }
 
-
 /* =========================================================
-   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   7) ONE-CELL CODE TABLES ONLY
+   Turn true one-cell tables into code-style boxes
+   Leave all other tables alone so HelpNDoc formatting shows
    ========================================================= */
 
-table:not(:has(td[style*="background-color"])) {
+/* One-cell, non-callout tables only */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child),
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) {
   border: 1px solid #dde3ea !important;
   border-radius: 8px;
   background: #f7f9fb !important;
   border-collapse: separate !important;
+  border-spacing: 0 !important;
   overflow: hidden;
   margin: 14px 0;
   box-sizing: border-box;
@@ -443,23 +455,62 @@ table:not(:has(td[style*="background-color"])) {
   max-width: 100% !important;
 }
 
-table:not(:has(td[style*="background-color"])) td {
+/* The single cell inside the one-cell code table */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) > tbody > tr:only-child > td:only-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) > tr:only-child > td:only-child {
   padding: 10px 14px !important;
   border: none !important;
   background: transparent !important;
+  vertical-align: top !important;
 }
 
-table:not(:has(td[style*="background-color"])) p {
+/* Text inside one-cell code tables */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p {
   font-weight: 400 !important;
   color: #111827 !important;
   margin: 0 0 6px 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:first-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:first-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:first-child {
   margin-top: 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:last-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:last-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -544,7 +595,6 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-/* Only style the OUTER Example/Exercise title */
 table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
@@ -586,16 +636,12 @@ table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::b
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  
   width: 18px;
   height: 18px;
-  
   font-size: 12px;
   font-weight: 600;
-  
   color: #ffffff;
   background: #2b9af3;
-  
   border-radius: 50%;
 }
 
@@ -638,7 +684,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.55 !important;  /* ⭐ key improvement */
+  line-height: 1.55 !important;
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -1125,7 +1171,7 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<p class="rvps82"><span class="rvts124">@finite_math</span><span class="rvts122">,finite_inverse,finite_divide,finite_power,finite_exp,finite_log</span></p>
+<p class="rvps82"><span class="rvts127">@finite_math</span><span class="rvts125">,finite_inverse,finite_divide,finite_power,finite_exp,finite_log</span></p>
 <p class="rvps82"><span class="rvts6"><br/></span></p>
 <p class="rvps82"><span class="rvts6">The global macros are created in \Core\Math.jl.</span></p>
 <p class="rvps82"><span class="rvts6"><br/></span></p>
@@ -1141,15 +1187,15 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 150px;">
-   <p class="rvps6"><span class="rvts149">@finite_math</span></p>
+   <p class="rvps6"><span class="rvts152">@finite_math</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 619px;">
    <p class="rvps6"><span class="rvts14">The `@finite_math` macro transforms mathematical expressions in the input code to their finite versions.&nbsp;</span></p>
    <p class="rvps6"><span class="rvts14">A macro that transforms the standard mathematical operations in the input expression `expr` to their finite versions.</span></p>
    <p class="rvps6"><span class="rvts14">The macro replaces division, logarithm, exponentiation, and power operations with `finite_divide`, `finite_log`, `finite_exp`, and `finite_power` functions, respectively.</span></p>
    <p class="rvps6"><span class="rvts14"><br/></span></p>
-   <p class="rvps63"><span class="rvts107">In Julia,&nbsp;</span><span class="rvts117">NaN</span><span class="rvts107">&nbsp;stands for&nbsp;</span><span class="rvts120">"Not a Number"</span><span class="rvts107">&nbsp;and is a special floating-point value used to represent undefined or unrepresentable numerical results, such as the result of&nbsp;0/0 or square root of -1. It is a standard feature of IEEE 754 floating-point arithmetic, designed to allow computations to continue without crashing, rather than halting execution when an indeterminate result occurs.</span></p>
-   <p class="rvps63"><span class="rvts107"><br/></span></p>
+   <p class="rvps63"><span class="rvts110">In Julia,&nbsp;</span><span class="rvts120">NaN</span><span class="rvts110">&nbsp;stands for&nbsp;</span><span class="rvts123">"Not a Number"</span><span class="rvts110">&nbsp;and is a special floating-point value used to represent undefined or unrepresentable numerical results, such as the result of&nbsp;0/0 or square root of -1. It is a standard feature of IEEE 754 floating-point arithmetic, designed to allow computations to continue without crashing, rather than halting execution when an indeterminate result occurs.</span></p>
+   <p class="rvps63"><span class="rvts110"><br/></span></p>
    <p class="rvps6"><span class="rvts14">In other words, it handles math in which there is division by zero. Without the @finite_math macro, a division by zero is returned as "not a number" (NaN). This function will turn into zero.</span></p>
    <p class="rvps6"><span class="rvts14">It takes a single expression `expr` as input.</span></p>
    <p class="rvps6"><span class="rvts14">&nbsp; # The macro traverses the input expression, and for each mathematical operation, it replaces the standard operation with its corresponding finite version.</span></p>

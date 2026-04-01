@@ -425,16 +425,28 @@ aside li li a,
   100% { background: transparent; }
 }
 
-
 /* =========================================================
-   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   7) ONE-CELL CODE TABLES ONLY
+   Turn true one-cell tables into code-style boxes
+   Leave all other tables alone so HelpNDoc formatting shows
    ========================================================= */
 
-table:not(:has(td[style*="background-color"])) {
+/* One-cell, non-callout tables only */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child),
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) {
   border: 1px solid #dde3ea !important;
   border-radius: 8px;
   background: #f7f9fb !important;
   border-collapse: separate !important;
+  border-spacing: 0 !important;
   overflow: hidden;
   margin: 14px 0;
   box-sizing: border-box;
@@ -443,23 +455,62 @@ table:not(:has(td[style*="background-color"])) {
   max-width: 100% !important;
 }
 
-table:not(:has(td[style*="background-color"])) td {
+/* The single cell inside the one-cell code table */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) > tbody > tr:only-child > td:only-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) > tr:only-child > td:only-child {
   padding: 10px 14px !important;
   border: none !important;
   background: transparent !important;
+  vertical-align: top !important;
 }
 
-table:not(:has(td[style*="background-color"])) p {
+/* Text inside one-cell code tables */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p {
   font-weight: 400 !important;
   color: #111827 !important;
   margin: 0 0 6px 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:first-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:first-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:first-child {
   margin-top: 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:last-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:last-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -544,7 +595,6 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-/* Only style the OUTER Example/Exercise title */
 table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
@@ -586,16 +636,12 @@ table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::b
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  
   width: 18px;
   height: 18px;
-  
   font-size: 12px;
   font-weight: 600;
-  
   color: #ffffff;
   background: #2b9af3;
-  
   border-radius: 50%;
 }
 
@@ -638,7 +684,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.55 !important;  /* ⭐ key improvement */
+  line-height: 1.55 !important;
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -1139,58 +1185,58 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps65"><span class="rvts112">DB</span></p>
+   <p class="rvps65"><span class="rvts115">DB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps66"><span class="rvts108">DB </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">abspath</span><span class="rvts108">(</span><span class="rvts110">joinpath</span><span class="rvts108">(E2020Folder, </span><span class="rvts109">"database.hdf5"</span><span class="rvts108">))</span></p>
+   <p class="rvps66"><span class="rvts111">DB </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">abspath</span><span class="rvts111">(</span><span class="rvts113">joinpath</span><span class="rvts111">(E2020Folder, </span><span class="rvts112">"database.hdf5"</span><span class="rvts111">))</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps65"><span class="rvts112">ModelPath</span></p>
+   <p class="rvps65"><span class="rvts115">ModelPath</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps66"><span class="rvts108">ModelPath </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">dirname</span><span class="rvts108">(</span><span class="rvts110">@__DIR__</span><span class="rvts108">)</span></p>
+   <p class="rvps66"><span class="rvts111">ModelPath </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">dirname</span><span class="rvts111">(</span><span class="rvts113">@__DIR__</span><span class="rvts111">)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps65"><span class="rvts112">E2020Folder</span></p>
+   <p class="rvps65"><span class="rvts115">E2020Folder</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps66"><span class="rvts108">E2020Folder </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">abspath</span><span class="rvts108">(</span><span class="rvts110">joinpath</span><span class="rvts108">(ModelPath, </span><span class="rvts109">"2020Model"</span><span class="rvts108">))</span></p>
+   <p class="rvps66"><span class="rvts111">E2020Folder </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">abspath</span><span class="rvts111">(</span><span class="rvts113">joinpath</span><span class="rvts111">(ModelPath, </span><span class="rvts112">"2020Model"</span><span class="rvts111">))</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps65"><span class="rvts112">DataFolder</span></p>
+   <p class="rvps65"><span class="rvts115">DataFolder</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps66"><span class="rvts108">DataFolder </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">abspath</span><span class="rvts108">(</span><span class="rvts110">joinpath</span><span class="rvts108">(ModelPath, </span><span class="rvts109">"2020Model"</span><span class="rvts108">))</span></p>
+   <p class="rvps66"><span class="rvts111">DataFolder </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">abspath</span><span class="rvts111">(</span><span class="rvts113">joinpath</span><span class="rvts111">(ModelPath, </span><span class="rvts112">"2020Model"</span><span class="rvts111">))</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps65"><span class="rvts112">DatabaseName</span></p>
+   <p class="rvps65"><span class="rvts115">DatabaseName</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps66"><span class="rvts108">DatabaseName </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">joinpath</span><span class="rvts108">(DataFolder, </span><span class="rvts109">"database.hdf5"</span><span class="rvts108">)</span></p>
+   <p class="rvps66"><span class="rvts111">DatabaseName </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(DataFolder, </span><span class="rvts112">"database.hdf5"</span><span class="rvts111">)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps65"><span class="rvts112"><br/></span></p>
+   <p class="rvps65"><span class="rvts115"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps66"><span class="rvts108"><br/></span></p>
+   <p class="rvps66"><span class="rvts111"><br/></span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps65"><span class="rvts112">OutputFolder</span></p>
+   <p class="rvps65"><span class="rvts115">OutputFolder</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps66"><span class="rvts108">OutputFolder </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">abspath</span><span class="rvts108">(</span><span class="rvts110">joinpath</span><span class="rvts108">(ModelPath,</span><span class="rvts109">"2020Model"</span><span class="rvts108">, </span><span class="rvts109">"out"</span><span class="rvts108">))</span></p>
+   <p class="rvps66"><span class="rvts111">OutputFolder </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">abspath</span><span class="rvts111">(</span><span class="rvts113">joinpath</span><span class="rvts111">(ModelPath,</span><span class="rvts112">"2020Model"</span><span class="rvts111">, </span><span class="rvts112">"out"</span><span class="rvts111">))</span></p>
   </td>
  </tr>
 </table>
@@ -1210,92 +1256,92 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps65"><span class="rvts112">BCName</span></p>
+   <p class="rvps65"><span class="rvts115">BCName</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
-   <p class="rvps6"><span class="rvts14">The name of the base case is passed as an argument to </span><span class="rvts140">function</span><span class="rvts142"> </span><span class="rvts141">StartScenario</span><span class="rvts55">.</span></p>
+   <p class="rvps6"><span class="rvts14">The name of the base case is passed as an argument to </span><span class="rvts143">function</span><span class="rvts145"> </span><span class="rvts144">StartScenario</span><span class="rvts63">.</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps65"><span class="rvts112">BCNameDB</span></p>
+   <p class="rvps65"><span class="rvts115">BCNameDB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
-   <p class="rvps66"><span class="rvts108">BaseFolder </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">joinpath</span><span class="rvts108">(ModelPath, </span><span class="rvts109">"2020Model"</span><span class="rvts108">, BCName)</span></p>
-   <p class="rvps66"><span class="rvts108">BCNameDB </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">joinpath</span><span class="rvts108">(BaseFolder, </span><span class="rvts109">"database.hdf5"</span><span class="rvts108">)</span></p>
+   <p class="rvps66"><span class="rvts111">BaseFolder </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(ModelPath, </span><span class="rvts112">"2020Model"</span><span class="rvts111">, BCName)</span></p>
+   <p class="rvps66"><span class="rvts111">BCNameDB </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(BaseFolder, </span><span class="rvts112">"database.hdf5"</span><span class="rvts111">)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps65"><span class="rvts139">InitialName</span></p>
+   <p class="rvps65"><span class="rvts142">InitialName</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
-   <p class="rvps6"><span class="rvts14">The name of the initial case is passed as an argument to </span><span class="rvts140">function</span><span class="rvts142"> </span><span class="rvts141">StartScenario. </span><span class="rvts14">The Initial case database is used in producing the "zInitial" column of the Access-format output files.</span></p>
+   <p class="rvps6"><span class="rvts14">The name of the initial case is passed as an argument to </span><span class="rvts143">function</span><span class="rvts145"> </span><span class="rvts144">StartScenario. </span><span class="rvts14">The Initial case database is used in producing the "zInitial" column of the Access-format output files.</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps65"><span class="rvts139">InitialNameDB</span></p>
+   <p class="rvps65"><span class="rvts142">InitialNameDB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
-   <p class="rvps66"><span class="rvts108">InitialFolder </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">joinpath</span><span class="rvts108">(ModelPath, </span><span class="rvts109">"2020Model"</span><span class="rvts108">, InitialName)</span></p>
-   <p class="rvps66"><span class="rvts108">InitialNameDB </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">joinpath</span><span class="rvts108">(InitialFolder, </span><span class="rvts109">"database.hdf5"</span><span class="rvts108">)</span></p>
+   <p class="rvps66"><span class="rvts111">InitialFolder </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(ModelPath, </span><span class="rvts112">"2020Model"</span><span class="rvts111">, InitialName)</span></p>
+   <p class="rvps66"><span class="rvts111">InitialNameDB </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(InitialFolder, </span><span class="rvts112">"database.hdf5"</span><span class="rvts111">)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps65"><span class="rvts139">OGRefName</span></p>
+   <p class="rvps65"><span class="rvts142">OGRefName</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
-   <p class="rvps6"><span class="rvts14">The name of the OGRef case is passed as an argument to </span><span class="rvts140">function</span><span class="rvts142"> </span><span class="rvts141">StartScenario. </span><span class="rvts14">The OGRef case is executed before the reference case and is a scenario in which the oil and gas forecast is exogenous. We run the OGRef case to extract oil and gas industry assumptions about return on investments that carry over to the Reference case.</span></p>
+   <p class="rvps6"><span class="rvts14">The name of the OGRef case is passed as an argument to </span><span class="rvts143">function</span><span class="rvts145"> </span><span class="rvts144">StartScenario. </span><span class="rvts14">The OGRef case is executed before the reference case and is a scenario in which the oil and gas forecast is exogenous. We run the OGRef case to extract oil and gas industry assumptions about return on investments that carry over to the Reference case.</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps65"><span class="rvts139">OGRefNameDB</span></p>
+   <p class="rvps65"><span class="rvts142">OGRefNameDB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
-   <p class="rvps66"><span class="rvts108">OGRefFolder </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">joinpath</span><span class="rvts108">(ModelPath, </span><span class="rvts109">"2020Model"</span><span class="rvts108">, OGRefName)</span></p>
-   <p class="rvps66"><span class="rvts108">OGRefNameDB </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">joinpath</span><span class="rvts108">(OGRefFolder, </span><span class="rvts109">"database.hdf5"</span><span class="rvts108">)</span></p>
+   <p class="rvps66"><span class="rvts111">OGRefFolder </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(ModelPath, </span><span class="rvts112">"2020Model"</span><span class="rvts111">, OGRefName)</span></p>
+   <p class="rvps66"><span class="rvts111">OGRefNameDB </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(OGRefFolder, </span><span class="rvts112">"database.hdf5"</span><span class="rvts111">)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps65"><span class="rvts139">RefName</span></p>
+   <p class="rvps65"><span class="rvts142">RefName</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
-   <p class="rvps66"><span class="rvts108">The RefName variable holds the name of the reference case.</span></p>
+   <p class="rvps66"><span class="rvts111">The RefName variable holds the name of the reference case.</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps65"><span class="rvts139">RefNameDB</span></p>
+   <p class="rvps65"><span class="rvts142">RefNameDB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
-   <p class="rvps66"><span class="rvts108">RefFolder </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">joinpath</span><span class="rvts108">(ModelPath, </span><span class="rvts109">"2020Model"</span><span class="rvts108">, RefName)</span></p>
-   <p class="rvps66"><span class="rvts108">RefNameDB </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">joinpath</span><span class="rvts108">(RefFolder, </span><span class="rvts109">"database.hdf5"</span><span class="rvts108">)</span></p>
+   <p class="rvps66"><span class="rvts111">RefFolder </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(ModelPath, </span><span class="rvts112">"2020Model"</span><span class="rvts111">, RefName)</span></p>
+   <p class="rvps66"><span class="rvts111">RefNameDB </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(RefFolder, </span><span class="rvts112">"database.hdf5"</span><span class="rvts111">)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps2"><span class="rvts143">Run1Name</span></p>
+   <p class="rvps2"><span class="rvts146">Run1Name</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
-   <p class="rvps6"><span class="rvts14">The </span><span class="rvts144">Run1Name</span><span class="rvts14"> is used in integrated runs with the macroeconomic model. When iterating with the macro model, we hold inflation constant for all iterations, using the value from the first iteration.</span></p>
+   <p class="rvps6"><span class="rvts14">The </span><span class="rvts147">Run1Name</span><span class="rvts14"> is used in integrated runs with the macroeconomic model. When iterating with the macro model, we hold inflation constant for all iterations, using the value from the first iteration.</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps65"><span class="rvts139">Run1NameDB</span></p>
+   <p class="rvps65"><span class="rvts142">Run1NameDB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
-   <p class="rvps66"><span class="rvts108">Run1Folder </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">joinpath</span><span class="rvts108">(ModelPath, </span><span class="rvts109">"2020Model"</span><span class="rvts108">, Run1Name)</span></p>
-   <p class="rvps66"><span class="rvts108">Run1NameDB </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">joinpath</span><span class="rvts108">(Run1Folder, </span><span class="rvts109">"database.hdf5"</span><span class="rvts108">)</span></p>
+   <p class="rvps66"><span class="rvts111">Run1Folder </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(ModelPath, </span><span class="rvts112">"2020Model"</span><span class="rvts111">, Run1Name)</span></p>
+   <p class="rvps66"><span class="rvts111">Run1NameDB </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(Run1Folder, </span><span class="rvts112">"database.hdf5"</span><span class="rvts111">)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps65"><span class="rvts139">SceName</span></p>
+   <p class="rvps65"><span class="rvts142">SceName</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
    <p class="rvps6"><span class="rvts14">The SceName variable holds the name of the current scenario being executed.</span></p>
@@ -1303,18 +1349,18 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps65"><span class="rvts139">ScenarioDatabase</span></p>
+   <p class="rvps65"><span class="rvts142">ScenarioDatabase</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
-   <p class="rvps66"><span class="rvts108">ScenarioFolder </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">joinpath</span><span class="rvts108">(ModelPath, </span><span class="rvts109">"2020Model"</span><span class="rvts108">, SceName)</span></p>
-   <p class="rvps66"><span class="rvts108">ScenarioDatabase </span><span class="rvts111">=</span><span class="rvts108"> </span><span class="rvts110">joinpath</span><span class="rvts108">(ScenarioFolder, </span><span class="rvts109">"database.hdf5"</span><span class="rvts108">)</span></p>
+   <p class="rvps66"><span class="rvts111">ScenarioFolder </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(ModelPath, </span><span class="rvts112">"2020Model"</span><span class="rvts111">, SceName)</span></p>
+   <p class="rvps66"><span class="rvts111">ScenarioDatabase </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(ScenarioFolder, </span><span class="rvts112">"database.hdf5"</span><span class="rvts111">)</span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps64"><span class="rvts6"><br/></span></p>
 <p class="rvps82"><span class="rvts6"><br/></span></p>
-<p class="rvps82"><span class="rvts122"></span><span class="rvts6"></span></p>
+<p class="rvps82"><span class="rvts125"></span><span class="rvts6"></span></p>
 
             </div>
             

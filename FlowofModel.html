@@ -425,16 +425,28 @@ aside li li a,
   100% { background: transparent; }
 }
 
-
 /* =========================================================
-   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   7) ONE-CELL CODE TABLES ONLY
+   Turn true one-cell tables into code-style boxes
+   Leave all other tables alone so HelpNDoc formatting shows
    ========================================================= */
 
-table:not(:has(td[style*="background-color"])) {
+/* One-cell, non-callout tables only */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child),
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) {
   border: 1px solid #dde3ea !important;
   border-radius: 8px;
   background: #f7f9fb !important;
   border-collapse: separate !important;
+  border-spacing: 0 !important;
   overflow: hidden;
   margin: 14px 0;
   box-sizing: border-box;
@@ -443,23 +455,62 @@ table:not(:has(td[style*="background-color"])) {
   max-width: 100% !important;
 }
 
-table:not(:has(td[style*="background-color"])) td {
+/* The single cell inside the one-cell code table */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) > tbody > tr:only-child > td:only-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) > tr:only-child > td:only-child {
   padding: 10px 14px !important;
   border: none !important;
   background: transparent !important;
+  vertical-align: top !important;
 }
 
-table:not(:has(td[style*="background-color"])) p {
+/* Text inside one-cell code tables */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p {
   font-weight: 400 !important;
   color: #111827 !important;
   margin: 0 0 6px 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:first-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:first-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:first-child {
   margin-top: 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:last-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:last-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -544,7 +595,6 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-/* Only style the OUTER Example/Exercise title */
 table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
@@ -586,16 +636,12 @@ table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::b
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  
   width: 18px;
   height: 18px;
-  
   font-size: 12px;
   font-weight: 600;
-  
   color: #ffffff;
   background: #2b9af3;
-  
   border-radius: 50%;
 }
 
@@ -638,7 +684,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.55 !important;  /* ⭐ key improvement */
+  line-height: 1.55 !important;
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -1114,7 +1160,7 @@ details.hnd-blue-callout code {
                         
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="HowtoSettheDefaultDollarDenomina.html" title="How to Set the Default Dollar Denomination for Outputs (CDTime)" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="ModifyingModelAssumptions.html" title="Modifying Model Assumptions" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="ModifyingExistingReferenceandSce.html" title="Modifying Existing Reference and Scenario Cases" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="ModifyingModelAssumptions.html" title="Modifying Model Assumptions" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
@@ -1128,66 +1174,66 @@ details.hnd-blue-callout code {
 <p class="rvps2"><span class="rvts6">Many structures were created to build ENERGY 2100. These structures were described in </span><a class="rvts11" href="ModelArchitecture.html">Model Architecture</a><span class="rvts6">.</span></p>
 <p class="rvps2"><span class="rvts6">These structures include the following files:</span></p>
 <p class="rvps2"><span class="rvts6">EnergyModel.jl includes lots of other files, including:</span></p>
-<p class="rvps82"><span class="rvts124">include</span><span class="rvts122">(</span><span class="rvts125">"../Core/Core.jl"</span><span class="rvts122">)</span></p>
-<p class="rvps82"><span class="rvts124">include</span><span class="rvts122">(</span><span class="rvts125">"../Core/Logger.jl"</span><span class="rvts122">)</span></p>
-<p class="rvps82"><span class="rvts124">include</span><span class="rvts122">(</span><span class="rvts125">"../Core/CoreE2020.jl"</span><span class="rvts122">)</span></p>
-<p class="rvps82"><span class="rvts124">include</span><span class="rvts122">(</span><span class="rvts125">"../Engine/E2020_Constants.jl"</span><span class="rvts122">)</span></p>
-<p class="rvps82"><span class="rvts124">include</span><span class="rvts122">(</span><span class="rvts125">"../Engine/Engine.jl"</span><span class="rvts122">)</span></p>
-<p class="rvps82"><span class="rvts124">include</span><span class="rvts122">(</span><span class="rvts125">"../Database/Database.jl"</span><span class="rvts122">)</span></p>
-<p class="rvps82"><span class="rvts124">include</span><span class="rvts122">(</span><span class="rvts125">"../Policy/Policy.jl"</span><span class="rvts122">)</span></p>
-<p class="rvps82"><span class="rvts124">include</span><span class="rvts122">(</span><span class="rvts125">"../Policy/PolicyTest.jl"</span><span class="rvts122">)</span></p>
-<p class="rvps82"><span class="rvts124">include</span><span class="rvts122">(</span><span class="rvts125">"../Policy/PolicyMarketShare.jl"</span><span class="rvts122">)</span></p>
-<p class="rvps82"><span class="rvts124">include</span><span class="rvts122">(</span><span class="rvts125">"../Output/Outputs.jl"</span><span class="rvts122">)</span></p>
-<p class="rvps82"><span class="rvts124">include</span><span class="rvts122">(</span><span class="rvts125">"../Engine/Main.jl"</span><span class="rvts122">)</span></p>
-<p class="rvps82"><span class="rvts122"><br/></span></p>
-<p class="rvps82"><span class="rvts122">include filename</span></p>
-<p class="rvps82"><span class="rvts122">import ModuleName - loads a specific module or package into the current environment, allowing to use its functionalities.</span></p>
-<p class="rvps82"><span class="rvts122"><br/></span></p>
-<p class="rvps68"><span class="rvts120">Purpose:</span><span class="rvts107">&nbsp;It is used to bring an external module and its names into the scope of the current module, allowing you to use its functionalities without naming conflicts.</span></p>
+<p class="rvps82"><span class="rvts127">include</span><span class="rvts125">(</span><span class="rvts128">"../Core/Core.jl"</span><span class="rvts125">)</span></p>
+<p class="rvps82"><span class="rvts127">include</span><span class="rvts125">(</span><span class="rvts128">"../Core/Logger.jl"</span><span class="rvts125">)</span></p>
+<p class="rvps82"><span class="rvts127">include</span><span class="rvts125">(</span><span class="rvts128">"../Core/CoreE2020.jl"</span><span class="rvts125">)</span></p>
+<p class="rvps82"><span class="rvts127">include</span><span class="rvts125">(</span><span class="rvts128">"../Engine/E2020_Constants.jl"</span><span class="rvts125">)</span></p>
+<p class="rvps82"><span class="rvts127">include</span><span class="rvts125">(</span><span class="rvts128">"../Engine/Engine.jl"</span><span class="rvts125">)</span></p>
+<p class="rvps82"><span class="rvts127">include</span><span class="rvts125">(</span><span class="rvts128">"../Database/Database.jl"</span><span class="rvts125">)</span></p>
+<p class="rvps82"><span class="rvts127">include</span><span class="rvts125">(</span><span class="rvts128">"../Policy/Policy.jl"</span><span class="rvts125">)</span></p>
+<p class="rvps82"><span class="rvts127">include</span><span class="rvts125">(</span><span class="rvts128">"../Policy/PolicyTest.jl"</span><span class="rvts125">)</span></p>
+<p class="rvps82"><span class="rvts127">include</span><span class="rvts125">(</span><span class="rvts128">"../Policy/PolicyMarketShare.jl"</span><span class="rvts125">)</span></p>
+<p class="rvps82"><span class="rvts127">include</span><span class="rvts125">(</span><span class="rvts128">"../Output/Outputs.jl"</span><span class="rvts125">)</span></p>
+<p class="rvps82"><span class="rvts127">include</span><span class="rvts125">(</span><span class="rvts128">"../Engine/Main.jl"</span><span class="rvts125">)</span></p>
+<p class="rvps82"><span class="rvts125"><br/></span></p>
+<p class="rvps82"><span class="rvts125">include filename</span></p>
+<p class="rvps82"><span class="rvts125">import ModuleName - loads a specific module or package into the current environment, allowing to use its functionalities.</span></p>
+<p class="rvps82"><span class="rvts125"><br/></span></p>
+<p class="rvps68"><span class="rvts123">Purpose:</span><span class="rvts110">&nbsp;It is used to bring an external module and its names into the scope of the current module, allowing you to use its functionalities without naming conflicts.</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps63 noindent"><span class="rvts120">Scope:</span></li>
+ <li class="rvps63 noindent"><span class="rvts123">Scope:</span></li>
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: circle;">
-  <li class="rvps68 noindent"><span class="rvts117">import ModuleName</span><span class="rvts107">&nbsp;only brings the module's name (identifier) itself into the current scope. To access its contents, you must use qualified names, like&nbsp;</span><span class="rvts117">ModuleName.function_name()</span><span class="rvts107">.</span></li>
-  <li class="rvps70 noindent"><span class="rvts107">In contrast,&nbsp;</span><span class="rvts117">using ModuleName</span><span class="rvts107">&nbsp;(which is often used alongside or instead of&nbsp;</span><span class="rvts117">import</span><span class="rvts107">&nbsp;for convenience) brings all the module's&nbsp;</span><span class="rvts117">export</span><span class="rvts107">ed names directly into the current scope, allowing you to use&nbsp;</span><span class="rvts117">function_name()</span><span class="rvts107">&nbsp;directly.</span></li>
+  <li class="rvps68 noindent"><span class="rvts120">import ModuleName</span><span class="rvts110">&nbsp;only brings the module's name (identifier) itself into the current scope. To access its contents, you must use qualified names, like&nbsp;</span><span class="rvts120">ModuleName.function_name()</span><span class="rvts110">.</span></li>
+  <li class="rvps70 noindent"><span class="rvts110">In contrast,&nbsp;</span><span class="rvts120">using ModuleName</span><span class="rvts110">&nbsp;(which is often used alongside or instead of&nbsp;</span><span class="rvts120">import</span><span class="rvts110">&nbsp;for convenience) brings all the module's&nbsp;</span><span class="rvts120">export</span><span class="rvts110">ed names directly into the current scope, allowing you to use&nbsp;</span><span class="rvts120">function_name()</span><span class="rvts110">&nbsp;directly.</span></li>
  </ul>
- <li class="rvps68 noindent"><span class="rvts120">Usage Context:</span><span class="rvts107">&nbsp;You use&nbsp;</span><span class="rvts117">import</span><span class="rvts107">&nbsp;(or&nbsp;</span><span class="rvts117">using</span><span class="rvts107">) to use external libraries or submodules defined elsewhere, which are often precompiled and managed by Julia's package manager.</span></li>
+ <li class="rvps68 noindent"><span class="rvts123">Usage Context:</span><span class="rvts110">&nbsp;You use&nbsp;</span><span class="rvts120">import</span><span class="rvts110">&nbsp;(or&nbsp;</span><span class="rvts120">using</span><span class="rvts110">) to use external libraries or submodules defined elsewhere, which are often precompiled and managed by Julia's package manager.</span></li>
 </ul>
-<p class="rvps2"><span class="rvts122"><br/></span></p>
-<p class="rvps2"><span class="rvts122">The code shares the scope of the calling module, so all variables an dfunctions defined in the included file are available in the main file's scope by default.</span><span class="rvts107">Include: &nbsp;It is as if the code from the included file was written directly at the location of the&nbsp;</span><span class="rvts117">include</span><span class="rvts107">&nbsp;statement.</span></p>
-<p class="rvps68"><span class="rvts107"><br/></span></p>
-<p class="rvps68"><span class="rvts107"><br/></span></p>
+<p class="rvps2"><span class="rvts125"><br/></span></p>
+<p class="rvps2"><span class="rvts125">The code shares the scope of the calling module, so all variables an dfunctions defined in the included file are available in the main file's scope by default.</span><span class="rvts110">Include: &nbsp;It is as if the code from the included file was written directly at the location of the&nbsp;</span><span class="rvts120">include</span><span class="rvts110">&nbsp;statement.</span></p>
+<p class="rvps68"><span class="rvts110"><br/></span></p>
+<p class="rvps68"><span class="rvts110"><br/></span></p>
 <p class="rvps2"><span class="rvts6">The flow of the model is as such:</span></p>
 <p class="rvps2"><span class="rvts6">1. RunAll</span></p>
-<p class="rvps82"><span class="rvts122"><br/></span></p>
+<p class="rvps82"><span class="rvts125"><br/></span></p>
 <p class="rvps2"><span class="rvts6">EnergyModel.jl</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts6">&nbsp;</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps69"><span class="rvts119">Usage</span></p>
-<p class="rvps69"><span class="rvts119"><br/></span></p>
+<p class="rvps69"><span class="rvts122">Usage</span></p>
+<p class="rvps69"><span class="rvts122"><br/></span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps68 noindent"><span class="rvts120">Running Julia:</span><span class="rvts107">&nbsp;You can run Julia by typing&nbsp;</span><span class="rvts117">julia</span><span class="rvts107">&nbsp;in your terminal or command prompt if the executable's directory is added to your system's&nbsp;</span><span class="rvts117">PATH</span><span class="rvts107">&nbsp;environment variable.</span></li>
- <li class="rvps68 noindent"><span class="rvts120">IDE Configuration:</span><span class="rvts107">&nbsp;When using an Integrated Development Environment (IDE) like&nbsp;</span><a class="rvts186" href="https://code.visualstudio.com/">VS Code</a><span class="rvts107">, you often need to manually set the&nbsp;</span><span class="rvts117">julia.executablePath</span><span class="rvts107">&nbsp;setting to point to this file so the extension can function correctly.</span></li>
- <li class="rvps68 noindent"><span class="rvts120">Checking the Path:</span><span class="rvts107">&nbsp;From within the Julia&nbsp;REPL&nbsp;(interactive command line), you can find the path to the currently running executable using the built-in function&nbsp;</span><span class="rvts117">Sys.which("julia")</span><span class="rvts107">&nbsp;or&nbsp;</span><span class="rvts117">Sys.BINDIR</span><span class="rvts107">.&nbsp;</span></li>
+ <li class="rvps68 noindent"><span class="rvts123">Running Julia:</span><span class="rvts110">&nbsp;You can run Julia by typing&nbsp;</span><span class="rvts120">julia</span><span class="rvts110">&nbsp;in your terminal or command prompt if the executable's directory is added to your system's&nbsp;</span><span class="rvts120">PATH</span><span class="rvts110">&nbsp;environment variable.</span></li>
+ <li class="rvps68 noindent"><span class="rvts123">IDE Configuration:</span><span class="rvts110">&nbsp;When using an Integrated Development Environment (IDE) like&nbsp;</span><a class="rvts196" href="https://code.visualstudio.com/">VS Code</a><span class="rvts110">, you often need to manually set the&nbsp;</span><span class="rvts120">julia.executablePath</span><span class="rvts110">&nbsp;setting to point to this file so the extension can function correctly.</span></li>
+ <li class="rvps68 noindent"><span class="rvts123">Checking the Path:</span><span class="rvts110">&nbsp;From within the Julia&nbsp;REPL&nbsp;(interactive command line), you can find the path to the currently running executable using the built-in function&nbsp;</span><span class="rvts120">Sys.which("julia")</span><span class="rvts110">&nbsp;or&nbsp;</span><span class="rvts120">Sys.BINDIR</span><span class="rvts110">.&nbsp;</span></li>
 </ul>
-<p class="rvps33"><span class="rvts185"><br/></span></p>
-<p class="rvps33"><span class="rvts185"><br/></span></p>
-<p class="rvps33"><span class="rvts185">When running a script using julia, you can pass additional arguments to your script:</span></p>
-<p class="rvps33"><span class="rvts185"><br/></span></p>
+<p class="rvps38"><span class="rvts195"><br/></span></p>
+<p class="rvps38"><span class="rvts195"><br/></span></p>
+<p class="rvps38"><span class="rvts195">When running a script using julia, you can pass additional arguments to your script:</span></p>
+<p class="rvps38"><span class="rvts195"><br/></span></p>
 <p class="rvps2"><span class="rvts6">$ julia script.jl arg1 arg2...</span></p>
 <p class="rvps2"><span class="rvts6">Flow of the Model</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts158">\src\EnergyModel.jl</span></p>
+<p class="rvps2"><span class="rvts174">\src\EnergyModel.jl</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps68 noindent"><span class="rvts120">Core Code:</span><span class="rvts107">&nbsp;It is intended for the code that defines functions, types, and modules which provide the main functionality of your project.</span></li>
+ <li class="rvps68 noindent"><span class="rvts123">Core Code:</span><span class="rvts110">&nbsp;It is intended for the code that defines functions, types, and modules which provide the main functionality of your project.</span></li>
 </ul>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps68 noindent"><span class="rvts120">Main Entry Point:</span><span class="rvts107">&nbsp;In a package named&nbsp;</span><span class="rvts117">YourPackageName</span><span class="rvts107">, the&nbsp;</span><span class="rvts117">src</span><span class="rvts107">&nbsp;folder will typically contain a file named&nbsp;</span><span class="rvts117">YourPackageName.jl</span><span class="rvts107">&nbsp;(or a similar name if not using PkgTemplates.jl). This file serves as the main entry point and module definition for your package, which then uses&nbsp;</span><span class="rvts117">include</span><span class="rvts107">&nbsp;to incorporate other source files within the&nbsp;</span><span class="rvts117">src</span><span class="rvts107">&nbsp;folder as necessary.</span></li>
- <li class="rvps68 noindent"><span class="rvts120">Separation of Concerns:</span><span class="rvts107">&nbsp;Files in&nbsp;</span><span class="rvts117">src</span><span class="rvts107">&nbsp;should ideally not produce output (like plots or data files) when&nbsp;</span><span class="rvts117">include</span><span class="rvts107">d; they should only define functionality. Any scripts that generate output or run specific pipelines should generally be placed in a separate&nbsp;</span><span class="rvts117">scripts/</span><span class="rvts107">&nbsp;or&nbsp;</span><span class="rvts117">bin/</span><span class="rvts107">&nbsp;directory.</span></li>
- <li class="rvps68 noindent"><span class="rvts120">Standard Structure:</span><span class="rvts107">&nbsp;While not strictly mandatory for very small scripts, using a&nbsp;</span><span class="rvts117">src</span><span class="rvts107">&nbsp;folder, along with a&nbsp;</span><span class="rvts117">Project.toml</span><span class="rvts107">&nbsp;file, is a standard practice and is highly recommended for proper package development, dependency management, and sharing. Other standard folders include&nbsp;</span><span class="rvts117">test/</span><span class="rvts30">&nbsp;for testing and&nbsp;</span><span class="rvts117">docs/</span><span class="rvts30">&nbsp;for documentation.</span></li>
+ <li class="rvps68 noindent"><span class="rvts123">Main Entry Point:</span><span class="rvts110">&nbsp;In a package named&nbsp;</span><span class="rvts120">YourPackageName</span><span class="rvts110">, the&nbsp;</span><span class="rvts120">src</span><span class="rvts110">&nbsp;folder will typically contain a file named&nbsp;</span><span class="rvts120">YourPackageName.jl</span><span class="rvts110">&nbsp;(or a similar name if not using PkgTemplates.jl). This file serves as the main entry point and module definition for your package, which then uses&nbsp;</span><span class="rvts120">include</span><span class="rvts110">&nbsp;to incorporate other source files within the&nbsp;</span><span class="rvts120">src</span><span class="rvts110">&nbsp;folder as necessary.</span></li>
+ <li class="rvps68 noindent"><span class="rvts123">Separation of Concerns:</span><span class="rvts110">&nbsp;Files in&nbsp;</span><span class="rvts120">src</span><span class="rvts110">&nbsp;should ideally not produce output (like plots or data files) when&nbsp;</span><span class="rvts120">include</span><span class="rvts110">d; they should only define functionality. Any scripts that generate output or run specific pipelines should generally be placed in a separate&nbsp;</span><span class="rvts120">scripts/</span><span class="rvts110">&nbsp;or&nbsp;</span><span class="rvts120">bin/</span><span class="rvts110">&nbsp;directory.</span></li>
+ <li class="rvps68 noindent"><span class="rvts123">Standard Structure:</span><span class="rvts110">&nbsp;While not strictly mandatory for very small scripts, using a&nbsp;</span><span class="rvts120">src</span><span class="rvts110">&nbsp;folder, along with a&nbsp;</span><span class="rvts120">Project.toml</span><span class="rvts110">&nbsp;file, is a standard practice and is highly recommended for proper package development, dependency management, and sharing. Other standard folders include&nbsp;</span><span class="rvts120">test/</span><span class="rvts30">&nbsp;for testing and&nbsp;</span><span class="rvts120">docs/</span><span class="rvts30">&nbsp;for documentation.</span></li>
 </ul>
-<p class="rvps68"><span class="rvts107"><br/></span></p>
+<p class="rvps68"><span class="rvts110"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <li class="rvps2 noindent"><span class="rvts6">An EnergyModel module is defined to include the core model functions, the model equation functions, the model databases, policies defined in Policy.jl, PolicyTest.jl, and PolicyMarketShare.jl, the output file module, and main routines.</span></li>
 </ol>
@@ -1197,11 +1243,11 @@ details.hnd-blue-callout code {
  <li class="rvps2 noindent"><span class="rvts18">Include Core Model functions</span></li>
 </ol>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps130 noindent"><span class="rvts14">include("../Core/Core.jl")</span></li>
- <li class="rvps130 noindent"><span class="rvts14">include("../Core/Logger.jl")</span></li>
- <li class="rvps130 noindent"><span class="rvts14">include("../Core/CoreE2020.jl")</span></li>
+ <li class="rvps114 noindent"><span class="rvts14">include("../Core/Core.jl")</span></li>
+ <li class="rvps114 noindent"><span class="rvts14">include("../Core/Logger.jl")</span></li>
+ <li class="rvps114 noindent"><span class="rvts14">include("../Core/CoreE2020.jl")</span></li>
 </ul>
-<p class="rvps130"><span class="rvts14"><br/></span></p>
+<p class="rvps114"><span class="rvts14"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <li value="2" class="rvps2 noindent"><span class="rvts18">Model Equations (Engine)</span></li>
 </ol>

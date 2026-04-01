@@ -425,16 +425,28 @@ aside li li a,
   100% { background: transparent; }
 }
 
-
 /* =========================================================
-   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   7) ONE-CELL CODE TABLES ONLY
+   Turn true one-cell tables into code-style boxes
+   Leave all other tables alone so HelpNDoc formatting shows
    ========================================================= */
 
-table:not(:has(td[style*="background-color"])) {
+/* One-cell, non-callout tables only */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child),
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) {
   border: 1px solid #dde3ea !important;
   border-radius: 8px;
   background: #f7f9fb !important;
   border-collapse: separate !important;
+  border-spacing: 0 !important;
   overflow: hidden;
   margin: 14px 0;
   box-sizing: border-box;
@@ -443,23 +455,62 @@ table:not(:has(td[style*="background-color"])) {
   max-width: 100% !important;
 }
 
-table:not(:has(td[style*="background-color"])) td {
+/* The single cell inside the one-cell code table */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) > tbody > tr:only-child > td:only-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) > tr:only-child > td:only-child {
   padding: 10px 14px !important;
   border: none !important;
   background: transparent !important;
+  vertical-align: top !important;
 }
 
-table:not(:has(td[style*="background-color"])) p {
+/* Text inside one-cell code tables */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p {
   font-weight: 400 !important;
   color: #111827 !important;
   margin: 0 0 6px 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:first-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:first-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:first-child {
   margin-top: 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:last-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:last-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -544,7 +595,6 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-/* Only style the OUTER Example/Exercise title */
 table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
@@ -586,16 +636,12 @@ table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::b
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  
   width: 18px;
   height: 18px;
-  
   font-size: 12px;
   font-weight: 600;
-  
   color: #ffffff;
   background: #2b9af3;
-  
   border-radius: 50%;
 }
 
@@ -638,7 +684,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.55 !important;  /* ⭐ key improvement */
+  line-height: 1.55 !important;
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -1111,10 +1157,10 @@ details.hnd-blue-callout code {
             
                 <div class="navigation">
                     <ol class="breadcrumb">
-                        
+                        <li><a href="ModifyingModelAssumptions.html">Modifying Model Assumptions</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="HowtoUpdatetheLastHistoricalYear.html" title="How to Update the Last Historical Year" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="HowtoSettheDefaultDollarDenomina.html" title="How to Set the Default Dollar Denomination for Outputs (CDTime)" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="ModifyingModelAssumptions.html" title="Modifying Model Assumptions" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="HowtoUpdatetheLastHistoricalYear.html" title="How to Update the Last Historical Year" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="ModelOutputs.html" title="Model Outputs" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
@@ -1126,17 +1172,17 @@ details.hnd-blue-callout code {
             <div class="main-content">
                 
 <p class="rvps6"><span class="rvts14"><br/></span></p>
-<p class="rvps2"><span class="rvts67">Model conventions:</span></p>
+<p class="rvps2"><span class="rvts70">Model conventions:</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
- <li style="text-indent: 0px" class="rvps21 noindent"><span class="rvts55">For in-code variable definitions “</span><span class="rvts184">$</span><span class="rvts55">” refers to local nominal dollars, while non-local or real denomination should be explicitly specified, as in “</span><span class="rvts184">Real US$</span><span class="rvts55">”.&nbsp;</span></li>
- <li style="text-indent: 0px" class="rvps21 noindent"><span class="rvts55">Default denomination for ENERGY 2020 model variables is nominal local dollars. &nbsp;</span></li>
- <li style="text-indent: 0px" class="rvps21 noindent"><span class="rvts55">However, definitions have not been updated in some time and checking is a worthwhile process. &nbsp;Please note if you suspect the denomination of a variable differs from that in the variable definition.&nbsp;</span></li>
+ <li style="text-indent: 0px" class="rvps21 noindent"><span class="rvts63">For in-code variable definitions “</span><span class="rvts202">$</span><span class="rvts63">” refers to local nominal dollars, while non-local or real denomination should be explicitly specified, as in “</span><span class="rvts202">Real US$</span><span class="rvts63">”.&nbsp;</span></li>
+ <li style="text-indent: 0px" class="rvps21 noindent"><span class="rvts63">Default denomination for ENERGY 2020 model variables is nominal local dollars. &nbsp;</span></li>
+ <li style="text-indent: 0px" class="rvps21 noindent"><span class="rvts63">However, definitions have not been updated in some time and checking is a worthwhile process. &nbsp;Please note if you suspect the denomination of a variable differs from that in the variable definition.&nbsp;</span></li>
 </ul>
-<p class="rvps21"><span class="rvts55"><br/></span></p>
-<p class="rvps2"><span class="rvts67">Variables come in denominated in US, Canadian, or Mexican currencies, real and nominal. &nbsp;We then proceed to use exchange rates and inflation rates to convert them all to real, local currency. Local currency means Canadian Dollars for areas in Canada and US Dollars for areas in the US. &nbsp;At the moment, all values for Mexico are denominated in US Dollars.&nbsp;</span></p>
-<p class="rvps2"><span class="rvts67">The key to knowing how to convert a variable is to know the type of dollars for the input data and the dollars required for the ENERGY 2020 variable. &nbsp;The ENERGY 2020 input variables are generally in 1985 local dollars except for the trade and emission market variables which are in 1985 US dollars. &nbsp;The dollars for the input variables should be documented in the input data file.</span></p>
+<p class="rvps21"><span class="rvts63"><br/></span></p>
+<p class="rvps2"><span class="rvts70">Variables come in denominated in US, Canadian, or Mexican currencies, real and nominal. &nbsp;We then proceed to use exchange rates and inflation rates to convert them all to real, local currency. Local currency means Canadian Dollars for areas in Canada and US Dollars for areas in the US. &nbsp;At the moment, all values for Mexico are denominated in US Dollars.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts70">The key to knowing how to convert a variable is to know the type of dollars for the input data and the dollars required for the ENERGY 2020 variable. &nbsp;The ENERGY 2020 input variables are generally in 1985 local dollars except for the trade and emission market variables which are in 1985 US dollars. &nbsp;The dollars for the input variables should be documented in the input data file.</span></p>
 <h2 class="rvps12"><span class="rvts0"><span class="rvts23">Rules for Dollar Units Listed in Variable Definitions</span></span></h2>
-<p class="rvps6"><span class="rvts14">In variable definitions, units are specified in parentheses where </span><span class="rvts184">($)</span><span class="rvts14"> is the default local nominal currency and </span><span class="rvts184">(Real $)</span><span class="rvts14"> is assumed to be base 1985 local currency. Real currency in non-1985 base years are specified by their year. Any base years that aren’t 1985 and any denomination that is not local should be explicitly specified as in </span><span class="rvts184">(2018 US$)</span><span class="rvts14"> or </span><span class="rvts184">(2015 CN$)</span><span class="rvts14">.</span></p>
+<p class="rvps6"><span class="rvts14">In variable definitions, units are specified in parentheses where </span><span class="rvts202">($)</span><span class="rvts14"> is the default local nominal currency and </span><span class="rvts202">(Real $)</span><span class="rvts14"> is assumed to be base 1985 local currency. Real currency in non-1985 base years are specified by their year. Any base years that aren’t 1985 and any denomination that is not local should be explicitly specified as in </span><span class="rvts202">(2018 US$)</span><span class="rvts14"> or </span><span class="rvts202">(2015 CN$)</span><span class="rvts14">.</span></p>
 <p class="rvps6"><span class="rvts14"><br/></span></p>
 <p class="rvps6"><span class="rvts14"><br/></span></p>
 <p class="rvps21"><span class="rvts14"></span><span class="rvts14"></span></p>

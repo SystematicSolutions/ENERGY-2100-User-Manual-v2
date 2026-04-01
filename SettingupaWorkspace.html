@@ -425,16 +425,28 @@ aside li li a,
   100% { background: transparent; }
 }
 
-
 /* =========================================================
-   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   7) ONE-CELL CODE TABLES ONLY
+   Turn true one-cell tables into code-style boxes
+   Leave all other tables alone so HelpNDoc formatting shows
    ========================================================= */
 
-table:not(:has(td[style*="background-color"])) {
+/* One-cell, non-callout tables only */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child),
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) {
   border: 1px solid #dde3ea !important;
   border-radius: 8px;
   background: #f7f9fb !important;
   border-collapse: separate !important;
+  border-spacing: 0 !important;
   overflow: hidden;
   margin: 14px 0;
   box-sizing: border-box;
@@ -443,23 +455,62 @@ table:not(:has(td[style*="background-color"])) {
   max-width: 100% !important;
 }
 
-table:not(:has(td[style*="background-color"])) td {
+/* The single cell inside the one-cell code table */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) > tbody > tr:only-child > td:only-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) > tr:only-child > td:only-child {
   padding: 10px 14px !important;
   border: none !important;
   background: transparent !important;
+  vertical-align: top !important;
 }
 
-table:not(:has(td[style*="background-color"])) p {
+/* Text inside one-cell code tables */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p {
   font-weight: 400 !important;
   color: #111827 !important;
   margin: 0 0 6px 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:first-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:first-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:first-child {
   margin-top: 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:last-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:last-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -544,7 +595,6 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-/* Only style the OUTER Example/Exercise title */
 table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
@@ -586,16 +636,12 @@ table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::b
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  
   width: 18px;
   height: 18px;
-  
   font-size: 12px;
   font-weight: 600;
-  
   color: #ffffff;
   background: #2b9af3;
-  
   border-radius: 50%;
 }
 
@@ -638,7 +684,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.55 !important;  /* ⭐ key improvement */
+  line-height: 1.55 !important;
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -1132,34 +1178,34 @@ details.hnd-blue-callout code {
 <p class="rvps2"><span class="rvts6">To run a policy file in the Julia REPL, follow the instructions below.</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li class="rvps2 noindent"><span class="rvts6">Open the ENERGY 2100 model folder in VS Code (</span><span class="rvts37">File\Open Folder)</span><span class="rvts6">.</span></li>
- <li class="rvps33 noindent"><span class="rvts6">Start the Julia REPL from the Command Palette:</span></li>
+ <li class="rvps38 noindent"><span class="rvts6">Start the Julia REPL from the Command Palette:</span></li>
 </ol>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 72px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps33 noindent"><span class="rvts6">Open the Command Palette (</span><span class="rvts37">View\Command Palette)</span><span class="rvts6"> or (</span><span class="rvts37">Ctrl+Shift+P</span><span class="rvts6">)</span></li>
+ <li class="rvps38 noindent"><span class="rvts6">Open the Command Palette (</span><span class="rvts37">View\Command Palette)</span><span class="rvts6"> or (</span><span class="rvts37">Ctrl+Shift+P</span><span class="rvts6">)</span></li>
  <li class="rvps2 noindent"><span class="rvts6">Start the Julia REPL (type </span><span class="rvts37">Julia: Start REPL</span><span class="rvts6">).</span></li>
 </ul>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li value="3" class="rvps41 noindent"><span class="rvts6">Activate the folder as a Julia project environment and install project dependencies (which are specified in the model's </span><span class="rvts67">Project.toml and Manifest.toml):</span></li>
+ <li value="3" class="rvps41 noindent"><span class="rvts6">Activate the folder as a Julia project environment and install project dependencies (which are specified in the model's </span><span class="rvts70">Project.toml and Manifest.toml):</span></li>
 </ol>
 <div class="rvps46">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts77">julia&gt;</span><span class="rvts69"> </span><span class="rvts70">using</span><span class="rvts69"> Pkg</span></p>
-   <p class="rvps45"><span class="rvts77">julia&gt;</span><span class="rvts69"> Pkg.activate("C:</span><span class="rvts71">\\</span><span class="rvts69">ModelFolderName")</span></p>
-   <p class="rvps45"><span class="rvts77">julia&gt;</span><span class="rvts69"> Pkg.instantiate()</span></p>
+   <p class="rvps45"><span class="rvts80">julia&gt;</span><span class="rvts72"> </span><span class="rvts73">using</span><span class="rvts72"> Pkg</span></p>
+   <p class="rvps45"><span class="rvts80">julia&gt;</span><span class="rvts72"> Pkg.activate("C:</span><span class="rvts74">\\</span><span class="rvts72">ModelFolderName")</span></p>
+   <p class="rvps45"><span class="rvts80">julia&gt;</span><span class="rvts72"> Pkg.instantiate()</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps38"><span class="rvts64">Alternatively, you could use </span><span class="rvts73">Pkg.activate(".")</span><span class="rvts64"> to activate the current project if you have opened VS code in the model's root folder:</span></p>
-<div class="rvps39">
+<p class="rvps31"><span class="rvts48">Alternatively, you could use </span><span class="rvts76">Pkg.activate(".")</span><span class="rvts48"> to activate the current project if you have opened VS code in the model's root folder:</span></p>
+<div class="rvps32">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts77">julia&gt;</span><span class="rvts69"> </span><span class="rvts70">using</span><span class="rvts69"> Pkg</span></p>
-   <p class="rvps45"><span class="rvts77">julia&gt;</span><span class="rvts69"> Pkg.activate</span><span class="rvts71">(".")</span></p>
-   <p class="rvps45"><span class="rvts77">julia&gt;</span><span class="rvts69"> Pkg.instantiate()</span></p>
+   <p class="rvps45"><span class="rvts80">julia&gt;</span><span class="rvts72"> </span><span class="rvts73">using</span><span class="rvts72"> Pkg</span></p>
+   <p class="rvps45"><span class="rvts80">julia&gt;</span><span class="rvts72"> Pkg.activate</span><span class="rvts74">(".")</span></p>
+   <p class="rvps45"><span class="rvts80">julia&gt;</span><span class="rvts72"> Pkg.instantiate()</span></p>
   </td>
  </tr>
 </table>
@@ -1171,78 +1217,78 @@ details.hnd-blue-callout code {
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 27px; height: 42px;">
-   <p class="rvps44"><span class="rvts75"></span></p>
+   <p class="rvps44"><span class="rvts78"></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 591px; height: 42px;">
-   <p class="rvps2"><span class="rvts67">You must use two backslashes (\\) in the folder path for Julia to find the correct path.</span></p>
+   <p class="rvps2"><span class="rvts70">You must use two backslashes (\\) in the folder path for Julia to find the correct path.</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps38"><span class="rvts64">Verify that you activated the correct Julia environment by checking the package status:</span></p>
-<div class="rvps39">
+<p class="rvps31"><span class="rvts48">Verify that you activated the correct Julia environment by checking the package status:</span></p>
+<div class="rvps32">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts77">julia&gt;</span><span class="rvts69"> Pkg.status()</span></p>
+   <p class="rvps45"><span class="rvts80">julia&gt;</span><span class="rvts72"> Pkg.status()</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps38"><span class="rvts64">If the correct environment was activated, this command will return "EnergyModel". Output should look something like:</span></p>
-<div class="rvps38">
+<p class="rvps31"><span class="rvts48">If the correct environment was activated, this command will return "EnergyModel". Output should look something like:</span></p>
+<div class="rvps31">
 <table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; border-left: none;">
-   <p class="rvps45"><span class="rvts78">Project</span><span class="rvts69"> EnergyModel v0.1.0</span></p>
-   <p class="rvps45"><span class="rvts77">Status</span><span class="rvts69"> `C:\2020CanadaPoplarNH3\Project.toml`</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [336ed68f] CSV v0.10.16</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [a93c6f00] DataFrames v1.8.1</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [1313f7d8] DataFramesMeta v0.15.6</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [864edb3b] DataStructures v0.19.3</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [f67ccb44] HDF5 v0.17.2</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [0f8b85d8] JSON3 v1.14.3</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [98e50ef6] JuliaFormatter v2.3.0</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [92481ed7] LinearRegression v0.2.1</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [e6f89c97] LoggingExtras v1.2.0</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [98105f81] LoggingFormats v1.6.0</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [1914dd2f] MacroTools v0.5.16</span></p>
-   <p class="rvps45"><span class="rvts69">⌅ [aea7be01] PrecompileTools v1.2.1</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [21216c6a] Preferences v1.5.2</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [54e16d92] PrettyPrinting v0.4.2</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [2230646a] QuickMenus v0.1.1</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [ae029012] Requires v1.3.1</span></p>
-   <p class="rvps45"><span class="rvts69">⌃ [295af30f] Revise v3.13.2</span></p>
-   <p class="rvps45"><span class="rvts69">⌃ [90137ffa] StaticArrays v1.9.17</span></p>
-   <p class="rvps45"><span class="rvts69">⌃ [0c614874] TerminalPager v0.6.10</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [a759f4b9] TimerOutputs v0.5.29</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [a5390f91] ZipFile v0.10.1</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [ade2ca70] Dates v1.11.0</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [8ba89e20] Distributed v1.11.0</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [b77e0a4c] InteractiveUtils v1.11.0</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [76f85450] LibGit2 v1.11.0</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [56ddb016] Logging v1.11.0</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [de0858da] Printf v1.11.0</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [3fa0cd96] REPL v1.11.0</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [a4e569a6] Tar v1.10.0</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [8dfed614] Test v1.11.0</span></p>
-   <p class="rvps45"><span class="rvts69">&nbsp; [3f19e933] p7zip_jll v17.4.0+2</span></p>
+   <p class="rvps45"><span class="rvts81">Project</span><span class="rvts72"> EnergyModel v0.1.0</span></p>
+   <p class="rvps45"><span class="rvts80">Status</span><span class="rvts72"> `C:\2020CanadaPoplarNH3\Project.toml`</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [336ed68f] CSV v0.10.16</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [a93c6f00] DataFrames v1.8.1</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [1313f7d8] DataFramesMeta v0.15.6</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [864edb3b] DataStructures v0.19.3</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [f67ccb44] HDF5 v0.17.2</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [0f8b85d8] JSON3 v1.14.3</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [98e50ef6] JuliaFormatter v2.3.0</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [92481ed7] LinearRegression v0.2.1</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [e6f89c97] LoggingExtras v1.2.0</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [98105f81] LoggingFormats v1.6.0</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [1914dd2f] MacroTools v0.5.16</span></p>
+   <p class="rvps45"><span class="rvts72">⌅ [aea7be01] PrecompileTools v1.2.1</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [21216c6a] Preferences v1.5.2</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [54e16d92] PrettyPrinting v0.4.2</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [2230646a] QuickMenus v0.1.1</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [ae029012] Requires v1.3.1</span></p>
+   <p class="rvps45"><span class="rvts72">⌃ [295af30f] Revise v3.13.2</span></p>
+   <p class="rvps45"><span class="rvts72">⌃ [90137ffa] StaticArrays v1.9.17</span></p>
+   <p class="rvps45"><span class="rvts72">⌃ [0c614874] TerminalPager v0.6.10</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [a759f4b9] TimerOutputs v0.5.29</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [a5390f91] ZipFile v0.10.1</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [ade2ca70] Dates v1.11.0</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [8ba89e20] Distributed v1.11.0</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [b77e0a4c] InteractiveUtils v1.11.0</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [76f85450] LibGit2 v1.11.0</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [56ddb016] Logging v1.11.0</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [de0858da] Printf v1.11.0</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [3fa0cd96] REPL v1.11.0</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [a4e569a6] Tar v1.10.0</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [8dfed614] Test v1.11.0</span></p>
+   <p class="rvps45"><span class="rvts72">&nbsp; [3f19e933] p7zip_jll v17.4.0+2</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps39"><span class="rvts6">Now that you have successfully activated the model's environment and packages, you are ready to load the package and global structures you want to use into VS Code's workspace.</span></p>
+<p class="rvps32"><span class="rvts6">Now that you have successfully activated the model's environment and packages, you are ready to load the package and global structures you want to use into VS Code's workspace.</span></p>
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Load ENERGY 2100 Package and Global Structures into Workspace</span></span></h3>
 <p class="rvps2"><span class="rvts6">To work with the model in VS Code, you need to explicitly bring the model's package and global structures you want to use into the workspace.&nbsp;</span></p>
 <p class="rvps2"><span class="rvts6">To prepare VS Code to run policies and view variables, follow the instructions below:&nbsp;</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li value="1" class="rvps2 noindent"><span class="rvts6">Load ENERGY 2100's Julia package, named </span><span class="rvts37">EnergyModel</span><span class="rvts6">:</span></li>
 </ol>
-<div class="rvps38">
+<div class="rvps31">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts70">using</span><span class="rvts69"> EnergyModel</span></p>
+   <p class="rvps45"><span class="rvts73">using</span><span class="rvts72"> EnergyModel</span></p>
   </td>
  </tr>
 </table>
@@ -1250,35 +1296,35 @@ details.hnd-blue-callout code {
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li value="2" class="rvps2 noindent"><span class="rvts6">Import ENERGY 2100's modules, constants, or functions you want to use in the REPL.&nbsp;</span></li>
 </ol>
-<p class="rvps39"><span class="rvts6">The structures listed below are common imports required to run a policy file and view variables:&nbsp;</span></p>
-<div class="rvps38">
+<p class="rvps32"><span class="rvts6">The structures listed below are common imports required to run a policy file and view variables:&nbsp;</span></p>
+<div class="rvps31">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts70">import</span><span class="rvts69"> EnergyModel.DB</span></p>
-   <p class="rvps45"><span class="rvts70">import</span><span class="rvts69"> EnergyModel.ReadDisk</span></p>
-   <p class="rvps45"><span class="rvts70">import</span><span class="rvts69"> EnergyModel.Select</span></p>
-   <p class="rvps45"><span class="rvts70">import </span><span class="rvts72">EnergyModel.</span><span class="rvts69">ReadDiskAndSets</span></p>
-   <p class="rvps45"><span class="rvts70">import </span><span class="rvts72">EnergyModel.</span><span class="rvts69">Yr</span></p>
+   <p class="rvps45"><span class="rvts73">import</span><span class="rvts72"> EnergyModel.DB</span></p>
+   <p class="rvps45"><span class="rvts73">import</span><span class="rvts72"> EnergyModel.ReadDisk</span></p>
+   <p class="rvps45"><span class="rvts73">import</span><span class="rvts72"> EnergyModel.Select</span></p>
+   <p class="rvps45"><span class="rvts73">import </span><span class="rvts75">EnergyModel.</span><span class="rvts72">ReadDiskAndSets</span></p>
+   <p class="rvps45"><span class="rvts73">import </span><span class="rvts75">EnergyModel.</span><span class="rvts72">Yr</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps38"><span class="rvts64">Alternatively, we could import all these structures in one line using the following:</span></p>
-<p class="rvps39"><span class="rvts74"><div class="html-code-box indent-2">
+<p class="rvps31"><span class="rvts48">Alternatively, we could import all these structures in one line using the following:</span></p>
+<p class="rvps32"><span class="rvts77"><div class="html-code-box indent-2">
 <pre><code><span class="kw">import</span> EnergyModel: DB, ReadDisk, Select, ReadDiskAndSets, Yr</code></pre>
 </div></span></p>
-<div class="rvps39">
+<div class="rvps32">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 3px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #0080c0; vertical-align: top; width: 2px; height: 54px;">
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 23px; height: 54px;">
-   <p class="rvps42"><span class="rvts68">🛈</span></p>
+   <p class="rvps42"><span class="rvts71">🛈</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 767px; height: 54px;">
-   <p class="rvps42"><span class="rvts67">Click </span><a class="rvts76" href="Reference-CommonFunctionsUsedinJ.html">here</a><span class="rvts67"> for a more complete list of possible modules, constants, and functions that are available to import from the EnergyModel project environment.</span></p>
+   <p class="rvps42"><span class="rvts70">Click </span><a class="rvts79" href="Reference-CommonFunctionsUsedinJ.html">here</a><span class="rvts70"> for a more complete list of possible modules, constants, and functions that are available to import from the EnergyModel project environment.</span></p>
   </td>
  </tr>
 </table>
@@ -1286,12 +1332,12 @@ details.hnd-blue-callout code {
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li value="3" class="rvps2 noindent"><span class="rvts6">Load additional packages as desired.&nbsp;</span></li>
 </ol>
-<p class="rvps39"><span class="rvts6">For viewing variables in an easy-to-read format and writing variables to CSV files, load the following:&nbsp;</span></p>
-<div class="rvps39">
+<p class="rvps32"><span class="rvts6">For viewing variables in an easy-to-read format and writing variables to CSV files, load the following:&nbsp;</span></p>
+<div class="rvps32">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts70">using</span><span class="rvts69"> DataFrames, DataFramesMeta, CSV</span></p>
+   <p class="rvps45"><span class="rvts73">using</span><span class="rvts72"> DataFrames, DataFramesMeta, CSV</span></p>
   </td>
  </tr>
 </table>

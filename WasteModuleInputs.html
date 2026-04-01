@@ -425,16 +425,28 @@ aside li li a,
   100% { background: transparent; }
 }
 
-
 /* =========================================================
-   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   7) ONE-CELL CODE TABLES ONLY
+   Turn true one-cell tables into code-style boxes
+   Leave all other tables alone so HelpNDoc formatting shows
    ========================================================= */
 
-table:not(:has(td[style*="background-color"])) {
+/* One-cell, non-callout tables only */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child),
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) {
   border: 1px solid #dde3ea !important;
   border-radius: 8px;
   background: #f7f9fb !important;
   border-collapse: separate !important;
+  border-spacing: 0 !important;
   overflow: hidden;
   margin: 14px 0;
   box-sizing: border-box;
@@ -443,23 +455,62 @@ table:not(:has(td[style*="background-color"])) {
   max-width: 100% !important;
 }
 
-table:not(:has(td[style*="background-color"])) td {
+/* The single cell inside the one-cell code table */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) > tbody > tr:only-child > td:only-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) > tr:only-child > td:only-child {
   padding: 10px 14px !important;
   border: none !important;
   background: transparent !important;
+  vertical-align: top !important;
 }
 
-table:not(:has(td[style*="background-color"])) p {
+/* Text inside one-cell code tables */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p {
   font-weight: 400 !important;
   color: #111827 !important;
   margin: 0 0 6px 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:first-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:first-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:first-child {
   margin-top: 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:last-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:last-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -544,7 +595,6 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-/* Only style the OUTER Example/Exercise title */
 table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
@@ -586,16 +636,12 @@ table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::b
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  
   width: 18px;
   height: 18px;
-  
   font-size: 12px;
   font-weight: 600;
-  
   color: #ffffff;
   background: #2b9af3;
-  
   border-radius: 50%;
 }
 
@@ -638,7 +684,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.55 !important;  /* ⭐ key improvement */
+  line-height: 1.55 !important;
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -1114,7 +1160,7 @@ details.hnd-blue-callout code {
                         <li><a href="Appendix.html">Appendix</a></li><li><a href="InputData.html">Input Data</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="InputData.html" title="Input Data" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="DemandModuleInputs.html" title="Demand Module Inputs" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="InputData.html" title="Input Data" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="DemandModuleInputs.html" title="Demand Module Inputs" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="ModelSwitchExamples.html" title="Model Switch Examples" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
@@ -1127,94 +1173,94 @@ details.hnd-blue-callout code {
                 
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps19"><span class="rvts18">Waste Module Input Data</span></p>
-<div class="rvps210">
+<div class="rvps213">
 <table width="98%" style="border-width: 0px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 269px;">
-   <p class="rvps2"><span class="rvts160">Variable [Sets]</span></p>
+   <p class="rvps2"><span class="rvts176">Variable [Sets]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 441px;">
-   <p class="rvps2"><span class="rvts160">Title</span></p>
+   <p class="rvps2"><span class="rvts176">Title</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 269px;">
-   <p class="rvps2"><span class="rvts155">vCapture_Rate[Waste,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts171">vCapture_Rate[Waste,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 441px;">
-   <p class="rvps2"><span class="rvts155">CH4 Recovery Fraction (Tonnes/Tonnes)</span></p>
+   <p class="rvps2"><span class="rvts171">CH4 Recovery Fraction (Tonnes/Tonnes)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 269px;">
-   <p class="rvps2"><span class="rvts155">vDDOCm_accum[Waste,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts171">vDDOCm_accum[Waste,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 441px;">
-   <p class="rvps2"><span class="rvts155">Initial DDOC Accumulation (Tonnes)</span></p>
+   <p class="rvps2"><span class="rvts171">Initial DDOC Accumulation (Tonnes)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 269px;">
-   <p class="rvps2"><span class="rvts155">vDiversionRate[Waste,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts171">vDiversionRate[Waste,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 441px;">
-   <p class="rvps2"><span class="rvts155">Proportion of Diverted Waste (Tonnes/Tonnes)</span></p>
+   <p class="rvps2"><span class="rvts171">Proportion of Diverted Waste (Tonnes/Tonnes)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 269px;">
-   <p class="rvps2"><span class="rvts155">vDOCDecomposeFraction[Waste,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts171">vDOCDecomposeFraction[Waste,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 441px;">
-   <p class="rvps2"><span class="rvts155">Fraction of Decomposable DOC (Tonnes/Tonnes)</span></p>
+   <p class="rvps2"><span class="rvts171">Fraction of Decomposable DOC (Tonnes/Tonnes)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 269px;">
-   <p class="rvps2"><span class="rvts155">vDOC[Waste,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts171">vDOC[Waste,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 441px;">
-   <p class="rvps2"><span class="rvts155">Fraction of Degradable Organic Carbon per Waste Landfilled (Tonnes/Tonnes)</span></p>
+   <p class="rvps2"><span class="rvts171">Fraction of Degradable Organic Carbon per Waste Landfilled (Tonnes/Tonnes)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 269px;">
-   <p class="rvps2"><span class="rvts155">vFlaring_Rate[Waste,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts171">vFlaring_Rate[Waste,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 441px;">
-   <p class="rvps2"><span class="rvts155">CH4 Flaring Fraction (Tonnes/Tonnes)</span></p>
+   <p class="rvps2"><span class="rvts171">CH4 Flaring Fraction (Tonnes/Tonnes)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 269px;">
-   <p class="rvps2"><span class="rvts155">vGenerated_Driver [Waste,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts171">vGenerated_Driver [Waste,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 441px;">
-   <p class="rvps2"><span class="rvts155">Waste per Capita (Tonnes/Driver)</span></p>
+   <p class="rvps2"><span class="rvts171">Waste per Capita (Tonnes/Driver)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 269px;">
-   <p class="rvps2"><span class="rvts155">vIncinerated[Waste,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts171">vIncinerated[Waste,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 441px;">
-   <p class="rvps2"><span class="rvts155">Fraction of Waste Incinerated (Tonnes/Tonnes)</span></p>
+   <p class="rvps2"><span class="rvts171">Fraction of Waste Incinerated (Tonnes/Tonnes)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 269px;">
-   <p class="rvps2"><span class="rvts155">vk[Waste,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts171">vk[Waste,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 441px;">
-   <p class="rvps2"><span class="rvts155">CH4 Generation Constant (1/Yr)</span></p>
+   <p class="rvps2"><span class="rvts171">CH4 Generation Constant (1/Yr)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 269px;">
-   <p class="rvps2"><span class="rvts155">vXport[Waste,vArea,Year]</span></p>
+   <p class="rvps2"><span class="rvts171">vXport[Waste,vArea,Year]</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-right: none; border-left: none; vertical-align: middle; width: 441px;">
-   <p class="rvps2"><span class="rvts155">Fraction of Waste Exported (Tonnes/Tonnes)</span></p>
+   <p class="rvps2"><span class="rvts171">Fraction of Waste Exported (Tonnes/Tonnes)</span></p>
   </td>
  </tr>
 </table>

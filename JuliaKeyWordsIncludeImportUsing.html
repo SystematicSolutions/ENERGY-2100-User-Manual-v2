@@ -425,16 +425,28 @@ aside li li a,
   100% { background: transparent; }
 }
 
-
 /* =========================================================
-   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   7) ONE-CELL CODE TABLES ONLY
+   Turn true one-cell tables into code-style boxes
+   Leave all other tables alone so HelpNDoc formatting shows
    ========================================================= */
 
-table:not(:has(td[style*="background-color"])) {
+/* One-cell, non-callout tables only */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child),
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) {
   border: 1px solid #dde3ea !important;
   border-radius: 8px;
   background: #f7f9fb !important;
   border-collapse: separate !important;
+  border-spacing: 0 !important;
   overflow: hidden;
   margin: 14px 0;
   box-sizing: border-box;
@@ -443,23 +455,62 @@ table:not(:has(td[style*="background-color"])) {
   max-width: 100% !important;
 }
 
-table:not(:has(td[style*="background-color"])) td {
+/* The single cell inside the one-cell code table */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) > tbody > tr:only-child > td:only-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) > tr:only-child > td:only-child {
   padding: 10px 14px !important;
   border: none !important;
   background: transparent !important;
+  vertical-align: top !important;
 }
 
-table:not(:has(td[style*="background-color"])) p {
+/* Text inside one-cell code tables */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p {
   font-weight: 400 !important;
   color: #111827 !important;
   margin: 0 0 6px 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:first-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:first-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:first-child {
   margin-top: 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:last-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:last-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -544,7 +595,6 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-/* Only style the OUTER Example/Exercise title */
 table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
@@ -586,16 +636,12 @@ table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::b
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  
   width: 18px;
   height: 18px;
-  
   font-size: 12px;
   font-weight: 600;
-  
   color: #ffffff;
   background: #2b9af3;
-  
   border-radius: 50%;
 }
 
@@ -638,7 +684,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.55 !important;  /* ⭐ key improvement */
+  line-height: 1.55 !important;
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -1114,7 +1160,7 @@ details.hnd-blue-callout code {
                         <li><a href="JuliaCodinginENERGY2100.html">Julia Coding in ENERGY 2100</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="JuliaCodinginENERGY2100.html" title="Julia Coding in ENERGY 2100" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="SamplePolicy.html" title="Sample Policy" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="CodingConventionsandStandards.html" title="Coding Conventions and Standards" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="JuliaCodinginENERGY2100.html" title="Julia Coding in ENERGY 2100" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="SamplePolicyFile.html" title="Sample Policy File" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="CodingConventionsandStandards.html" title="Coding Conventions and Standards" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
@@ -1125,64 +1171,64 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<p class="rvps63"><span class="rvts107">What is a Julia Environment?</span></p>
-<p class="rvps33"><span class="rvts30">A Julia environment is a folder containing&nbsp;</span><span class="rvts117">Project.toml</span><span class="rvts30">&nbsp;(package list) and&nbsp;</span><span class="rvts117">Manifest.toml</span><span class="rvts30">&nbsp;(exact versions) files, enabling isolated, reproducible project dependencies. Managed via&nbsp;</span><span class="rvts117">Pkg.jl</span><span class="rvts30">, these allow users to create temporary or project-specific environments, avoiding package conflicts and ensuring consistent code execution.</span></p>
-<p class="rvps33"><span class="rvts30"><br/></span></p>
-<p class="rvps33"><span class="rvts30">To activate a Julia project in a batch file:&nbsp;</span></p>
-<p class="rvps33"><span class="rvts118">--project</span><span class="rvts201">&nbsp;command-line argument</span><span class="rvts30">&nbsp;when launching Julia</span></p>
-<p class="rvps33"><span class="rvts30"><br/></span></p>
-<p class="rvps33"><span class="rvts30"><br/></span></p>
-<p class="rvps147"><span class="rvts202">Specifying project on startup</span></p>
-<p class="rvps148"><span class="rvts203">Instead of using </span><span class="rvts206">activate</span><span class="rvts203"> from within Julia, you can specify the project on startup using the&nbsp;</span><span class="rvts204">--project=&lt;phat&gt;</span><span class="rvts203">&nbsp;flag. For example, to run a script from the command line using the environment in the current directory you can run</span></p>
-<p class="rvps149"><span class="rvts205">$ julia --project=. myscript.jl</span></p>
-<p class="rvps33"><span class="rvts30"><br/></span></p>
-<p class="rvps33"><span class="rvts30"><br/></span></p>
-<p class="rvps33"><span class="rvts30"><br/></span></p>
-<p class="rvps33"><span class="rvts30"><br/></span></p>
-<p class="rvps63"><span class="rvts107">Defining, Loading, and Using a Package</span></p>
-<p class="rvps63"><span class="rvts107"><br/></span></p>
-<p class="rvps63"><span class="rvts107">Package is called EnergyModel.</span></p>
-<p class="rvps63"><span class="rvts107"><br/></span></p>
-<p class="rvps63"><span class="rvts107"><br/></span></p>
-<p class="rvps33"><span class="rvts30">To "call" (load and use) the package, you first activate the project environment in the Julia REPL or environment manager, then use&nbsp;</span><span class="rvts117">import</span><span class="rvts30">&nbsp;or&nbsp;</span><span class="rvts117">using</span></p>
-<p class="rvps33"><span class="rvts117"><br/></span></p>
-<p class="rvps33"><span class="rvts117"><br/></span></p>
-<p class="rvps63"><span class="rvts107">Files in the&nbsp;</span><span class="rvts117">src</span><span class="rvts107">&nbsp;folder in Julia are typically "called" (loaded and executed) using the&nbsp;</span><span class="rvts117">include</span><span class="rvts107">&nbsp;function or by structuring your project as a&nbsp;</span><span class="rvts120">package</span><span class="rvts107">&nbsp;and using the&nbsp;</span><span class="rvts117">import</span><span class="rvts107">&nbsp;or&nbsp;</span><span class="rvts117">using</span><span class="rvts107">&nbsp;keywords.&nbsp;</span></p>
-<p class="rvps63"><span class="rvts107"><br/></span></p>
-<p class="rvps140"><a name="img-keGyabjhH_rIp84PoYDMqAI_1"></a><img alt="Stack Overflow" style="width : 12px; height : 12px; margin : 0px 2px;" src="lib/NewItem%20125.png"><span class="rvts197">Stack Overflow&nbsp;+1</span></p>
-<p class="rvps69"><span class="rvts119">Using&nbsp;</span><span class="rvts198">include()</span></p>
-<p class="rvps63"><span class="rvts107">The&nbsp;</span><span class="rvts117">include()</span><span class="rvts107">&nbsp;function simply evaluates the contents of a specified file in the global scope of the module where the call occurs, as if the code was copy-pasted in that location.</span></p>
-<p class="rvps63"><span class="rvts107"><br/></span></p>
-<p class="rvps69"><span class="rvts119">Using Packages (</span><span class="rvts198">import</span><span class="rvts119">&nbsp;or&nbsp;</span><span class="rvts198">using</span><span class="rvts119">)&nbsp;</span><img alt="" style="margin : 1px 0px;" src="lib/NewItem%20120.svg"></p>
-<p class="rvps63"><span class="rvts107">For organized, reusable code, the standard Julia practice is to create a package. A package will have a main file in the&nbsp;</span><span class="rvts117">src</span><span class="rvts107">&nbsp;folder named&nbsp;</span><span class="rvts117">PackageName.jl</span><span class="rvts107">, which defines a module:&nbsp;</span></p>
-<p class="rvps140"><a name="img-keGyabjhH_rIp84PoYDMqAI_4"></a><img alt="Stack Overflow" style="width : 12px; height : 12px; margin : 0px 2px;" src="lib/NewItem%20119.png"><span class="rvts197">Stack Overflow&nbsp;+2</span></p>
-<p class="rvps141"><span class="rvts199">julia</span><img alt="" src="lib/NewItem%20118.svg"></p>
-<p class="rvps144"><span class="rvts200"># In src/MyPackage.jl</span></p>
-<p class="rvps145"><span class="rvts200">module MyPackage</span></p>
-<p class="rvps145"><span class="rvts200"><br/></span></p>
-<p class="rvps145"><span class="rvts200">include("other_file.jl") # Includes other files within the package module scope</span></p>
-<p class="rvps145"><span class="rvts200"><br/></span></p>
-<p class="rvps145"><span class="rvts200">function greet()</span></p>
-<p class="rvps145"><span class="rvts200">&nbsp; &nbsp; println("Hello!")</span></p>
-<p class="rvps145"><span class="rvts200">end</span></p>
-<p class="rvps145"><span class="rvts200"><br/></span></p>
-<p class="rvps146"><span class="rvts200">end</span></p>
-<p class="rvps63"><span class="rvts107">To "call" (load and use) the package, you first activate the project environment in the Julia REPL or environment manager, then use&nbsp;</span><span class="rvts117">import</span><span class="rvts107">&nbsp;or&nbsp;</span><span class="rvts117">using</span><span class="rvts107">:&nbsp;</span></p>
-<p class="rvps63"><span class="rvts107"><br/></span></p>
-<p class="rvps63"><span class="rvts120">Activate the project environment</span><span class="rvts107">&nbsp;in the package manager (press&nbsp;</span><span class="rvts117">]</span><span class="rvts107">&nbsp;in the REPL):</span></p>
-<p class="rvps141"><span class="rvts199">julia</span><img alt="" src="lib/NewItem%20116.svg"></p>
-<p class="rvps142"><span class="rvts200">pkg&gt; activate .</span></p>
+<p class="rvps63"><span class="rvts110">What is a Julia Environment?</span></p>
+<p class="rvps38"><span class="rvts30">A Julia environment is a folder containing&nbsp;</span><span class="rvts120">Project.toml</span><span class="rvts30">&nbsp;(package list) and&nbsp;</span><span class="rvts120">Manifest.toml</span><span class="rvts30">&nbsp;(exact versions) files, enabling isolated, reproducible project dependencies. Managed via&nbsp;</span><span class="rvts120">Pkg.jl</span><span class="rvts30">, these allow users to create temporary or project-specific environments, avoiding package conflicts and ensuring consistent code execution.</span></p>
+<p class="rvps38"><span class="rvts30"><br/></span></p>
+<p class="rvps38"><span class="rvts30">To activate a Julia project in a batch file:&nbsp;</span></p>
+<p class="rvps38"><span class="rvts121">--project</span><span class="rvts219">&nbsp;command-line argument</span><span class="rvts30">&nbsp;when launching Julia</span></p>
+<p class="rvps38"><span class="rvts30"><br/></span></p>
+<p class="rvps38"><span class="rvts30"><br/></span></p>
+<p class="rvps147"><span class="rvts220">Specifying project on startup</span></p>
+<p class="rvps148"><span class="rvts221">Instead of using </span><span class="rvts224">activate</span><span class="rvts221"> from within Julia, you can specify the project on startup using the&nbsp;</span><span class="rvts222">--project=&lt;phat&gt;</span><span class="rvts221">&nbsp;flag. For example, to run a script from the command line using the environment in the current directory you can run</span></p>
+<p class="rvps149"><span class="rvts223">$ julia --project=. myscript.jl</span></p>
+<p class="rvps38"><span class="rvts30"><br/></span></p>
+<p class="rvps38"><span class="rvts30"><br/></span></p>
+<p class="rvps38"><span class="rvts30"><br/></span></p>
+<p class="rvps38"><span class="rvts30"><br/></span></p>
+<p class="rvps63"><span class="rvts110">Defining, Loading, and Using a Package</span></p>
+<p class="rvps63"><span class="rvts110"><br/></span></p>
+<p class="rvps63"><span class="rvts110">Package is called EnergyModel.</span></p>
+<p class="rvps63"><span class="rvts110"><br/></span></p>
+<p class="rvps63"><span class="rvts110"><br/></span></p>
+<p class="rvps38"><span class="rvts30">To "call" (load and use) the package, you first activate the project environment in the Julia REPL or environment manager, then use&nbsp;</span><span class="rvts120">import</span><span class="rvts30">&nbsp;or&nbsp;</span><span class="rvts120">using</span></p>
+<p class="rvps38"><span class="rvts120"><br/></span></p>
+<p class="rvps38"><span class="rvts120"><br/></span></p>
+<p class="rvps63"><span class="rvts110">Files in the&nbsp;</span><span class="rvts120">src</span><span class="rvts110">&nbsp;folder in Julia are typically "called" (loaded and executed) using the&nbsp;</span><span class="rvts120">include</span><span class="rvts110">&nbsp;function or by structuring your project as a&nbsp;</span><span class="rvts123">package</span><span class="rvts110">&nbsp;and using the&nbsp;</span><span class="rvts120">import</span><span class="rvts110">&nbsp;or&nbsp;</span><span class="rvts120">using</span><span class="rvts110">&nbsp;keywords.&nbsp;</span></p>
+<p class="rvps63"><span class="rvts110"><br/></span></p>
+<p class="rvps140"><a name="img-keGyabjhH_rIp84PoYDMqAI_1"></a><img alt="Stack Overflow" style="width : 12px; height : 12px; margin : 0px 2px;" src="lib/NewItem%20125.png"><span class="rvts215">Stack Overflow&nbsp;+1</span></p>
+<p class="rvps69"><span class="rvts122">Using&nbsp;</span><span class="rvts216">include()</span></p>
+<p class="rvps63"><span class="rvts110">The&nbsp;</span><span class="rvts120">include()</span><span class="rvts110">&nbsp;function simply evaluates the contents of a specified file in the global scope of the module where the call occurs, as if the code was copy-pasted in that location.</span></p>
+<p class="rvps63"><span class="rvts110"><br/></span></p>
+<p class="rvps69"><span class="rvts122">Using Packages (</span><span class="rvts216">import</span><span class="rvts122">&nbsp;or&nbsp;</span><span class="rvts216">using</span><span class="rvts122">)&nbsp;</span><img alt="" style="margin : 1px 0px;" src="lib/NewItem%20120.svg"></p>
+<p class="rvps63"><span class="rvts110">For organized, reusable code, the standard Julia practice is to create a package. A package will have a main file in the&nbsp;</span><span class="rvts120">src</span><span class="rvts110">&nbsp;folder named&nbsp;</span><span class="rvts120">PackageName.jl</span><span class="rvts110">, which defines a module:&nbsp;</span></p>
+<p class="rvps140"><a name="img-keGyabjhH_rIp84PoYDMqAI_4"></a><img alt="Stack Overflow" style="width : 12px; height : 12px; margin : 0px 2px;" src="lib/NewItem%20119.png"><span class="rvts215">Stack Overflow&nbsp;+2</span></p>
+<p class="rvps141"><span class="rvts217">julia</span><img alt="" src="lib/NewItem%20118.svg"></p>
+<p class="rvps144"><span class="rvts218"># In src/MyPackage.jl</span></p>
+<p class="rvps145"><span class="rvts218">module MyPackage</span></p>
+<p class="rvps145"><span class="rvts218"><br/></span></p>
+<p class="rvps145"><span class="rvts218">include("other_file.jl") # Includes other files within the package module scope</span></p>
+<p class="rvps145"><span class="rvts218"><br/></span></p>
+<p class="rvps145"><span class="rvts218">function greet()</span></p>
+<p class="rvps145"><span class="rvts218">&nbsp; &nbsp; println("Hello!")</span></p>
+<p class="rvps145"><span class="rvts218">end</span></p>
+<p class="rvps145"><span class="rvts218"><br/></span></p>
+<p class="rvps146"><span class="rvts218">end</span></p>
+<p class="rvps63"><span class="rvts110">To "call" (load and use) the package, you first activate the project environment in the Julia REPL or environment manager, then use&nbsp;</span><span class="rvts120">import</span><span class="rvts110">&nbsp;or&nbsp;</span><span class="rvts120">using</span><span class="rvts110">:&nbsp;</span></p>
+<p class="rvps63"><span class="rvts110"><br/></span></p>
+<p class="rvps63"><span class="rvts123">Activate the project environment</span><span class="rvts110">&nbsp;in the package manager (press&nbsp;</span><span class="rvts120">]</span><span class="rvts110">&nbsp;in the REPL):</span></p>
+<p class="rvps141"><span class="rvts217">julia</span><img alt="" src="lib/NewItem%20116.svg"></p>
+<p class="rvps142"><span class="rvts218">pkg&gt; activate .</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside;">
- <li class="rvps63 noindent"><span class="rvts120">Import the package</span><span class="rvts107">&nbsp;in the REPL or another file:</span></li>
+ <li class="rvps63 noindent"><span class="rvts123">Import the package</span><span class="rvts110">&nbsp;in the REPL or another file:</span></li>
 </ol>
-<p class="rvps141"><span class="rvts199">julia</span><img alt="" src="lib/NewItem%20115.svg"></p>
-<p class="rvps142"><span class="rvts200">using MyPackage # or import MyPackage</span></p>
+<p class="rvps141"><span class="rvts217">julia</span><img alt="" src="lib/NewItem%20115.svg"></p>
+<p class="rvps142"><span class="rvts218">using MyPackage # or import MyPackage</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside;">
- <li value="2" class="rvps63 noindent"><span class="rvts120">Call a function</span><span class="rvts107">&nbsp;from the package:</span></li>
+ <li value="2" class="rvps63 noindent"><span class="rvts123">Call a function</span><span class="rvts110">&nbsp;from the package:</span></li>
 </ol>
-<p class="rvps141"><span class="rvts199">julia</span><img alt="" src="lib/NewItem%20114.svg"></p>
-<p class="rvps143"><span class="rvts200">MyPackage.greet()</span></p>
-<p class="rvps68"><span class="rvts107"></span><span class="rvts6"></span></p>
+<p class="rvps141"><span class="rvts217">julia</span><img alt="" src="lib/NewItem%20114.svg"></p>
+<p class="rvps143"><span class="rvts218">MyPackage.greet()</span></p>
+<p class="rvps68"><span class="rvts110"></span><span class="rvts6"></span></p>
 
             </div>
             

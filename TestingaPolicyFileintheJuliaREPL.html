@@ -425,16 +425,28 @@ aside li li a,
   100% { background: transparent; }
 }
 
-
 /* =========================================================
-   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   7) ONE-CELL CODE TABLES ONLY
+   Turn true one-cell tables into code-style boxes
+   Leave all other tables alone so HelpNDoc formatting shows
    ========================================================= */
 
-table:not(:has(td[style*="background-color"])) {
+/* One-cell, non-callout tables only */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child),
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) {
   border: 1px solid #dde3ea !important;
   border-radius: 8px;
   background: #f7f9fb !important;
   border-collapse: separate !important;
+  border-spacing: 0 !important;
   overflow: hidden;
   margin: 14px 0;
   box-sizing: border-box;
@@ -443,23 +455,62 @@ table:not(:has(td[style*="background-color"])) {
   max-width: 100% !important;
 }
 
-table:not(:has(td[style*="background-color"])) td {
+/* The single cell inside the one-cell code table */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) > tbody > tr:only-child > td:only-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) > tr:only-child > td:only-child {
   padding: 10px 14px !important;
   border: none !important;
   background: transparent !important;
+  vertical-align: top !important;
 }
 
-table:not(:has(td[style*="background-color"])) p {
+/* Text inside one-cell code tables */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p {
   font-weight: 400 !important;
   color: #111827 !important;
   margin: 0 0 6px 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:first-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:first-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:first-child {
   margin-top: 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:last-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:last-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -544,7 +595,6 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-/* Only style the OUTER Example/Exercise title */
 table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
@@ -586,16 +636,12 @@ table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::b
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  
   width: 18px;
   height: 18px;
-  
   font-size: 12px;
   font-weight: 600;
-  
   color: #ffffff;
   background: #2b9af3;
-  
   border-radius: 50%;
 }
 
@@ -638,7 +684,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.55 !important;  /* ⭐ key improvement */
+  line-height: 1.55 !important;
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -1129,34 +1175,34 @@ details.hnd-blue-callout code {
 <p class="rvps2"><span class="rvts6">To run a policy file in the Julia REPL, follow the instructions below.</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li class="rvps2 noindent"><span class="rvts6">Open the ENERGY 2100 model folder in VS Code (</span><span class="rvts37">File\Open Folder)</span><span class="rvts6">.</span></li>
- <li class="rvps33 noindent"><span class="rvts6">Start the Julia REPL from the Command Palette:</span></li>
+ <li class="rvps38 noindent"><span class="rvts6">Start the Julia REPL from the Command Palette:</span></li>
 </ol>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 72px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps33 noindent"><span class="rvts6">Open the Command Palette (</span><span class="rvts37">View\Command Palette)</span><span class="rvts6"> or (</span><span class="rvts37">Ctrl+Shift+P</span><span class="rvts6">)</span></li>
+ <li class="rvps38 noindent"><span class="rvts6">Open the Command Palette (</span><span class="rvts37">View\Command Palette)</span><span class="rvts6"> or (</span><span class="rvts37">Ctrl+Shift+P</span><span class="rvts6">)</span></li>
  <li class="rvps2 noindent"><span class="rvts6">Start the Julia REPL (type </span><span class="rvts37">Julia: Start REPL</span><span class="rvts6">).</span></li>
 </ul>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li value="3" class="rvps41 noindent"><span class="rvts6">Activate the folder as a Julia project environment and install project dependencies (which are specified in the model's </span><span class="rvts67">Project.toml and Manifest.toml):</span></li>
+ <li value="3" class="rvps41 noindent"><span class="rvts6">Activate the folder as a Julia project environment and install project dependencies (which are specified in the model's </span><span class="rvts70">Project.toml and Manifest.toml):</span></li>
 </ol>
 <div class="rvps46">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts70">using</span><span class="rvts69"> Pkg</span></p>
-   <p class="rvps45"><span class="rvts69">Pkg.activate("C:</span><span class="rvts71">\\</span><span class="rvts69">ModelFolderName")</span></p>
-   <p class="rvps45"><span class="rvts69">Pkg.instantiate()</span></p>
+   <p class="rvps45"><span class="rvts73">using</span><span class="rvts72"> Pkg</span></p>
+   <p class="rvps45"><span class="rvts72">Pkg.activate("C:</span><span class="rvts74">\\</span><span class="rvts72">ModelFolderName")</span></p>
+   <p class="rvps45"><span class="rvts72">Pkg.instantiate()</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps38"><span class="rvts64">Alternatively, you could use </span><span class="rvts73">Pkg.activate(".")</span><span class="rvts64"> to activate the current project if you have opened VS code in the model's root folder:</span></p>
-<div class="rvps39">
+<p class="rvps31"><span class="rvts48">Alternatively, you could use </span><span class="rvts76">Pkg.activate(".")</span><span class="rvts48"> to activate the current project if you have opened VS code in the model's root folder:</span></p>
+<div class="rvps32">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts70">using</span><span class="rvts69"> Pkg</span></p>
-   <p class="rvps45"><span class="rvts69">Pkg.activate</span><span class="rvts71">(".")</span></p>
-   <p class="rvps45"><span class="rvts69">Pkg.instantiate()</span></p>
+   <p class="rvps45"><span class="rvts73">using</span><span class="rvts72"> Pkg</span></p>
+   <p class="rvps45"><span class="rvts72">Pkg.activate</span><span class="rvts74">(".")</span></p>
+   <p class="rvps45"><span class="rvts72">Pkg.instantiate()</span></p>
   </td>
  </tr>
 </table>
@@ -1168,35 +1214,35 @@ details.hnd-blue-callout code {
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 27px; height: 42px;">
-   <p class="rvps44"><span class="rvts75"></span></p>
+   <p class="rvps44"><span class="rvts78"></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 591px; height: 42px;">
-   <p class="rvps2"><span class="rvts67">You must use two backslashes (\\) in the folder path for Julia to find the correct path.</span></p>
+   <p class="rvps2"><span class="rvts70">You must use two backslashes (\\) in the folder path for Julia to find the correct path.</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps38"><span class="rvts64">Verify that you activated the correct Julia environment by checking the package status:</span></p>
-<div class="rvps39">
+<p class="rvps31"><span class="rvts48">Verify that you activated the correct Julia environment by checking the package status:</span></p>
+<div class="rvps32">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts69">Pkg.status()</span></p>
+   <p class="rvps45"><span class="rvts72">Pkg.status()</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps38"><span class="rvts64">If the correct environment was activated, this command will return your model folder's path.&nbsp;</span></p>
+<p class="rvps31"><span class="rvts48">If the correct environment was activated, this command will return your model folder's path.&nbsp;</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Load ENERGY 2100's Julia Package and Desired Structures</span></span></h3>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li value="1" class="rvps2 noindent"><span class="rvts6">Load ENERGY 2100's Julia package, named </span><span class="rvts37">EnergyModel</span><span class="rvts6">:</span></li>
 </ol>
-<div class="rvps38">
+<div class="rvps31">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts70">using</span><span class="rvts69"> EnergyModel</span></p>
+   <p class="rvps45"><span class="rvts73">using</span><span class="rvts72"> EnergyModel</span></p>
   </td>
  </tr>
 </table>
@@ -1204,35 +1250,35 @@ details.hnd-blue-callout code {
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li value="2" class="rvps2 noindent"><span class="rvts6">Import ENERGY 2100's modules, constants, or functions you want to use in the REPL.&nbsp;</span></li>
 </ol>
-<p class="rvps39"><span class="rvts6">The structures listed below are common imports required to run a policy file and view variables:&nbsp;</span></p>
-<div class="rvps38">
+<p class="rvps32"><span class="rvts6">The structures listed below are common imports required to run a policy file and view variables:&nbsp;</span></p>
+<div class="rvps31">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts70">import</span><span class="rvts69"> EnergyModel.DB</span></p>
-   <p class="rvps45"><span class="rvts70">import</span><span class="rvts69"> EnergyModel.ReadDisk</span></p>
-   <p class="rvps45"><span class="rvts70">import</span><span class="rvts69"> EnergyModel.Select</span></p>
-   <p class="rvps45"><span class="rvts70">import </span><span class="rvts72">EnergyModel.</span><span class="rvts69">ReadDiskAndSets</span></p>
-   <p class="rvps45"><span class="rvts70">import </span><span class="rvts72">EnergyModel.</span><span class="rvts69">Yr</span></p>
+   <p class="rvps45"><span class="rvts73">import</span><span class="rvts72"> EnergyModel.DB</span></p>
+   <p class="rvps45"><span class="rvts73">import</span><span class="rvts72"> EnergyModel.ReadDisk</span></p>
+   <p class="rvps45"><span class="rvts73">import</span><span class="rvts72"> EnergyModel.Select</span></p>
+   <p class="rvps45"><span class="rvts73">import </span><span class="rvts75">EnergyModel.</span><span class="rvts72">ReadDiskAndSets</span></p>
+   <p class="rvps45"><span class="rvts73">import </span><span class="rvts75">EnergyModel.</span><span class="rvts72">Yr</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps38"><span class="rvts64">Alternatively, we could import all these structures in one line using the following:</span></p>
-<p class="rvps39"><span class="rvts74"><div class="html-code-box indent-2">
+<p class="rvps31"><span class="rvts48">Alternatively, we could import all these structures in one line using the following:</span></p>
+<p class="rvps32"><span class="rvts77"><div class="html-code-box indent-2">
 <pre><code><span class="kw">import</span> EnergyModel: DB, ReadDisk, Select, ReadDiskAndSets, Yr</code></pre>
 </div></span></p>
-<div class="rvps39">
+<div class="rvps32">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 3px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #0080c0; vertical-align: top; width: 2px; height: 54px;">
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 23px; height: 54px;">
-   <p class="rvps42"><span class="rvts68">🛈</span></p>
+   <p class="rvps42"><span class="rvts71">🛈</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 767px; height: 54px;">
-   <p class="rvps42"><span class="rvts67">Click </span><a class="rvts76" href="Reference-CommonFunctionsUsedinJ.html">here</a><span class="rvts67"> for a more complete list of possible modules, constants, and functions that are available to import from the EnergyModel project environment.</span></p>
+   <p class="rvps42"><span class="rvts70">Click </span><a class="rvts79" href="Reference-CommonFunctionsUsedinJ.html">here</a><span class="rvts70"> for a more complete list of possible modules, constants, and functions that are available to import from the EnergyModel project environment.</span></p>
   </td>
  </tr>
 </table>
@@ -1240,12 +1286,12 @@ details.hnd-blue-callout code {
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li value="3" class="rvps2 noindent"><span class="rvts6">Load additional packages as desired.&nbsp;</span></li>
 </ol>
-<p class="rvps39"><span class="rvts6">For viewing variables in an easy-to-read format and writing variables to CSV files, load the following:&nbsp;</span></p>
-<div class="rvps39">
+<p class="rvps32"><span class="rvts6">For viewing variables in an easy-to-read format and writing variables to CSV files, load the following:&nbsp;</span></p>
+<div class="rvps32">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts70">using</span><span class="rvts69"> DataFrames, DataFramesMeta, CSV</span></p>
+   <p class="rvps45"><span class="rvts73">using</span><span class="rvts72"> DataFrames, DataFramesMeta, CSV</span></p>
   </td>
  </tr>
 </table>
@@ -1255,40 +1301,40 @@ details.hnd-blue-callout code {
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li value="1" class="rvps2 noindent"><span class="rvts6">Include your specific policy file in your workspace:</span></li>
 </ol>
-<div class="rvps38">
+<div class="rvps31">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts69">include("Policy/MyPolicyFile.jl")</span></p>
+   <p class="rvps45"><span class="rvts72">include("Policy/MyPolicyFile.jl")</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps39"><span class="rvts6">Including the policy file in your workspace gives you access to the functions defined in the given policy module.&nbsp;</span></p>
+<p class="rvps32"><span class="rvts6">Including the policy file in your workspace gives you access to the functions defined in the given policy module.&nbsp;</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li value="2" class="rvps2 noindent"><span class="rvts6">Execute the policy code by calling its control function:</span></li>
 </ol>
-<div class="rvps38">
+<div class="rvps31">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts69">MyPolicyModule.PolicyControl(DB)</span></p>
+   <p class="rvps45"><span class="rvts72">MyPolicyModule.PolicyControl(DB)</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps39"><span class="rvts6">The </span><span class="rvts37">MyPolicyModule.PolicyControl(DB)</span><span class="rvts6"> command will execute the policy. If there are no errors, it will stop with a </span><span class="rvts37">julia&gt;</span><span class="rvts6"> prompt.&nbsp;</span></p>
-<div class="rvps38">
+<p class="rvps32"><span class="rvts6">The </span><span class="rvts37">MyPolicyModule.PolicyControl(DB)</span><span class="rvts6"> command will execute the policy. If there are no errors, it will stop with a </span><span class="rvts37">julia&gt;</span><span class="rvts6"> prompt.&nbsp;</span></p>
+<div class="rvps31">
 <table width="100%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #0080c0; vertical-align: top; width: 2px; height: 54px;">
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 21px; height: 54px;">
-   <p class="rvps42"><span class="rvts68">🛈</span></p>
+   <p class="rvps42"><span class="rvts71">🛈</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 770px; height: 54px;">
-   <p class="rvps42"><span class="rvts67">By convention, the name of the policy's module is the same as the name of the policy file. The control function of each policy is named </span><span class="rvts37">PolicyControl</span><span class="rvts67"> and accepts the model's database path, </span><span class="rvts37">DB</span><span class="rvts67">, as input.</span></p>
+   <p class="rvps42"><span class="rvts70">By convention, the name of the policy's module is the same as the name of the policy file. The control function of each policy is named </span><span class="rvts37">PolicyControl</span><span class="rvts70"> and accepts the model's database path, </span><span class="rvts37">DB</span><span class="rvts70">, as input.</span></p>
   </td>
  </tr>
 </table>
@@ -1300,12 +1346,12 @@ details.hnd-blue-callout code {
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
-   <p class="rvps42"><span class="rvts79">🕮</span></p>
+   <p class="rvps42"><span class="rvts82">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
    <p class="rvps2"><span class="rvts13">Exercise</span></p>
-   <p class="rvps2"><span class="rvts80">Run the policy file, Res_PeakSavings.jl. Make sure you have all the needed packages loaded in your VS code workspace.</span></p>
-   <p class="rvps45"><span class="rvts69"><details class="example-toggle">
+   <p class="rvps2"><span class="rvts83">Run the policy file, Res_PeakSavings.jl. Make sure you have all the needed packages loaded in your VS code workspace.</span></p>
+   <p class="rvps45"><span class="rvts72"><details class="example-toggle">
   <p> </p>
   <summary>View Solution</summary>
 
@@ -1320,7 +1366,7 @@ Res_PeakSavings.PolicyControl(DB)</code></pre>
  </tr>
 </table>
 </div>
-<p class="rvps38"><span class="rvts64"><details class="hnd-blue-callout">
+<p class="rvps31"><span class="rvts48"><details class="hnd-blue-callout">
   <summary>Alternative Method of Calling a Policy File from the REPL</summary>
 
   <div class="callout-body">
@@ -1374,18 +1420,18 @@ include("Policy/Res_PeakSavings.jl")
 Res_PeakSavings.PolicyControl(DB)</code></pre>
   </div>
 </details></span></p>
-<p class="rvps38"><span class="rvts64">If the policy file hits errors and you revise the file (or if you make changes for any reason) you need to either get out of VS Code and reload or using the "Revise" package described below.</span></p>
-<p class="rvps38"><span class="rvts64"><br/></span></p>
+<p class="rvps31"><span class="rvts48">If the policy file hits errors and you revise the file (or if you make changes for any reason) you need to either get out of VS Code and reload or using the "Revise" package described below.</span></p>
+<p class="rvps31"><span class="rvts48"><br/></span></p>
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Use "Revise" Package to Recognize File Revisions</span></span></h3>
 <p class="rvps2"><span class="rvts6">If you make changes to the file while in a VS Code session, do the following to reload the Julia project to include the revised files:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li value="1" class="rvps2 noindent"><span class="rvts6">Load the Revise package:</span></li>
 </ol>
-<div class="rvps39">
+<div class="rvps32">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts69">using Revise</span></p>
+   <p class="rvps45"><span class="rvts72">using Revise</span></p>
   </td>
  </tr>
 </table>
@@ -1393,11 +1439,11 @@ Res_PeakSavings.PolicyControl(DB)</code></pre>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li value="2" class="rvps2 noindent"><span class="rvts6">Include your policy module again:</span></li>
 </ol>
-<div class="rvps38">
+<div class="rvps31">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts69">include("Policy/MyPolicyModule.jl")</span></p>
+   <p class="rvps45"><span class="rvts72">include("Policy/MyPolicyModule.jl")</span></p>
   </td>
  </tr>
 </table>
@@ -1409,7 +1455,7 @@ Res_PeakSavings.PolicyControl(DB)</code></pre>
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps45"><span class="rvts69">MyPolicyModule.PolicyControl(DB)</span></p>
+   <p class="rvps45"><span class="rvts72">MyPolicyModule.PolicyControl(DB)</span></p>
   </td>
  </tr>
 </table>

@@ -425,16 +425,28 @@ aside li li a,
   100% { background: transparent; }
 }
 
-
 /* =========================================================
-   7) STANDALONE CODE TABLES (NON-CALLOUT)
+   7) ONE-CELL CODE TABLES ONLY
+   Turn true one-cell tables into code-style boxes
+   Leave all other tables alone so HelpNDoc formatting shows
    ========================================================= */
 
-table:not(:has(td[style*="background-color"])) {
+/* One-cell, non-callout tables only */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child),
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) {
   border: 1px solid #dde3ea !important;
   border-radius: 8px;
   background: #f7f9fb !important;
   border-collapse: separate !important;
+  border-spacing: 0 !important;
   overflow: hidden;
   margin: 14px 0;
   box-sizing: border-box;
@@ -443,23 +455,62 @@ table:not(:has(td[style*="background-color"])) {
   max-width: 100% !important;
 }
 
-table:not(:has(td[style*="background-color"])) td {
+/* The single cell inside the one-cell code table */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) > tbody > tr:only-child > td:only-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) > tr:only-child > td:only-child {
   padding: 10px 14px !important;
   border: none !important;
   background: transparent !important;
+  vertical-align: top !important;
 }
 
-table:not(:has(td[style*="background-color"])) p {
+/* Text inside one-cell code tables */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p {
   font-weight: 400 !important;
   color: #111827 !important;
   margin: 0 0 6px 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:first-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:first-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:first-child {
   margin-top: 0 !important;
 }
 
-table:not(:has(td[style*="background-color"])) p:last-child {
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:last-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -544,7 +595,6 @@ table:has(td[style*="background-color: #cc99ff"]) {
   background: transparent !important;
 }
 
-/* Only style the OUTER Example/Exercise title */
 table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
   font-weight: 500 !important;
   color: #111827 !important;
@@ -586,16 +636,12 @@ table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::b
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  
   width: 18px;
   height: 18px;
-  
   font-size: 12px;
   font-weight: 600;
-  
   color: #ffffff;
   background: #2b9af3;
-  
   border-radius: 50%;
 }
 
@@ -638,7 +684,7 @@ table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box p
   white-space: pre !important;
   font-family: Consolas, "Courier New", monospace !important;
   font-size: 13.5px !important;
-  line-height: 1.55 !important;  /* ⭐ key improvement */
+  line-height: 1.55 !important;
   color: #111827 !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
@@ -1111,10 +1157,10 @@ details.hnd-blue-callout code {
             
                 <div class="navigation">
                     <ol class="breadcrumb">
-                        <li><a href="PolicyAnalysis-PolicyVariablesan.html">Policy Analysis - Policy Variables and Sample Files</a></li><li><a href="DemandSectorPolicies.html">Demand Sector Policies</a></li><li><a href="WhatAreFuelChoicePolicies.html">What Are Fuel Choice Policies?</a></li>
+                        <li><a href="PolicyAnalysis.html">Policy Analysis</a></li><li><a href="DemandSectorPolicies.html">Demand Sector Policies</a></li><li><a href="MarketShareFuelChoicePolicies.html">Market Share/Fuel Choice Policies</a></li><li><a href="MethodologyandModelRelationship1.html">Methodology and Model Relationships</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="WhatAreFuelChoicePolicies.html" title="What Are Fuel Choice Policies?" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="WhatAreFuelChoicePolicies.html" title="What Are Fuel Choice Policies?" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="PolicyVariables.html" title="Policy Variables" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="MethodologyandModelRelationship1.html" title="Methodology and Model Relationships" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="MethodologyandModelRelationship1.html" title="Methodology and Model Relationships" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="PolicyVariables.html" title="Policy Variables" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
@@ -1125,7 +1171,7 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<h2 class="rvps12"><span class="rvts0"><span class="rvts23">Fuel Choice Policies (Fuel Switching)</span></span></h2>
+<h2 class="rvps12"><span class="rvts0"><span class="rvts23">Market Share/Fuel Choice Policies</span></span></h2>
 <p class="rvps15"><span class="rvts6">Policies designed to modify the fuel mix are aimed at shifting the marginal market share fraction (MMSF) of a particular fuel by device. &nbsp;Consumers choose alternative fuels as the relative costs of each option change or as non-price factors change (such as perceptions of products that could shift due to marketing efforts). &nbsp;</span></p>
 <p class="rvps2"><span class="rvts24">The figure below </span><span class="rvts6">graphically shows inputs to the fuel choice marginal market share (MMSF) equation. A marginal market share fraction is calculated across fuels for each end use (device) represented in the model. The key inputs to the equation are: &nbsp;marginal cost of fuel use (MCFU), fuel price variance factor (MVF), a marginal market share multiplier/non-price factor (MMSM0), and multiplier on the marginal market share multiplier (MSMM). The key inputs to the marginal cost of fuel use (MCFU) are also shown on the figure consisting of: fuel price (ECFP), device energy efficiency (DEE), device capital cost (DCC), device capital charge rate (DCCR), device operating and maintenance costs (DOMC), and a device grant fraction (DGF) which is a policy variable impacting the operating and maintenance costs.</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
@@ -1146,60 +1192,60 @@ details.hnd-blue-callout code {
 <table style="border-width: 0px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; background-color: #0070c0; vertical-align: middle; width: 166px; height: 28px;">
-   <p class="rvps2"><span class="rvts251">Variable Name</span></p>
+   <p class="rvps2"><span class="rvts269">Variable Name</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; background-color: #0070c0; vertical-align: middle; width: 427px; height: 28px;">
-   <p class="rvps2"><span class="rvts251">Description</span></p>
+   <p class="rvps2"><span class="rvts269">Description</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td colspan="2" style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 608px;">
-   <p class="rvps2"><span class="rvts160">Fuel choice market share (shift consumers’ non-price perceptions)</span></p>
+   <p class="rvps2"><span class="rvts176">Fuel choice market share (shift consumers’ non-price perceptions)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 166px;">
-   <p class="rvps2"><span class="rvts155">MMSM0</span><span class="rvts252">(Enduse,Tech,EC,Area,Year)</span><span class="rvts155"> &nbsp;&nbsp;</span></p>
-   <p class="rvps15"><span class="rvts160"><br/></span></p>
-   <p class="rvps15"><span class="rvts155"><br/></span></p>
+   <p class="rvps2"><span class="rvts171">MMSM0</span><span class="rvts270">(Enduse,Tech,EC,Area,Year)</span><span class="rvts171"> &nbsp;&nbsp;</span></p>
+   <p class="rvps15"><span class="rvts176"><br/></span></p>
+   <p class="rvps15"><span class="rvts171"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 427px;">
-   <p class="rvps2"><span class="rvts155">Marginal Market Share Multiplier/ Non-Price Factor ($/$).</span></p>
-   <p class="rvps2"><span class="rvts155">This variable represents the non-price propensity toward or barrier to a specified technology (end use-fuel combination). It is endogenously calculated during the historical calibration and assigned future values to set the marginal equal to the average. Modifying the value of MMSM0 overwrites the endogenously-calculated value assigned during calibration and can be used to promote specific technologies compared to the reference case.</span></p>
+   <p class="rvps2"><span class="rvts171">Marginal Market Share Multiplier/ Non-Price Factor ($/$).</span></p>
+   <p class="rvps2"><span class="rvts171">This variable represents the non-price propensity toward or barrier to a specified technology (end use-fuel combination). It is endogenously calculated during the historical calibration and assigned future values to set the marginal equal to the average. Modifying the value of MMSM0 overwrites the endogenously-calculated value assigned during calibration and can be used to promote specific technologies compared to the reference case.</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 166px;">
-   <p class="rvps15"><span class="rvts155">MSMM</span><span class="rvts252">(Enduse,Tech,EC,Area,Year)</span><span class="rvts155"> &nbsp;</span></p>
+   <p class="rvps15"><span class="rvts171">MSMM</span><span class="rvts270">(Enduse,Tech,EC,Area,Year)</span><span class="rvts171"> &nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 427px;">
-   <p class="rvps2"><span class="rvts155">Multiplier on Marginal Market share Multiplier ($/$).</span><span class="rvts160"> </span><span class="rvts155">This variable is used as an adjustment multiplier on the marginal market share. Setting a value for this variable can promote specific technologies without directly changing the value of the calculated non-price factor, MMSM0. The default value for this multiplier is 1.0.</span></p>
+   <p class="rvps2"><span class="rvts171">Multiplier on Marginal Market share Multiplier ($/$).</span><span class="rvts176"> </span><span class="rvts171">This variable is used as an adjustment multiplier on the marginal market share. Setting a value for this variable can promote specific technologies without directly changing the value of the calculated non-price factor, MMSM0. The default value for this multiplier is 1.0.</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td colspan="2" style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 608px;">
-   <p class="rvps2"><span class="rvts160">Fuel choice (shift relative price of fuels)</span></p>
+   <p class="rvps2"><span class="rvts176">Fuel choice (shift relative price of fuels)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 166px;">
-   <p class="rvps15"><span class="rvts155">DGF</span><span class="rvts252">(Enduse,Tech,EC,Area,Year)</span></p>
+   <p class="rvps15"><span class="rvts171">DGF</span><span class="rvts270">(Enduse,Tech,EC,Area,Year)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 427px;">
-   <p class="rvps2"><span class="rvts155">Domestic Grant Fraction ($/$). The DGF variable is an input to the marginal cost of fuel usage calculation. It is used as a policy variable to assign rebates and price incentives as a means to shifting the market share. Its default value is set to 1.0.</span></p>
+   <p class="rvps2"><span class="rvts171">Domestic Grant Fraction ($/$). The DGF variable is an input to the marginal cost of fuel usage calculation. It is used as a policy variable to assign rebates and price incentives as a means to shifting the market share. Its default value is set to 1.0.</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td colspan="2" style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 608px;">
-   <p class="rvps2"><span class="rvts160">Fuel choice (set an exogenous value fuel market share fraction)</span></p>
+   <p class="rvps2"><span class="rvts176">Fuel choice (set an exogenous value fuel market share fraction)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 166px;">
-   <p class="rvps15"><span class="rvts155">XMMSF</span><span class="rvts252">(Enduse,Tech,EC,Area,Year)</span></p>
+   <p class="rvps15"><span class="rvts171">XMMSF</span><span class="rvts270">(Enduse,Tech,EC,Area,Year)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 427px;">
-   <p class="rvps2"><span class="rvts155">Exogenous Marginal Market Share Fraction by Device ($/$).</span><span class="rvts160"> </span><span class="rvts155">If the expected market share needs to be set to a specified value, such as to match an exogenous forecast, an exogenously-specified marginal market share can be assigned.</span></p>
+   <p class="rvps2"><span class="rvts171">Exogenous Marginal Market Share Fraction by Device ($/$).</span><span class="rvts176"> </span><span class="rvts171">If the expected market share needs to be set to a specified value, such as to match an exogenous forecast, an exogenously-specified marginal market share can be assigned.</span></p>
   </td>
  </tr>
 </table>
