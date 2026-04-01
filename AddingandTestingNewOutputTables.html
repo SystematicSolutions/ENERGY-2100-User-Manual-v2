@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="favicon.ico"/>
 
-  <title>Testing and Adding New Output Tables to Run</title>
+  <title>Adding and Testing New Output Tables</title>
   <meta name="description" content="" /> 
   <meta name="keywords" content="">
 
@@ -22,11 +22,11 @@
 
   <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Testing and Adding New Output Tables to Run">
+  <meta name="twitter:title" content="Adding and Testing New Output Tables">
   <meta name="twitter:description" content="">
 
   <!-- Open Graph data -->
-  <meta property="og:title" content="Testing and Adding New Output Tables to Run" />
+  <meta property="og:title" content="Adding and Testing New Output Tables" />
   <meta property="og:type" content="article" />
   <meta property="og:description" content="" />
   <meta property="og:site_name" content="ENERGY 2100 User Manual" /> 
@@ -1150,9 +1150,9 @@ details.hnd-blue-callout code {
 
     <article>
         <div id="topic-content" class="container-fluid" 
-		  data-hnd-id="TestingandAddingNewOutputTablest"
+		  data-hnd-id="AddingandTestingNewOutputTables"
 		  data-hnd-context="230"
-		  data-hnd-title="Testing and Adding New Output Tables to Run"
+		  data-hnd-title="Adding and Testing New Output Tables"
 		>
             
                 <div class="navigation">
@@ -1167,10 +1167,11 @@ details.hnd-blue-callout code {
 
             <a id="main-content"></a>
 
-            <h2>Testing and Adding New Output Tables to Run</h2>
+            <h2>Adding and Testing New Output Tables</h2>
 
             <div class="main-content">
                 
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Adding New Output Files to Model Runs</span></span></h3>
 <p class="rvps2"><span class="rvts6">To add new output files to model runs, follow the instructions below:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li style="text-indent: 0px" class="rvps21 noindent"><span class="rvts14">Create Julia output file (*.jl) so that the output matches the format of the other files in </span><span class="rvts205">\Output\AccessOutput</span><span class="rvts14"> or </span><span class="rvts205">\Output\ExcelOutput</span><span class="rvts14">.</span></li>
@@ -1191,14 +1192,12 @@ details.hnd-blue-callout code {
   <li style="text-indent: 0px" class="rvps91 noindent"><span class="rvts14">Add the folder and .jl to the list file inside </span><span class="rvts205">\Output\AccessOutput.txt</span></li>
  </ol>
 </ol>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Testing New Output Files</span></span></h3>
+<p class="rvps2"><span class="rvts6">To To test a Julia output script file before including it to model runs:&nbsp;</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li value="4" style="text-indent: 0px" class="rvps21 noindent"><span class="rvts14">To test the Julia output script file before including it to model runs:&nbsp;</span></li>
-</ol>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 72px; list-style-position: outside; list-style-type: lower-alpha;">
- <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li style="text-indent: 0px" class="rvps91 noindent"><span class="rvts14">Copy your new file into the </span><span class="rvts205">\Output\TestOutput</span><span class="rvts14"> folder and add a reference to the new file in </span><span class="rvts205">\Output\TestOutput.txt</span><span class="rvts14">.</span></li>
-  <li style="text-indent: 0px" class="rvps91 noindent"><span class="rvts14">Edit </span><span class="rvts205">\2020Model\CreateAllOutputFiles.bat</span><span class="rvts14"> as follows to run it in Scenario Base:</span></li>
- </ol>
+ <li style="text-indent: 0px" class="rvps21 noindent"><span class="rvts14">Copy your new file into the </span><span class="rvts205">\Output\TestOutput</span><span class="rvts14"> folder and add a reference to the new file in </span><span class="rvts205">\Output\TestOutput.txt</span><span class="rvts14">.</span></li>
+ <li style="text-indent: 0px" class="rvps21 noindent"><span class="rvts14">Edit </span><span class="rvts205">\2020Model\CreateAllOutputFiles.bat</span><span class="rvts14"> as follows to run it in Scenario Base:</span></li>
 </ol>
 <p class="rvps132"><span class="rvts14"><div class="html-code-box indent-3">
 <pre><code>Call CreateOutputFiles Base Base Base Test</code></pre>
