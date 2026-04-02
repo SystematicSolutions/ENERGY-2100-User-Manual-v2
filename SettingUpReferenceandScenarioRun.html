@@ -1181,13 +1181,13 @@ details.hnd-blue-callout code {
 <table width="90%" style="border-width: 0px; background-color: #ffffff; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: rgba(76,162,11,0.5); width: 7px;">
-   <p class="rvps102"><span class="rvts187"><br/></span></p>
+   <p class="rvps99"><span class="rvts184"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: #f1fff1; vertical-align: top; width: 29px;">
-   <p class="rvps103"><span class="rvts135">🛈</span></p>
+   <p class="rvps100"><span class="rvts132">🛈</span></p>
   </td>
   <td style="border-width : 1px; border-color: #008000; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #f1fff1; vertical-align: top; width: 490px;">
-   <p class="rvps103"><span class="rvts6">See </span><a class="rvts11" href="PolicyAnalysis.html">Policy Analysis</a><span class="rvts6"> for instructions on how to develop policy files in ENERGY 2100.&nbsp;</span></p>
+   <p class="rvps100"><span class="rvts6">See </span><a class="rvts11" href="PolicyAnalysis.html">Policy Analysis</a><span class="rvts6"> for instructions on how to develop policy files in ENERGY 2100.&nbsp;</span></p>
   </td>
  </tr>
 </table>
@@ -1198,7 +1198,7 @@ details.hnd-blue-callout code {
 </ol>
 <p class="rvps5"><span class="rvts6">Once the desired set of policy files are created and added to the \Policy folder, a scenario file is created to include and execute a desired set of policy files together as a scenario.&nbsp;</span></p>
 <p class="rvps5"><span class="rvts6"><br/></span></p>
-<p class="rvps5"><span class="rvts6">A name is assigned to each scenario, such as </span><span class="rvts68">Ref25</span><span class="rvts6"> or </span><span class="rvts68">HighPrice</span><span class="rvts6">. Then a scenario file is developed as a Julia script file that 1) includes the desired policy files into the model environment &nbsp;(‘include “PolicyFile1.jl”) then 2) calls the functions created in the policy files ("PolicyFile1.PolicyControl(DB)"). This scenario file is assigned the name of the Scenario, such as </span><span class="rvts68">Ref25.jl</span><span class="rvts6"> or </span><span class="rvts68">HighPrice.jl</span><span class="rvts6"> and housed in the \Policy folder.</span></p>
+<p class="rvps5"><span class="rvts6">A name is assigned to each scenario, such as </span><span class="rvts64">Ref25</span><span class="rvts6"> or </span><span class="rvts64">HighPrice</span><span class="rvts6">. Then a scenario file is developed as a Julia script file that 1) includes the desired policy files into the model environment &nbsp;(‘include “PolicyFile1.jl”) then 2) calls the functions created in the policy files ("PolicyFile1.PolicyControl(DB)"). This scenario file is assigned the name of the Scenario, such as </span><span class="rvts64">Ref25.jl</span><span class="rvts6"> or </span><span class="rvts64">HighPrice.jl</span><span class="rvts6"> and housed in the \Policy folder.</span></p>
 <p class="rvps5"><span class="rvts6"><br/></span></p>
 <p class="rvps5"><span class="rvts6">Scenario files can be created from scratch, or existing files edited to add or remove policies. Some forecast scenarios might include only a couple policy files. Others, such as reference case scenarios, might include over a hundred policies.&nbsp;</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
@@ -1213,92 +1213,92 @@ details.hnd-blue-callout code {
 <p class="rvps2"><span class="rvts18"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: lower-alpha;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li style="text-indent: 0px" class="rvps97 noindent"><span class="rvts6">Let's say you have created two new policy files, </span><span class="rvts68">PolicyFile1.jl</span><span class="rvts6"> and </span><span class="rvts68">PolicyFile2.jl,</span><span class="rvts6"> saved to the \Policy folder, that you would like to run as a new scenario. See </span><a class="rvts11" href="PolicyAnalysis.html">Policy Analysis</a><span class="rvts6"> for instructions on how to create an ENERGY 2100 policy file.</span></li>
+  <li style="text-indent: 0px" class="rvps94 noindent"><span class="rvts6">Let's say you have created two new policy files, </span><span class="rvts64">PolicyFile1.jl</span><span class="rvts6"> and </span><span class="rvts64">PolicyFile2.jl,</span><span class="rvts6"> saved to the \Policy folder, that you would like to run as a new scenario. See </span><a class="rvts11" href="PolicyAnalysis.html">Policy Analysis</a><span class="rvts6"> for instructions on how to create an ENERGY 2100 policy file.</span></li>
  </ol>
 </ol>
 <p class="rvps5"><span class="rvts41"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: lower-alpha;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li value="2" style="text-indent: 0px" class="rvps97 noindent"><span class="rvts6">To test the impact of these two policies in the model, create a Julia scenario file that </span><span class="rvts68">includes</span><span class="rvts6"> these two policy files in the model environment and calls the control functions contained in the Julia policy files. Save the file with the name of the scenario.</span></li>
+  <li value="2" style="text-indent: 0px" class="rvps94 noindent"><span class="rvts6">To test the impact of these two policies in the model, create a Julia scenario file that </span><span class="rvts64">includes</span><span class="rvts6"> these two policy files in the model environment and calls the control functions contained in the Julia policy files. Save the file with the name of the scenario.</span></li>
  </ol>
 </ol>
-<p class="rvps97"><span class="rvts6"><br/></span></p>
-<p class="rvps41"><span class="rvts6">The code snippet below shows the contents of a policy test file named </span><span class="rvts68">PolicyExample.jl</span><span class="rvts6"> that incorporates PolicyFile1.jl and PolicyFile2.jl into the model.&nbsp;</span></p>
-<p class="rvps97"><span class="rvts18"><br/></span></p>
-<p class="rvps101"><span class="rvts18">Sample Scenario File with name, </span><span class="rvts188">ScenarioName</span></p>
-<div class="rvps100">
+<p class="rvps94"><span class="rvts6"><br/></span></p>
+<p class="rvps41"><span class="rvts6">The code snippet below shows the contents of a policy test file named </span><span class="rvts64">PolicyExample.jl</span><span class="rvts6"> that incorporates PolicyFile1.jl and PolicyFile2.jl into the model.&nbsp;</span></p>
+<p class="rvps94"><span class="rvts18"><br/></span></p>
+<p class="rvps98"><span class="rvts18">Sample Scenario File with name, </span><span class="rvts185">ScenarioName</span></p>
+<div class="rvps97">
 <table width="75%" style="border-color: #ffffff #969696 #969696 #ffffff; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #fafafa;">
-   <p class="rvps99"><span class="rvts177">#</span></p>
-   <p class="rvps99"><span class="rvts177"># ScenarioName.jl – Creates a new scenario</span></p>
-   <p class="rvps99"><span class="rvts177">#</span></p>
-   <p class="rvps99"><span class="rvts178"><br/></span></p>
-   <p class="rvps99"><span class="rvts148">module</span><span class="rvts125"> Policy</span></p>
-   <p class="rvps99"><span class="rvts125"><br/></span></p>
-   <p class="rvps99"><span class="rvts179">import</span><span class="rvts125"> </span><span class="rvts180">...</span><span class="rvts125">EnergyModel</span><span class="rvts126">:</span><span class="rvts125"> DB</span></p>
-   <p class="rvps99"><span class="rvts125"><br/></span></p>
-   <p class="rvps99"><span class="rvts127">include</span><span class="rvts125">(</span><span class="rvts128">"PolicyFile1.jl"</span><span class="rvts125">)</span></p>
-   <p class="rvps99"><span class="rvts127">include</span><span class="rvts125">(</span><span class="rvts128">"PolicyFile2.jl"</span><span class="rvts125">)</span></p>
-   <p class="rvps99"><span class="rvts125"><br/></span></p>
-   <p class="rvps99"><span class="rvts148">function</span><span class="rvts125"> </span><span class="rvts127">IncorporatePolicies()</span></p>
-   <p class="rvps99"><span class="rvts125">&nbsp; </span><span class="rvts127">@info</span><span class="rvts125"> </span><span class="rvts128">"IncorporatePolicies - ScenarioName"</span></p>
-   <p class="rvps99"><span class="rvts128"><br/></span></p>
-   <p class="rvps99"><span class="rvts125">PolicyFile1</span><span class="rvts180">.</span><span class="rvts127">PolicyControl</span><span class="rvts125">(DB)</span></p>
-   <p class="rvps99"><span class="rvts125">PolicyFile2</span><span class="rvts180">.</span><span class="rvts127">PolicyControl</span><span class="rvts125">(DB)</span></p>
-   <p class="rvps99"><span class="rvts179">end</span></p>
-   <p class="rvps99"><span class="rvts178"><br/></span></p>
-   <p class="rvps99"><span class="rvts179">end</span></p>
-   <p class="rvps98"><span class="rvts148"><br/></span></p>
+   <p class="rvps96"><span class="rvts174">#</span></p>
+   <p class="rvps96"><span class="rvts174"># ScenarioName.jl – Creates a new scenario</span></p>
+   <p class="rvps96"><span class="rvts174">#</span></p>
+   <p class="rvps96"><span class="rvts175"><br/></span></p>
+   <p class="rvps96"><span class="rvts145">module</span><span class="rvts122"> Policy</span></p>
+   <p class="rvps96"><span class="rvts122"><br/></span></p>
+   <p class="rvps96"><span class="rvts176">import</span><span class="rvts122"> </span><span class="rvts177">...</span><span class="rvts122">EnergyModel</span><span class="rvts123">:</span><span class="rvts122"> DB</span></p>
+   <p class="rvps96"><span class="rvts122"><br/></span></p>
+   <p class="rvps96"><span class="rvts124">include</span><span class="rvts122">(</span><span class="rvts125">"PolicyFile1.jl"</span><span class="rvts122">)</span></p>
+   <p class="rvps96"><span class="rvts124">include</span><span class="rvts122">(</span><span class="rvts125">"PolicyFile2.jl"</span><span class="rvts122">)</span></p>
+   <p class="rvps96"><span class="rvts122"><br/></span></p>
+   <p class="rvps96"><span class="rvts145">function</span><span class="rvts122"> </span><span class="rvts124">IncorporatePolicies()</span></p>
+   <p class="rvps96"><span class="rvts122">&nbsp; </span><span class="rvts124">@info</span><span class="rvts122"> </span><span class="rvts125">"IncorporatePolicies - ScenarioName"</span></p>
+   <p class="rvps96"><span class="rvts125"><br/></span></p>
+   <p class="rvps96"><span class="rvts122">PolicyFile1</span><span class="rvts177">.</span><span class="rvts124">PolicyControl</span><span class="rvts122">(DB)</span></p>
+   <p class="rvps96"><span class="rvts122">PolicyFile2</span><span class="rvts177">.</span><span class="rvts124">PolicyControl</span><span class="rvts122">(DB)</span></p>
+   <p class="rvps96"><span class="rvts176">end</span></p>
+   <p class="rvps96"><span class="rvts175"><br/></span></p>
+   <p class="rvps96"><span class="rvts176">end</span></p>
+   <p class="rvps95"><span class="rvts145"><br/></span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps41"><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
 <p class="rvps41"><span class="rvts6"><br/></span></p>
-<div class="rvps54">
+<div class="rvps52">
 <table width="90%" style="border-width: 0px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; background-color: #be0000; vertical-align: top; width: 5px;">
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; background-color: #ffdada; vertical-align: top; width: 14px;">
-   <p class="rvps22"><span class="rvts181">☑</span></p>
+   <p class="rvps22"><span class="rvts178">☑</span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #ffdada; vertical-align: top; width: 269px;">
-   <p class="rvps105"><span class="rvts182">Important:</span><span class="rvts183"> &nbsp;For the above code to work properly, both </span><span class="rvts184">PolicyFile1.jl</span><span class="rvts183"> and </span><span class="rvts184">PolicyFile2.jl</span><span class="rvts183"> must contain a </span><span class="rvts182">function</span><span class="rvts183"> at the bottom of those files named </span><span class="rvts185">PolicyControl</span><span class="rvts186">.</span><span class="rvts183">&nbsp;</span></p>
+   <p class="rvps102"><span class="rvts179">Important:</span><span class="rvts180"> &nbsp;For the above code to work properly, both </span><span class="rvts181">PolicyFile1.jl</span><span class="rvts180"> and </span><span class="rvts181">PolicyFile2.jl</span><span class="rvts180"> must contain a </span><span class="rvts179">function</span><span class="rvts180"> at the bottom of those files named </span><span class="rvts182">PolicyControl</span><span class="rvts183">.</span><span class="rvts180">&nbsp;</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps104"><span class="rvts41"><br/></span></p>
+<p class="rvps101"><span class="rvts41"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: lower-alpha;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li value="3" style="text-indent: 0px" class="rvps97 noindent"><span class="rvts6">Set up and execute </span><span class="rvts18">RunE2100Runs.bat</span><span class="rvts6"> from \2020Model by making a call to RunE2100 and passing arguments specifying the name of the new file as the scenario name parameter.</span></li>
+  <li value="3" style="text-indent: 0px" class="rvps94 noindent"><span class="rvts6">Set up and execute </span><span class="rvts18">RunE2100Runs.bat</span><span class="rvts6"> from \2020Model by making a call to RunE2100 and passing arguments specifying the name of the new file as the scenario name parameter.</span></li>
  </ol>
 </ol>
-<p class="rvps97"><span class="rvts6"><br/></span></p>
-<p class="rvps106"><span class="rvts6">&nbsp; &nbsp;&nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp;&nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp;%1 &nbsp; &nbsp; %2</span><span class="rvts68"> &nbsp; &nbsp; &nbsp; %3 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;%4 &nbsp; &nbsp; &nbsp; &nbsp;%5 &nbsp; &nbsp; &nbsp; %6 &nbsp; &nbsp; &nbsp; %7 &nbsp; &nbsp; &nbsp; &nbsp;%8 &nbsp; &nbsp; &nbsp; %9</span></p>
+<p class="rvps94"><span class="rvts6"><br/></span></p>
+<p class="rvps103"><span class="rvts6">&nbsp; &nbsp;&nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp;&nbsp;</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6"> &nbsp;%1 &nbsp; &nbsp; %2</span><span class="rvts64"> &nbsp; &nbsp; &nbsp; %3 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;%4 &nbsp; &nbsp; &nbsp; &nbsp;%5 &nbsp; &nbsp; &nbsp; %6 &nbsp; &nbsp; &nbsp; %7 &nbsp; &nbsp; &nbsp; &nbsp;%8 &nbsp; &nbsp; &nbsp; %9</span></p>
 <p class="rvps41"><span class="rvts6">Call &nbsp; </span><span class="rvts18">RunE2100</span><span class="rvts6"> &nbsp; &nbsp;Ref25 &nbsp; Ref25 &nbsp; TestEmpty &nbsp; 2020 &nbsp; &nbsp;2050 &nbsp; &nbsp;Base &nbsp; &nbsp; Base &nbsp; &nbsp; Base &nbsp; &nbsp;All</span></p>
 <p class="rvps5"><span class="rvts6"><br/></span></p>
 <p class="rvps41"><span class="rvts6">where:</span></p>
-<p class="rvps107"><span class="rvts6">Argument 1 (%1) - Scenario Name</span></p>
-<p class="rvps107"><span class="rvts6">Argument 2 (%2) - Reference Policy File</span></p>
-<p class="rvps107"><span class="rvts6">Argument 3 (%3) - Test Policy File</span></p>
-<p class="rvps107"><span class="rvts6">Argument 4 (%4) - Beginning Year</span></p>
-<p class="rvps107"><span class="rvts6">Argument 5 (%5) - Ending Year&nbsp;</span></p>
-<p class="rvps107"><span class="rvts6">Argument 6 (%6) - Reference Case</span></p>
-<p class="rvps107"><span class="rvts6">Argument 7 (%7) - Scenario for zInitial in Access outputs</span></p>
-<p class="rvps107"><span class="rvts6">Argument 8 (%8) - Economic Model Investments Case (see Jeff)</span></p>
-<p class="rvps107"><span class="rvts6">Argument 9 (%9) - Output Files (All, ExcelDTAs, AccessDTAs, or None)&nbsp;</span></p>
-<p class="rvps106"><span class="rvts6"><br/></span></p>
-<p class="rvps106"><span class="rvts6"><br/></span></p>
-<p class="rvps97"><span class="rvts6"><br/></span></p>
-<p class="rvps97"><span class="rvts6"><br/></span></p>
-<p class="rvps97"><span class="rvts6"><br/></span></p>
+<p class="rvps104"><span class="rvts6">Argument 1 (%1) - Scenario Name</span></p>
+<p class="rvps104"><span class="rvts6">Argument 2 (%2) - Reference Policy File</span></p>
+<p class="rvps104"><span class="rvts6">Argument 3 (%3) - Test Policy File</span></p>
+<p class="rvps104"><span class="rvts6">Argument 4 (%4) - Beginning Year</span></p>
+<p class="rvps104"><span class="rvts6">Argument 5 (%5) - Ending Year&nbsp;</span></p>
+<p class="rvps104"><span class="rvts6">Argument 6 (%6) - Reference Case</span></p>
+<p class="rvps104"><span class="rvts6">Argument 7 (%7) - Scenario for zInitial in Access outputs</span></p>
+<p class="rvps104"><span class="rvts6">Argument 8 (%8) - Economic Model Investments Case (see Jeff)</span></p>
+<p class="rvps104"><span class="rvts6">Argument 9 (%9) - Output Files (All, ExcelDTAs, AccessDTAs, or None)&nbsp;</span></p>
+<p class="rvps103"><span class="rvts6"><br/></span></p>
+<p class="rvps103"><span class="rvts6"><br/></span></p>
+<p class="rvps94"><span class="rvts6"><br/></span></p>
+<p class="rvps94"><span class="rvts6"><br/></span></p>
+<p class="rvps94"><span class="rvts6"><br/></span></p>
 <p class="rvps5"><span class="rvts6"><br/></span></p>
 <p class="rvps5"><span class="rvts41"><br/></span></p>
-<p class="rvps5"><span class="rvts179"></span><span class="rvts6"></span></p>
+<p class="rvps5"><span class="rvts176"></span><span class="rvts6"></span></p>
 
             </div>
             
