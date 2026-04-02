@@ -832,6 +832,8 @@ details.hnd-blue-callout > summary:hover {
   background: #ecfdf5;
 }
 
+.copy-code-btn { display: none !important; }
+
 
 /* =========================================================
    12) RESPONSIVE
@@ -890,6 +892,9 @@ code {
 .html-code-box.indent-2 { margin-left: 48px !important; }
 .html-code-box.indent-3 { margin-left: 68px !important; }
 
+.html-code-box {
+  margin-bottom: 16px;  /* adjust to taste (12–20px works well) */
+}
 
 /* =========================================================
    14) EMPTY PARAGRAPH CLEANUP
@@ -1214,7 +1219,7 @@ details.hnd-blue-callout code {
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts54">df = </span><span class="rvts75">ReadDisk</span><span class="rvts54">(DataFrame, DB, "DBPartition/VariableName")</span></p>
+   <p class="rvps36"><span class="rvts54">df = </span><span class="rvts75">ReadDisk</span><span class="rvts54">(DataFrame,DB,"DBPartition/VariableName")</span></p>
   </td>
  </tr>
 </table>
@@ -1230,12 +1235,12 @@ details.hnd-blue-callout code {
    <p class="rvps40"><span class="rvts55">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
-   <p class="rvps53"><span class="rvts86">Example</span></p>
+   <p class="rvps53"><span class="rvts85">Example</span></p>
    <div class="rvps53">
    <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
     <tr style="vertical-align: top;">
      <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 6px 8px; border-top: none; border-right: none; border-bottom: none; border-left: none;">
-      <p class="rvps36"><span class="rvts54">df = </span><span class="rvts61">ReadDisk</span><span class="rvts54">(DataFrame, DB, "RInput/xPkSav")</span></p>
+      <p class="rvps36"><span class="rvts54">df = </span><span class="rvts61">ReadDisk</span><span class="rvts54">(DataFrame,DB,"RInput/xPkSav")</span></p>
      </td>
     </tr>
    </table>
@@ -1253,7 +1258,7 @@ details.hnd-blue-callout code {
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts54">CSV.write("output.csv", df)</span></p>
+   <p class="rvps36"><span class="rvts54">CSV.write("output.csv",df)</span></p>
   </td>
  </tr>
 </table>
@@ -1293,7 +1298,7 @@ details.hnd-blue-callout code {
  </ul>
 </ul>
 <p class="rvps51"><span class="rvts56"><div class="html-code-box indent-3">
-<pre><code>df = ReadDisk(DataFrame, DB, "DBPartition/VariableName", skip_zeros = true)</code></pre>
+<pre><code>df = ReadDisk(DataFrame,DB,"DBPartition/VariableName",skip_zeros = true)</code></pre>
 </div></span></p>
 <div class="rvps52">
 <table width="100%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
@@ -1305,17 +1310,12 @@ details.hnd-blue-callout code {
    <p class="rvps40"><span class="rvts55">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 830px; height: 58px;">
-   <p class="rvps53"><span class="rvts87">Example</span></p>
-   <div class="rvps53">
-   <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
-    <tr style="vertical-align: top;">
-     <td style="padding: 6px 8px;">
-      <p class="rvps36"><span class="rvts68">julia&gt;</span><span class="rvts54"> df = </span><span class="rvts76">ReadDisk</span><span class="rvts54">(DataFrame, DB, "RInput/xPkSav", skip_zeros = </span><span class="rvts84">true</span><span class="rvts54">)</span></p>
-     </td>
-    </tr>
-   </table>
-   </div>
-   <p class="rvps36"><span class="rvts54"><br/></span></p>
+   <p class="rvps53"><span class="rvts86">Example</span></p>
+   <p class="rvps53"><span class="rvts86"><div class="html-code-box">
+<pre><code>df = ReadDisk(DataFrame,DB,"RInput/xPkSav",skip_zeros = true)
+</code></pre>
+</div></span></p>
+   <p class="rvps54"><span class="rvts87"><br/></span></p>
    <p class="rvps36"><span class="rvts54">Julia Output</span></p>
    <p class="rvps53"><img alt="" style="padding : 1px;" src="lib/NewItem%20165.png"></p>
   </td>
@@ -1333,7 +1333,7 @@ details.hnd-blue-callout code {
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 12px 8px;">
-   <p class="rvps36"><span class="rvts54">df = </span><span class="rvts76">ReadDisk</span><span class="rvts54">(DataFrame, DB, "DBPartition/VariableName")</span></p>
+   <p class="rvps36"><span class="rvts54">df = </span><span class="rvts76">ReadDisk</span><span class="rvts54">(DataFrame,DB,"DBPartition/VariableName")</span></p>
   </td>
  </tr>
 </table>
@@ -1600,7 +1600,7 @@ end</code></pre>
  </tr>
 </table>
 </div>
-<p class="rvps31"><span class="rvts48">The example below shows the results of calling the data attributes function for the variable </span><span class="rvts85">xPkSav</span><span class="rvts48"> in the industrial sector (stored on </span><span class="rvts85">IInput)</span><span class="rvts48">:</span></p>
+<p class="rvps31"><span class="rvts48">The example below shows the results of calling the data attributes function for the variable </span><span class="rvts84">xPkSav</span><span class="rvts48"> in the industrial sector (stored on </span><span class="rvts84">IInput)</span><span class="rvts48">:</span></p>
 <div class="rvps32">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">

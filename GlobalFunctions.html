@@ -832,6 +832,8 @@ details.hnd-blue-callout > summary:hover {
   background: #ecfdf5;
 }
 
+.copy-code-btn { display: none !important; }
+
 
 /* =========================================================
    12) RESPONSIVE
@@ -890,6 +892,9 @@ code {
 .html-code-box.indent-2 { margin-left: 48px !important; }
 .html-code-box.indent-3 { margin-left: 68px !important; }
 
+.html-code-box {
+  margin-bottom: 16px;  /* adjust to taste (12–20px works well) */
+}
 
 /* =========================================================
    14) EMPTY PARAGRAPH CLEANUP
@@ -1232,7 +1237,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 150px;">
-   <p class="rvps80"><span class="rvts138">function</span><span class="rvts114"> </span><span class="rvts116">ReadDisk</span><span class="rvts114">(db</span><span class="rvts115">::</span><span class="rvts140">String</span><span class="rvts114">, dbAndVariableName</span><span class="rvts115">::</span><span class="rvts140">String</span><span class="rvts114">, year</span><span class="rvts115">::</span><span class="rvts140">Int</span><span class="rvts114">)</span></p>
+   <p class="rvps80"><span class="rvts137">function</span><span class="rvts114"> </span><span class="rvts116">ReadDisk</span><span class="rvts114">(db</span><span class="rvts115">::</span><span class="rvts139">String</span><span class="rvts114">, dbAndVariableName</span><span class="rvts115">::</span><span class="rvts139">String</span><span class="rvts114">, year</span><span class="rvts115">::</span><span class="rvts139">Int</span><span class="rvts114">)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 619px;">
    <p class="rvps80"><span class="rvts117">Reads a dataset from the HDF5 file specified by `db` and returns a DataFrame.&nbsp;</span></p>
@@ -1241,7 +1246,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 150px;">
-   <p class="rvps79"><span class="rvts138">function</span><span class="rvts114"> </span><span class="rvts116">ReadDisk</span><span class="rvts114">(db</span><span class="rvts115">::</span><span class="rvts140">String</span><span class="rvts114">, dbAndVariableName</span><span class="rvts115">::</span><span class="rvts140">String</span><span class="rvts114">)</span></p>
+   <p class="rvps79"><span class="rvts137">function</span><span class="rvts114"> </span><span class="rvts116">ReadDisk</span><span class="rvts114">(db</span><span class="rvts115">::</span><span class="rvts139">String</span><span class="rvts114">, dbAndVariableName</span><span class="rvts115">::</span><span class="rvts139">String</span><span class="rvts114">)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 619px;">
    <p class="rvps78"><span class="rvts14"><br/></span></p>
@@ -1249,7 +1254,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 150px;">
-   <p class="rvps79"><span class="rvts138">function</span><span class="rvts114"> </span><span class="rvts116">WriteDisk</span><span class="rvts114">(db</span><span class="rvts115">::</span><span class="rvts140">String</span><span class="rvts114">, dbAndVariableName</span><span class="rvts115">::</span><span class="rvts140">String</span><span class="rvts114">, variableToWrite, variableName)</span></p>
+   <p class="rvps79"><span class="rvts137">function</span><span class="rvts114"> </span><span class="rvts116">WriteDisk</span><span class="rvts114">(db</span><span class="rvts115">::</span><span class="rvts139">String</span><span class="rvts114">, dbAndVariableName</span><span class="rvts115">::</span><span class="rvts139">String</span><span class="rvts114">, variableToWrite, variableName)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 619px;">
    <p class="rvps78"><span class="rvts14"><br/></span></p>
@@ -1257,7 +1262,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 150px;">
-   <p class="rvps79"><span class="rvts138">function</span><span class="rvts114"> </span><span class="rvts116">WriteDisk</span><span class="rvts114">(db</span><span class="rvts115">::</span><span class="rvts140">String</span><span class="rvts114">, name</span><span class="rvts115">::</span><span class="rvts140">String</span><span class="rvts114">, year</span><span class="rvts115">::</span><span class="rvts140">Int</span><span class="rvts114">, value)</span></p>
+   <p class="rvps79"><span class="rvts137">function</span><span class="rvts114"> </span><span class="rvts116">WriteDisk</span><span class="rvts114">(db</span><span class="rvts115">::</span><span class="rvts139">String</span><span class="rvts114">, name</span><span class="rvts115">::</span><span class="rvts139">String</span><span class="rvts114">, year</span><span class="rvts115">::</span><span class="rvts139">Int</span><span class="rvts114">, value)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 619px;">
    <p class="rvps78"><span class="rvts14"><br/></span></p>
@@ -1280,7 +1285,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 150px;">
-   <p class="rvps79"><span class="rvts138">function</span><span class="rvts114"> </span><span class="rvts116">Select</span><span class="rvts114">(set</span><span class="rvts115">::</span><span class="rvts140">Vector{T}</span><span class="rvts114">, predicate</span><span class="rvts115">::</span><span class="rvts140">Base.Fix2</span><span class="rvts114">) </span><span class="rvts138">where</span><span class="rvts114"> {T</span><span class="rvts115">&lt;:</span><span class="rvts140">SetElType</span><span class="rvts114">}</span></p>
+   <p class="rvps79"><span class="rvts137">function</span><span class="rvts114"> </span><span class="rvts116">Select</span><span class="rvts114">(set</span><span class="rvts115">::</span><span class="rvts139">Vector{T}</span><span class="rvts114">, predicate</span><span class="rvts115">::</span><span class="rvts139">Base.Fix2</span><span class="rvts114">) </span><span class="rvts137">where</span><span class="rvts114"> {T</span><span class="rvts115">&lt;:</span><span class="rvts139">SetElType</span><span class="rvts114">}</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 619px;">
    <p class="rvps78"><span class="rvts14"><br/></span></p>
@@ -1288,7 +1293,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 150px;">
-   <p class="rvps79"><span class="rvts138">function</span><span class="rvts114"> </span><span class="rvts116">Select</span><span class="rvts114">(set</span><span class="rvts115">::</span><span class="rvts140">Vector{T}</span><span class="rvts114">, key</span><span class="rvts115">::</span><span class="rvts140">NamedTuple{(:from, :to),Tuple{T,T}}</span><span class="rvts114">) </span><span class="rvts138">where</span><span class="rvts114"> {T</span><span class="rvts115">&lt;:</span><span class="rvts140">SetElType</span><span class="rvts114">}</span></p>
+   <p class="rvps79"><span class="rvts137">function</span><span class="rvts114"> </span><span class="rvts116">Select</span><span class="rvts114">(set</span><span class="rvts115">::</span><span class="rvts139">Vector{T}</span><span class="rvts114">, key</span><span class="rvts115">::</span><span class="rvts139">NamedTuple{(:from, :to),Tuple{T,T}}</span><span class="rvts114">) </span><span class="rvts137">where</span><span class="rvts114"> {T</span><span class="rvts115">&lt;:</span><span class="rvts139">SetElType</span><span class="rvts114">}</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 619px;">
    <p class="rvps78"><span class="rvts14"><br/></span></p>
@@ -1311,7 +1316,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 150px;">
-   <p class="rvps79"><span class="rvts139">function</span><span class="rvts100"> </span><span class="rvts102">ReadSetFromCSV</span><span class="rvts141">()</span></p>
+   <p class="rvps79"><span class="rvts138">function</span><span class="rvts100"> </span><span class="rvts102">ReadSetFromCSV</span><span class="rvts140">()</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 619px;">
    <p class="rvps6"><span class="rvts14">Purpose: &nbsp;This function reads and returns the </span><span class="rvts27">set keys</span><span class="rvts14"> or </span><span class="rvts27">set descriptors</span><span class="rvts14"> from a specified .csv file stored in \Database\Sets.&nbsp;</span></p>
@@ -1325,7 +1330,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 150px;">
-   <p class="rvps79"><span class="rvts139">function</span><span class="rvts100"> </span><span class="rvts102">HasValues</span><span class="rvts100">()</span></p>
+   <p class="rvps79"><span class="rvts138">function</span><span class="rvts100"> </span><span class="rvts102">HasValues</span><span class="rvts100">()</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 619px;">
    <p class="rvps6"><span class="rvts14"><br/></span></p>
@@ -1333,7 +1338,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 150px;">
-   <p class="rvps79"><span class="rvts139">function</span><span class="rvts100"> </span><span class="rvts102">Yr</span><span class="rvts100">()</span></p>
+   <p class="rvps79"><span class="rvts138">function</span><span class="rvts100"> </span><span class="rvts102">Yr</span><span class="rvts100">()</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 619px;">
    <p class="rvps6"><span class="rvts14"><br/></span></p>

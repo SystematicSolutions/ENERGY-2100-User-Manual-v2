@@ -832,6 +832,8 @@ details.hnd-blue-callout > summary:hover {
   background: #ecfdf5;
 }
 
+.copy-code-btn { display: none !important; }
+
 
 /* =========================================================
    12) RESPONSIVE
@@ -890,6 +892,9 @@ code {
 .html-code-box.indent-2 { margin-left: 48px !important; }
 .html-code-box.indent-3 { margin-left: 68px !important; }
 
+.html-code-box {
+  margin-bottom: 16px;  /* adjust to taste (12–20px works well) */
+}
 
 /* =========================================================
    14) EMPTY PARAGRAPH CLEANUP
@@ -1265,7 +1270,7 @@ details.hnd-blue-callout code {
    <p class="rvps63"><span class="rvts104">BCName</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
-   <p class="rvps6"><span class="rvts14">The name of the base case is passed as an argument to </span><span class="rvts132">function</span><span class="rvts135"> </span><span class="rvts134">StartScenario</span><span class="rvts133">.</span></p>
+   <p class="rvps6"><span class="rvts14">The name of the base case is passed as an argument to </span><span class="rvts131">function</span><span class="rvts134"> </span><span class="rvts133">StartScenario</span><span class="rvts132">.</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
@@ -1279,15 +1284,15 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps63"><span class="rvts131">InitialName</span></p>
+   <p class="rvps63"><span class="rvts130">InitialName</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
-   <p class="rvps6"><span class="rvts14">The name of the initial case is passed as an argument to </span><span class="rvts132">function</span><span class="rvts135"> </span><span class="rvts134">StartScenario. </span><span class="rvts14">The Initial case database is used in producing the "zInitial" column of the Access-format output files.</span></p>
+   <p class="rvps6"><span class="rvts14">The name of the initial case is passed as an argument to </span><span class="rvts131">function</span><span class="rvts134"> </span><span class="rvts133">StartScenario. </span><span class="rvts14">The Initial case database is used in producing the "zInitial" column of the Access-format output files.</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps63"><span class="rvts131">InitialNameDB</span></p>
+   <p class="rvps63"><span class="rvts130">InitialNameDB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
    <p class="rvps64"><span class="rvts100">InitialFolder </span><span class="rvts103">=</span><span class="rvts100"> </span><span class="rvts102">joinpath</span><span class="rvts100">(ModelPath, </span><span class="rvts101">"2020Model"</span><span class="rvts100">, InitialName)</span></p>
@@ -1296,15 +1301,15 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps63"><span class="rvts131">OGRefName</span></p>
+   <p class="rvps63"><span class="rvts130">OGRefName</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
-   <p class="rvps6"><span class="rvts14">The name of the OGRef case is passed as an argument to </span><span class="rvts132">function</span><span class="rvts135"> </span><span class="rvts134">StartScenario. </span><span class="rvts14">The OGRef case is executed before the reference case and is a scenario in which the oil and gas forecast is exogenous. We run the OGRef case to extract oil and gas industry assumptions about return on investments that carry over to the Reference case.</span></p>
+   <p class="rvps6"><span class="rvts14">The name of the OGRef case is passed as an argument to </span><span class="rvts131">function</span><span class="rvts134"> </span><span class="rvts133">StartScenario. </span><span class="rvts14">The OGRef case is executed before the reference case and is a scenario in which the oil and gas forecast is exogenous. We run the OGRef case to extract oil and gas industry assumptions about return on investments that carry over to the Reference case.</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps63"><span class="rvts131">OGRefNameDB</span></p>
+   <p class="rvps63"><span class="rvts130">OGRefNameDB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
    <p class="rvps64"><span class="rvts100">OGRefFolder </span><span class="rvts103">=</span><span class="rvts100"> </span><span class="rvts102">joinpath</span><span class="rvts100">(ModelPath, </span><span class="rvts101">"2020Model"</span><span class="rvts100">, OGRefName)</span></p>
@@ -1313,7 +1318,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps63"><span class="rvts131">RefName</span></p>
+   <p class="rvps63"><span class="rvts130">RefName</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
    <p class="rvps64"><span class="rvts100">The RefName variable holds the name of the reference case.</span></p>
@@ -1321,7 +1326,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps63"><span class="rvts131">RefNameDB</span></p>
+   <p class="rvps63"><span class="rvts130">RefNameDB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
    <p class="rvps64"><span class="rvts100">RefFolder </span><span class="rvts103">=</span><span class="rvts100"> </span><span class="rvts102">joinpath</span><span class="rvts100">(ModelPath, </span><span class="rvts101">"2020Model"</span><span class="rvts100">, RefName)</span></p>
@@ -1330,15 +1335,15 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps2"><span class="rvts136">Run1Name</span></p>
+   <p class="rvps2"><span class="rvts135">Run1Name</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
-   <p class="rvps6"><span class="rvts14">The </span><span class="rvts137">Run1Name</span><span class="rvts14"> is used in integrated runs with the macroeconomic model. When iterating with the macro model, we hold inflation constant for all iterations, using the value from the first iteration.</span></p>
+   <p class="rvps6"><span class="rvts14">The </span><span class="rvts136">Run1Name</span><span class="rvts14"> is used in integrated runs with the macroeconomic model. When iterating with the macro model, we hold inflation constant for all iterations, using the value from the first iteration.</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps63"><span class="rvts131">Run1NameDB</span></p>
+   <p class="rvps63"><span class="rvts130">Run1NameDB</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
    <p class="rvps64"><span class="rvts100">Run1Folder </span><span class="rvts103">=</span><span class="rvts100"> </span><span class="rvts102">joinpath</span><span class="rvts100">(ModelPath, </span><span class="rvts101">"2020Model"</span><span class="rvts100">, Run1Name)</span></p>
@@ -1347,7 +1352,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps63"><span class="rvts131">SceName</span></p>
+   <p class="rvps63"><span class="rvts130">SceName</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
    <p class="rvps6"><span class="rvts14">The SceName variable holds the name of the current scenario being executed.</span></p>
@@ -1355,7 +1360,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
-   <p class="rvps63"><span class="rvts131">ScenarioDatabase</span></p>
+   <p class="rvps63"><span class="rvts130">ScenarioDatabase</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
    <p class="rvps64"><span class="rvts100">ScenarioFolder </span><span class="rvts103">=</span><span class="rvts100"> </span><span class="rvts102">joinpath</span><span class="rvts100">(ModelPath, </span><span class="rvts101">"2020Model"</span><span class="rvts100">, SceName)</span></p>

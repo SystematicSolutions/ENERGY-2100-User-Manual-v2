@@ -832,6 +832,8 @@ details.hnd-blue-callout > summary:hover {
   background: #ecfdf5;
 }
 
+.copy-code-btn { display: none !important; }
+
 
 /* =========================================================
    12) RESPONSIVE
@@ -890,6 +892,9 @@ code {
 .html-code-box.indent-2 { margin-left: 48px !important; }
 .html-code-box.indent-3 { margin-left: 68px !important; }
 
+.html-code-box {
+  margin-bottom: 16px;  /* adjust to taste (12–20px works well) */
+}
 
 /* =========================================================
    14) EMPTY PARAGRAPH CLEANUP
@@ -1178,7 +1183,7 @@ details.hnd-blue-callout code {
             <div class="main-content">
                 
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Overview of Executing Policies</span></span></h3>
-<p class="rvps15"><span class="rvts6">To execute a new policy file or group of policy files through the model equations, you first need to </span><span class="rvts18">set up a PolicyTest module</span><span class="rvts6">, then you can </span><span class="rvts18">run a batch file </span><span class="rvts6">(</span><span class="rvts37">RunE2100Runs.bat</span><span class="rvts153">)</span><span class="rvts152"> </span><span class="rvts6">that unzips the required databases, assigns names to the policy run, calls the policy modules, executes the model from the starting year to ending year, and saves the results.&nbsp;</span></p>
+<p class="rvps15"><span class="rvts6">To execute a new policy file or group of policy files through the model equations, you first need to </span><span class="rvts18">set up a PolicyTest module</span><span class="rvts6">, then you can </span><span class="rvts18">run a batch file </span><span class="rvts6">(</span><span class="rvts37">RunE2100Runs.bat</span><span class="rvts152">)</span><span class="rvts151"> </span><span class="rvts6">that unzips the required databases, assigns names to the policy run, calls the policy modules, executes the model from the starting year to ending year, and saves the results.&nbsp;</span></p>
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Set Up a PolicyTest Module</span></span></h3>
 <p class="rvps2"><span class="rvts6">Your model version has a template policy test module that you can use as a starting point, located in </span><span class="rvts37">\Policy\PolicyTestTemplate.jl</span><span class="rvts6">. This policy test module includes your new policy files then calls their control functions.&nbsp;</span></p>
 <p class="rvps2"><span class="rvts6">To set up a policy test module, follow the steps below:</span></p>
@@ -1194,36 +1199,36 @@ details.hnd-blue-callout code {
   <td style="padding: 6px 8px;">
    <p class="rvps36"><span class="rvts54">module PolicyTest</span></p>
    <p class="rvps36"><span class="rvts54"><br/></span></p>
-   <p class="rvps36"><span class="rvts144">import</span><span class="rvts54"> ...EnergyModel: DB</span></p>
+   <p class="rvps36"><span class="rvts143">import</span><span class="rvts54"> ...EnergyModel: DB</span></p>
    <p class="rvps36"><span class="rvts54"><br/></span></p>
-   <p class="rvps36"><span class="rvts148">include</span><span class="rvts54">(</span><span class="rvts150">"NewPolicyFile1.jl"</span><span class="rvts54">) &nbsp;# &lt;-- Add your first policy file name here</span></p>
-   <p class="rvps36"><span class="rvts148">include</span><span class="rvts54">(</span><span class="rvts150">"NewPolicyFile2.jl"</span><span class="rvts54">) &nbsp;# &lt;-- Add your second policy file name here</span></p>
+   <p class="rvps36"><span class="rvts147">include</span><span class="rvts54">(</span><span class="rvts149">"NewPolicyFile1.jl"</span><span class="rvts54">) &nbsp;# &lt;-- Add your first policy file name here</span></p>
+   <p class="rvps36"><span class="rvts147">include</span><span class="rvts54">(</span><span class="rvts149">"NewPolicyFile2.jl"</span><span class="rvts54">) &nbsp;# &lt;-- Add your second policy file name here</span></p>
   </td>
  </tr>
 </table>
 </div>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li value="2" style="text-indent: 0px" class="rvps84 noindent"><span class="rvts6">Call the policy's controlling function (</span><span class="rvts37">PolicyControl</span><span class="rvts6">) inside the </span><span class="rvts147">IncorporatePolicyTest()</span><span class="rvts6"> function:</span></li>
+  <li value="2" style="text-indent: 0px" class="rvps84 noindent"><span class="rvts6">Call the policy's controlling function (</span><span class="rvts37">PolicyControl</span><span class="rvts6">) inside the </span><span class="rvts146">IncorporatePolicyTest()</span><span class="rvts6"> function:</span></li>
  </ol>
 </ol>
 <div class="rvps50">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts146">module</span><span class="rvts145"> PolicyTest</span></p>
+   <p class="rvps36"><span class="rvts145">module</span><span class="rvts144"> PolicyTest</span></p>
+   <p class="rvps36"><span class="rvts143"><br/></span></p>
+   <p class="rvps2"><span class="rvts153">import</span><span class="rvts154"> ...EnergyModel: DB</span></p>
    <p class="rvps36"><span class="rvts144"><br/></span></p>
-   <p class="rvps2"><span class="rvts154">import</span><span class="rvts155"> ...EnergyModel: DB</span></p>
-   <p class="rvps36"><span class="rvts145"><br/></span></p>
-   <p class="rvps36"><span class="rvts148">include</span><span class="rvts149">(</span><span class="rvts150">"NewPolicyFile1.jl"</span><span class="rvts149">)</span></p>
-   <p class="rvps36"><span class="rvts148">include</span><span class="rvts149">(</span><span class="rvts150">"NewPolicyFile2.jl"</span><span class="rvts149">)</span></p>
+   <p class="rvps36"><span class="rvts147">include</span><span class="rvts148">(</span><span class="rvts149">"NewPolicyFile1.jl"</span><span class="rvts148">)</span></p>
+   <p class="rvps36"><span class="rvts147">include</span><span class="rvts148">(</span><span class="rvts149">"NewPolicyFile2.jl"</span><span class="rvts148">)</span></p>
    <p class="rvps36"><span class="rvts54">...</span></p>
    <p class="rvps36"><span class="rvts54"><br/></span></p>
-   <p class="rvps36"><span class="rvts151">function</span><span class="rvts149"> </span><span class="rvts148">IncorporatePolicyTest</span><span class="rvts151">()</span></p>
-   <p class="rvps36"><span class="rvts149">&nbsp; </span><span class="rvts148">@info</span><span class="rvts149"> </span><span class="rvts150">"IncorporatePolicyTest - Policy Group Name"</span></p>
+   <p class="rvps36"><span class="rvts150">function</span><span class="rvts148"> </span><span class="rvts147">IncorporatePolicyTest</span><span class="rvts150">()</span></p>
+   <p class="rvps36"><span class="rvts148">&nbsp; </span><span class="rvts147">@info</span><span class="rvts148"> </span><span class="rvts149">"IncorporatePolicyTest - Policy Group Name"</span></p>
    <p class="rvps36"><span class="rvts62"><br/></span></p>
-   <p class="rvps36"><span class="rvts62">&nbsp; NewPolicyModule1.</span><span class="rvts157">PolicyControl</span><span class="rvts156">(</span><span class="rvts62">DB</span><span class="rvts156">) # &lt;-- Add name of 1st policy's module&nbsp;</span></p>
-   <p class="rvps36"><span class="rvts62">&nbsp; NewPolicyModule2.</span><span class="rvts157">PolicyControl</span><span class="rvts156">(</span><span class="rvts62">DB</span><span class="rvts156">) # &lt;-- Add name of 2nd policy's module</span></p>
+   <p class="rvps36"><span class="rvts62">&nbsp; NewPolicyModule1.</span><span class="rvts156">PolicyControl</span><span class="rvts155">(</span><span class="rvts62">DB</span><span class="rvts155">) # &lt;-- Add name of 1st policy's module&nbsp;</span></p>
+   <p class="rvps36"><span class="rvts62">&nbsp; NewPolicyModule2.</span><span class="rvts156">PolicyControl</span><span class="rvts155">(</span><span class="rvts62">DB</span><span class="rvts155">) # &lt;-- Add name of 2nd policy's module</span></p>
    <p class="rvps36"><span class="rvts54">end</span></p>
    <p class="rvps36"><span class="rvts54"><br/></span></p>
    <p class="rvps36"><span class="rvts54">end</span></p>
@@ -1248,7 +1253,7 @@ details.hnd-blue-callout code {
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts146"><br/></span></p>
+   <p class="rvps36"><span class="rvts145"><br/></span></p>
    <p class="rvps36"><span class="rvts54"><br/></span></p>
   </td>
  </tr>

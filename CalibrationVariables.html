@@ -832,6 +832,8 @@ details.hnd-blue-callout > summary:hover {
   background: #ecfdf5;
 }
 
+.copy-code-btn { display: none !important; }
+
 
 /* =========================================================
    12) RESPONSIVE
@@ -890,6 +892,9 @@ code {
 .html-code-box.indent-2 { margin-left: 48px !important; }
 .html-code-box.indent-3 { margin-left: 68px !important; }
 
+.html-code-box {
+  margin-bottom: 16px;  /* adjust to taste (12–20px works well) */
+}
 
 /* =========================================================
    14) EMPTY PARAGRAPH CLEANUP
@@ -1184,90 +1189,90 @@ details.hnd-blue-callout code {
 <table style="border-width: 0px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; background-color: #365f91; vertical-align: middle; width: 81px; height: 42px;">
-   <p class="rvps3"><span class="rvts260">Calibration Variable</span></p>
+   <p class="rvps3"><span class="rvts259">Calibration Variable</span></p>
   </td>
   <td style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; background-color: #365f91; vertical-align: middle; width: 453px; height: 42px;">
-   <p class="rvps3"><span class="rvts260">Calibration Variable&nbsp;</span></p>
-   <p class="rvps3"><span class="rvts260">Description</span></p>
+   <p class="rvps3"><span class="rvts259">Calibration Variable&nbsp;</span></p>
+   <p class="rvps3"><span class="rvts259">Description</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td colspan="2" style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-bottom: none; vertical-align: middle; width: 549px; height: 27px;">
-   <p class="rvps176"><span class="rvts166">Used in marginal fuel market share equations (enduse and self-generation):</span></p>
+   <p class="rvps176"><span class="rvts165">Used in marginal fuel market share equations (enduse and self-generation):</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-bottom: none; vertical-align: middle; width: 81px; height: 21px;">
-   <p class="rvps2"><span class="rvts161">&nbsp;MMSM0</span></p>
+   <p class="rvps2"><span class="rvts160">&nbsp;MMSM0</span></p>
   </td>
   <td style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-top: none; border-bottom: none; border-left: none; vertical-align: middle; width: 453px; height: 21px;">
-   <p class="rvps2"><span class="rvts161">Marginal Market Share Multiplier (Non-Price Factor)</span></p>
+   <p class="rvps2"><span class="rvts160">Marginal Market Share Multiplier (Non-Price Factor)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; vertical-align: middle; width: 81px; height: 21px;">
-   <p class="rvps2"><span class="rvts161">&nbsp;CgMSM0</span></p>
+   <p class="rvps2"><span class="rvts160">&nbsp;CgMSM0</span></p>
   </td>
   <td style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-top: none; border-left: none; vertical-align: middle; width: 453px; height: 21px;">
-   <p class="rvps2"><span class="rvts161">Self-Generation/Cogeneration Marginal Market Share Multiplier (Non-Price Factor)</span></p>
+   <p class="rvps2"><span class="rvts160">Self-Generation/Cogeneration Marginal Market Share Multiplier (Non-Price Factor)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td colspan="2" style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-bottom: none; vertical-align: middle; width: 549px; height: 21px;">
-   <p class="rvps176"><span class="rvts166">Used in energy demand equations (enduse, self-generation, feedstock):</span></p>
+   <p class="rvps176"><span class="rvts165">Used in energy demand equations (enduse, self-generation, feedstock):</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-bottom: none; vertical-align: middle; width: 81px; height: 21px;">
-   <p class="rvps2"><span class="rvts161">&nbsp;CERSM</span></p>
+   <p class="rvps2"><span class="rvts160">&nbsp;CERSM</span></p>
   </td>
   <td style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-top: none; border-bottom: none; border-left: none; vertical-align: middle; width: 453px; height: 21px;">
-   <p class="rvps2"><span class="rvts161">Capital Energy Requirement Multiplier (Lifestyle Multiplier)</span></p>
+   <p class="rvps2"><span class="rvts160">Capital Energy Requirement Multiplier (Lifestyle Multiplier)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-bottom: none; vertical-align: middle; width: 81px; height: 21px;">
-   <p class="rvps2"><span class="rvts161">&nbsp;CUF</span></p>
+   <p class="rvps2"><span class="rvts160">&nbsp;CUF</span></p>
   </td>
   <td style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-top: none; border-bottom: none; border-left: none; vertical-align: middle; width: 453px; height: 21px;">
-   <p class="rvps2"><span class="rvts161">Capacity Utilization Factor</span></p>
+   <p class="rvps2"><span class="rvts160">Capacity Utilization Factor</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-bottom: none; vertical-align: middle; width: 81px; height: 21px;">
-   <p class="rvps2"><span class="rvts161">&nbsp;CgCUF</span></p>
+   <p class="rvps2"><span class="rvts160">&nbsp;CgCUF</span></p>
   </td>
   <td style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-top: none; border-bottom: none; border-left: none; vertical-align: middle; width: 453px; height: 21px;">
-   <p class="rvps2"><span class="rvts161">Self-Generation/Cogeneration Capacity Utilization Factor</span></p>
+   <p class="rvps2"><span class="rvts160">Self-Generation/Cogeneration Capacity Utilization Factor</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; vertical-align: middle; width: 81px; height: 21px;">
-   <p class="rvps2"><span class="rvts161">&nbsp;FsPEE</span></p>
+   <p class="rvps2"><span class="rvts160">&nbsp;FsPEE</span></p>
   </td>
   <td style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-top: none; border-left: none; vertical-align: middle; width: 453px; height: 21px;">
-   <p class="rvps2"><span class="rvts161">Feedstock Process Efficiency</span></p>
+   <p class="rvps2"><span class="rvts160">Feedstock Process Efficiency</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td colspan="2" style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-bottom: none; vertical-align: middle; width: 549px; height: 21px;">
-   <p class="rvps176"><span class="rvts166">Used in energy efficiency equations (device and process):</span></p>
+   <p class="rvps176"><span class="rvts165">Used in energy efficiency equations (device and process):</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-bottom: none; vertical-align: middle; width: 81px; height: 21px;">
-   <p class="rvps2"><span class="rvts161">&nbsp;DEMM</span></p>
+   <p class="rvps2"><span class="rvts160">&nbsp;DEMM</span></p>
   </td>
   <td style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-top: none; border-bottom: none; border-left: none; vertical-align: middle; width: 453px; height: 21px;">
-   <p class="rvps2"><span class="rvts161">Maximum Device Efficiency Multiplier</span></p>
+   <p class="rvps2"><span class="rvts160">Maximum Device Efficiency Multiplier</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; vertical-align: middle; width: 81px; height: 21px;">
-   <p class="rvps2"><span class="rvts161">&nbsp;PEMM</span></p>
+   <p class="rvps2"><span class="rvts160">&nbsp;PEMM</span></p>
   </td>
   <td style="border-width : 1px; border-color: #365f91; border-style: solid; padding: 0px 7px; border-top: none; border-left: none; vertical-align: middle; width: 453px; height: 21px;">
-   <p class="rvps2"><span class="rvts161">Maximum Process Efficiency Multiplier</span></p>
+   <p class="rvps2"><span class="rvts160">Maximum Process Efficiency Multiplier</span></p>
   </td>
  </tr>
 </table>

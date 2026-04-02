@@ -832,6 +832,8 @@ details.hnd-blue-callout > summary:hover {
   background: #ecfdf5;
 }
 
+.copy-code-btn { display: none !important; }
+
 
 /* =========================================================
    12) RESPONSIVE
@@ -890,6 +892,9 @@ code {
 .html-code-box.indent-2 { margin-left: 48px !important; }
 .html-code-box.indent-3 { margin-left: 68px !important; }
 
+.html-code-box {
+  margin-bottom: 16px;  /* adjust to taste (12–20px works well) */
+}
 
 /* =========================================================
    14) EMPTY PARAGRAPH CLEANUP
@@ -1177,7 +1182,7 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<p class="rvps2"><span class="rvts6">A set of global constants have been defined as part of the EnergyModel in the file</span><span class="rvts18"> \Engine\</span><span class="rvts130">E2020_Constants.jl</span><span class="rvts6">. Their definitions are listed in the table below:</span></p>
+<p class="rvps2"><span class="rvts6">A set of global constants have been defined as part of the EnergyModel in the file</span><span class="rvts18"> \Engine\</span><span class="rvts129">E2020_Constants.jl</span><span class="rvts6">. Their definitions are listed in the table below:</span></p>
 <div class="rvps62">
 <table width="80%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
  <tr style="vertical-align: top;">
@@ -1190,31 +1195,31 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps63"><span class="rvts129">Final</span></p>
+   <p class="rvps63"><span class="rvts128">Final</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps78"><span class="rvts14">Represents last year in forecast as an index (</span><span class="rvts128">Final = MaxTime-ITime+1</span><span class="rvts14">)</span></p>
+   <p class="rvps78"><span class="rvts14">Represents last year in forecast as an index (</span><span class="rvts127">Final = MaxTime-ITime+1</span><span class="rvts14">)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps63"><span class="rvts129">First</span></p>
+   <p class="rvps63"><span class="rvts128">First</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps78"><span class="rvts14">Represents first year of model execution as an index (</span><span class="rvts128">First = Zero+1</span><span class="rvts14">)</span></p>
+   <p class="rvps78"><span class="rvts14">Represents first year of model execution as an index (</span><span class="rvts127">First = Zero+1</span><span class="rvts14">)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps63"><span class="rvts129">Future</span></p>
+   <p class="rvps63"><span class="rvts128">Future</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps78"><span class="rvts14">Represents first forecast year as an index (</span><span class="rvts128">Future = Last+1</span><span class="rvts14">)</span></p>
+   <p class="rvps78"><span class="rvts14">Represents first forecast year as an index (</span><span class="rvts127">Future = Last+1</span><span class="rvts14">)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps63"><span class="rvts129">HisTime</span></p>
+   <p class="rvps63"><span class="rvts128">HisTime</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
    <p class="rvps78"><span class="rvts14">Represents last historical year (such as year 2026)</span></p>
@@ -1222,7 +1227,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps63"><span class="rvts129">Infinity</span></p>
+   <p class="rvps63"><span class="rvts128">Infinity</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
    <p class="rvps78"><span class="rvts14">Assigned to hold a very large value (1e37)</span></p>
@@ -1230,7 +1235,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps63"><span class="rvts129">ITime</span></p>
+   <p class="rvps63"><span class="rvts128">ITime</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
    <p class="rvps78"><span class="rvts14">Represents the first historical year of input data (year 1985)</span></p>
@@ -1238,15 +1243,15 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps63"><span class="rvts129">Last</span></p>
+   <p class="rvps63"><span class="rvts128">Last</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps78"><span class="rvts14">Represents last historical year as an index (</span><span class="rvts128">Last = xHisTime-ITime+1</span><span class="rvts14">)</span></p>
+   <p class="rvps78"><span class="rvts14">Represents last historical year as an index (</span><span class="rvts127">Last = xHisTime-ITime+1</span><span class="rvts14">)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps63"><span class="rvts129">MaxTime</span></p>
+   <p class="rvps63"><span class="rvts128">MaxTime</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
    <p class="rvps78"><span class="rvts14">Represents last year in forecast as a string (year 2050)</span></p>
@@ -1257,7 +1262,7 @@ details.hnd-blue-callout code {
    <p class="rvps63"><span class="rvts118">Zero</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps78"><span class="rvts14">Represents first historical year of input data as an index (</span><span class="rvts128">Zero = ITime-ITime+1</span><span class="rvts14">)</span></p>
+   <p class="rvps78"><span class="rvts14">Represents first historical year of input data as an index (</span><span class="rvts127">Zero = ITime-ITime+1</span><span class="rvts14">)</span></p>
   </td>
  </tr>
 </table>

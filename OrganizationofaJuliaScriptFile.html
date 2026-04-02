@@ -832,6 +832,8 @@ details.hnd-blue-callout > summary:hover {
   background: #ecfdf5;
 }
 
+.copy-code-btn { display: none !important; }
+
 
 /* =========================================================
    12) RESPONSIVE
@@ -890,6 +892,9 @@ code {
 .html-code-box.indent-2 { margin-left: 48px !important; }
 .html-code-box.indent-3 { margin-left: 68px !important; }
 
+.html-code-box {
+  margin-bottom: 16px;  /* adjust to taste (12–20px works well) */
+}
 
 /* =========================================================
    14) EMPTY PARAGRAPH CLEANUP
@@ -1187,7 +1192,7 @@ details.hnd-blue-callout code {
  <li class="rvps2 noindent"><span class="rvts6">Define the policy file as a new </span><span class="rvts18">module</span><span class="rvts6">. Assign the module a name.</span></li>
  <li class="rvps2 noindent"><span class="rvts6">Import </span><span class="rvts18">global functions and constants</span><span class="rvts6"> defined in the EnergyModel to have access in the policy module.</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span></li>
  <li class="rvps2 noindent"><span class="rvts6">Define new </span><span class="rvts18">data types</span><span class="rvts6">, VariableArray and SetArray. These data types will be used structure </span><span class="rvts18">variables</span><span class="rvts6"> as arrays of float64 numbers, and the </span><span class="rvts18">sets</span><span class="rvts6"> to be vectors of strings.&nbsp;</span></li>
- <li class="rvps2 noindent"><span class="rvts6">Create and initialize objects (variable arrays and sets) to be used in the policy file as a Julia </span><a class="rvts197" href="https://docs.julialang.org/en/v1/base/base/#struct" target="_blank">struct</a><a class="rvts40" href="https://docs.julialang.org/en/v1/base/base/#struct" target="_blank">. Assign a name to the struct ("RControl" in the figure below). </a><a class="rvts203" href="https://docs.julialang.org/en/v1/base/base/#struct" target="_blank">The struct is defined using </a><span class="rvts57">Julia's&nbsp;</span><span class="rvts202">@kwdef</span><span class="rvts201">&nbsp;macro (short for</span><span class="rvts200">&nbsp;</span><span class="rvts199">"keyword default")</span><span class="rvts198"> </span><span class="rvts57">which is a helper utility for creating Julia structures allowing for user-defined VariableArrays and SetArrays to hold data.</span></li>
+ <li class="rvps2 noindent"><span class="rvts6">Create and initialize objects (variable arrays and sets) to be used in the policy file as a Julia </span><a class="rvts196" href="https://docs.julialang.org/en/v1/base/base/#struct" target="_blank">struct</a><a class="rvts40" href="https://docs.julialang.org/en/v1/base/base/#struct" target="_blank">. Assign a name to the struct ("RControl" in the figure below). </a><a class="rvts202" href="https://docs.julialang.org/en/v1/base/base/#struct" target="_blank">The struct is defined using </a><span class="rvts57">Julia's&nbsp;</span><span class="rvts201">@kwdef</span><span class="rvts200">&nbsp;macro (short for</span><span class="rvts199">&nbsp;</span><span class="rvts198">"keyword default")</span><span class="rvts197"> </span><span class="rvts57">which is a helper utility for creating Julia structures allowing for user-defined VariableArrays and SetArrays to hold data.</span></li>
  <li class="rvps2 noindent"><span class="rvts6">Write code in Julia </span><span class="rvts18">function(s)</span><span class="rvts6"> to modify policy variables.</span></li>
  <li class="rvps2 noindent"><span class="rvts6">Call to the functions written in #6 to </span><span class="rvts18">execute the policy equations</span><span class="rvts6">.</span></li>
 </ol>

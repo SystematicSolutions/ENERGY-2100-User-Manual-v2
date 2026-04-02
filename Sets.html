@@ -832,6 +832,8 @@ details.hnd-blue-callout > summary:hover {
   background: #ecfdf5;
 }
 
+.copy-code-btn { display: none !important; }
+
 
 /* =========================================================
    12) RESPONSIVE
@@ -890,6 +892,9 @@ code {
 .html-code-box.indent-2 { margin-left: 48px !important; }
 .html-code-box.indent-3 { margin-left: 68px !important; }
 
+.html-code-box {
+  margin-bottom: 16px;  /* adjust to taste (12–20px works well) */
+}
 
 /* =========================================================
    14) EMPTY PARAGRAPH CLEANUP
@@ -1179,15 +1184,15 @@ details.hnd-blue-callout code {
                 
 <h2 class="rvps12"><span class="rvts0"><span class="rvts23">Sets Defined</span></span></h2>
 <p class="rvps2"><span class="rvts6">All variable arrays are indexed by </span><span class="rvts18">sets. </span><span class="rvts6">Sets are ordered collections of </span><span class="rvts35">distinct objects, or elements, considered as a single entity. </span><span class="rvts6">Examples include the set of areas, fuels, enduses, technologies, economic categories, and years represented in the model.&nbsp;</span></p>
-<p class="rvps2"><span class="rvts6">Model sets are defined in </span><span class="rvts18">.csv</span><span class="rvts6"> files in the </span><span class="rvts57">\Database\Sets</span><span class="rvts6"> folder (example: </span><a class="rvts127" href="Area.html">Area.csv</a><span class="rvts6">).</span></p>
+<p class="rvps2"><span class="rvts6">Model sets are defined in </span><span class="rvts18">.csv</span><span class="rvts6"> files in the </span><span class="rvts57">\Database\Sets</span><span class="rvts6"> folder (example: </span><a class="rvts126" href="Area.html">Area.csv</a><span class="rvts6">).</span></p>
 <div class="rvps2">
 <table width="90%" style="border-width: 0px; background-color: #ffffff; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: #0080c0; width: 7px;">
-   <p class="rvps76"><span class="rvts123"><br/></span></p>
+   <p class="rvps76"><span class="rvts122"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: #ebf5ff; vertical-align: top; width: 27px;">
-   <p class="rvps28"><span class="rvts124">🛈</span></p>
+   <p class="rvps28"><span class="rvts123">🛈</span></p>
   </td>
   <td style="border-width : 1px; border-color: #008000; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #ebf5ff; vertical-align: top; width: 464px;">
    <p class="rvps2"><span class="rvts18">Note:</span><span class="rvts6"> For a complete listing of sets along with their associated descriptors and keys, see </span><a class="rvts11" href="ModelSets.html">Sets Used to Define Energy Model Variables</a><span class="rvts6"> in the Appendix.</span></p>
@@ -1202,72 +1207,72 @@ details.hnd-blue-callout code {
 <table width="463" style="border-width: 0px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-left: none; vertical-align: bottom; width: 103px; height: 21px;">
-   <p class="rvps9"><span class="rvts125">Set Name</span></p>
+   <p class="rvps9"><span class="rvts124">Set Name</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-left: none; vertical-align: bottom; width: 91px; height: 21px;">
-   <p class="rvps9"><span class="rvts125">Key</span></p>
+   <p class="rvps9"><span class="rvts124">Key</span></p>
   </td>
   <td colspan="2" style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-left: none; vertical-align: bottom; width: 211px; height: 21px;">
-   <p class="rvps9"><span class="rvts125">Descriptor</span></p>
+   <p class="rvps9"><span class="rvts124">Descriptor</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td rowspan="6" style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-left: none; vertical-align: middle; width: 103px; height: 126px;">
-   <p class="rvps9"><span class="rvts126">Enduse</span></p>
+   <p class="rvps9"><span class="rvts125">Enduse</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: bottom; width: 91px; height: 21px;">
-   <p class="rvps9"><span class="rvts126">Heat&nbsp;</span></p>
+   <p class="rvps9"><span class="rvts125">Heat&nbsp;</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: bottom; width: 173px; height: 21px;">
-   <p class="rvps9"><span class="rvts126">Space Heating</span></p>
+   <p class="rvps9"><span class="rvts125">Space Heating</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: bottom; width: 25px; height: 21px;">
-   <p class="rvps9"><span class="rvts126"><br/></span></p>
+   <p class="rvps9"><span class="rvts125"><br/></span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: bottom; width: 91px; height: 21px;">
-   <p class="rvps9"><span class="rvts126">HW</span></p>
+   <p class="rvps9"><span class="rvts125">HW</span></p>
   </td>
   <td colspan="2" style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: bottom; width: 211px; height: 21px;">
-   <p class="rvps9"><span class="rvts126">Water Heating</span></p>
+   <p class="rvps9"><span class="rvts125">Water Heating</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: bottom; width: 91px; height: 21px;">
-   <p class="rvps9"><span class="rvts126">OthSub</span></p>
-   <p class="rvps9"><span class="rvts126">Refrig</span></p>
+   <p class="rvps9"><span class="rvts125">OthSub</span></p>
+   <p class="rvps9"><span class="rvts125">Refrig</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: bottom; width: 173px; height: 21px;">
-   <p class="rvps9"><span class="rvts126">Other Substitutables</span></p>
-   <p class="rvps9"><span class="rvts126">Refrigeration</span></p>
+   <p class="rvps9"><span class="rvts125">Other Substitutables</span></p>
+   <p class="rvps9"><span class="rvts125">Refrigeration</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: bottom; width: 25px; height: 21px;">
-   <p class="rvps9"><span class="rvts126"><br/></span></p>
+   <p class="rvps9"><span class="rvts125"><br/></span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: bottom; width: 91px; height: 21px;">
-   <p class="rvps9"><span class="rvts126">Light</span></p>
+   <p class="rvps9"><span class="rvts125">Light</span></p>
   </td>
   <td colspan="2" style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: bottom; width: 211px; height: 21px;">
-   <p class="rvps9"><span class="rvts126">Lighting</span></p>
+   <p class="rvps9"><span class="rvts125">Lighting</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: bottom; width: 91px; height: 21px;">
-   <p class="rvps9"><span class="rvts126">AC</span></p>
+   <p class="rvps9"><span class="rvts125">AC</span></p>
   </td>
   <td colspan="2" style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: bottom; width: 211px; height: 21px;">
-   <p class="rvps9"><span class="rvts126">Air Conditioning</span></p>
+   <p class="rvps9"><span class="rvts125">Air Conditioning</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-left: none; vertical-align: bottom; width: 91px; height: 21px;">
-   <p class="rvps9"><span class="rvts126">OthNSub</span></p>
+   <p class="rvps9"><span class="rvts125">OthNSub</span></p>
   </td>
   <td colspan="2" style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; border-top: none; border-right: none; border-left: none; vertical-align: bottom; width: 211px; height: 21px;">
-   <p class="rvps9"><span class="rvts126">Other Non-Substitutables&nbsp;</span></p>
+   <p class="rvps9"><span class="rvts125">Other Non-Substitutables&nbsp;</span></p>
   </td>
  </tr>
 </table>
