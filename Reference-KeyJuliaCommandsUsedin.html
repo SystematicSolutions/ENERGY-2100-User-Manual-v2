@@ -125,6 +125,12 @@ p {
   margin-bottom: 0.82em;
 }
 
+#topic_content h1,
+#topic_content h2,
+#topic_content h3,
+#topic_content h4 {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif !important;
+}
 
 /* =========================================================
    LIST SYSTEM (CLEAN + CONSISTENT NUMBERING)
@@ -1180,9 +1186,9 @@ details.hnd-blue-callout code {
  <li class="rvps2 noindent"><span class="rvts18">Shell Mode</span><span class="rvts6">:&nbsp;Type</span><span class="rvts37">&nbsp;;</span><span class="rvts6">&nbsp;to run system shell commands </span><span class="rvts30">(e.g.,&nbsp;</span><span class="rvts37">ls</span><span class="rvts30">&nbsp;or&nbsp;</span><span class="rvts37">dir</span><span class="rvts30">)</span><span class="rvts6"> directly within the Julia REPL.</span></li>
 </ul>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps40 noindent"><span class="rvts18">To use module functions:</span><span class="rvts6"> first </span><span class="rvts37">import Module</span><span class="rvts6">&nbsp;to import the module, then&nbsp;</span><span class="rvts37">Module.fn(x)</span><span class="rvts6">&nbsp;to use the functions.</span></li>
- <li class="rvps40 noindent"><span class="rvts120">To include Sub-Modules and Code:</span><span class="rvts107">&nbsp;</span><span class="rvts37">include("EnergyModel.jl")&nbsp;</span><span class="rvts107">or </span><span class="rvts37">include("MyModule.jl)</span><span class="rvts107"> is always used at the top of each file to include ENERGY 2100's custom sub-modules or code.&nbsp;</span></li>
- <li class="rvps40 noindent"><span class="rvts120">To load Packages:</span><span class="rvts107">&nbsp;</span><span class="rvts37">using Module</span><span class="rvts6">&nbsp;loads the package to use its functionalities directly. To import all exported Module functions into the current namespace, </span><span class="rvts37">using Module</span><span class="rvts6">. For example, </span><span class="rvts37">using DataFrames</span><span class="rvts6"> or </span><span class="rvts37">using CSV</span><span class="rvts6">.</span></li>
+ <li class="rvps39 noindent"><span class="rvts18">To use module functions:</span><span class="rvts6"> first </span><span class="rvts37">import Module</span><span class="rvts6">&nbsp;to import the module, then&nbsp;</span><span class="rvts37">Module.fn(x)</span><span class="rvts6">&nbsp;to use the functions.</span></li>
+ <li class="rvps39 noindent"><span class="rvts112">To include Sub-Modules and Code:</span><span class="rvts99">&nbsp;</span><span class="rvts37">include("EnergyModel.jl")&nbsp;</span><span class="rvts99">or </span><span class="rvts37">include("MyModule.jl)</span><span class="rvts99"> is always used at the top of each file to include ENERGY 2100's custom sub-modules or code.&nbsp;</span></li>
+ <li class="rvps39 noindent"><span class="rvts112">To load Packages:</span><span class="rvts99">&nbsp;</span><span class="rvts37">using Module</span><span class="rvts6">&nbsp;loads the package to use its functionalities directly. To import all exported Module functions into the current namespace, </span><span class="rvts37">using Module</span><span class="rvts6">. For example, </span><span class="rvts37">using DataFrames</span><span class="rvts6"> or </span><span class="rvts37">using CSV</span><span class="rvts6">.</span></li>
 </ul>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts18">1. Open your ENERGY 2100 folder in VS Code</span></p>
@@ -1196,25 +1202,25 @@ details.hnd-blue-callout code {
  <li class="rvps5 noindent"><span class="rvts6">Select </span><span class="rvts37">Julia: Activate This Environment</span></li>
 </ul>
 <p class="rvps5"><span class="rvts13">By activating the Julia environment, Julia finds the Project.toml and Manifest.toml that defines the scope and packages of the current project.</span><span class="rvts6"> It tells Julia to look for packages in the local folder, not the default global environment.</span></p>
-<p class="rvps5"><span class="rvts6">Activating </span><span class="rvts13">a&nbsp;</span><span class="rvts22">Julia environment</span><span class="rvts6"> VS Code means&nbsp;setting a specific project folder as the active project for the Julia REPL and language server. This ensures that&nbsp;</span><span class="rvts37">using</span><span class="rvts6">&nbsp;or</span><span class="rvts107">&nbsp;</span><span class="rvts37">import</span><span class="rvts6">&nbsp;commands load the exact versions of packages specified in that project's&nbsp;</span><span class="rvts37">Project.toml</span><span class="rvts6">&nbsp;and</span><span class="rvts107">&nbsp;</span><span class="rvts37">Manifest.toml</span><span class="rvts6">&nbsp;files, ensuring reproducibility and avoiding conflicts.&nbsp;</span></p>
+<p class="rvps5"><span class="rvts6">Activating </span><span class="rvts13">a&nbsp;</span><span class="rvts22">Julia environment</span><span class="rvts6"> VS Code means&nbsp;setting a specific project folder as the active project for the Julia REPL and language server. This ensures that&nbsp;</span><span class="rvts37">using</span><span class="rvts6">&nbsp;or</span><span class="rvts99">&nbsp;</span><span class="rvts37">import</span><span class="rvts6">&nbsp;commands load the exact versions of packages specified in that project's&nbsp;</span><span class="rvts37">Project.toml</span><span class="rvts6">&nbsp;and</span><span class="rvts99">&nbsp;</span><span class="rvts37">Manifest.toml</span><span class="rvts6">&nbsp;files, ensuring reproducibility and avoiding conflicts.&nbsp;</span></p>
 <p class="rvps5"><span class="rvts13">The Julia REPL will automatically open in the terminal, and you should see a &nbsp;</span><span class="rvts37">julia&gt;</span><span class="rvts13"> prompt. See figure below.</span></p>
-<p class="rvps5"><span class="rvts13">Note, if you ever need to re-open the Julia REPL in an activated environment, you can open the command palette again t</span><span class="rvts107">ype&nbsp;</span><span class="rvts37">Julia: Start REPL</span><span class="rvts107">&nbsp;to open it.</span></p>
-<p class="rvps5"><span class="rvts6">Note: Alternative ways to activate a Julia environment: &nbsp;Click on the&nbsp;"Julia env" button&nbsp;on the bottom-left status bar in VS Code, or use</span><span class="rvts107">&nbsp;</span><span class="rvts37">] activate</span><span class="rvts117"> .</span><span class="rvts6">&nbsp;in the Julia REPL to activate the current directory. When you open a folder with a&nbsp;</span><span class="rvts37">Project.toml</span><span class="rvts6">&nbsp;file in VS Code, the extension often automatically activates it.</span></p>
+<p class="rvps5"><span class="rvts13">Note, if you ever need to re-open the Julia REPL in an activated environment, you can open the command palette again t</span><span class="rvts99">ype&nbsp;</span><span class="rvts37">Julia: Start REPL</span><span class="rvts99">&nbsp;to open it.</span></p>
+<p class="rvps5"><span class="rvts6">Note: Alternative ways to activate a Julia environment: &nbsp;Click on the&nbsp;"Julia env" button&nbsp;on the bottom-left status bar in VS Code, or use</span><span class="rvts99">&nbsp;</span><span class="rvts37">] activate</span><span class="rvts109"> .</span><span class="rvts6">&nbsp;in the Julia REPL to activate the current directory. When you open a folder with a&nbsp;</span><span class="rvts37">Project.toml</span><span class="rvts6">&nbsp;file in VS Code, the extension often automatically activates it.</span></p>
 <p class="rvps5"><img alt="" style="width : 624px; height : 392px; padding : 1px;" src="lib/NewItem%20156.png"></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts6">3. Import the&nbsp;</span><span class="rvts37">EnergyModel&nbsp;</span><span class="rvts6">Julia package:</span></p>
-<p class="rvps61"><span class="rvts107"><br/></span></p>
+<p class="rvps61"><span class="rvts99"><br/></span></p>
 <div class="rvps61">
 <table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps37"><span class="rvts69">julia&gt; import EnergyModel as M</span></p>
+   <p class="rvps36"><span class="rvts54">julia&gt; import EnergyModel as M</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps61"><span class="rvts107"><br/></span></p>
-<p class="rvps61"><span class="rvts107"><br/></span></p>
+<p class="rvps61"><span class="rvts99"><br/></span></p>
+<p class="rvps61"><span class="rvts99"><br/></span></p>
 <p class="rvps2"><span class="rvts6">4. Now all the data, variables, and functions defined in </span><span class="rvts37">EnergyModel</span><span class="rvts6"> are available to use.</span></p>
 <p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
 
