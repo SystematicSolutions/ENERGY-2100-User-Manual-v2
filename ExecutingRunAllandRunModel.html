@@ -1171,7 +1171,7 @@ details.hnd-blue-callout code {
                         <li><a href="ExecutingtheModel.html">Executing the Model</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="ExecutingtheModel.html" title="Executing the Model" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="ExecutingtheModel.html" title="Executing the Model" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="ExecutingtheModelfromDifferentSt.html" title="Executing the Model from Different Starting Points" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="ExecutingtheModel.html" title="Executing the Model" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="ExecutingtheModel.html" title="Executing the Model" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="RunningtheModelfromDifferentStar.html" title="Running the Model from Different Starting Points" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
@@ -1221,17 +1221,7 @@ details.hnd-blue-callout code {
 </ol>
 <p class="rvps2"><span class="rvts41"><br/></span></p>
 <p class="rvps2"><span class="rvts6">RunModel should be executed to incorporate any modifications to files that are used in the steps above. By convention, these files are generally located in the /Calibration or /Input/Scripts subfolders.</span></p>
-<h2 class="rvps12"><span class="rvts0"><span class="rvts23">Modifying RunModel</span></span></h2>
-<p class="rvps2"><span class="rvts6">Depending on modeling computer speed, RunModel can take a significant amount of time to re-calibrate the model and produce a new forecast. Often, a file will be adjusted, added, or deleted near the bottom of RunModel.bat. To save execution time in these scenarios, RunModel creates ‘stopping points’, or zipped up databases than can be used to re-run the model calibration at specific points instead of needing to re-execute the entire sequence.</span></p>
-<p class="rvps2"><span class="rvts6">These stopping points can be found in the file as commented out ‘Call UnZip DB’ statements that point to the saved name of the database, located in a subfolder in /2020Model. Use the following steps to shorten RunModel to incorporate a change:</span></p>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Identify where in the file the change is being made, or where the modified file is being called.&nbsp;</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">From this location, move upwards until there is an UnZip statement.</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Verify that the subfolder with the name used in the UnZip statement contains a zipped database file matching the version you want to use. Remember that RunAll_Debug creates more stopping points, so make sure that the zip file was created. If it is not created, or has an older date, then search upwards for another UnZip statement</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Once the UnZip line is chosen, remove the comment (‘rem’) from in front of the line. Then delete all lines above until the UnZip statement is on the first line of the file.</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Save the edited batch file to 2020Model using a different name than ‘RunModel.bat’. This file can be considered temporary and deleted after use.</span></li>
-</ol>
-<p class="rvps2"><span class="rvts41"></span><span class="rvts6"></span></p>
+<h2 class="rvps12"><span class="rvts0"><span class="rvts143"></span></span><span class="rvts0"><span class="rvts23"></span></span></h2>
 
             </div>
             
