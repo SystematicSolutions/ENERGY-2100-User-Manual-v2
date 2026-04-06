@@ -1,0 +1,107 @@
+/* HelpNDoc Right-Hand "On this page" sidebar
+   Drop-in CSS for HTML output */
+
+:root {
+  --hnd-rnav-width: 260px;
+  --hnd-rnav-top: 96px;
+  --hnd-rnav-right: 24px;
+  --hnd-rnav-max-height: calc(100vh - 120px);
+  --hnd-rnav-bg: #f8f9fb;
+  --hnd-rnav-border: #d9dee7;
+  --hnd-rnav-text: #334155;
+  --hnd-rnav-muted: #64748b;
+  --hnd-rnav-link: #2b5fad;
+  --hnd-rnav-link-hover: #1d4e89;
+  --hnd-rnav-active-bg: #e9eef8;
+}
+
+#hnd-right-nav {
+  position: fixed;
+  top: var(--hnd-rnav-top);
+  right: var(--hnd-rnav-right);
+  width: var(--hnd-rnav-width);
+  max-height: var(--hnd-rnav-max-height);
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 14px 14px 12px;
+  border: 1px solid var(--hnd-rnav-border);
+  border-radius: 10px;
+  background: var(--hnd-rnav-bg);
+  color: var(--hnd-rnav-text);
+  font-size: 13px;
+  line-height: 1.4;
+  z-index: 999;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+}
+
+#hnd-right-nav.is-hidden {
+  display: none;
+}
+
+#hnd-right-nav .hnd-rnav-title {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--hnd-rnav-muted);
+}
+
+#hnd-right-nav .hnd-rnav-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#hnd-right-nav .hnd-rnav-item {
+  margin: 0 0 4px;
+  padding: 0;
+}
+
+#hnd-right-nav .hnd-rnav-link {
+  display: block;
+  padding: 6px 8px;
+  border-radius: 6px;
+  color: var(--hnd-rnav-link);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+#hnd-right-nav .hnd-rnav-link:hover,
+#hnd-right-nav .hnd-rnav-link:focus {
+  color: var(--hnd-rnav-link-hover);
+  background: rgba(43, 95, 173, 0.06);
+  text-decoration: none;
+}
+
+#hnd-right-nav .hnd-rnav-link.is-active {
+  background: var(--hnd-rnav-active-bg);
+  font-weight: 600;
+}
+
+#hnd-right-nav .level-3 .hnd-rnav-link { padding-left: 18px; }
+#hnd-right-nav .level-4 .hnd-rnav-link { padding-left: 28px; }
+
+body.hnd-has-right-nav {
+  padding-right: calc(var(--hnd-rnav-width) + var(--hnd-rnav-right) + 24px);
+}
+
+@media (max-width: 1280px) {
+  #hnd-right-nav {
+    width: 220px;
+  }
+
+  body.hnd-has-right-nav {
+    padding-right: calc(220px + var(--hnd-rnav-right) + 18px);
+  }
+}
+
+@media (max-width: 980px) {
+  #hnd-right-nav {
+    display: none !important;
+  }
+
+  body.hnd-has-right-nav {
+    padding-right: 0;
+  }
+}
