@@ -1162,7 +1162,7 @@ details.hnd-blue-callout code {
     <article>
         <div id="topic-content" class="container-fluid" 
 		  data-hnd-id="GlobalFunctions"
-		  data-hnd-context="77"
+		  data-hnd-context="208"
 		  data-hnd-title="Global Functions"
 		>
             
@@ -1171,7 +1171,7 @@ details.hnd-blue-callout code {
                         <li><a href="ModelArchitecture.html">Model Architecture</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="ModelArchitecture.html" title="Model Architecture" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="GlobalStrings.html" title="Global Strings" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="GlobalMacros.html" title="Global Macros" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="ModelArchitecture.html" title="Model Architecture" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="GlobalTimeConstants.html" title="Global Time Constants" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="GlobalPathnames.html" title="Global Pathnames" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
@@ -1182,172 +1182,255 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<p class="rvps2"><span class="rvts6">The following global functions are defined in </span><span class="rvts18">Core\CoreE2020.jl.</span></p>
-<div class="rvps79">
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Overview</span></span></h3>
+<p class="rvps2"><span class="rvts6">The database, functions and modules defined in ENERGY 2100's Julia project, </span><span class="rvts37">EnergyModel</span><span class="rvts6"> are available to use in Julia script files or the Julia REPL.</span></p>
+<p class="rvps2"><span class="rvts6">To use the structures, you need to import what you want to use. You can see many of these structures imported at the top of each Julia file &nbsp;For example:</span></p>
+<div class="rvps69">
+<table width="95%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #eeeeee; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps34"><span class="rvts54">import ...EnergyModel: ReadDisk,WriteDisk,Select</span></p>
+   <p class="rvps34"><span class="rvts54">import ...EnergyModel: HisTime,ITime,MaxTime,First,Future,Final,Yr</span></p>
+   <p class="rvps34"><span class="rvts54">import ...EnergyModel: @finite_math</span></p>
+   <p class="rvps34"><span class="rvts54">import ...EnergyModel: DB</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps71"><span class="rvts125"><br/></span></p>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Model Database Path</span></span></h3>
+<div class="rvps72">
 <table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
  <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 221px;">
-   <p class="rvps6"><span class="rvts27">Global Function</span></p>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 97px;">
+   <p class="rvps6"><span class="rvts27">Command</span></p>
   </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 542px;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 681px;">
    <p class="rvps6"><span class="rvts27">Description</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 221px;">
-   <p class="rvps2"><span class="rvts18">CreateDTAs()</span></p>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 97px;">
+   <p class="rvps70"><span class="rvts124">DB</span></p>
   </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 542px;">
-   <p class="rvps2"><span class="rvts18">Arguments</span><span class="rvts6">:</span><span class="rvts18"> </span><span class="rvts34">SceName,BCName,OutputType,EnergyModel</span></p>
-   <p class="rvps2"><span class="rvts18">Purpose</span><span class="rvts6">: Generates automated output .dta files by making the following call: </span><span class="rvts100">EnergyModel</span><span class="rvts103">.</span><span class="rvts102">GenerateOutputs</span><span class="rvts100">(DatabaseName,SceName,OutputType)</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 221px;">
-   <p class="rvps2"><span class="rvts18">StartScenario()</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 542px;">
-   <p class="rvps2"><span class="rvts18">Arguments</span><span class="rvts6">: </span><span class="rvts34">StartName, SceName, BCName, RefName, OGRefName, InitialName, Run1Name</span></p>
-   <p class="rvps2"><span class="rvts18">Purpose</span><span class="rvts6">: &nbsp;Saves global scenario name variables (</span><span class="rvts34">SceName, BCName, RefName, OGRefName, InitialName, Run1Name</span><span class="rvts6">) and the database path for each (</span><span class="rvts34">ScenarioDB, BCNameDB, RefNameDB, OGRefNameDB, InitialNameDB, and Run1NameDB</span><span class="rvts6">).</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 221px;">
-   <p class="rvps2"><span class="rvts18">RunScenario()</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 542px;">
-   <p class="rvps2"><span class="rvts18">Arguments</span><span class="rvts6">: </span><span class="rvts34">BTimeStr, EndTimeStr, SceName, BCName, RefName, OGRefName, InitialName, Run1Name</span></p>
-   <p class="rvps2"><span class="rvts18">Purpose</span><span class="rvts6">: Saves global variables: SegSw, BTime, and EndTime. Then makes a call to run the model: </span><span class="rvts100">EnergyModel</span><span class="rvts103">.</span><span class="rvts102">Run_E2020</span><span class="rvts100">(DatabaseName, BTime, EndTime, SceName)</span></p>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 681px;">
+   <p class="rvps2"><span class="rvts6">The absolute path to the active model HDF5 database.&nbsp;</span></p>
+   <p class="rvps2"><span class="rvts6">Defined as: &nbsp;</span><span class="rvts111">DB </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">abspath</span><span class="rvts111">(</span><span class="rvts113">joinpath</span><span class="rvts111">(E2020Folder, </span><span class="rvts112">"database.hdf5"</span><span class="rvts111">))</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps79"><span class="rvts6"><br/></span></p>
-<p class="rvps79"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts6">The table below identifies global database functions defined in </span><span class="rvts18">HDF5_Functions.jl</span><span class="rvts6">.</span></p>
-<div class="rvps79">
-<table width="80%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 150px;">
-   <p class="rvps6"><span class="rvts27">Global Function</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 619px;">
-   <p class="rvps6"><span class="rvts27">Description</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 150px;">
-   <p class="rvps80"><span class="rvts137">function</span><span class="rvts114"> </span><span class="rvts116">ReadDisk</span><span class="rvts114">(db</span><span class="rvts115">::</span><span class="rvts139">String</span><span class="rvts114">, dbAndVariableName</span><span class="rvts115">::</span><span class="rvts139">String</span><span class="rvts114">, year</span><span class="rvts115">::</span><span class="rvts139">Int</span><span class="rvts114">)</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 619px;">
-   <p class="rvps80"><span class="rvts117">Reads a dataset from the HDF5 file specified by `db` and returns a DataFrame.&nbsp;</span></p>
-   <p class="rvps80"><span class="rvts117">The dataset is selected using an interactive menu.</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 150px;">
-   <p class="rvps79"><span class="rvts137">function</span><span class="rvts114"> </span><span class="rvts116">ReadDisk</span><span class="rvts114">(db</span><span class="rvts115">::</span><span class="rvts139">String</span><span class="rvts114">, dbAndVariableName</span><span class="rvts115">::</span><span class="rvts139">String</span><span class="rvts114">)</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 619px;">
-   <p class="rvps78"><span class="rvts14"><br/></span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 150px;">
-   <p class="rvps79"><span class="rvts137">function</span><span class="rvts114"> </span><span class="rvts116">WriteDisk</span><span class="rvts114">(db</span><span class="rvts115">::</span><span class="rvts139">String</span><span class="rvts114">, dbAndVariableName</span><span class="rvts115">::</span><span class="rvts139">String</span><span class="rvts114">, variableToWrite, variableName)</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 619px;">
-   <p class="rvps78"><span class="rvts14"><br/></span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 150px;">
-   <p class="rvps79"><span class="rvts137">function</span><span class="rvts114"> </span><span class="rvts116">WriteDisk</span><span class="rvts114">(db</span><span class="rvts115">::</span><span class="rvts139">String</span><span class="rvts114">, name</span><span class="rvts115">::</span><span class="rvts139">String</span><span class="rvts114">, year</span><span class="rvts115">::</span><span class="rvts139">Int</span><span class="rvts114">, value)</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 619px;">
-   <p class="rvps78"><span class="rvts14"><br/></span></p>
-  </td>
- </tr>
-</table>
-</div>
-<p class="rvps79"><span class="rvts6"><br/></span></p>
-<p class="rvps79"><span class="rvts6">The global Select functions are defined in its own Julia file: &nbsp;</span><span class="rvts18">Select.jl</span></p>
-<p class="rvps79"><span class="rvts6"><br/></span></p>
-<div class="rvps79">
-<table width="80%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 150px;">
-   <p class="rvps6"><span class="rvts27">Global Function</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 619px;">
-   <p class="rvps6"><span class="rvts27">Description</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 150px;">
-   <p class="rvps79"><span class="rvts137">function</span><span class="rvts114"> </span><span class="rvts116">Select</span><span class="rvts114">(set</span><span class="rvts115">::</span><span class="rvts139">Vector{T}</span><span class="rvts114">, predicate</span><span class="rvts115">::</span><span class="rvts139">Base.Fix2</span><span class="rvts114">) </span><span class="rvts137">where</span><span class="rvts114"> {T</span><span class="rvts115">&lt;:</span><span class="rvts139">SetElType</span><span class="rvts114">}</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 619px;">
-   <p class="rvps78"><span class="rvts14"><br/></span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 150px;">
-   <p class="rvps79"><span class="rvts137">function</span><span class="rvts114"> </span><span class="rvts116">Select</span><span class="rvts114">(set</span><span class="rvts115">::</span><span class="rvts139">Vector{T}</span><span class="rvts114">, key</span><span class="rvts115">::</span><span class="rvts139">NamedTuple{(:from, :to),Tuple{T,T}}</span><span class="rvts114">) </span><span class="rvts137">where</span><span class="rvts114"> {T</span><span class="rvts115">&lt;:</span><span class="rvts139">SetElType</span><span class="rvts114">}</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 619px;">
-   <p class="rvps78"><span class="rvts14"><br/></span></p>
-  </td>
- </tr>
-</table>
-</div>
-<p class="rvps79"><span class="rvts6"><br/></span></p>
-<p class="rvps79"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts6">The following global functions are defined in </span><span class="rvts18">Core\Core.jl.</span></p>
-<div class="rvps79">
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Database Read Functions</span></span></h3>
+<div class="rvps72">
 <table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
  <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 150px;">
-   <p class="rvps6"><span class="rvts27">Global Function</span></p>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 247px;">
+   <p class="rvps6"><span class="rvts27">Command</span></p>
   </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 619px;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 531px;">
    <p class="rvps6"><span class="rvts27">Description</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 150px;">
-   <p class="rvps79"><span class="rvts138">function</span><span class="rvts100"> </span><span class="rvts102">ReadSetFromCSV</span><span class="rvts140">()</span></p>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 247px;">
+   <p class="rvps2"><span class="rvts122">ReadDisk(db, name)</span></p>
   </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 619px;">
-   <p class="rvps6"><span class="rvts14">Purpose: &nbsp;This function reads and returns the </span><span class="rvts27">set keys</span><span class="rvts14"> or </span><span class="rvts27">set descriptors</span><span class="rvts14"> from a specified .csv file stored in \Database\Sets.&nbsp;</span></p>
-   <p class="rvps6"><span class="rvts14">Example of its use:</span></p>
-   <p class="rvps6"><span class="rvts14">&nbsp; Area = ReadSetFromCSV("Area","Key")</span></p>
-   <p class="rvps6"><span class="rvts14">&nbsp; Year = ReadSetFromCSV("Year","Key")</span></p>
-   <p class="rvps6"><span class="rvts14">&nbsp; Fuel = ReadSetFromCSV("Fuel","Key")</span></p>
-   <p class="rvps6"><span class="rvts14">...</span></p>
-   <p class="rvps6"><span class="rvts14"><br/></span></p>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 531px;">
+   <p class="rvps2"><span class="rvts56">Reads the entire dataset named name from the HDF5 database at path db and returns it as a raw array. Throws </span><span class="rvts37">HDF5DataSetNotFoundException</span><span class="rvts56"> if the dataset is not found.&nbsp;</span></p>
+   <p class="rvps2"><span class="rvts56">Example: </span><span class="rvts37">xPkSav = ReadDisk(DB,"RInput/xPkSav")</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 150px;">
-   <p class="rvps79"><span class="rvts138">function</span><span class="rvts100"> </span><span class="rvts102">HasValues</span><span class="rvts100">()</span></p>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 247px;">
+   <p class="rvps2"><span class="rvts122">ReadDisk(db, name, year)</span></p>
   </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 619px;">
-   <p class="rvps6"><span class="rvts14"><br/></span></p>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 531px;">
+   <p class="rvps2"><span class="rvts56">Reads a single year slice from a dataset. The dataset must have Year as its last dimension.&nbsp;</span></p>
+   <p class="rvps2"><span class="rvts56">Example: </span><span class="rvts37">ReadDisk(DB,"RInput/xPkSav",Yr(2030))</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 150px;">
-   <p class="rvps79"><span class="rvts138">function</span><span class="rvts100"> </span><span class="rvts102">Yr</span><span class="rvts100">()</span></p>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 247px;">
+   <p class="rvps2"><span class="rvts122">ReadDisk(DataFrame, db, name)</span></p>
   </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 619px;">
-   <p class="rvps6"><span class="rvts14"><br/></span></p>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 531px;">
+   <p class="rvps2"><span class="rvts56">Opens an interactive fuzzy-search menu to select a variable from the database, then returns it as a DataFrame.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 247px;">
+   <p class="rvps2"><span class="rvts122">ReadDiskAndSets(db, name)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 531px;">
+   <p class="rvps2"><span class="rvts56">Reads a variable and all of its associated sets from the database in a single call. Returns a named tuple containing the variable array and each of its set arrays by name. Use named tuple destructuring to assign them.&nbsp;</span></p>
+   <p class="rvps2"><span class="rvts56">Example: </span><span class="rvts37">(;xPkSav,Enduse,EC,Area,Year) = ReadDiskAndSets(DB,"IInput/xPkSav")</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 247px;">
+   <p class="rvps2"><span class="rvts120">ReadSets(db, name)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 531px;">
+   <p class="rvps2"><span class="rvts6">Reads only the set arrays associated with a variable, without reading the variable itself. Returns a named tuple of set arrays.</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps79"><span class="rvts6"><br/></span></p>
-<p class="rvps79"><span class="rvts6"></span><span class="rvts6"></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts126">Database Write Functions</span></span></h3>
+<div class="rvps72">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 302px;">
+   <p class="rvps6"><span class="rvts27">Command</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 476px;">
+   <p class="rvps6"><span class="rvts27">Description</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 302px;">
+   <p class="rvps2"><span class="rvts120">WriteDisk(db, name, value)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 476px;">
+   <p class="rvps2"><span class="rvts6">Writes </span><span class="rvts77">value</span><span class="rvts6"> to the dataset named </span><span class="rvts77">name</span><span class="rvts6"> in the HDF5 database at </span><span class="rvts77">db</span><span class="rvts6">. Preserves existing dataset attributes. Throws </span><span class="rvts77">HDF5DataSetNotFoundException</span><span class="rvts6"> if the dataset does not exist.&nbsp;</span></p>
+   <p class="rvps2"><span class="rvts6">Example: </span><span class="rvts37">WriteDisk(DB, "RInput/xPkSav", xPkSav)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 302px;">
+   <p class="rvps2"><span class="rvts120">WriteDisk(db, name, year, value)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 476px;">
+   <p class="rvps2"><span class="rvts6">Writes </span><span class="rvts77">value</span><span class="rvts6"> to a specific year slice of a dataset. The dataset must have </span><span class="rvts77">Year</span><span class="rvts6"> as its last dimension.&nbsp;</span></p>
+   <p class="rvps2"><span class="rvts6">Example: </span><span class="rvts37">WriteDisk(DB, "RInput/xPkSav", Yr(2030), xPkSav)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 302px;">
+   <p class="rvps2"><span class="rvts120">WriteDisk(db, data)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 476px;">
+   <p class="rvps2"><span class="rvts6">Writes an entire </span><span class="rvts77">HDF5GroupDatabase</span><span class="rvts6"> data struct to the database. All fields of the struct are written to their corresponding dataset locations.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 302px;">
+   <p class="rvps2"><span class="rvts120">ModifyDisk(func, db, names...)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 476px;">
+   <p class="rvps2"><span class="rvts6">Reads one or more datasets, applies a user-defined function </span><span class="rvts77">func</span><span class="rvts6"> to modify them in place, then writes the results back to the database. Useful for making targeted changes without loading and re-saving variables manually.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 302px;">
+   <p class="rvps2"><span class="rvts120">ModifyDiskAndSets(func, db, name)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 476px;">
+   <p class="rvps2"><span class="rvts6">Reads a variable and its sets into a named tuple, applies </span><span class="rvts77">func</span><span class="rvts6"> to the named tuple, then writes the modified variable back to the database.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<h3 class="rvps10"><a name="_Database_Utility_Functions"></a><span class="rvts0"><span class="rvts19">Database Utility Functions</span></span></h3>
+<div class="rvps72">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 261px;">
+   <p class="rvps6"><span class="rvts27">Command</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 517px;">
+   <p class="rvps6"><span class="rvts27">Description</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 261px;">
+   <p class="rvps2"><span class="rvts120">data_attrs(db, name)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 517px;">
+   <p class="rvps2"><span class="rvts6">Returns a dictionary of metadata attributes for the specified dataset, including: </span><span class="rvts77">"dims"</span><span class="rvts6"> (set names), </span><span class="rvts77">"doc"</span><span class="rvts6"> (documentation string), </span><span class="rvts77">"units"</span><span class="rvts6">, </span><span class="rvts77">"ndims"</span><span class="rvts6"> (number of dimensions), </span><span class="rvts77">"size"</span><span class="rvts6"> (array dimensions), and </span><span class="rvts77">"type"</span><span class="rvts6"> (</span><span class="rvts77">"variable"</span><span class="rvts6">, </span><span class="rvts77">"set"</span><span class="rvts6">, or </span><span class="rvts77">"scalar"</span><span class="rvts6">).&nbsp;</span></p>
+   <p class="rvps2"><span class="rvts6">Example: </span><span class="rvts37">data_attrs(DB, "IInput/xPkSav")</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 261px;">
+   <p class="rvps2"><span class="rvts120">data_names(db)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 517px;">
+   <p class="rvps2"><span class="rvts6">Returns a vector of all dataset names stored in the HDF5 database. Useful for exploring what variables are available.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19"><br/></span></span></h3>
+<h3 class="rvps10"><a name="_Set_Selection_Functions"></a><span class="rvts0"><span class="rvts19">Set Selection Functions</span></span></h3>
+<div class="rvps72">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 261px;">
+   <p class="rvps6"><span class="rvts27">Command</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 517px;">
+   <p class="rvps6"><span class="rvts27">Description</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 261px;">
+   <p class="rvps2"><span class="rvts120">Select(Set, key)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 517px;">
+   <p class="rvps2"><span class="rvts6">Returns the index or indices within </span><span class="rvts77">Set</span><span class="rvts6"> corresponding to a single key string or a vector of key strings. Used to filter a set to specific elements before looping or subsetting arrays.&nbsp;</span></p>
+   <p class="rvps2"><span class="rvts6">Example: </span><span class="rvts37">ecs = Select(EC, ["PulpPaperMills", "IronSteel"])</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 261px;">
+   <p class="rvps2"><span class="rvts120">HasValues(setSelection)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 517px;">
+   <p class="rvps2"><span class="rvts6">Returns </span><span class="rvts37">true</span><span class="rvts6"> if the set selection is non-empty, </span><span class="rvts37">false</span><span class="rvts6"> if it is empty. Used to guard against looping over empty selections.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Other Custom Functions</span></span></h3>
+<div class="rvps72">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 201px;">
+   <p class="rvps6"><span class="rvts27">Command</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 577px;">
+   <p class="rvps6"><span class="rvts27">Description</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 201px;">
+   <p class="rvps2"><span class="rvts122">ReadSetFromCSV()</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 577px;">
+   <p class="rvps2"><span class="rvts56">Reads and returns the </span><span class="rvts88">set keys</span><span class="rvts56"> or </span><span class="rvts88">set descriptors</span><span class="rvts56"> from a specified .csv file stored in \Database\Sets.&nbsp;</span></p>
+   <p class="rvps6"><span class="rvts123">Example of its use:</span></p>
+   <p class="rvps6"><span class="rvts123">&nbsp; Area = </span><span class="rvts51">ReadSetFromCSV("Area","Key")</span></p>
+   <p class="rvps6"><span class="rvts123">&nbsp; Year = </span><span class="rvts51">ReadSetFromCSV("Year","Key")</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 201px;">
+   <p class="rvps2"><span class="rvts120">Yr(year)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 577px;">
+   <p class="rvps2"><span class="rvts56">Converts a calendar year to the model's internal year index.&nbsp;</span></p>
+   <p class="rvps2"><span class="rvts56">Defined as </span><span class="rvts37">year - ITime + 1</span><span class="rvts56">.&nbsp;</span></p>
+   <p class="rvps2"><span class="rvts56">Example: </span><span class="rvts37">Yr(2030)</span><span class="rvts56"> returns the index corresponding to 2030. Used when reading or writing a specific year slice: </span><span class="rvts37">ReadDisk(DB, "RInput/xPkSav", Yr(2030))</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19"></span></span><span class="rvts0"><span class="rvts19"></span></span></h3>
 
             </div>
             

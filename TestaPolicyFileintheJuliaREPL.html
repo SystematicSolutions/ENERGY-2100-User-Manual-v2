@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="favicon.ico"/>
 
-  <title>Reference - Basic Layout of VS Code</title>
+  <title>Test a Policy File in the Julia REPL</title>
   <meta name="description" content="" /> 
   <meta name="keywords" content="">
 
@@ -22,11 +22,11 @@
 
   <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Reference - Basic Layout of VS Code">
+  <meta name="twitter:title" content="Test a Policy File in the Julia REPL">
   <meta name="twitter:description" content="">
 
   <!-- Open Graph data -->
-  <meta property="og:title" content="Reference - Basic Layout of VS Code" />
+  <meta property="og:title" content="Test a Policy File in the Julia REPL" />
   <meta property="og:type" content="article" />
   <meta property="og:description" content="" />
   <meta property="og:site_name" content="ENERGY 2100 User Manual" /> 
@@ -1161,9 +1161,9 @@ details.hnd-blue-callout code {
 
     <article>
         <div id="topic-content" class="container-fluid" 
-		  data-hnd-id="Reference-BasicLayoutofVSCode"
-		  data-hnd-context="211"
-		  data-hnd-title="Reference - Basic Layout of VS Code"
+		  data-hnd-id="TestaPolicyFileintheJuliaREPL"
+		  data-hnd-context="214"
+		  data-hnd-title="Test a Policy File in the Julia REPL"
 		>
             
                 <div class="navigation">
@@ -1171,108 +1171,154 @@ details.hnd-blue-callout code {
                         <li><a href="WorkinginVSCode.html">Working in VS Code</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="WorkinginVSCode.html" title="Working in VS Code" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="TestingtheImpactofaPolicyFile.html" title="Testing the Impact of a Policy File" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="Reference-CommonFunctionsUsedinJ.html" title="Reference - Common Functions Used in Julia REPL" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="WorkinginVSCode.html" title="Working in VS Code" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="CreateaProjectEnvironment.html" title="Create a Project Environment" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="ViewVariablesUsingtheJuliaREPL.html" title="View Variables Using the Julia REPL" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
 
             <a id="main-content"></a>
 
-            <h2>Reference - Basic Layout of VS Code</h2>
+            <h2>Test a Policy File in the Julia REPL</h2>
 
             <div class="main-content">
                 
-<p class="rvps58"><span class="rvts88">VS Code's interface is divided into six areas:</span></p>
-<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps55 noindent"><span class="rvts89">Editor</span><span class="rvts88">&nbsp;- The main area to edit your files. You can open as many editors as you like side by side vertically and horizontally.</span></li>
- <li class="rvps55 noindent"><span class="rvts89">Primary Side Bar</span><span class="rvts88">&nbsp;- Contains different views like the Explorer to assist you while working on your project.</span></li>
- <li class="rvps55 noindent"><span class="rvts89">Secondary Side Bar</span><span class="rvts88">&nbsp;- Opposite the Primary Side Bar. By default, contains the Chat view. Drag and drop views from the Primary Side Bar to the Secondary Side Bar to move them.</span></li>
- <li class="rvps55 noindent"><span class="rvts89">Status Bar</span><span class="rvts88">&nbsp;- Information about the opened project and the files you edit.</span></li>
- <li class="rvps55 noindent"><span class="rvts89">Activity Bar</span><span class="rvts88">&nbsp;- Located on the far left-hand side. Lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled. You can change the position of the Activity Bar.</span></li>
- <li class="rvps56 noindent"><span class="rvts89">Panel</span><span class="rvts88">&nbsp;- An additional space for views below the editor region. By default, it contains output, debug information, errors and warnings, and an integrated terminal. The Panel can also be moved to the left or right for more vertical space.</span></li>
-</ul>
-<p class="rvps57"><a class="rvts90" href="https://code.visualstudio.com/docs/getstarted/userinterface#_basic-layout">https://code.visualstudio.com/docs/getstarted/userinterface#_basic-layout</a></p>
-<p class="rvps57"><img alt="" style="width : 1076px; height : 571px; padding : 1px;" src="lib/NewItem%20151.png"></p>
-<p class="rvps57"><span class="rvts88"><br/></span></p>
-<h2 class="rvps12"><a name="title-block-header"></a><span class="rvts0"><span class="rvts96">Julia VSCode Workflow</span></span></h2>
-<p class="rvps34"><span class="rvts50">You can learn more about all the features the Julia VSCode extension provides here:&nbsp;</span><a class="rvts91" href="https://www.julia-vscode.org/docs/stable/">Julia Visual Studio Code Documentation.</a></p>
-<h2 class="rvps12"><span class="rvts0"><span class="rvts23">Open an ENERGY 2100 project in VS Code</span></span></h2>
-<p class="rvps2"><span class="rvts6">To open ENERGY 2100 in VS Code,</span></p>
+<p class="rvps2"><span class="rvts6">To work with ENERGY 2100 policy files in the Julia REPL, you must first </span><a class="rvts11" href="CreateaProjectEnvironment.html">set up your workspace in VS Code</a><span class="rvts6"> (by activating the environment and loading the EnergyModel's package and global structures).</span></p>
+<p class="rvps2"><span class="rvts6">All policy files are Julia script files and are stored in the \Policy folder. Each policy is set up as a module having the same name as the filename. The last function call in the policy file is a control function, </span><span class="rvts37">PolicyControl(DB)</span><span class="rvts6">, which reads in the model database, </span><span class="rvts37">DB</span><span class="rvts6">, as input.</span></p>
+<p class="rvps2"><span class="rvts6">You can test compiling a policy file interactively directly from the Julia REPL.</span></p>
+<p class="rvps2"><span class="rvts18">Step 1 - Include your policy file in the Julia workspace</span></p>
+<p class="rvps30"><span class="rvts6">Including the policy file in your workspace gives you access to the functions defined in the given policy module. In the Julia REPL, type the following:</span></p>
+<div class="rvps46">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps34"><span class="rvts84">julia&gt;</span><span class="rvts54"> </span><span class="rvts85">include</span><span class="rvts54">("Policy/MyPolicyFile.jl")</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts18">Step 2 - Execute the policy code by calling its PolicyControl function</span></p>
+<div class="rvps46">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps34"><span class="rvts84">julia&gt;</span><span class="rvts54"> MyPolicyModule.PolicyControl(DB)</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps30"><span class="rvts6">The </span><span class="rvts37">MyPolicyModule.PolicyControl(DB)</span><span class="rvts6"> command executes the policy. If there are no errors, it will stop with a </span><span class="rvts37">julia&gt;</span><span class="rvts6"> prompt.&nbsp;</span></p>
+<div class="rvps26">
+<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps22"><span class="rvts31"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
+   <p class="rvps37"><span class="rvts55">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
+   <p class="rvps2"><span class="rvts13">Exercise</span></p>
+   <p class="rvps2"><span class="rvts83">Run the policy file, Res_PeakSavings.jl. Make sure you have all the needed packages loaded in your VS code workspace.</span></p>
+   <p class="rvps34"><span class="rvts54"><details class="example-toggle">
+  <p> </p>
+  <summary>View Solution</summary>
+
+  <div class="html-code-box">
+<pre><code>using EnergyModel
+import EnergyModel: DB
+include("Policy/Res_PeakSavings.jl")
+Res_PeakSavings.PolicyControl(DB)</code></pre>
+  </div>
+</details></span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps50"><span class="rvts48"><details class="hnd-blue-callout">
+  <summary>Alternative Method of Calling a Policy File from the REPL</summary>
+
+  <div class="callout-body">
+    <p>
+      The EnergyModel package gives you access to all of the variables, sets, databases,
+      functions, and modules that have been defined in the model. To access these functions,
+      you need to know the hierarchy of the calling functions.
+    </p>
+
+    <p>
+      EnergyModel.jl is stored in \src and calls all the files that define the structures
+      and functionality of the model. For example, EnergyModel.jl loads all the modules
+      from Policy.jl: <code>include("../Policy/Policy.jl")</code>, which loads all the
+      policy modules defined in the reference case. Each of the policy modules defines a
+      calling function: <code>PolicyControl(DB)</code>, where DB points to the model's
+      HDF5 database. In Julia's REPL, we are able to access any of the modules and
+      functions defined in the EnergyModel package using the hierarchy and dots (.).
+    </p>
+
+    <p>
+      Hierarchy: EnergyModel loads the "Policy" module, which loads specific policy
+      modules (such as: <code>Res_PeakSavings</code>), each of which has a controlling
+      function named <code>PolicyControl(DB)</code>.
+    </p>
+
+    <p>
+      So, to call the function defined in the <code>Res_PeakSavings.jl</code> policy file,
+      we can type the following into the REPL:
+    </p>
+
+    <pre><code>using EnergyModel
+EnergyModel.Policy.Res_PeakSavings.PolicyControl(EnergyModel.DB)</code></pre>
+
+    <p>
+      Alternatively, we can assign the EnergyModel package a short name and use the short
+      name in the REPL:
+    </p>
+
+    <pre><code>import EnergyModel as M
+M.Policy.Res_PeakSavings.PolicyControl(M.DB)</code></pre>
+
+    <p>
+      Alternatively, we are able to access the database and the policy module directly
+      without using the dots (".") by importing the database and including the policy file
+      into the REPL, such as:
+    </p>
+
+    <pre><code>using EnergyModel
+const DB = EnergyModel.DB
+include("Policy/Res_PeakSavings.jl")
+Res_PeakSavings.PolicyControl(DB)</code></pre>
+  </div>
+</details></span></p>
+<p class="rvps50"><span class="rvts48">If the policy file hits errors and you make changes to the file and save it, VS Code may not recognize the newly saved file in your current workspace.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts18">Step 3 - Load Julia's "Revise" package if you make changes to your policy file</span></p>
+<p class="rvps33"><span class="rvts37">Revise.jl</span><span class="rvts6"> is a Julia package that automatically updates function, module, and type definitions in a running Julia session whenever the underlying source code files change. It eliminates the need to restart the REPL or manually re-include files, significantly speeding up development workflows by allowing immediate testing of code changes.</span></p>
+<p class="rvps33"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">If you make changes to theyour policy file in your current VS Code session, use Julia's "Revise" package, which is part of EnergyModel's global environment. To use Revise, follow the steps below:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li class="rvps2 noindent"><span class="rvts6">Open VS Code</span></li>
- <li class="rvps2 noindent"><span class="rvts6">Select File\Open Folder and select the folder that houses your ENERGY 2100 model version.</span></li>
+ <li value="1" class="rvps2 noindent"><span class="rvts6">Load the Revise package:</span></li>
 </ol>
-<h2 class="rvps12"><span class="rvts0"><span class="rvts23">Code Navigation</span></span></h2>
-<p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts50"><br/></span></p>
-<h3 class="rvps10"><span class="rvts0"><span class="rvts97"><br/></span></span></h3>
-<h3 class="rvps10"><a name="execute-code-from-the-console"></a><span class="rvts0"><span class="rvts19">Execute code from the console</span></span></h3>
-<p class="rvps2"><span class="rvts6">In VSCode, you can click on the Explorer pane to show the contents on your current folder.</span></p>
-<p class="rvps2"><span class="rvts6">This is what it should look like for you:</span></p>
-<p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts6">You can now right click inside the explorer pane to drop down a context menu, and choose the&nbsp;“New File…”&nbsp;option to create a new file. Let’s create a new file called&nbsp;script.jl&nbsp;in the root of the folder.</span></p>
-<p class="rvps2"><img alt="" style="vertical-align: middle;" src="lib/NewItem%20149.png"></p>
-<p class="rvps2"><span class="rvts6">VSCode might prompt you to install the Julia extension when it sees you have created a&nbsp;.jl&nbsp;file, if you haven’t already. If it does not, and you haven’t already done it, you can manually install it using the instructions in the previous section. You will need the VSCode Julia extension installed to proceed with this tutorial.</span></p>
-<p class="rvps2"><span class="rvts6">Paste the following inside the&nbsp;script.jl&nbsp;file:</span></p>
-<p class="rvps2"><a name="cb1"></a><span class="rvts6">println("hello world")</span></p>
-<p class="rvps2"><span class="rvts6">You can run this file by typing the following in the REPL you already had open:</span></p>
-<p class="rvps2"><a name="cb2"></a><span class="rvts6">include("script.jl")</span></p>
-<p class="rvps2"><span class="rvts6">Here’s a screenshot of what it looks like on my computer when I do this:</span></p>
-<p class="rvps2"><img alt="" style="vertical-align: middle;" src="lib/NewItem%20148.png"></p>
-<p class="rvps2"><span class="rvts6">This is a completely valid way to run Julia code for any analysis.</span></p>
-<p class="rvps2"><span class="rvts6">If you want something you can double click on to run the Julia code, you can paste the following</span><a name="fnref1"></a><a class="rvts11" href="ENERGY2100UserManual.html#fn1">1</a><span class="rvts6">&nbsp;in a&nbsp;Run.cmd&nbsp;file in the root directory of the&nbsp;Tutorial&nbsp;folder, and double click on it each time to run the code.</span></p>
-<p class="rvps2"><span class="rvts6">Run.cmd</span></p>
-<p class="rvps2"><span class="rvts6">julia --project=@. -i script.jl</span></p>
-<p class="rvps2"><span class="rvts6">Using the&nbsp;Run.cmd&nbsp;approach has a disadvantage in that it can be slow for running every time because Julia will compile your code every time it starts up.</span></p>
-<p class="rvps2"><span class="rvts6">Julia v1.9 will speed up the startup for a lot of packages but just opening a Julia session and leaving it open can be a very productive workflow in Julia today.</span></p>
-<p class="rvps2"><span class="rvts6">📚 Exercise</span></p>
-<p class="rvps2"><span class="rvts6">Make a change to the&nbsp;println&nbsp;function in&nbsp;script.jl&nbsp;and re-run it.</span></p>
-<p class="rvps2"><a name="execute-code-in-vscodes-repl"></a><span class="rvts6">Execute code in VSCode’s REPL</span></p>
-<p class="rvps2"><span class="rvts6">While the above two methods are fine, using VSCode can be a much better experience to using Julia. VSCode offers interactive development, debugging, documentation and a whole suite of features.</span></p>
-<p class="rvps2"><span class="rvts6">So let’s try running it using VSCode.</span></p>
-<p class="rvps2"><span class="rvts6">If you haven’t already done this, add the following code to the&nbsp;script.jl&nbsp;file:</span></p>
-<p class="rvps2"><a name="cb4"></a><span class="rvts6">println("hello world")</span></p>
-<p class="rvps2"><span class="rvts6">You can now highlight the code with your mouse, right click on that highlighted code and hit&nbsp;Julia: Execute Code in REPL:</span></p>
-<p class="rvps2"><img alt="" style="vertical-align: middle;" src="lib/NewItem%20147.png"></p>
-<p class="rvps2"><span class="rvts6">The first time you do this, the Julia VSCode extension will open a Julia REPL for you, and this may take a few seconds. The next time onwards, it should be fairly quick.</span></p>
-<p class="rvps2"><span class="rvts6">When this executes successfully, you’ll see a&nbsp;✓&nbsp;mark next to the code, and you’ll see the return value or the output of the code in the REPL.</span></p>
-<p class="rvps2"><span class="rvts6">You can also hit&nbsp;Ctrl&nbsp;+&nbsp;Enter&nbsp;OR&nbsp;Shift&nbsp;+&nbsp;Enter&nbsp;to run the code in a Julia REPL.</span></p>
-<p class="rvps2"><span class="rvts6">Hitting&nbsp;Shift&nbsp;+&nbsp;Enter&nbsp;is a keyboard shortcut for the equivalent to copying the code from your text file into the REPL to execute it, and move your cursor to the next block of code. If you want to do the same thing but don’t want to move to the next block, you can use&nbsp;Ctrl&nbsp;+ Enter.</span></p>
-<p class="rvps2"><span class="rvts6">Try adding the following lines and executing them.</span></p>
-<p class="rvps2"><a name="cb5"></a><span class="rvts6">import Tutorial</span></p>
-<p class="rvps2"><span class="rvts6">Tutorial.greet()</span></p>
-<p class="rvps2"><span class="rvts6">Your output should look like this:</span></p>
-<p class="rvps2"><img alt="" style="vertical-align: middle;" src="lib/NewItem%20146.png"></p>
-<p class="rvps2"><span class="rvts6">You’ll notice that you didn’t need to activate any environment here in VSCode. That’s because VSCode does it for you.</span></p>
-<p class="rvps2"><span class="rvts6">📚 Exercise</span></p>
-<p class="rvps2"><span class="rvts6">Try the same math arithemtic operations from before and try to get familiar with VSCode.</span></p>
-<p class="rvps2"><a name="help-mode"></a><span class="rvts6">Help mode</span></p>
-<p class="rvps2"><span class="rvts6">In VSCode, hover-ing your mouse over any function will show the documentation for that function:</span></p>
-<p class="rvps2"><img alt="" style="vertical-align: middle;" src="lib/NewItem%20145.png"></p>
-<p class="rvps2"><span class="rvts6">You can also&nbsp;Ctrl&nbsp;+&nbsp;Left Click&nbsp;to open a preview of the function definition.</span></p>
-<p class="rvps2"><span class="rvts6">This can be handy to figure out where a function was defined from the call site.</span></p>
-<p class="rvps2"><span class="rvts6">When you are typing code in VSCode, you can hit&nbsp;Ctrl&nbsp;+&nbsp;Space&nbsp;to trigger auto completion.</span></p>
-<p class="rvps2"><img alt="" style="vertical-align: middle;" src="lib/NewItem%20144.png"></p>
-<p class="rvps2"><span class="rvts6">You can use the arrow keys to navigate the options, and use&nbsp;Enter&nbsp;or&nbsp;Tab&nbsp;to select your choice.</span></p>
-<p class="rvps2"><span class="rvts6">This means even if you have long variable names, you can quickly type them without making typos.</span></p>
-<p class="rvps2"><a name="debugger"></a><span class="rvts6">Debugger</span></p>
-<p class="rvps2"><span class="rvts6">There is also a debugger in VSCode:&nbsp;</span><a class="rvts11" href="https://www.julia-vscode.org/docs/stable/userguide/debugging/">https://www.julia-vscode.org/docs/stable/userguide/debugging/</a><span class="rvts6">.</span></p>
-<p class="rvps2"><span class="rvts6">If you are coming from C / C++ / Python etc, you should be warned that the Julia Debugger is new and may not have all the features you are looking for. It also currently only works inside VSCode.</span></p>
-<p class="rvps2"><span class="rvts6">Here’s how you can open it:</span></p>
-<p class="rvps2"><img alt="" style="vertical-align: middle;" src="lib/NewItem%20143.png"></p>
-<p class="rvps2"><span class="rvts6">In VSCode, you can set a breakpoint by clicking on the small circle icon on the left of a line number. You can see examples of breakpoints being set on lines 5 and lines 7 in the screenshot above. It’ll only show up when you hover over that spot in your editor.</span></p>
-<p class="rvps2"><span class="rvts6">If you set breakpoints and click on&nbsp;“Run and Debug”, the debugger will launch like so:</span></p>
-<p class="rvps2"><img alt="" style="vertical-align: middle;" src="lib/NewItem%20142.png"></p>
-<p class="rvps2"><span class="rvts6">And you’ll find a small control menu at the top that lets you step over functions. Once you are done, you can stop debugging by hitting the square&nbsp;“stop”&nbsp;button on the small control menu at the top.</span></p>
-<p class="rvps2"><span class="rvts6">We will talk about more features to improve your workflow experience in a latter session. For now, let’s move on to the actual tutorial.</span></p>
-<h2 class="rvps59"><a name="footnotes-1"></a><span class="rvts0"><span class="rvts92">Footnotes</span></span></h2>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 55px; list-style-position: outside;">
- <li class="rvps60 noindent"><a name="fn1"></a><span class="rvts93">This command starts&nbsp;</span><span class="rvts94">julia</span><span class="rvts93">&nbsp;with the&nbsp;</span><span class="rvts94">--project=@.</span><span class="rvts93">&nbsp;activates the environment in the current folder and&nbsp;</span><span class="rvts94">-i</span><span class="rvts93">&nbsp;opens the Julia session in an interactive mode meaning after the code runs it will not exit Julia.</span><a class="rvts95" href="ENERGY2100UserManual.html#fnref1">↩︎</a></li>
- <li class="rvps60 noindent"><span class="rvts98"><br/></span></li>
+<div class="rvps30">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps34"><span class="rvts54">using Revise</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="2" class="rvps2 noindent"><span class="rvts6">Run the policy's control procedure again:</span></li>
 </ol>
-<p class="rvps56"><span class="rvts88"></span><span class="rvts6"></span></p>
+<div class="rvps49">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps34"><span class="rvts54">MyPolicyModule.PolicyControl(DB)</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">Now that you have compiled your policy file (which modified policy variables), you may want to view the values of the variables to verify worked as intended. For instructions, please refer to </span><a class="rvts11" href="ViewVariablesUsingtheJuliaREPL.html">Viewing Variables Using the Julia REPL</a><span class="rvts6">.</span><span class="rvts6"></span></p>
 
             </div>
             

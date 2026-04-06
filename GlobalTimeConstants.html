@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="favicon.ico"/>
 
-  <title>Setting up a Workspace</title>
+  <title>Global Time Constants</title>
   <meta name="description" content="" /> 
   <meta name="keywords" content="">
 
@@ -22,11 +22,11 @@
 
   <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Setting up a Workspace">
+  <meta name="twitter:title" content="Global Time Constants">
   <meta name="twitter:description" content="">
 
   <!-- Open Graph data -->
-  <meta property="og:title" content="Setting up a Workspace" />
+  <meta property="og:title" content="Global Time Constants" />
   <meta property="og:type" content="article" />
   <meta property="og:description" content="" />
   <meta property="og:site_name" content="ENERGY 2100 User Manual" /> 
@@ -1161,203 +1161,106 @@ details.hnd-blue-callout code {
 
     <article>
         <div id="topic-content" class="container-fluid" 
-		  data-hnd-id="SettingupaWorkspace"
-		  data-hnd-context="207"
-		  data-hnd-title="Setting up a Workspace"
+		  data-hnd-id="GlobalTimeConstants"
+		  data-hnd-context="235"
+		  data-hnd-title="Global Time Constants"
 		>
             
                 <div class="navigation">
                     <ol class="breadcrumb">
-                        <li><a href="WorkinginVSCode.html">Working in VS Code</a></li>
+                        <li><a href="ModelArchitecture.html">Model Architecture</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="WorkinginVSCode.html" title="Working in VS Code" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="WorkinginVSCode.html" title="Working in VS Code" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="TestingaPolicyFileintheJuliaREPL.html" title="Testing a Policy File in the Julia REPL" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="ModelArchitecture.html" title="Model Architecture" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="Sets.html" title="Sets" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="GlobalFunctions.html" title="Global Functions" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
 
             <a id="main-content"></a>
 
-            <h2>Setting up a Workspace</h2>
+            <h2>Global Time Constants</h2>
 
             <div class="main-content">
                 
-<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Overview</span></span></h3>
-<p class="rvps2"><span class="rvts6">Before setting up your workspace in VS Code, you should have already installed VS Code and the Julia extension. If you have not done so, please see the following link for instructions: </span><a class="rvts11" href="SettingUpVSCode.html">Setting up VS Code</a><span class="rvts6">.</span></p>
-<p class="rvps2"><span class="rvts6">To work with ENERGY 2100 in VS Code, you will need to: 1) activate the model's Julia environment and 2) load ENERGY 2100's package and global structures by following the instructions below:</span></p>
-<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Activate the Model's Julia Environment</span></span></h3>
-<p class="rvps2"><span class="rvts6">To run a policy file in the Julia REPL, follow the instructions below.</span></p>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li class="rvps2 noindent"><span class="rvts6">Open the ENERGY 2100 model folder in VS Code (</span><span class="rvts37">File\Open Folder)</span><span class="rvts6">.</span></li>
- <li class="rvps35 noindent"><span class="rvts6">Start the Julia REPL from the Command Palette:</span></li>
-</ol>
-<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 72px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps35 noindent"><span class="rvts6">Open the Command Palette (</span><span class="rvts37">View\Command Palette)</span><span class="rvts6"> or (</span><span class="rvts37">Ctrl+Shift+P</span><span class="rvts6">)</span></li>
- <li class="rvps2 noindent"><span class="rvts6">Start the Julia REPL (type </span><span class="rvts37">Julia: Start REPL</span><span class="rvts6">).</span></li>
-</ul>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li value="3" class="rvps41 noindent"><span class="rvts6">Activate the folder as a Julia project environment and install project dependencies (which are specified in the model's </span><span class="rvts56">Project.toml and Manifest.toml):</span></li>
-</ol>
-<div class="rvps37">
-<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+<p class="rvps2"><span class="rvts6">These constants define the model's time horizon and are used throughout model code and policy files to index into time-dimensioned arrays (defined in </span><span class="rvts18">\Engine\</span><span class="rvts121">E2020_Constants.jl</span><span class="rvts34">)</span><span class="rvts6">.&nbsp;</span></p>
+<div class="rvps2">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 2px; background-color: #ffffff; border-collapse: collapse;">
  <tr style="vertical-align: top;">
-  <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts68">julia&gt;</span><span class="rvts54"> </span><span class="rvts61">using</span><span class="rvts54"> Pkg</span></p>
-   <p class="rvps36"><span class="rvts68">julia&gt;</span><span class="rvts54"> Pkg.activate("C:</span><span class="rvts62">\\</span><span class="rvts54">ModelFolderName")</span></p>
-   <p class="rvps36"><span class="rvts68">julia&gt;</span><span class="rvts54"> Pkg.instantiate()</span></p>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 4px; width: 89px;">
+   <p class="rvps2"><span class="rvts120">Constant</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 4px; width: 695px;">
+   <p class="rvps2"><span class="rvts120">Description</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 4px; width: 89px;">
+   <p class="rvps2"><span class="rvts122">ITime</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 4px; width: 695px;">
+   <p class="rvps2"><span class="rvts56">The first year of the model's time horizon (e.g., 1985). All year indices are calculated relative to this value.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 4px; width: 89px;">
+   <p class="rvps2"><span class="rvts122">HisTime</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 4px; width: 695px;">
+   <p class="rvps2"><span class="rvts56">The last historical year in the model (e.g., 2024). Years up to and including HisTime are calibrated to historical data.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 4px; width: 89px;">
+   <p class="rvps2"><span class="rvts122">MaxTime</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 4px; width: 695px;">
+   <p class="rvps2"><span class="rvts56">The last year of the model's forecast horizon (e.g., 2050).</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 4px; width: 89px;">
+   <p class="rvps2"><span class="rvts122">First</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 4px; width: 695px;">
+   <p class="rvps2"><span class="rvts56">The index of the second year of the time horizon (index 2). Used to begin loops one year after the base year.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 4px; width: 89px;">
+   <p class="rvps2"><span class="rvts122">Future</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 4px; width: 695px;">
+   <p class="rvps2"><span class="rvts56">The index of the first forecast year, calculated as </span><span class="rvts37">HisTime - ITime + 1</span><span class="rvts56">. Marks the transition from historical to projected values.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 4px; width: 89px;">
+   <p class="rvps2"><span class="rvts122">Final</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 4px; width: 695px;">
+   <p class="rvps2"><span class="rvts56">The index of the last year of the forecast horizon, calculated as </span><span class="rvts37">MaxTime - ITime + 1</span><span class="rvts56">.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 4px; width: 89px;">
+   <p class="rvps2"><span class="rvts122">Yr(year)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 4px; width: 695px;">
+   <p class="rvps2"><span class="rvts56">Converts a calendar year to the model's internal year index. Defined as </span><span class="rvts37">year - ITime + 1</span><span class="rvts56">.&nbsp;</span></p>
+   <p class="rvps2"><span class="rvts56">Example: </span><span class="rvts37">Yr(2030)</span><span class="rvts56"> returns the index corresponding to 2030. Used when reading or writing a specific year slice: </span><span class="rvts37">ReadDisk(DB, "RInput/xPkSav", Yr(2030))</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 4px; width: 89px;">
+   <p class="rvps2"><span class="rvts122">Zero</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 4px; width: 695px;">
+   <p class="rvps68"><span class="rvts123">Represents first historical year of input data as an index (</span><span class="rvts51">Zero = ITime-ITime+1</span><span class="rvts123">)</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps31"><span class="rvts48">Alternatively, you could use </span><span class="rvts64">Pkg.activate(".")</span><span class="rvts48"> to activate the current project if you have opened VS code in the model's root folder:</span></p>
-<div class="rvps32">
-<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
- <tr style="vertical-align: top;">
-  <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts68">julia&gt;</span><span class="rvts54"> </span><span class="rvts61">using</span><span class="rvts54"> Pkg</span></p>
-   <p class="rvps36"><span class="rvts68">julia&gt;</span><span class="rvts54"> Pkg.activate</span><span class="rvts62">(".")</span></p>
-   <p class="rvps36"><span class="rvts68">julia&gt;</span><span class="rvts54"> Pkg.instantiate()</span></p>
-  </td>
- </tr>
-</table>
-</div>
-<div class="rvps42">
-<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 3px; border-collapse: collapse;">
- <tr style="vertical-align: top;">
-  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #ff0000; vertical-align: top; width: 6px; height: 42px;">
-   <p class="rvps22"><span class="rvts31"><br/></span></p>
-  </td>
-  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 27px; height: 42px;">
-   <p class="rvps43"><span class="rvts66"></span></p>
-  </td>
-  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 591px; height: 42px;">
-   <p class="rvps2"><span class="rvts56">You must use two backslashes (\\) in the folder path for Julia to find the correct path.</span></p>
-  </td>
- </tr>
-</table>
-</div>
-<p class="rvps31"><span class="rvts48">Verify that you activated the correct Julia environment by checking the package status:</span></p>
-<div class="rvps32">
-<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
- <tr style="vertical-align: top;">
-  <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts68">julia&gt;</span><span class="rvts54"> Pkg.status()</span></p>
-  </td>
- </tr>
-</table>
-</div>
-<p class="rvps31"><span class="rvts48">If the correct environment was activated, this command will return "EnergyModel". Output should look something like:</span></p>
-<div class="rvps31">
-<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; border-left: none;">
-   <p class="rvps36"><span class="rvts69">Project</span><span class="rvts54"> EnergyModel v0.1.0</span></p>
-   <p class="rvps36"><span class="rvts68">Status</span><span class="rvts54"> `C:\2020CanadaPoplarNH3\Project.toml`</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [336ed68f] CSV v0.10.16</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [a93c6f00] DataFrames v1.8.1</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [1313f7d8] DataFramesMeta v0.15.6</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [864edb3b] DataStructures v0.19.3</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [f67ccb44] HDF5 v0.17.2</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [0f8b85d8] JSON3 v1.14.3</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [98e50ef6] JuliaFormatter v2.3.0</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [92481ed7] LinearRegression v0.2.1</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [e6f89c97] LoggingExtras v1.2.0</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [98105f81] LoggingFormats v1.6.0</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [1914dd2f] MacroTools v0.5.16</span></p>
-   <p class="rvps36"><span class="rvts54">⌅ [aea7be01] PrecompileTools v1.2.1</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [21216c6a] Preferences v1.5.2</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [54e16d92] PrettyPrinting v0.4.2</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [2230646a] QuickMenus v0.1.1</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [ae029012] Requires v1.3.1</span></p>
-   <p class="rvps36"><span class="rvts54">⌃ [295af30f] Revise v3.13.2</span></p>
-   <p class="rvps36"><span class="rvts54">⌃ [90137ffa] StaticArrays v1.9.17</span></p>
-   <p class="rvps36"><span class="rvts54">⌃ [0c614874] TerminalPager v0.6.10</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [a759f4b9] TimerOutputs v0.5.29</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [a5390f91] ZipFile v0.10.1</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [ade2ca70] Dates v1.11.0</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [8ba89e20] Distributed v1.11.0</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [b77e0a4c] InteractiveUtils v1.11.0</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [76f85450] LibGit2 v1.11.0</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [56ddb016] Logging v1.11.0</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [de0858da] Printf v1.11.0</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [3fa0cd96] REPL v1.11.0</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [a4e569a6] Tar v1.10.0</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [8dfed614] Test v1.11.0</span></p>
-   <p class="rvps36"><span class="rvts54">&nbsp; [3f19e933] p7zip_jll v17.4.0+2</span></p>
-  </td>
- </tr>
-</table>
-</div>
-<p class="rvps32"><span class="rvts6">Now that you have successfully activated the model's environment and packages, you are ready to load the package and global structures you want to use into VS Code's workspace.</span></p>
-<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Load ENERGY 2100 Package and Global Structures into Workspace</span></span></h3>
-<p class="rvps2"><span class="rvts6">To work with the model in VS Code, you need to explicitly bring the model's package and global structures you want to use into the workspace.&nbsp;</span></p>
-<p class="rvps2"><span class="rvts6">To prepare VS Code to run policies and view variables, follow the instructions below:&nbsp;</span></p>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li value="1" class="rvps2 noindent"><span class="rvts6">Load ENERGY 2100's Julia package, named </span><span class="rvts37">EnergyModel</span><span class="rvts6">:</span></li>
-</ol>
-<div class="rvps31">
-<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
- <tr style="vertical-align: top;">
-  <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts61">using</span><span class="rvts54"> EnergyModel</span></p>
-  </td>
- </tr>
-</table>
-</div>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li value="2" class="rvps2 noindent"><span class="rvts6">Import ENERGY 2100's modules, constants, or functions you want to use in the REPL.&nbsp;</span></li>
-</ol>
-<p class="rvps32"><span class="rvts6">The structures listed below are common imports required to run a policy file and view variables:&nbsp;</span></p>
-<div class="rvps31">
-<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
- <tr style="vertical-align: top;">
-  <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts61">import</span><span class="rvts54"> EnergyModel.DB</span></p>
-   <p class="rvps36"><span class="rvts61">import</span><span class="rvts54"> EnergyModel.ReadDisk</span></p>
-   <p class="rvps36"><span class="rvts61">import</span><span class="rvts54"> EnergyModel.Select</span></p>
-   <p class="rvps36"><span class="rvts61">import </span><span class="rvts63">EnergyModel.</span><span class="rvts54">ReadDiskAndSets</span></p>
-   <p class="rvps36"><span class="rvts61">import </span><span class="rvts63">EnergyModel.</span><span class="rvts54">Yr</span></p>
-  </td>
- </tr>
-</table>
-</div>
-<p class="rvps31"><span class="rvts48">Alternatively, we could import all these structures in one line using the following:</span></p>
-<p class="rvps32"><span class="rvts65"><div class="html-code-box indent-2">
-<pre><code><span class="kw">import</span> EnergyModel: DB, ReadDisk, Select, ReadDiskAndSets, Yr</code></pre>
-</div></span></p>
-<div class="rvps32">
-<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 3px; border-collapse: collapse;">
- <tr style="vertical-align: top;">
-  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #0080c0; vertical-align: top; width: 2px; height: 54px;">
-   <p class="rvps22"><span class="rvts31"><br/></span></p>
-  </td>
-  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 23px; height: 54px;">
-   <p class="rvps40"><span class="rvts60">🛈</span></p>
-  </td>
-  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 767px; height: 54px;">
-   <p class="rvps40"><span class="rvts56">Click </span><a class="rvts67" href="Reference-CommonFunctionsUsedinJ.html">here</a><span class="rvts56"> for a more complete list of possible modules, constants, and functions that are available to import from the EnergyModel project environment.</span></p>
-  </td>
- </tr>
-</table>
-</div>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li value="3" class="rvps2 noindent"><span class="rvts6">Load additional packages as desired.&nbsp;</span></li>
-</ol>
-<p class="rvps32"><span class="rvts6">For viewing variables in an easy-to-read format and writing variables to CSV files, load the following:&nbsp;</span></p>
-<div class="rvps32">
-<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
- <tr style="vertical-align: top;">
-  <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts61">using</span><span class="rvts54"> DataFrames, DataFramesMeta, CSV</span></p>
-  </td>
- </tr>
-</table>
-</div>
-<p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts6">You have now successfully initialized your VS Code workspace to be able to </span><a class="rvts11" href="TestingaPolicyFileintheJuliaREPL.html">test policy files</a><span class="rvts6"> and </span><a class="rvts11" href="ViewingVariablesUsingtheJuliaREP.html">view variables</a><span class="rvts6">.&nbsp;</span></p>
-<p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
+<p></p>
 
             </div>
             

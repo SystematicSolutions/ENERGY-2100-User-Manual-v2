@@ -1171,7 +1171,7 @@ details.hnd-blue-callout code {
                         <li><a href="ExecutingtheModel.html">Executing the Model</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="ExecutingtheModel.html" title="Executing the Model" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="ExecutingtheModel.html" title="Executing the Model" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="RunningtheModelfromDifferentStar.html" title="Running the Model from Different Starting Points" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="ExecutingtheModel.html" title="Executing the Model" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="ExecutingtheModel.html" title="Executing the Model" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="MidRunRestartAIGenerated.html" title="MidRun Restart (AI Generated)" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
@@ -1190,10 +1190,10 @@ details.hnd-blue-callout code {
 <p class="rvps2"><span class="rvts6">A ‘RunAll’ is a shorthanded term for a full execution of the model, starting with the setting of default parameters and the creation of the initial database. </span><span class="rvts18">RunAll.bat</span><span class="rvts6"> is located in /2020Model and can be called without any other parameters to execute a full run. Optionally, </span><span class="rvts18">RunAll_Debug.bat </span><span class="rvts6">in /2020Model can be used to execute the same run but with additional databases saved during the model calibration for more finely-tuned review.</span></p>
 <p class="rvps2"><span class="rvts6">A RunAll generally should be executed with any modification to the source code or change to input data. Common changes that require a RunAll include:</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: '- ';">
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Changes to the model parameters, such as modifying the values in a set.</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Adding a new variable to the model database</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Updates to any of the .dat files that contain input data</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Changes to the macroeconomic model, including updating the default forecast</span></li>
+ <li style="text-indent: 0px" class="rvps75 noindent"><span class="rvts14">Changes to the model parameters, such as modifying the values in a set.</span></li>
+ <li style="text-indent: 0px" class="rvps75 noindent"><span class="rvts14">Adding a new variable to the model database</span></li>
+ <li style="text-indent: 0px" class="rvps75 noindent"><span class="rvts14">Updates to any of the .dat files that contain input data</span></li>
+ <li style="text-indent: 0px" class="rvps75 noindent"><span class="rvts14">Changes to the macroeconomic model, including updating the default forecast</span></li>
 </ul>
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Steps in RunAll:</span></span></h3>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
@@ -1209,19 +1209,19 @@ details.hnd-blue-callout code {
 <p class="rvps2"><span class="rvts6">Opening RunModel.bat in a text editor will show the exact sequence of files called and model execution. There are numerous files called and hundreds of lines of the sequence in current model versions. &nbsp;</span></p>
 <p class="rvps2"><span class="rvts6">Steps in </span><span class="rvts18">RunModel</span><span class="rvts6">:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Opens up the initial database (currently known as ‘Process’) and populates historical variables with values from the data input process</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Reads in assumptions for the supply and macroeconomic segments and executes supply and macroeconomic calibration</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Reads in assumptions for demand segments and calibrates the demands sectors</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Reads in parameters for the electric generation segment and calibrates electric supply</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Activates and calibrates endogenous electric prices</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Creates and applies emissions coefficients</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Applies final calibration and forecast adjustments and creates the starting database for forecast scenarios (‘StartBase’)</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Executes the base case</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Executes policy scenarios</span></li>
+ <li style="text-indent: 0px" class="rvps75 noindent"><span class="rvts14">Opens up the initial database (currently known as ‘Process’) and populates historical variables with values from the data input process</span></li>
+ <li style="text-indent: 0px" class="rvps75 noindent"><span class="rvts14">Reads in assumptions for the supply and macroeconomic segments and executes supply and macroeconomic calibration</span></li>
+ <li style="text-indent: 0px" class="rvps75 noindent"><span class="rvts14">Reads in assumptions for demand segments and calibrates the demands sectors</span></li>
+ <li style="text-indent: 0px" class="rvps75 noindent"><span class="rvts14">Reads in parameters for the electric generation segment and calibrates electric supply</span></li>
+ <li style="text-indent: 0px" class="rvps75 noindent"><span class="rvts14">Activates and calibrates endogenous electric prices</span></li>
+ <li style="text-indent: 0px" class="rvps75 noindent"><span class="rvts14">Creates and applies emissions coefficients</span></li>
+ <li style="text-indent: 0px" class="rvps75 noindent"><span class="rvts14">Applies final calibration and forecast adjustments and creates the starting database for forecast scenarios (‘StartBase’)</span></li>
+ <li style="text-indent: 0px" class="rvps75 noindent"><span class="rvts14">Executes the base case</span></li>
+ <li style="text-indent: 0px" class="rvps75 noindent"><span class="rvts14">Executes policy scenarios</span></li>
 </ol>
 <p class="rvps2"><span class="rvts41"><br/></span></p>
 <p class="rvps2"><span class="rvts6">RunModel should be executed to incorporate any modifications to files that are used in the steps above. By convention, these files are generally located in the /Calibration or /Input/Scripts subfolders.</span></p>
-<h2 class="rvps12"><span class="rvts0"><span class="rvts143"></span></span><span class="rvts0"><span class="rvts23"></span></span></h2>
+<h2 class="rvps12"><span class="rvts0"><span class="rvts135"></span></span><span class="rvts0"><span class="rvts23"></span></span></h2>
 
             </div>
             

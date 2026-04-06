@@ -1192,64 +1192,64 @@ details.hnd-blue-callout code {
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Testing Policy Files</span></span></h3>
 <p class="rvps15"><span class="rvts6">Individual or groups of policies can be tested without modifying a scenario by including it in a ‘PolicyTest’ file. These files are designed as a quick way of testing the impacts of a new policy on top of an existing scenario. A template file is available in the Policy subfolder that can be used to test a policy by following the steps below:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li class="rvps164 noindent"><span class="rvts6">Editing ‘PolicyTestTemplate.jl’ to include the files to be tested in the first section and adding the PolicyControl functions to be called in the IncorporatePolicyTest() function.</span></li>
- <li class="rvps164 noindent"><span class="rvts6">Save the file with a different name describing the policies being tested. For example, a collection of building standard policies could be named ‘BuildStdTest.jl’</span></li>
- <li class="rvps164 noindent"><span class="rvts6">Edit the batch file used to call the desired scenario to include the newly created file as the third parameter. The default is ‘TestEmpty’, which tells the model that there are no additional files to test. Modifying this to ‘BuildStdTest’ will add the files from ‘BuildStdTest.jl’ on top of the existing scenario in the second parameter.</span></li>
+ <li class="rvps165 noindent"><span class="rvts6">Editing ‘PolicyTestTemplate.jl’ to include the files to be tested in the first section and adding the PolicyControl functions to be called in the IncorporatePolicyTest() function.</span></li>
+ <li class="rvps165 noindent"><span class="rvts6">Save the file with a different name describing the policies being tested. For example, a collection of building standard policies could be named ‘BuildStdTest.jl’</span></li>
+ <li class="rvps165 noindent"><span class="rvts6">Edit the batch file used to call the desired scenario to include the newly created file as the third parameter. The default is ‘TestEmpty’, which tells the model that there are no additional files to test. Modifying this to ‘BuildStdTest’ will add the files from ‘BuildStdTest.jl’ on top of the existing scenario in the second parameter.</span></li>
 </ol>
-<p class="rvps164"><span class="rvts6"><br/></span></p>
+<p class="rvps165"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts6">To test execution of one or more policy files that have been :</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <li class="rvps2 noindent"><span class="rvts6">Let's say you have created two new policy files, </span><span class="rvts57">PolicyFile1.jl</span><span class="rvts6"> and </span><span class="rvts57">PolicyFile2.jl,</span><span class="rvts6"> saved to the \Policy folder.&nbsp;</span></li>
+ <li class="rvps2 noindent"><span class="rvts6">Let's say you have created two new policy files, </span><span class="rvts58">PolicyFile1.jl</span><span class="rvts6"> and </span><span class="rvts58">PolicyFile2.jl,</span><span class="rvts6"> saved to the \Policy folder.&nbsp;</span></li>
 </ol>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <li value="2" class="rvps2 noindent"><span class="rvts6">To test the impact of these two policies in the model, create an additional Julia script file in the \Policy folder that includes these policy files in the model and calls them. Save the file with any name.&nbsp;</span></li>
 </ol>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps5"><span class="rvts6">Below shows the contents of a policy test file named </span><span class="rvts57">PolicyTest.jl</span><span class="rvts6"> that incorporates PolicyFile1.jl and PolicyFile2.jl into the model.&nbsp;</span></p>
+<p class="rvps5"><span class="rvts6">Below shows the contents of a policy test file named </span><span class="rvts58">PolicyTest.jl</span><span class="rvts6"> that incorporates PolicyFile1.jl and PolicyFile2.jl into the model.&nbsp;</span></p>
 <p class="rvps5"><span class="rvts6"><br/></span></p>
 <div class="rvps5">
 <table width="90%" style="border-width: 0px; background-color: #ffffff; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: rgba(190,0,0,0.75); width: 6px;">
-   <p class="rvps161"><span class="rvts186"><br/></span></p>
+   <p class="rvps162"><span class="rvts192"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: rgba(255,218,218,0.5); vertical-align: top; width: 28px;">
-   <p class="rvps161"><span class="rvts248">☑</span></p>
+   <p class="rvps162"><span class="rvts257">☑</span></p>
   </td>
   <td style="border-width : 1px; border-color: #993300; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: rgba(255,218,218,0.5); vertical-align: top; width: 724px;">
-   <p class="rvps28"><span class="rvts181">Important:</span><span class="rvts182"> &nbsp;For the below code to work properly, both </span><span class="rvts183">PolicyFile1.jl</span><span class="rvts182"> and </span><span class="rvts183">PolicyFile2.jl</span><span class="rvts182"> must contain a </span><span class="rvts181">function</span><span class="rvts182"> at the bottom of those files named </span><span class="rvts184">PolicyControl</span><span class="rvts182">.</span></p>
+   <p class="rvps28"><span class="rvts187">Important:</span><span class="rvts188"> &nbsp;For the below code to work properly, both </span><span class="rvts189">PolicyFile1.jl</span><span class="rvts188"> and </span><span class="rvts189">PolicyFile2.jl</span><span class="rvts188"> must contain a </span><span class="rvts187">function</span><span class="rvts188"> at the bottom of those files named </span><span class="rvts190">PolicyControl</span><span class="rvts188">.</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps72"><span class="rvts6"><br/></span></p>
+<p class="rvps63"><span class="rvts6"><br/></span></p>
 <p class="rvps5"><span class="rvts18">Sample Module to Test Policies</span></p>
-<div class="rvps72">
+<div class="rvps63">
 <table width="90%" style="border-color: #ffffff #969696 #969696 #ffffff; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #fafafa;">
-   <p class="rvps163"><span class="rvts146">#</span></p>
-   <p class="rvps163"><span class="rvts146"># PolicyTest.jl - Test a Set of New Policies</span></p>
-   <p class="rvps163"><span class="rvts146">#</span></p>
-   <p class="rvps163"><span class="rvts114"><br/></span></p>
-   <p class="rvps163"><span class="rvts137">module</span><span class="rvts114"> PolicyTest</span></p>
-   <p class="rvps163"><span class="rvts114"><br/></span></p>
-   <p class="rvps163"><span class="rvts147">import</span><span class="rvts114"> </span><span class="rvts115">...</span><span class="rvts114">EnergyModel</span><span class="rvts115">:</span><span class="rvts114"> DB</span></p>
-   <p class="rvps163"><span class="rvts114"><br/></span></p>
-   <p class="rvps163"><span class="rvts116">include</span><span class="rvts114">(</span><span class="rvts117">"PolicyFile1.jl"</span><span class="rvts114">)</span></p>
-   <p class="rvps163"><span class="rvts116">include</span><span class="rvts114">(</span><span class="rvts117">"PolicyFile2.jl"</span><span class="rvts114">)</span></p>
-   <p class="rvps163"><span class="rvts114"><br/></span></p>
-   <p class="rvps163"><span class="rvts137">function</span><span class="rvts114"> </span><span class="rvts116">IncorporatePolicyTest</span><span class="rvts114">()</span></p>
-   <p class="rvps163"><span class="rvts114">&nbsp; </span><span class="rvts116">@info</span><span class="rvts114"> </span><span class="rvts117">"IncorporatePolicyTest - PolicyTest.jl"</span></p>
-   <p class="rvps163"><span class="rvts117"><br/></span></p>
-   <p class="rvps162"><span class="rvts114">PolicyFile1</span><span class="rvts115">.</span><span class="rvts116">PolicyControl</span><span class="rvts114">(DB)</span></p>
-   <p class="rvps162"><span class="rvts114">PolicyFile2</span><span class="rvts115">.</span><span class="rvts116">PolicyControl</span><span class="rvts114">(DB)</span></p>
-   <p class="rvps163"><span class="rvts147">end</span></p>
-   <p class="rvps163"><span class="rvts114"><br/></span></p>
-   <p class="rvps163"><span class="rvts147">end</span></p>
+   <p class="rvps164"><span class="rvts148">#</span></p>
+   <p class="rvps164"><span class="rvts148"># PolicyTest.jl - Test a Set of New Policies</span></p>
+   <p class="rvps164"><span class="rvts148">#</span></p>
+   <p class="rvps164"><span class="rvts105"><br/></span></p>
+   <p class="rvps164"><span class="rvts145">module</span><span class="rvts105"> PolicyTest</span></p>
+   <p class="rvps164"><span class="rvts105"><br/></span></p>
+   <p class="rvps164"><span class="rvts149">import</span><span class="rvts105"> </span><span class="rvts106">...</span><span class="rvts105">EnergyModel</span><span class="rvts106">:</span><span class="rvts105"> DB</span></p>
+   <p class="rvps164"><span class="rvts105"><br/></span></p>
+   <p class="rvps164"><span class="rvts107">include</span><span class="rvts105">(</span><span class="rvts108">"PolicyFile1.jl"</span><span class="rvts105">)</span></p>
+   <p class="rvps164"><span class="rvts107">include</span><span class="rvts105">(</span><span class="rvts108">"PolicyFile2.jl"</span><span class="rvts105">)</span></p>
+   <p class="rvps164"><span class="rvts105"><br/></span></p>
+   <p class="rvps164"><span class="rvts145">function</span><span class="rvts105"> </span><span class="rvts107">IncorporatePolicyTest</span><span class="rvts105">()</span></p>
+   <p class="rvps164"><span class="rvts105">&nbsp; </span><span class="rvts107">@info</span><span class="rvts105"> </span><span class="rvts108">"IncorporatePolicyTest - PolicyTest.jl"</span></p>
+   <p class="rvps164"><span class="rvts108"><br/></span></p>
+   <p class="rvps163"><span class="rvts105">PolicyFile1</span><span class="rvts106">.</span><span class="rvts107">PolicyControl</span><span class="rvts105">(DB)</span></p>
+   <p class="rvps163"><span class="rvts105">PolicyFile2</span><span class="rvts106">.</span><span class="rvts107">PolicyControl</span><span class="rvts105">(DB)</span></p>
+   <p class="rvps164"><span class="rvts149">end</span></p>
+   <p class="rvps164"><span class="rvts105"><br/></span></p>
+   <p class="rvps164"><span class="rvts149">end</span></p>
   </td>
  </tr>
 </table>

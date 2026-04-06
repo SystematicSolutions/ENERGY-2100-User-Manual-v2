@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="favicon.ico"/>
 
-  <title>Testing the Impact of a Policy File</title>
+  <title>Global Pathnames</title>
   <meta name="description" content="" /> 
   <meta name="keywords" content="">
 
@@ -22,11 +22,11 @@
 
   <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Testing the Impact of a Policy File">
+  <meta name="twitter:title" content="Global Pathnames">
   <meta name="twitter:description" content="">
 
   <!-- Open Graph data -->
-  <meta property="og:title" content="Testing the Impact of a Policy File" />
+  <meta property="og:title" content="Global Pathnames" />
   <meta property="og:type" content="article" />
   <meta property="og:description" content="" />
   <meta property="og:site_name" content="ENERGY 2100 User Manual" /> 
@@ -1161,29 +1161,209 @@ details.hnd-blue-callout code {
 
     <article>
         <div id="topic-content" class="container-fluid" 
-		  data-hnd-id="TestingtheImpactofaPolicyFile"
-		  data-hnd-context="217"
-		  data-hnd-title="Testing the Impact of a Policy File"
+		  data-hnd-id="GlobalPathnames"
+		  data-hnd-context="199"
+		  data-hnd-title="Global Pathnames"
 		>
             
                 <div class="navigation">
                     <ol class="breadcrumb">
-                        <li><a href="WorkinginVSCode.html">Working in VS Code</a></li>
+                        <li><a href="ModelArchitecture.html">Model Architecture</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="WorkinginVSCode.html" title="Working in VS Code" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="ViewingVariablesUsingtheJuliaREP.html" title="Viewing Variables Using the Julia REPL" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="Reference-BasicLayoutofVSCode.html" title="Reference - Basic Layout of VS Code" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="ModelArchitecture.html" title="Model Architecture" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="GlobalFunctions.html" title="Global Functions" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="GlobalMacros.html" title="Global Macros" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
 
             <a id="main-content"></a>
 
-            <h2>Testing the Impact of a Policy File</h2>
+            <h2>Global Pathnames</h2>
 
             <div class="main-content">
                 
-<p class="rvps2"><span class="rvts6">After you have tested a new policy file, you will need to execute with the model source code to see the impact of changing the policy variable(s).&nbsp;</span></p>
-<p class="rvps2"><span class="rvts6">To execute a new policy file in the model, </span><span class="rvts6"></span></p>
+<p class="rvps2"><span class="rvts6">The global strings listed in the table below represent scenario names that are set by user-specified arguments in calls to model execution batch files.</span></p>
+<p class="rvps2"><span class="rvts6">The global strings listed in the table below is/are assigned values in </span><span class="rvts18">Core\Core.jl</span><span class="rvts6">.</span></p>
+<div class="rvps73">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 150px;">
+   <p class="rvps6"><span class="rvts27">Global Strings</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 654px;">
+   <p class="rvps6"><span class="rvts27">Description</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
+   <p class="rvps70"><span class="rvts124">DB</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
+   <p class="rvps74"><span class="rvts111">DB </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">abspath</span><span class="rvts111">(</span><span class="rvts113">joinpath</span><span class="rvts111">(E2020Folder, </span><span class="rvts112">"database.hdf5"</span><span class="rvts111">))</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
+   <p class="rvps70"><span class="rvts124">ModelPath</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
+   <p class="rvps74"><span class="rvts111">ModelPath </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">dirname</span><span class="rvts111">(</span><span class="rvts113">@__DIR__</span><span class="rvts111">)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
+   <p class="rvps70"><span class="rvts124">E2020Folder</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
+   <p class="rvps74"><span class="rvts111">E2020Folder </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">abspath</span><span class="rvts111">(</span><span class="rvts113">joinpath</span><span class="rvts111">(ModelPath, </span><span class="rvts112">"2020Model"</span><span class="rvts111">))</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
+   <p class="rvps70"><span class="rvts124">DataFolder</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
+   <p class="rvps74"><span class="rvts111">DataFolder </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">abspath</span><span class="rvts111">(</span><span class="rvts113">joinpath</span><span class="rvts111">(ModelPath, </span><span class="rvts112">"2020Model"</span><span class="rvts111">))</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
+   <p class="rvps70"><span class="rvts124">DatabaseName</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
+   <p class="rvps74"><span class="rvts111">DatabaseName </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(DataFolder, </span><span class="rvts112">"database.hdf5"</span><span class="rvts111">)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
+   <p class="rvps70"><span class="rvts124">OutputFolder</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
+   <p class="rvps74"><span class="rvts111">OutputFolder </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">abspath</span><span class="rvts111">(</span><span class="rvts113">joinpath</span><span class="rvts111">(ModelPath,</span><span class="rvts112">"2020Model"</span><span class="rvts111">, </span><span class="rvts112">"out"</span><span class="rvts111">))</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps73"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">The following global string variables are saved when the </span><span class="rvts18">StartScenario</span><span class="rvts6"> function is called. &nbsp;The following arguments are passed to StartScenario: StartName, SceName, BCName, RefName, OGRefName, InitialName, Run1Name. The run names are saved along with the paths.</span></p>
+<p class="rvps2"><span class="rvts6">The StartScenario function is defined in </span><span class="rvts18">\Core\CoreE2020.jl </span><span class="rvts6">and the following global string variables are saved here.</span></p>
+<div class="rvps73">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 147px;">
+   <p class="rvps6"><span class="rvts27">Global Strings</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 579px;">
+   <p class="rvps6"><span class="rvts27">Description</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
+   <p class="rvps70"><span class="rvts124">BCName</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
+   <p class="rvps6"><span class="rvts14">The name of the base case is passed as an argument to </span><span class="rvts128">function</span><span class="rvts130"> </span><span class="rvts129">StartScenario</span><span class="rvts123">.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
+   <p class="rvps70"><span class="rvts124">BCNameDB</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
+   <p class="rvps74"><span class="rvts111">BaseFolder </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(ModelPath, </span><span class="rvts112">"2020Model"</span><span class="rvts111">, BCName)</span></p>
+   <p class="rvps74"><span class="rvts111">BCNameDB </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(BaseFolder, </span><span class="rvts112">"database.hdf5"</span><span class="rvts111">)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
+   <p class="rvps70"><span class="rvts127">InitialName</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
+   <p class="rvps6"><span class="rvts14">The name of the initial case is passed as an argument to </span><span class="rvts128">function</span><span class="rvts130"> </span><span class="rvts129">StartScenario. </span><span class="rvts14">The Initial case database is used in producing the "zInitial" column of the Access-format output files.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
+   <p class="rvps70"><span class="rvts127">InitialNameDB</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
+   <p class="rvps74"><span class="rvts111">InitialFolder </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(ModelPath, </span><span class="rvts112">"2020Model"</span><span class="rvts111">, InitialName)</span></p>
+   <p class="rvps74"><span class="rvts111">InitialNameDB </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(InitialFolder, </span><span class="rvts112">"database.hdf5"</span><span class="rvts111">)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
+   <p class="rvps70"><span class="rvts127">OGRefName</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
+   <p class="rvps6"><span class="rvts14">The name of the OGRef case is passed as an argument to </span><span class="rvts128">function</span><span class="rvts130"> </span><span class="rvts129">StartScenario. </span><span class="rvts14">The OGRef case is executed before the reference case and is a scenario in which the oil and gas forecast is exogenous. We run the OGRef case to extract oil and gas industry assumptions about return on investments that carry over to the Reference case.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
+   <p class="rvps70"><span class="rvts127">OGRefNameDB</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
+   <p class="rvps74"><span class="rvts111">OGRefFolder </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(ModelPath, </span><span class="rvts112">"2020Model"</span><span class="rvts111">, OGRefName)</span></p>
+   <p class="rvps74"><span class="rvts111">OGRefNameDB </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(OGRefFolder, </span><span class="rvts112">"database.hdf5"</span><span class="rvts111">)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
+   <p class="rvps70"><span class="rvts127">RefName</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
+   <p class="rvps74"><span class="rvts111">The RefName variable holds the name of the reference case.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
+   <p class="rvps70"><span class="rvts127">RefNameDB</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
+   <p class="rvps74"><span class="rvts111">RefFolder </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(ModelPath, </span><span class="rvts112">"2020Model"</span><span class="rvts111">, RefName)</span></p>
+   <p class="rvps74"><span class="rvts111">RefNameDB </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(RefFolder, </span><span class="rvts112">"database.hdf5"</span><span class="rvts111">)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
+   <p class="rvps2"><span class="rvts131">Run1Name</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
+   <p class="rvps6"><span class="rvts14">The </span><span class="rvts132">Run1Name</span><span class="rvts14"> is used in integrated runs with the macroeconomic model. When iterating with the macro model, we hold inflation constant for all iterations, using the value from the first iteration.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
+   <p class="rvps70"><span class="rvts127">Run1NameDB</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
+   <p class="rvps74"><span class="rvts111">Run1Folder </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(ModelPath, </span><span class="rvts112">"2020Model"</span><span class="rvts111">, Run1Name)</span></p>
+   <p class="rvps74"><span class="rvts111">Run1NameDB </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(Run1Folder, </span><span class="rvts112">"database.hdf5"</span><span class="rvts111">)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
+   <p class="rvps70"><span class="rvts127">SceName</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
+   <p class="rvps6"><span class="rvts14">The SceName variable holds the name of the current scenario being executed.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 147px;">
+   <p class="rvps70"><span class="rvts127">ScenarioDatabase</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 579px;">
+   <p class="rvps74"><span class="rvts111">ScenarioFolder </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(ModelPath, </span><span class="rvts112">"2020Model"</span><span class="rvts111">, SceName)</span></p>
+   <p class="rvps74"><span class="rvts111">ScenarioDatabase </span><span class="rvts114">=</span><span class="rvts111"> </span><span class="rvts113">joinpath</span><span class="rvts111">(ScenarioFolder, </span><span class="rvts112">"database.hdf5"</span><span class="rvts111">)</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps73"><span class="rvts6"><br/></span></p>
+<p class="rvps72"><span class="rvts6"><br/></span></p>
+<p class="rvps72"><span class="rvts105"></span><span class="rvts6"></span></p>
 
             </div>
             

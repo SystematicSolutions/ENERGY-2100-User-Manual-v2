@@ -1189,11 +1189,11 @@ details.hnd-blue-callout code {
 <table width="100%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #f3f300; vertical-align: top; width: 2px; height: 54px;">
-   <p class="rvps22"><span class="rvts176"><br/></span></p>
+   <p class="rvps22"><span class="rvts182"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #ffffe7; vertical-align: top; width: 938px; height: 54px;">
-   <p class="rvps28"><span class="rvts172">⚠️</span><span class="rvts177">Warning</span></p>
-   <p class="rvps2"><span class="rvts172">Before adding a new input variable, verify the variable is defined in \Database\VBInput.jl.</span></p>
+   <p class="rvps28"><span class="rvts136">⚠️</span><span class="rvts183">Warning</span></p>
+   <p class="rvps2"><span class="rvts136">Before adding a new input variable, verify the variable is defined in \Database\VBInput.jl.</span></p>
   </td>
  </tr>
 </table>
@@ -1201,32 +1201,32 @@ details.hnd-blue-callout code {
 <p class="rvps2"><span class="rvts6">If you want to add new input data to the model:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li class="rvps2 noindent"><span class="rvts6">Create a semi-colon delimited text file saved with a </span><span class="rvts18">.dat</span><span class="rvts6"> extension.&nbsp;</span></li>
- <li class="rvps2 noindent"><span class="rvts6">Name the file the same as the variable name (ex: </span><span class="rvts129">vDmd.dat</span><span class="rvts6">). By convention, the input variables are named with a 'v' prefix. &nbsp;During processing of the input data, the "v" variables are assigned to model variables.&nbsp;</span></li>
- <li class="rvps35 noindent"><span class="rvts6">Set up the data file such that each row contains one year's data along with its qualifying information.&nbsp;</span></li>
+ <li class="rvps2 noindent"><span class="rvts6">Name the file the same as the variable name (ex: </span><span class="rvts121">vDmd.dat</span><span class="rvts6">). By convention, the input variables are named with a 'v' prefix. &nbsp;During processing of the input data, the "v" variables are assigned to model variables.&nbsp;</span></li>
+ <li class="rvps33 noindent"><span class="rvts6">Set up the data file such that each row contains one year's data along with its qualifying information.&nbsp;</span></li>
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li class="rvps35 noindent"><span class="rvts6">Put the name of the variable in the first column.&nbsp;</span></li>
-  <li class="rvps35 noindent"><span class="rvts6">The next columns will contain set descriptors for the given variable, listed in reverse order as how the variable is defined.</span></li>
-  <li class="rvps35 noindent"><span class="rvts6">Add the units to the next column. The units should match exactly the units that are listed for that variable in \Database\VBInput.jl.&nbsp;</span></li>
-  <li class="rvps35 noindent"><span class="rvts6">The last column should contain the data values.</span></li>
+  <li class="rvps33 noindent"><span class="rvts6">Put the name of the variable in the first column.&nbsp;</span></li>
+  <li class="rvps33 noindent"><span class="rvts6">The next columns will contain set descriptors for the given variable, listed in reverse order as how the variable is defined.</span></li>
+  <li class="rvps33 noindent"><span class="rvts6">Add the units to the next column. The units should match exactly the units that are listed for that variable in \Database\VBInput.jl.&nbsp;</span></li>
+  <li class="rvps33 noindent"><span class="rvts6">The last column should contain the data values.</span></li>
  </ol>
 </ol>
-<p class="rvps35"><span class="rvts6"><br/></span></p>
+<p class="rvps33"><span class="rvts6"><br/></span></p>
 <p class="rvps91"><span class="rvts6">Below shows an example of the column entries for the variable, </span><span class="rvts34">vGCPot[Plant,Node,Area,Year]</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 96px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps35 noindent"><span class="rvts6">Column 1: Variable name (ex: &nbsp;vGCPot;)&nbsp;</span></li>
- <li class="rvps35 noindent"><span class="rvts6">Column 2: Year descriptors (ex: 2023;)</span></li>
- <li class="rvps35 noindent"><span class="rvts6">Column 3: Area descriptor (ex: Ontario;)</span></li>
- <li class="rvps35 noindent"><span class="rvts6">Column 4: Node descriptor (ex: Ontario;)</span></li>
- <li class="rvps35 noindent"><span class="rvts6">Column 5: Plant descriptor (Gas/Oil Combined Cycle;)</span></li>
- <li class="rvps35 noindent"><span class="rvts6">Column 6: &nbsp;Units (ex: MW;)</span></li>
- <li class="rvps35 noindent"><span class="rvts6">Column 7: Data value (ex: 6708.32)</span></li>
+ <li class="rvps33 noindent"><span class="rvts6">Column 1: Variable name (ex: &nbsp;vGCPot;)&nbsp;</span></li>
+ <li class="rvps33 noindent"><span class="rvts6">Column 2: Year descriptors (ex: 2023;)</span></li>
+ <li class="rvps33 noindent"><span class="rvts6">Column 3: Area descriptor (ex: Ontario;)</span></li>
+ <li class="rvps33 noindent"><span class="rvts6">Column 4: Node descriptor (ex: Ontario;)</span></li>
+ <li class="rvps33 noindent"><span class="rvts6">Column 5: Plant descriptor (Gas/Oil Combined Cycle;)</span></li>
+ <li class="rvps33 noindent"><span class="rvts6">Column 6: &nbsp;Units (ex: MW;)</span></li>
+ <li class="rvps33 noindent"><span class="rvts6">Column 7: Data value (ex: 6708.32)</span></li>
 </ul>
-<p class="rvps35"><span class="rvts6"><br/></span></p>
-<p class="rvps82"><span class="rvts175">vGCPot.dat</span></p>
-<p class="rvps90"><span class="rvts87">Variable;Year;Area;Node;Plant;Units;Data</span></p>
-<p class="rvps90"><span class="rvts87">vGCPot;2023;Ontario;Ontario;Gas/Oil Combined Cycle;MW;6708.32</span></p>
-<p class="rvps90"><span class="rvts87">vGCPot;2023;Ontario;Ontario;Onshore Wind;10000&nbsp;</span></p>
-<p class="rvps90"><span class="rvts87">...</span></p>
+<p class="rvps33"><span class="rvts6"><br/></span></p>
+<p class="rvps79"><span class="rvts181">vGCPot.dat</span></p>
+<p class="rvps90"><span class="rvts102">Variable;Year;Area;Node;Plant;Units;Data</span></p>
+<p class="rvps90"><span class="rvts102">vGCPot;2023;Ontario;Ontario;Gas/Oil Combined Cycle;MW;6708.32</span></p>
+<p class="rvps90"><span class="rvts102">vGCPot;2023;Ontario;Ontario;Onshore Wind;10000&nbsp;</span></p>
+<p class="rvps90"><span class="rvts102">...</span></p>
 <h2 class="rvps12"><span class="rvts0"><span class="rvts23">Incorporating a New .DAT File into the Model</span></span></h2>
 <p class="rvps2"><span class="rvts6">To incorporate the new </span><span class="rvts18">.dat</span><span class="rvts6"> file into the model, follow the steps below:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
@@ -1253,7 +1253,7 @@ details.hnd-blue-callout code {
   <li style="text-indent: 0px" class="rvps88 noindent"><span class="rvts14">The unit in the input file (.dat) must be in the first column.</span></li>
   <li style="text-indent: 0px" class="rvps88 noindent"><span class="rvts14">The unit of the database source code variable (from step 1) must be in the second column.&nbsp;</span></li>
   <li style="text-indent: 0px" class="rvps88 noindent"><span class="rvts14">If a unit conversion is required, input the Factor into column 3 (Factor). &nbsp; The input data will be divided by the factor.</span></li>
-  <li style="text-indent: 0px" class="rvps88 noindent"><span class="rvts14">If a currency conversion is required, the units must include ‘</span><span class="rvts174">Nominal CN$’, ‘US$’, or ‘CN$’.</span></li>
+  <li style="text-indent: 0px" class="rvps88 noindent"><span class="rvts14">If a currency conversion is required, the units must include ‘</span><span class="rvts180">Nominal CN$’, ‘US$’, or ‘CN$’.</span></li>
  </ul>
 </ul>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">

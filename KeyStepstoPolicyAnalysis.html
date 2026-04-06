@@ -1185,24 +1185,24 @@ details.hnd-blue-callout code {
 <h2 class="rvps12"><span class="rvts0"><span class="rvts23">Process of Analyzing Policies</span></span></h2>
 <p class="rvps18"><span class="rvts6">The process of creating policies in ENERGY 2100 begins with describing the policy in detail, defining expectations of policy impacts, translating the policy into model variables, creating an ENERGY 2100 policy file and executing the model, then analyzing and explaining model results to determine whether any adjustments to the policy is required. The steps involved in creating a policy simulation in ENERGY 2100 are summarized in </span><span class="rvts24">the figure below</span><span class="rvts6"> and described in further detail below.</span></p>
 <p class="rvps18"><span class="rvts18">Steps to Creating a Policy Simulation in ENERGY 2100</span></p>
-<p class="rvps156"><img alt="" style="width : 609px; height : 169px; padding : 1px;" src="lib/NewItem%2074.png"></p>
+<p class="rvps157"><img alt="" style="width : 609px; height : 169px; padding : 1px;" src="lib/NewItem%2074.png"></p>
 <p class="rvps15"><span class="rvts6">When doing policy analysis in ENERGY 2100, the first step is to describe and define the actual policy in detail (Step 1), including specifics such as the specific industries, geographic areas, fuels, end uses, years, and types of processes which are to be covered by the policy as well as associated costs. Once the policy is clearly defined, the next step is to consider what impacts you expect to see from the policy – both direct impacts and indirect (Step 2). For example, if you are planning a simulation of a residential lighting policy in Alberta, a direct impact you might expect would be a decrease in Alberta’s residential electricity demand for lighting. An indirect impact might be a decrease in electric generation due to decreased lighting demand and potentially a decrease in electricity prices. Identifying these expectations will help determine what to look for in model results and assess the reasonableness of those model results.</span></p>
 <p class="rvps15"><span class="rvts6">After identifying the expected impacts of the policy, you are ready to translate the policy into changes to ENERGY 2100 model variables by creating a policy file then to execute ENERGY 2100 (Steps 3 and 4). &nbsp;Policy files are described further in XXXX.&nbsp;</span></p>
 <p class="rvps15"><span class="rvts6">When reviewing model results (Step 5), determine the impacts of the policy by calculating the difference between results from the policy case and the business-as-usual case. Any impacts that differ from expectations point to areas that require further investigation and explanations in terms of model relationships. Often when reviewing results, you will identify an area which needs further specification or may have been missed during policy definition. Review and enhance the policy definitions or policy file as required and repeat the process until no further modifications are required (Step 6). &nbsp;</span></p>
 <p class="rvps2"><span class="rvts6">To analyze a new policy in ENERGY 2100, follow the steps below:</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <li class="rvps5 noindent"><span class="rvts242">Policy Description: &nbsp;</span><span class="rvts243">Clearly identify the components of a given policy, what structures in the energy system are impacted, and the expected outcomes of the policy.</span></li>
+ <li class="rvps5 noindent"><span class="rvts251">Policy Description: &nbsp;</span><span class="rvts252">Clearly identify the components of a given policy, what structures in the energy system are impacted, and the expected outcomes of the policy.</span></li>
  <li class="rvps5 noindent"><span class="rvts12">Define Expected Outcomes</span><span class="rvts13">: &nbsp;</span></li>
  <li class="rvps5 noindent"><span class="rvts13">Identify Policy Variables: &nbsp;</span></li>
  <li class="rvps5 noindent"><span class="rvts13">Write or edit a policy file in Julia that changes values of policy variables.</span></li>
  <li class="rvps5 noindent"><span class="rvts13">Compile the policy file to ensure it executes without error. This will change the values of the policy variables.</span></li>
  <li class="rvps5 noindent"><span class="rvts13">Verify that the values of the policy variable have been changed as intended.</span></li>
 </ol>
-<p class="rvps32"><span class="rvts13">There are multiple ways to check the values of the variable after compiling your file, including the following:</span></p>
-<p class="rvps157"><span class="rvts13">- Look at the values on the database through the User Interface</span></p>
-<p class="rvps41"><span class="rvts13">- Add temporary @info statements in the code to write out values to the screen when being compiled</span></p>
-<p class="rvps41"><span class="rvts13">- Advanced - Use VS Code to compile the policy file and view values.&nbsp;</span></p>
+<p class="rvps30"><span class="rvts13">There are multiple ways to check the values of the variable after compiling your file, including the following:</span></p>
+<p class="rvps158"><span class="rvts13">- Look at the values on the database through the User Interface</span></p>
+<p class="rvps43"><span class="rvts13">- Add temporary @info statements in the code to write out values to the screen when being compiled</span></p>
+<p class="rvps43"><span class="rvts13">- Advanced - Use VS Code to compile the policy file and view values.&nbsp;</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <li value="7" class="rvps5 noindent"><span class="rvts13">Execute the model with the changes to the policy variables to see the impact on the overall forecast results.</span></li>
  <li class="rvps5 noindent"><span class="rvts13">Review the results using output tables created during model execution.</span></li>

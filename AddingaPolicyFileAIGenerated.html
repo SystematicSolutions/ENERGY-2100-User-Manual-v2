@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="favicon.ico"/>
 
-  <title>Global Constants</title>
+  <title>Adding a Policy File (AI Generated)</title>
   <meta name="description" content="" /> 
   <meta name="keywords" content="">
 
@@ -22,11 +22,11 @@
 
   <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Global Constants">
+  <meta name="twitter:title" content="Adding a Policy File (AI Generated)">
   <meta name="twitter:description" content="">
 
   <!-- Open Graph data -->
-  <meta property="og:title" content="Global Constants" />
+  <meta property="og:title" content="Adding a Policy File (AI Generated)" />
   <meta property="og:type" content="article" />
   <meta property="og:description" content="" />
   <meta property="og:site_name" content="ENERGY 2100 User Manual" /> 
@@ -1161,127 +1161,312 @@ details.hnd-blue-callout code {
 
     <article>
         <div id="topic-content" class="container-fluid" 
-		  data-hnd-id="GlobalConstants"
-		  data-hnd-context="78"
-		  data-hnd-title="Global Constants"
+		  data-hnd-id="AddingaPolicyFileAIGenerated"
+		  data-hnd-context="233"
+		  data-hnd-title="Adding a Policy File (AI Generated)"
 		>
             
                 <div class="navigation">
                     <ol class="breadcrumb">
-                        <li><a href="ModelArchitecture.html">Model Architecture</a></li>
+                        <li><a href="ExecutingtheModel.html">Executing the Model</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="ModelArchitecture.html" title="Model Architecture" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="Sets.html" title="Sets" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="GlobalStrings.html" title="Global Strings" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="ExecutingtheModel.html" title="Executing the Model" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="ExecutingReferenceandScenarioCas.html" title="Executing Reference and Scenario Cases" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="ExecutingPolicies1.html" title="Executing Policies" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
 
             <a id="main-content"></a>
 
-            <h2>Global Constants</h2>
+            <h2>Adding a Policy File (AI Generated)</h2>
 
             <div class="main-content">
                 
-<p class="rvps2"><span class="rvts6">A set of global constants have been defined as part of the EnergyModel in the file</span><span class="rvts18"> \Engine\</span><span class="rvts129">E2020_Constants.jl</span><span class="rvts6">. Their definitions are listed in the table below:</span></p>
-<div class="rvps62">
-<table width="80%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+<h1 class="rvps80"><a name="_Overview"></a><span class="rvts0"><span class="rvts157">Overview</span></span></h1>
+<p class="rvps2"><span class="rvts6">Policy files are Julia (</span><span class="rvts158">.jl</span><span class="rvts6">) scripts stored in the </span><span class="rvts158">\Policy</span><span class="rvts6"> folder. Each file implements a </span><span class="rvts158">PolicyControl(DB)</span><span class="rvts6"> function that reads from and writes to the model database to apply a specific policy. A scenario run combines two layers of policy files:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps6 noindent"><span class="rvts27">Reference Policy file</span><span class="rvts14"> (e.g., Ref25.jl) — contains all policies that define the reference case. This file includes and calls dozens of individual policy module files.&nbsp;</span></li>
+ <li class="rvps6 noindent"><span class="rvts27">Test Policy file</span><span class="rvts14"> (e.g., PolicyTestEmpty.jl) — applies incremental scenario-specific policies on top of the reference case. An empty test file runs the reference case unchanged.</span></li>
+</ul>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">This guide covers how to create either type of policy file and register it in a scenario run.</span></p>
+<h1 class="rvps80"><a name="_Understanding_Policy_File_Structure"></a><span class="rvts0"><span class="rvts157">Understanding Policy File Structure</span></span></h1>
+<h2 class="rvps12"><a name="_Individual_Policy_Module_Files"></a><span class="rvts0"><span class="rvts23">Individual Policy Module Files</span></span></h2>
+<p class="rvps2"><span class="rvts6">Each individual policy (e.g., </span><span class="rvts158">Res_PeakSavings.jl</span><span class="rvts6">, </span><span class="rvts158">CarbonTax_OBA_BC.jl</span><span class="rvts6">) is a self-contained Julia module stored in the </span><span class="rvts158">\Policy</span><span class="rvts6"> folder. The standard structure is:</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps81"><span class="rvts159">module MyPolicyName</span></p>
+<p class="rvps81"><span class="rvts6"><br/></span></p>
+<p class="rvps81"><span class="rvts159">import ...EnergyModel: DB</span></p>
+<p class="rvps81"><span class="rvts6"><br/></span></p>
+<p class="rvps81"><span class="rvts159">function PolicyControl(db::AbstractDatabase)</span></p>
+<p class="rvps81"><span class="rvts159">&nbsp; @info "PolicyControl - MyPolicyName"</span></p>
+<p class="rvps81"><span class="rvts159">&nbsp; # Read policy parameters from the database, modify variables</span></p>
+<p class="rvps81"><span class="rvts159">&nbsp; # e.g., WriteDisk(db, "Sector/Variable", values)</span></p>
+<p class="rvps81"><span class="rvts159">end</span></p>
+<p class="rvps81"><span class="rvts6"><br/></span></p>
+<p class="rvps81"><span class="rvts159">end &nbsp;# module</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">The module name must exactly match the filename (without the </span><span class="rvts158">.jl</span><span class="rvts6"> extension).</span></p>
+<h2 class="rvps12"><a name="_Reference_Policy_Files_(Policy.jl)"></a><span class="rvts0"><span class="rvts23">Reference Policy Files (Policy.jl)</span></span></h2>
+<p class="rvps2"><span class="rvts6">A Reference Policy file (e.g., </span><span class="rvts158">Ref25.jl</span><span class="rvts6">) is a collector module named </span><span class="rvts158">Policy</span><span class="rvts6">. It does two things: (1) uses </span><span class="rvts158">include()</span><span class="rvts6"> to load all individual policy module files, and (2) defines an </span><span class="rvts158">IncorporatePolicies()</span><span class="rvts6"> function that calls each module’s </span><span class="rvts158">PolicyControl(DB)</span><span class="rvts6"> in the desired execution order.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps81"><span class="rvts159">module Policy</span></p>
+<p class="rvps81"><span class="rvts6"><br/></span></p>
+<p class="rvps81"><span class="rvts159">import ...EnergyModel: DB</span></p>
+<p class="rvps81"><span class="rvts6"><br/></span></p>
+<p class="rvps81"><span class="rvts159">include("PolicyA.jl")</span></p>
+<p class="rvps81"><span class="rvts159">include("PolicyB.jl")</span></p>
+<p class="rvps81"><span class="rvts6"><br/></span></p>
+<p class="rvps81"><span class="rvts159">function IncorporatePolicies()</span></p>
+<p class="rvps81"><span class="rvts159">&nbsp; @info "IncorporatePolicies - MyScenarioName"</span></p>
+<p class="rvps81"><span class="rvts159">&nbsp; PolicyA.PolicyControl(DB)</span></p>
+<p class="rvps81"><span class="rvts159">&nbsp; PolicyB.PolicyControl(DB)</span></p>
+<p class="rvps81"><span class="rvts159">end</span></p>
+<p class="rvps81"><span class="rvts6"><br/></span></p>
+<p class="rvps81"><span class="rvts159">end &nbsp;# module</span></p>
+<h2 class="rvps12"><a name="_Test_Policy_Files_(PolicyTest.jl)"></a><span class="rvts0"><span class="rvts23">Test Policy Files (PolicyTest.jl)</span></span></h2>
+<p class="rvps2"><span class="rvts6">A Test Policy file is a collector module named </span><span class="rvts158">PolicyTest</span><span class="rvts6">. It follows the same pattern but defines </span><span class="rvts158">IncorporatePolicyTest()</span><span class="rvts6"> instead of </span><span class="rvts158">IncorporatePolicies()</span><span class="rvts6">. When no additional test policies are needed, use </span><span class="rvts158">PolicyTestEmpty.jl</span><span class="rvts6">, which contains an empty </span><span class="rvts158">IncorporatePolicyTest()</span><span class="rvts6"> function.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps81"><span class="rvts159">module PolicyTest</span></p>
+<p class="rvps81"><span class="rvts6"><br/></span></p>
+<p class="rvps81"><span class="rvts159">import ...EnergyModel: DB</span></p>
+<p class="rvps81"><span class="rvts6"><br/></span></p>
+<p class="rvps81"><span class="rvts159">include("MyNewPolicy.jl")</span></p>
+<p class="rvps81"><span class="rvts6"><br/></span></p>
+<p class="rvps81"><span class="rvts159">function IncorporatePolicyTest()</span></p>
+<p class="rvps81"><span class="rvts159">&nbsp; @info "IncorporatePolicyTest - MyTestName"</span></p>
+<p class="rvps81"><span class="rvts159">&nbsp; MyNewPolicy.PolicyControl(DB)</span></p>
+<p class="rvps81"><span class="rvts159">end</span></p>
+<p class="rvps81"><span class="rvts6"><br/></span></p>
+<p class="rvps81"><span class="rvts159">end &nbsp;# module</span></p>
+<h1 class="rvps80"><a name="_Step-by-Step:_Adding_a_New_Policy"></a><span class="rvts0"><span class="rvts157">Step-by-Step: Adding a New Policy</span></span></h1>
+<h2 class="rvps12"><a name="_Step_1:_Create_the_Individual_Policy_Module_File"></a><span class="rvts0"><span class="rvts23">Step 1: Create the Individual Policy Module File</span></span></h2>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li class="rvps6 noindent"><span class="rvts27">Create a new </span><span class="rvts160">.jl</span><span class="rvts14"> file in the </span><span class="rvts160">\Policy</span><span class="rvts14"> folder.</span></li>
+ <li class="rvps6 noindent"><span class="rvts14">Name the file descriptively (e.g., </span><span class="rvts160">Ind_NewEfficiencyStd.jl</span><span class="rvts14">). There is no required naming convention.</span></li>
+ <li class="rvps6 noindent"><span class="rvts14">Structure the file as a Julia module following the template in Section 1.1 above.</span></li>
+ <li class="rvps6 noindent"><span class="rvts14">Implement the policy logic inside </span><span class="rvts160">PolicyControl(db)</span><span class="rvts14">, using </span><span class="rvts160">ReadDisk</span><span class="rvts14"> and </span><span class="rvts160">WriteDisk</span><span class="rvts14"> (defined in the </span><span class="rvts160">\Core</span><span class="rvts14"> folder) to interact with the HDF5 database.</span></li>
+</ol>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps82"><span class="rvts161">Note: </span><span class="rvts58">If your policy reads input data from .dat files, those files are stored in the \InputData folder.</span></p>
+<h2 class="rvps12"><a name="_Step_2:_Add_the_Policy_to_a_Collector_File"></a><span class="rvts0"><span class="rvts23">Step 2: Add the Policy to a Collector File</span></span></h2>
+<p class="rvps2"><span class="rvts6">Depending on your goal, add the new policy to either a Reference Policy file or a Test Policy file.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<h3 class="rvps10"><a name="_Option_A:_Adding_to_a_Reference_Policy_File"></a><span class="rvts0"><span class="rvts19">Option A: Adding to a Reference Policy File</span></span></h3>
+<p class="rvps2"><span class="rvts6">Open the appropriate Reference Policy file (e.g., </span><span class="rvts158">Ref25.jl</span><span class="rvts6">) in the </span><span class="rvts158">\Policy</span><span class="rvts6"> folder.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="5" class="rvps6 noindent"><span class="rvts14">Add an </span><span class="rvts160">include()</span><span class="rvts14"> statement near the top of the file, grouped with related policies:</span></li>
+</ol>
+<p class="rvps81"><span class="rvts159">include("MyNewPolicy.jl")</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="6" class="rvps6 noindent"><span class="rvts14">Add a corresponding </span><span class="rvts160">PolicyControl(DB)</span><span class="rvts14"> call inside the </span><span class="rvts160">IncorporatePolicies()</span><span class="rvts14"> function, in the same relative position:</span></li>
+</ol>
+<p class="rvps81"><span class="rvts159">MyNewPolicy.PolicyControl(DB)</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps82"><span class="rvts161">Note: </span><span class="rvts58">Order matters. Policies are executed sequentially, so place the new call where it logically belongs relative to other policies (e.g., after initialization steps and before policies that depend on it).</span></p>
+<h3 class="rvps10"><a name="_Option_B:_Adding_to_a_Test_Policy_File"></a><span class="rvts0"><span class="rvts19">Option B: Adding to a Test Policy File</span></span></h3>
+<p class="rvps2"><span class="rvts6">If you want to test a new policy on top of an existing reference case without modifying the reference case itself, create or modify a Test Policy file.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="7" class="rvps6 noindent"><span class="rvts14">If creating a new test file, copy </span><span class="rvts160">PolicyTestEmpty.jl</span><span class="rvts14"> as a starting point and rename it (e.g., </span><span class="rvts160">PolicyMyScenario.jl</span><span class="rvts14">).</span></li>
+ <li class="rvps6 noindent"><span class="rvts14">Change the module name at the top to </span><span class="rvts27">PolicyTest</span><span class="rvts14"> (it must always be exactly </span><span class="rvts160">PolicyTest</span><span class="rvts14">).</span></li>
+ <li class="rvps6 noindent"><span class="rvts14">Add an </span><span class="rvts160">include()</span><span class="rvts14"> for your new policy module file.</span></li>
+ <li class="rvps6 noindent"><span class="rvts14">Add a </span><span class="rvts160">PolicyControl(DB)</span><span class="rvts14"> call inside </span><span class="rvts160">IncorporatePolicyTest()</span><span class="rvts14">.</span></li>
+</ol>
+<h2 class="rvps12"><a name="_Step_3:_Register_the_Scenario_in_RunE2100Runs.bat"></a><span class="rvts0"><span class="rvts23">Step 3: Register the Scenario in RunE2100Runs.bat</span></span></h2>
+<p class="rvps2"><span class="rvts6">To run a scenario using your new policy files, add or modify a </span><span class="rvts158">Call RunE2100</span><span class="rvts6"> line in </span><span class="rvts158">RunE2100Runs.bat</span><span class="rvts6"> (located in the </span><span class="rvts158">\2020Model</span><span class="rvts6"> folder). The call takes the following parameters:</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<div class="rvps77">
+<table width="622" style="border-width: 0px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 150px;">
-   <p class="rvps6"><span class="rvts27">Global Constant</span></p>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #2e75b6; vertical-align: top; width: 77px;">
+   <p class="rvps2"><span class="rvts162">Parameter</span></p>
   </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; width: 654px;">
-   <p class="rvps6"><span class="rvts27">Description</span></p>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #2e75b6; vertical-align: top; width: 149px;">
+   <p class="rvps2"><span class="rvts162">Example Value</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #2e75b6; vertical-align: top; width: 389px;">
+   <p class="rvps2"><span class="rvts162">Description</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps63"><span class="rvts128">Final</span></p>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 77px;">
+   <p class="rvps2"><span class="rvts163">%1</span></p>
   </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps78"><span class="rvts14">Represents last year in forecast as an index (</span><span class="rvts127">Final = MaxTime-ITime+1</span><span class="rvts14">)</span></p>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 149px;">
+   <p class="rvps2"><span class="rvts163">MyScenario</span></p>
   </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps63"><span class="rvts128">First</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps78"><span class="rvts14">Represents first year of model execution as an index (</span><span class="rvts127">First = Zero+1</span><span class="rvts14">)</span></p>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 389px;">
+   <p class="rvps2"><span class="rvts163">Scenario name; used to name the output subdirectory</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps63"><span class="rvts128">Future</span></p>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 77px;">
+   <p class="rvps2"><span class="rvts163">%2</span></p>
   </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps78"><span class="rvts14">Represents first forecast year as an index (</span><span class="rvts127">Future = Last+1</span><span class="rvts14">)</span></p>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 149px;">
+   <p class="rvps2"><span class="rvts163">Ref25</span></p>
   </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps63"><span class="rvts128">HisTime</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps78"><span class="rvts14">Represents last historical year (such as year 2026)</span></p>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 389px;">
+   <p class="rvps2"><span class="rvts163">Reference Policy file name (without .jl extension)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps63"><span class="rvts128">Infinity</span></p>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 77px;">
+   <p class="rvps2"><span class="rvts163">%3</span></p>
   </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps78"><span class="rvts14">Assigned to hold a very large value (1e37)</span></p>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 149px;">
+   <p class="rvps2"><span class="rvts163">PolicyTestMyScenario</span></p>
   </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps63"><span class="rvts128">ITime</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps78"><span class="rvts14">Represents the first historical year of input data (year 1985)</span></p>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 389px;">
+   <p class="rvps2"><span class="rvts163">Test Policy file name (without the Policy prefix and .jl extension; use TestEmpty for no additional policies)</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps63"><span class="rvts128">Last</span></p>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 77px;">
+   <p class="rvps2"><span class="rvts163">%4</span></p>
   </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps78"><span class="rvts14">Represents last historical year as an index (</span><span class="rvts127">Last = xHisTime-ITime+1</span><span class="rvts14">)</span></p>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 149px;">
+   <p class="rvps2"><span class="rvts163">2020</span></p>
   </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps63"><span class="rvts128">MaxTime</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps78"><span class="rvts14">Represents last year in forecast as a string (year 2050)</span></p>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 389px;">
+   <p class="rvps2"><span class="rvts163">Beginning year of the model run</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 150px;">
-   <p class="rvps63"><span class="rvts118">Zero</span></p>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 77px;">
+   <p class="rvps2"><span class="rvts163">%5</span></p>
   </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px 4px; vertical-align: middle; width: 654px;">
-   <p class="rvps78"><span class="rvts14">Represents first historical year of input data as an index (</span><span class="rvts127">Zero = ITime-ITime+1</span><span class="rvts14">)</span></p>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 149px;">
+   <p class="rvps2"><span class="rvts163">2050</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 389px;">
+   <p class="rvps2"><span class="rvts163">Ending year of the model run</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 77px;">
+   <p class="rvps2"><span class="rvts163">%6</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 149px;">
+   <p class="rvps2"><span class="rvts163">Base</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 389px;">
+   <p class="rvps2"><span class="rvts163">Reference case name (used for database comparisons)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 77px;">
+   <p class="rvps2"><span class="rvts163">%7</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 149px;">
+   <p class="rvps2"><span class="rvts163">Base</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 389px;">
+   <p class="rvps2"><span class="rvts163">Scenario name used for zInitial values in Access outputs</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 77px;">
+   <p class="rvps2"><span class="rvts163">%8</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 149px;">
+   <p class="rvps2"><span class="rvts163">Base</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 389px;">
+   <p class="rvps2"><span class="rvts163">Economic model investments case</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 77px;">
+   <p class="rvps2"><span class="rvts163">%9</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 149px;">
+   <p class="rvps2"><span class="rvts163">All</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 389px;">
+   <p class="rvps2"><span class="rvts163">Output files to generate: All, ExcelDTAs, AccessDTAs, or None</span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts26">RBL: &nbsp;Where/whether to add information listed below?</span></p>
-<p class="rvps2"><span class="rvts6">The beginning year and ending year of the model are stored in the global variables, </span><span class="rvts18">BTime</span><span class="rvts6"> and </span><span class="rvts18">EndTime</span><span class="rvts6">. These get saved when </span><span class="rvts18">function RunScenario</span><span class="rvts6"> is called. RunScenario function is defined in </span><span class="rvts18">CoreE2020.jl</span><span class="rvts6">.</span></p>
-<p class="rvps2"><span class="rvts114">BTime = Year values</span></p>
-<p class="rvps2"><span class="rvts114">CTime = Year value; initialized to = BTime</span></p>
-<p class="rvps2"><span class="rvts114">current = Index (CTime-ITime+1)</span></p>
-<p class="rvps2"><span class="rvts114">EndTime = Year value</span></p>
-<p class="rvps2"><span class="rvts114">EndYear = Index (EndTime-ITime+1)</span></p>
-<p class="rvps2"><span class="rvts114">CalibTime - Last year of calibration</span></p>
-<p class="rvps2"><span class="rvts114"><br/></span></p>
-<p class="rvps2"><span class="rvts114"><br/></span></p>
-<p class="rvps2"><span class="rvts114"><br/></span></p>
-<p class="rvps2"><span class="rvts114"><br/></span></p>
-<p class="rvps2"><span class="rvts114"><br/></span></p>
-<p class="rvps2"><span class="rvts114"><br/></span></p>
+<p class="rvps2"><span class="rvts6">Example call:</span></p>
+<p class="rvps81"><span class="rvts159">Call RunE2100 MyScenario Ref25 MyScenario 2020 2050 Base Base Base ExcelDTAs</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps82"><span class="rvts161">Note: </span><span class="rvts58">The Test Policy file is referenced by its suffix only. RunE2100.bat prepends "Policy" to form the filename: e.g., parameter value "MyScenario" becomes "PolicyMyScenario.jl". Use "TestEmpty" to reference PolicyTestEmpty.jl.</span></p>
+<h1 class="rvps80"><a name="_What_Happens_at_Runtime"></a><span class="rvts0"><span class="rvts157">What Happens at Runtime</span></span></h1>
+<p class="rvps2"><span class="rvts6">When RunE2100Runs.bat executes a Call RunE2100 line, the following sequence occurs:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li value="11" class="rvps6 noindent"><span class="rvts27">StartScenario</span><span class="rvts14"> — Unzips the required HDF5 databases (start database, base case, reference case, and any additional cases) into the working directory. Writes scenario metadata to </span><span class="rvts160">ScenarioInfo.tmp</span><span class="rvts14">.</span></li>
+ <li class="rvps6 noindent"><span class="rvts27">Policy file preparation</span><span class="rvts14"> — Navigates to the </span><span class="rvts160">\Policy</span><span class="rvts14"> folder and copies the specified Reference Policy file to </span><span class="rvts160">Policy.jl</span><span class="rvts14"> and the Test Policy file to </span><span class="rvts160">PolicyTest.jl</span><span class="rvts14">. For non-Base scenarios, </span><span class="rvts160">PolicyMarketShareFull.jl</span><span class="rvts14"> is also copied to </span><span class="rvts160">PolicyMarketShare.jl</span><span class="rvts14">.</span></li>
+ <li class="rvps6 noindent"><span class="rvts27">RunScenario</span><span class="rvts14"> — Executes the model via Julia (</span><span class="rvts160">RunScenario.jl</span><span class="rvts14">), which calls </span><span class="rvts160">EnergyModel.RunScenario()</span><span class="rvts14">. This in turn calls </span><span class="rvts160">IncorporatePolicies()</span><span class="rvts14"> from </span><span class="rvts160">Policy.jl</span><span class="rvts14"> and </span><span class="rvts160">IncorporatePolicyTest()</span><span class="rvts14"> from </span><span class="rvts160">PolicyTest.jl</span><span class="rvts14">, applying all policy logic to the database.</span></li>
+ <li class="rvps6 noindent"><span class="rvts27">Economic transfers</span><span class="rvts14"> — After the model run completes, results are passed to the TOM macroeconomic model via scripts in </span><span class="rvts160">\EconomicTransfers</span><span class="rvts14">.</span></li>
+ <li class="rvps6 noindent"><span class="rvts27">Output generation</span><span class="rvts14"> — Results are saved and output files are created per the </span><span class="rvts160">%9</span><span class="rvts14"> parameter (</span><span class="rvts160">All</span><span class="rvts14">, </span><span class="rvts160">ExcelDTAs</span><span class="rvts14">, </span><span class="rvts160">AccessDTAs</span><span class="rvts14">, or </span><span class="rvts160">None</span><span class="rvts14">).</span></li>
+</ol>
+<p class="rvps6"><span class="rvts14"><br/></span></p>
+<h1 class="rvps80"><a name="_Quick_Reference:_Files_to_Create_or_Modify"></a><span class="rvts0"><span class="rvts157">Quick Reference: Files to Create or Modify</span></span></h1>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<div class="rvps77">
+<table width="622" style="border-width: 0px; border-collapse: collapse;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #2e75b6; vertical-align: top; width: 210px;">
+   <p class="rvps2"><span class="rvts162">File</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #2e75b6; vertical-align: top; width: 144px;">
+   <p class="rvps2"><span class="rvts162">Folder</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #2e75b6; vertical-align: top; width: 261px;">
+   <p class="rvps2"><span class="rvts162">Action</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 210px;">
+   <p class="rvps2"><span class="rvts163">MyNewPolicy.jl</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 144px;">
+   <p class="rvps2"><span class="rvts163">\Policy</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 261px;">
+   <p class="rvps2"><span class="rvts163">Create: individual policy module</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 210px;">
+   <p class="rvps2"><span class="rvts163">Ref25.jl (or other reference file)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 144px;">
+   <p class="rvps2"><span class="rvts163">\Policy</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 261px;">
+   <p class="rvps2"><span class="rvts163">Edit: add include() and PolicyControl() call</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 210px;">
+   <p class="rvps2"><span class="rvts163">PolicyTestMyScenario.jl</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 144px;">
+   <p class="rvps2"><span class="rvts163">\Policy</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 261px;">
+   <p class="rvps2"><span class="rvts163">Create (if needed): test policy collector file</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 210px;">
+   <p class="rvps2"><span class="rvts163">RunE2100Runs.bat</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 144px;">
+   <p class="rvps2"><span class="rvts163">\2020Model</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 261px;">
+   <p class="rvps2"><span class="rvts163">Edit: add Call RunE2100 line for new scenario</span></p>
+  </td>
+ </tr>
+</table>
+</div>
 <p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
 
             </div>

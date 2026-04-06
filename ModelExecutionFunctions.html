@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="favicon.ico"/>
 
-  <title>StartScenario and RunScenario</title>
+  <title>Model Execution Functions</title>
   <meta name="description" content="" /> 
   <meta name="keywords" content="">
 
@@ -22,11 +22,11 @@
 
   <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="StartScenario and RunScenario">
+  <meta name="twitter:title" content="Model Execution Functions">
   <meta name="twitter:description" content="">
 
   <!-- Open Graph data -->
-  <meta property="og:title" content="StartScenario and RunScenario" />
+  <meta property="og:title" content="Model Execution Functions" />
   <meta property="og:type" content="article" />
   <meta property="og:description" content="" />
   <meta property="og:site_name" content="ENERGY 2100 User Manual" /> 
@@ -1161,9 +1161,9 @@ details.hnd-blue-callout code {
 
     <article>
         <div id="topic-content" class="container-fluid" 
-		  data-hnd-id="StartScenarioandRunScenario"
-		  data-hnd-context="201"
-		  data-hnd-title="StartScenario and RunScenario"
+		  data-hnd-id="ModelExecutionFunctions"
+		  data-hnd-context="77"
+		  data-hnd-title="Model Execution Functions"
 		>
             
                 <div class="navigation">
@@ -1171,19 +1171,59 @@ details.hnd-blue-callout code {
                         <li><a href="ExecutingtheModel.html">Executing the Model</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="ExecutingtheModel.html" title="Executing the Model" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="RunningtheModelfromDifferentStar.html" title="Running the Model from Different Starting Points" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="ExecutingReferenceandScenarioCas.html" title="Executing Reference and Scenario Cases" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="ExecutingtheModel.html" title="Executing the Model" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="ExecutingPolicies1.html" title="Executing Policies" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="IncorporatingInputData.html" title="Incorporating Input Data" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
 
             <a id="main-content"></a>
 
-            <h2>StartScenario and RunScenario</h2>
+            <h2>Model Execution Functions</h2>
 
             <div class="main-content">
                 
-<p class="rvps2"><span class="rvts6">StartScenario and RunScenario are global functions that are used to execute the model for a set of years.</span></p>
-<p class="rvps2"><span class="rvts6">See </span><span class="rvts6"></span></p>
+<p class="rvps2"><span class="rvts6">The following global functions are defined in </span><span class="rvts18">Core\CoreE2020.jl.</span></p>
+<div class="rvps72">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 221px;">
+   <p class="rvps6"><span class="rvts27">Global Function</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 542px;">
+   <p class="rvps6"><span class="rvts27">Description</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 221px;">
+   <p class="rvps2"><span class="rvts18">CreateDTAs()</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 542px;">
+   <p class="rvps2"><span class="rvts18">Arguments</span><span class="rvts6">:</span><span class="rvts18"> </span><span class="rvts34">SceName,BCName,OutputType,EnergyModel</span></p>
+   <p class="rvps2"><span class="rvts18">Purpose</span><span class="rvts6">: Generates automated output .dta files by making the following call: </span><span class="rvts111">EnergyModel</span><span class="rvts114">.</span><span class="rvts113">GenerateOutputs</span><span class="rvts111">(DatabaseName,SceName,OutputType)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 221px;">
+   <p class="rvps2"><span class="rvts18">StartScenario()</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 542px;">
+   <p class="rvps2"><span class="rvts18">Arguments</span><span class="rvts6">: </span><span class="rvts34">StartName, SceName, BCName, RefName, OGRefName, InitialName, Run1Name</span></p>
+   <p class="rvps2"><span class="rvts18">Purpose</span><span class="rvts6">: &nbsp;Saves global scenario name variables (</span><span class="rvts34">SceName, BCName, RefName, OGRefName, InitialName, Run1Name</span><span class="rvts6">) and the database path for each (</span><span class="rvts34">ScenarioDB, BCNameDB, RefNameDB, OGRefNameDB, InitialNameDB, and Run1NameDB</span><span class="rvts6">).</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 221px;">
+   <p class="rvps2"><span class="rvts18">RunScenario()</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 2px; width: 542px;">
+   <p class="rvps2"><span class="rvts18">Arguments</span><span class="rvts6">: </span><span class="rvts34">BTimeStr, EndTimeStr, SceName, BCName, RefName, OGRefName, InitialName, Run1Name</span></p>
+   <p class="rvps2"><span class="rvts18">Purpose</span><span class="rvts6">: Saves global variables: SegSw, BTime, and EndTime. Then makes a call to run the model: </span><span class="rvts111">EnergyModel</span><span class="rvts114">.</span><span class="rvts113">Run_E2020</span><span class="rvts111">(DatabaseName, BTime, EndTime, SceName)</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps72"><span class="rvts6"><br/></span></p>
+<p class="rvps72"><span class="rvts6"></span><span class="rvts6"></span></p>
 
             </div>
             

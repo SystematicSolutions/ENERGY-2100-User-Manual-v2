@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="favicon.ico"/>
 
-  <title>Viewing Variables Using the Julia REPL</title>
+  <title>View Variables Using the Julia REPL</title>
   <meta name="description" content="" /> 
   <meta name="keywords" content="">
 
@@ -22,11 +22,11 @@
 
   <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Viewing Variables Using the Julia REPL">
+  <meta name="twitter:title" content="View Variables Using the Julia REPL">
   <meta name="twitter:description" content="">
 
   <!-- Open Graph data -->
-  <meta property="og:title" content="Viewing Variables Using the Julia REPL" />
+  <meta property="og:title" content="View Variables Using the Julia REPL" />
   <meta property="og:type" content="article" />
   <meta property="og:description" content="" />
   <meta property="og:site_name" content="ENERGY 2100 User Manual" /> 
@@ -1161,9 +1161,9 @@ details.hnd-blue-callout code {
 
     <article>
         <div id="topic-content" class="container-fluid" 
-		  data-hnd-id="ViewingVariablesUsingtheJuliaREP"
+		  data-hnd-id="ViewVariablesUsingtheJuliaREPL"
 		  data-hnd-context="210"
-		  data-hnd-title="Viewing Variables Using the Julia REPL"
+		  data-hnd-title="View Variables Using the Julia REPL"
 		>
             
                 <div class="navigation">
@@ -1171,26 +1171,26 @@ details.hnd-blue-callout code {
                         <li><a href="WorkinginVSCode.html">Working in VS Code</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="WorkinginVSCode.html" title="Working in VS Code" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="TestingaPolicyFileintheJuliaREPL.html" title="Testing a Policy File in the Julia REPL" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="TestingtheImpactofaPolicyFile.html" title="Testing the Impact of a Policy File" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="WorkinginVSCode.html" title="Working in VS Code" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="TestaPolicyFileintheJuliaREPL.html" title="Test a Policy File in the Julia REPL" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="CommonCommandsUsedinJuliaREPL.html" title="Common Commands Used in Julia REPL" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
 
             <a id="main-content"></a>
 
-            <h2>Viewing Variables Using the Julia REPL</h2>
+            <h2>View Variables Using the Julia REPL</h2>
 
             <div class="main-content">
                 
-<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Overview of Viewing Variables in the Julia REPL</span></span></h3>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Overview</span></span></h3>
 <p class="rvps2"><span class="rvts6">To view variables in the REPL, you must first activate the model's Julia environment, load ENERGY 2100's Julia package, import the packages you want to use, and import the model's global structures you want to use.</span></p>
 <p class="rvps2"><span class="rvts6">Once you have a VS Code session set up, you are ready to view variables from the REPL.</span></p>
 <p class="rvps2"><span class="rvts6">There are multiple ways to view variables from the Julia REPL, including:&nbsp;</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps19 noindent"><a class="rvts11" href="ViewingVariablesUsingtheJuliaREP.html#WriteToCSV">Write variable to a CSV file using a DataFrame</a></li>
- <li class="rvps19 noindent"><a class="rvts11" href="ViewingVariablesUsingtheJuliaREP.html#DataFrameSubset">View variable in REPL using a DataFrame subset</a></li>
- <li class="rvps19 noindent"><a class="rvts11" href="ViewingVariablesUsingtheJuliaREP.html#Println">Write println statements in the REPL</a></li>
- <li class="rvps2 noindent"><a class="rvts11" href="ViewingVariablesUsingtheJuliaREP.html#OutputFile">Run an existing output .jl file from the REPL</a><span class="rvts6">.</span></li>
+ <li class="rvps19 noindent"><a class="rvts11" href="ViewVariablesUsingtheJuliaREPL.html#WriteToCSV">Write variable to a CSV file using a DataFrame</a></li>
+ <li class="rvps19 noindent"><a class="rvts11" href="ViewVariablesUsingtheJuliaREPL.html#DataFrameSubset">View variable in REPL using a DataFrame subset</a></li>
+ <li class="rvps19 noindent"><a class="rvts11" href="ViewVariablesUsingtheJuliaREPL.html#Println">Write println statements in the REPL</a></li>
+ <li class="rvps2 noindent"><a class="rvts11" href="ViewVariablesUsingtheJuliaREPL.html#OutputFile">Run an existing output .jl file from the REPL</a><span class="rvts6">.</span></li>
 </ul>
 <p class="rvps2"><span class="rvts6">The sections below provide instructions for each of these methods.&nbsp;</span></p>
 <p class="rvps2"><span class="rvts6">The instructions that follow assume you have performed all the steps above to import the required functions and packages into your Julia workspace.</span></p>
@@ -1206,88 +1206,88 @@ details.hnd-blue-callout code {
    <p class="rvps2"><span class="rvts60">🛈</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 608px; height: 42px;">
-   <p class="rvps45"><span class="rvts56">A DataFrame holds the variable in an easy-to-view format with set identifiers. The instructions below apply only to variables that are saved on the database (DB).</span></p>
+   <p class="rvps51"><span class="rvts56">A DataFrame holds the variable in an easy-to-view format with set identifiers. The instructions below apply only to variables that are saved on the database (DB).</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps45"><span class="rvts6">To write variables to a CSV file from the Julia REPL, follow the instructions below:</span></p>
+<p class="rvps51"><span class="rvts6">To write variables to a CSV file from the Julia REPL, follow the instructions below:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li class="rvps2 noindent"><span class="rvts6">Assign the desired variable to a DataFrame:</span></li>
 </ol>
-<div class="rvps31">
+<div class="rvps46">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts54">df = </span><span class="rvts75">ReadDisk</span><span class="rvts54">(DataFrame,DB,"DBPartition/VariableName")</span></p>
+   <p class="rvps34"><span class="rvts54">df = </span><span class="rvts90">ReadDisk</span><span class="rvts54">(DataFrame,DB,"DBPartition/VariableName")</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps32"><span class="rvts70">The example below shows a DataFrame of </span><span class="rvts56">the residential </span><span class="rvts37">xPkSav</span><span class="rvts56"> variable, which is stored on </span><span class="rvts37">RInput</span><span class="rvts56"> in the database:</span></p>
-<div class="rvps42">
+<p class="rvps30"><span class="rvts83">The example below shows a DataFrame of </span><span class="rvts56">the residential </span><span class="rvts37">xPkSav</span><span class="rvts56"> variable, which is stored on </span><span class="rvts37">RInput</span><span class="rvts56"> in the database:</span></p>
+<div class="rvps44">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
-   <p class="rvps40"><span class="rvts55">🕮</span></p>
+   <p class="rvps37"><span class="rvts55">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
-   <p class="rvps53"><span class="rvts85">Example</span></p>
-   <div class="rvps53">
+   <p class="rvps50"><span class="rvts100">Example</span></p>
+   <div class="rvps50">
    <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
     <tr style="vertical-align: top;">
      <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 6px 8px; border-top: none; border-right: none; border-bottom: none; border-left: none;">
-      <p class="rvps36"><span class="rvts54">df = </span><span class="rvts61">ReadDisk</span><span class="rvts54">(DataFrame,DB,"RInput/xPkSav")</span></p>
+      <p class="rvps34"><span class="rvts54">df = </span><span class="rvts68">ReadDisk</span><span class="rvts54">(DataFrame,DB,"RInput/xPkSav")</span></p>
      </td>
     </tr>
    </table>
    </div>
-   <p class="rvps36"><span class="rvts54">Julia Output</span></p>
-   <p class="rvps54"><img alt="" style="padding : 1px;" src="lib/NewItem%20164.png"></p>
+   <p class="rvps34"><span class="rvts54">Julia Output</span></p>
+   <p class="rvps59"><img alt="" style="padding : 1px;" src="lib/NewItem%20164.png"></p>
   </td>
  </tr>
 </table>
 </div>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li value="2" class="rvps45 noindent"><span class="rvts6">Use the </span><span class="rvts37">CSV.write</span><span class="rvts6"> function to save the DataFrame (df) to a file:</span></li>
+ <li value="2" class="rvps51 noindent"><span class="rvts6">Use the </span><span class="rvts37">CSV.write</span><span class="rvts6"> function to save the DataFrame (df) to a file:</span></li>
 </ol>
-<div class="rvps31">
+<div class="rvps46">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts54">CSV.write("output.csv",df)</span></p>
+   <p class="rvps34"><span class="rvts54">CSV.write("output.csv",df)</span></p>
   </td>
  </tr>
 </table>
 </div>
-<div class="rvps31">
+<div class="rvps46">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 3px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #00c030; vertical-align: top; width: 6px; height: 42px;">
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 28px; height: 42px;">
-   <p class="rvps43"><span class="rvts71"></span></p>
+   <p class="rvps45"><span class="rvts86"></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 590px; height: 42px;">
-   <p class="rvps48"><span class="rvts56">By default, the .csv file will be saved to the root model directory. If you want to store the .csv files to a separate folder, first create the folder, then revise the command include the folder name: &nbsp;</span><span class="rvts37">CSV.write("newfolder/output.csv", df)</span></p>
+   <p class="rvps54"><span class="rvts56">By default, the .csv file will be saved to the root model directory. If you want to store the .csv files to a separate folder, first create the folder, then revise the command include the folder name: &nbsp;</span><span class="rvts37">CSV.write("newfolder/output.csv", df)</span></p>
   </td>
  </tr>
 </table>
 </div>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 72px; list-style-position: outside; list-style-type: disc;">
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: circle;">
-  <li class="rvps49 noindent"><span class="rvts6">You can append the variable to an existing csv file by using </span><span class="rvts37">append = true.</span></li>
+  <li class="rvps55 noindent"><span class="rvts6">You can append the variable to an existing csv file by using </span><span class="rvts37">append = true.</span></li>
  </ul>
 </ul>
-<div class="rvps50">
+<div class="rvps56">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts54">CSV.write("output.csv", df, append=true)</span></p>
+   <p class="rvps34"><span class="rvts54">CSV.write("output.csv", df, append=true)</span></p>
   </td>
  </tr>
 </table>
@@ -1297,27 +1297,27 @@ details.hnd-blue-callout code {
   <li class="rvps2 noindent"><span class="rvts6">If you don’t want to read any zero values, you can set the&nbsp;skip_zeros&nbsp;keyword argument to&nbsp;true:</span></li>
  </ul>
 </ul>
-<p class="rvps51"><span class="rvts56"><div class="html-code-box indent-3">
+<p class="rvps57"><span class="rvts56"><div class="html-code-box indent-3">
 <pre><code>df = ReadDisk(DataFrame,DB,"DBPartition/VariableName",skip_zeros = true)</code></pre>
 </div></span></p>
-<div class="rvps52">
+<div class="rvps58">
 <table width="100%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 23px; height: 58px;">
-   <p class="rvps40"><span class="rvts55">🕮</span></p>
+   <p class="rvps37"><span class="rvts55">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 830px; height: 58px;">
-   <p class="rvps53"><span class="rvts86">Example</span></p>
-   <p class="rvps53"><span class="rvts86"><div class="html-code-box">
+   <p class="rvps50"><span class="rvts101">Example</span></p>
+   <p class="rvps50"><span class="rvts101"><div class="html-code-box">
 <pre><code>df = ReadDisk(DataFrame,DB,"RInput/xPkSav",skip_zeros = true)
 </code></pre>
 </div></span></p>
-   <p class="rvps54"><span class="rvts87"><br/></span></p>
-   <p class="rvps36"><span class="rvts54">Julia Output</span></p>
-   <p class="rvps53"><img alt="" style="padding : 1px;" src="lib/NewItem%20165.png"></p>
+   <p class="rvps59"><span class="rvts102"><br/></span></p>
+   <p class="rvps34"><span class="rvts54">Julia Output</span></p>
+   <p class="rvps50"><img alt="" style="padding : 1px;" src="lib/NewItem%20165.png"></p>
   </td>
  </tr>
 </table>
@@ -1329,44 +1329,44 @@ details.hnd-blue-callout code {
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li class="rvps2 noindent"><span class="rvts6">Save the variable as a DataFrame:</span></li>
 </ol>
-<div class="rvps31">
+<div class="rvps46">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 12px 8px;">
-   <p class="rvps36"><span class="rvts54">df = </span><span class="rvts76">ReadDisk</span><span class="rvts54">(DataFrame,DB,"DBPartition/VariableName")</span></p>
+   <p class="rvps34"><span class="rvts54">df = </span><span class="rvts91">ReadDisk</span><span class="rvts54">(DataFrame,DB,"DBPartition/VariableName")</span></p>
   </td>
  </tr>
 </table>
 </div>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li value="2" class="rvps45 noindent"><span class="rvts6">Create a subset of the</span><span class="rvts37"> DataFrame</span><span class="rvts6"> by selecting specific elements of the variable's sets:&nbsp;</span></li>
+ <li value="2" class="rvps51 noindent"><span class="rvts6">Create a subset of the</span><span class="rvts37"> DataFrame</span><span class="rvts6"> by selecting specific elements of the variable's sets:&nbsp;</span></li>
 </ol>
-<div class="rvps31">
+<div class="rvps46">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts54">df_subset = @rsubset df begin</span></p>
-   <p class="rvps36"><span class="rvts54">:set1 == "SetKey"</span></p>
-   <p class="rvps36"><span class="rvts54">:set2 == "SetKey"</span></p>
-   <p class="rvps36"><span class="rvts54">...</span></p>
-   <p class="rvps36"><span class="rvts54">end</span></p>
+   <p class="rvps34"><span class="rvts54">df_subset = @rsubset df begin</span></p>
+   <p class="rvps34"><span class="rvts54">:set1 == "SetKey"</span></p>
+   <p class="rvps34"><span class="rvts54">:set2 == "SetKey"</span></p>
+   <p class="rvps34"><span class="rvts54">...</span></p>
+   <p class="rvps34"><span class="rvts54">end</span></p>
   </td>
  </tr>
 </table>
 </div>
-<div class="rvps42">
+<div class="rvps44">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
-   <p class="rvps40"><span class="rvts55">🕮</span></p>
+   <p class="rvps37"><span class="rvts55">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
-   <p class="rvps47"><span class="rvts56">Exercise</span></p>
-   <p class="rvps47"><span class="rvts56">Create a subset of a residential xPkSav DataFrame that selects British Columbia, Single Family Detached, Lighting for year 2030.</span></p>
-   <p class="rvps47"><span class="rvts73"><details class="example-toggle">
+   <p class="rvps53"><span class="rvts56">Exercise</span></p>
+   <p class="rvps53"><span class="rvts56">Create a subset of a residential xPkSav DataFrame that selects British Columbia, Single Family Detached, Lighting for year 2030.</span></p>
+   <p class="rvps53"><span class="rvts88"><details class="example-toggle">
   <summary>View Solution</summary>
   <div class="html-code-box"><pre><code>df_subset = @rsubset df begin
 :EC == "SingleFamilyDetached"
@@ -1381,48 +1381,48 @@ end</pre></code>
  </tr>
 </table>
 </div>
-<div class="rvps42">
+<div class="rvps44">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 3px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #ff0000; vertical-align: top; width: 6px; height: 42px;">
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 27px; height: 42px;">
-   <p class="rvps43"><span class="rvts72"></span></p>
+   <p class="rvps45"><span class="rvts87"></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 591px; height: 42px;">
-   <p class="rvps45"><span class="rvts6">You must select the set elements using </span><span class="rvts18">set keys</span><span class="rvts6"> rather than </span><span class="rvts18">set descriptors</span><span class="rvts6">.</span></p>
+   <p class="rvps51"><span class="rvts6">You must select the set elements using </span><span class="rvts18">set keys</span><span class="rvts6"> rather than </span><span class="rvts18">set descriptors</span><span class="rvts6">.</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps46"><span class="rvts6">To select more than one set element in a given set, use the logical "or" operator: (</span><span class="rvts37">||</span><span class="rvts6">):</span></p>
-<div class="rvps31">
+<p class="rvps52"><span class="rvts6">To select more than one set element in a given set, use the logical "or" operator: (</span><span class="rvts37">||</span><span class="rvts6">):</span></p>
+<div class="rvps46">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts54">df_subset = @rsubset df begin</span></p>
-   <p class="rvps36"><span class="rvts62">:set1 == "Set1Key1" || :set1 == "Set1Key2" || :set1 == "Set1Key3"</span></p>
-   <p class="rvps36"><span class="rvts54">:set2 == "Set2Key"</span></p>
-   <p class="rvps36"><span class="rvts54">...</span></p>
-   <p class="rvps36"><span class="rvts54">end</span></p>
+   <p class="rvps34"><span class="rvts54">df_subset = @rsubset df begin</span></p>
+   <p class="rvps34"><span class="rvts69">:set1 == "Set1Key1" || :set1 == "Set1Key2" || :set1 == "Set1Key3"</span></p>
+   <p class="rvps34"><span class="rvts54">:set2 == "Set2Key"</span></p>
+   <p class="rvps34"><span class="rvts54">...</span></p>
+   <p class="rvps34"><span class="rvts54">end</span></p>
   </td>
  </tr>
 </table>
 </div>
-<div class="rvps31">
+<div class="rvps46">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
-   <p class="rvps40"><span class="rvts55">🕮</span></p>
+   <p class="rvps37"><span class="rvts55">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
    <p class="rvps2"><span class="rvts6">Exercise</span></p>
    <p class="rvps2"><span class="rvts56">Create a DataFrame subset of the residential variable, xPkSav, using @rsubset. Select 3 ECs: SingleFamilyDetached, SingleFamilyAttached, and MultiFamily for British Columbia Lighting in the year 2030.</span></p>
-   <p class="rvps36"><span class="rvts54"><details class="example-toggle">
+   <p class="rvps34"><span class="rvts54"><details class="example-toggle">
   <summary>View Solution</summary>
   <div class="html-code-box"><pre><code>df_subset = @rsubset df begin
 <b>:EC == "SingleFamilyDetached" || "SingleFamilyAttached" || "MultiFamily"</b>
@@ -1436,33 +1436,33 @@ end</code></pre>
  </tr>
 </table>
 </div>
-<p class="rvps46"><span class="rvts6">Alternatively, to select more than one set element in a given set, you can also use the&nbsp;</span><span class="rvts37">in</span><span class="rvts6">&nbsp;operator, which acts as a filter to check if elements in a DataFrame column exist within a specified collection:</span></p>
-<div class="rvps31">
+<p class="rvps52"><span class="rvts6">Alternatively, to select more than one set element in a given set, you can also use the&nbsp;</span><span class="rvts37">in</span><span class="rvts6">&nbsp;operator, which acts as a filter to check if elements in a DataFrame column exist within a specified collection:</span></p>
+<div class="rvps46">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts54">df_subset = @rsubset df begin</span></p>
-   <p class="rvps36"><span class="rvts54">:set1 in ["Set1Key1", "Set1Key2", "Set1Key3"]</span></p>
-   <p class="rvps36"><span class="rvts54">:set2 == "Set2Key"</span></p>
-   <p class="rvps36"><span class="rvts54">...</span></p>
-   <p class="rvps36"><span class="rvts54">end</span></p>
+   <p class="rvps34"><span class="rvts54">df_subset = @rsubset df begin</span></p>
+   <p class="rvps34"><span class="rvts54">:set1 in ["Set1Key1", "Set1Key2", "Set1Key3"]</span></p>
+   <p class="rvps34"><span class="rvts54">:set2 == "Set2Key"</span></p>
+   <p class="rvps34"><span class="rvts54">...</span></p>
+   <p class="rvps34"><span class="rvts54">end</span></p>
   </td>
  </tr>
 </table>
 </div>
-<div class="rvps42">
+<div class="rvps44">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
-   <p class="rvps40"><span class="rvts55">🕮</span></p>
+   <p class="rvps37"><span class="rvts55">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
    <p class="rvps2"><span class="rvts56">Exercise</span></p>
    <p class="rvps2"><span class="rvts56">Modify the DataFrame subset you created above for the residential variable, xPkSav, using @rsubset. Select 3 ECs: SingleFamilyDetached, SingleFamilyAttached, and MultiFamily using the ":EC in [...]" method to select the set elements.</span></p>
-   <p class="rvps36"><span class="rvts77"><details class="example-toggle">
+   <p class="rvps34"><span class="rvts92"><details class="example-toggle">
   <summary>View Solution</summary>
   <div class="html-code-box"><pre><code>df_subset = @rsubset df begin
 <b>:EC in ["SingleFamilyDetached","SingleFamilyAttached","MultiFamily"]</b>
@@ -1476,34 +1476,34 @@ end</code></pre>
  </tr>
 </table>
 </div>
-<p class="rvps46"><span class="rvts6">To select a range of years, use the less than or equal to operator (</span><span class="rvts37">&lt;=</span><span class="rvts6">):&nbsp;</span></p>
-<div class="rvps31">
+<p class="rvps52"><span class="rvts6">To select a range of years, use the less than or equal to operator (</span><span class="rvts37">&lt;=</span><span class="rvts6">):&nbsp;</span></p>
+<div class="rvps46">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts54">df_subset = @rsubset df begin</span></p>
-   <p class="rvps36"><span class="rvts54">:set1 in ["SetKey","SetKey","SetKey",...]</span></p>
-   <p class="rvps36"><span class="rvts54">:set2 == "SetKey"</span></p>
-   <p class="rvps36"><span class="rvts54">...</span></p>
-   <p class="rvps36"><span class="rvts54">firstyear &lt;= :Year &lt;= lastyear</span></p>
-   <p class="rvps36"><span class="rvts54">end</span></p>
+   <p class="rvps34"><span class="rvts54">df_subset = @rsubset df begin</span></p>
+   <p class="rvps34"><span class="rvts54">:set1 in ["SetKey","SetKey","SetKey",...]</span></p>
+   <p class="rvps34"><span class="rvts54">:set2 == "SetKey"</span></p>
+   <p class="rvps34"><span class="rvts54">...</span></p>
+   <p class="rvps34"><span class="rvts54">firstyear &lt;= :Year &lt;= lastyear</span></p>
+   <p class="rvps34"><span class="rvts54">end</span></p>
   </td>
  </tr>
 </table>
 </div>
-<div class="rvps42">
+<div class="rvps44">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
-   <p class="rvps40"><span class="rvts55">🕮</span></p>
+   <p class="rvps37"><span class="rvts55">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
    <p class="rvps2"><span class="rvts56">Exercise</span></p>
    <p class="rvps2"><span class="rvts56">Modify the DataFrame subset you created above for the residential variable, xPkSav, using @rsubset. Replace the year selection of 2030 with a range of years: 2028 to 2030.</span></p>
-   <p class="rvps36"><span class="rvts77"><details class="example-toggle">
+   <p class="rvps34"><span class="rvts92"><details class="example-toggle">
   <summary>View Solution</summary>
   <div class="html-code-box"><pre><code>df_subset = @rsubset df begin
 :EC in ["SingleFamilyDetached","SingleFamilyAttached","MultiFamily"]
@@ -1518,31 +1518,31 @@ end</code></pre>
 </table>
 </div>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li value="3" class="rvps45 noindent"><span class="rvts6">View a DataFrame or DataFrame subset just by typing the name of the DataFrame into the REPL:</span></li>
+ <li value="3" class="rvps51 noindent"><span class="rvts6">View a DataFrame or DataFrame subset just by typing the name of the DataFrame into the REPL:</span></li>
 </ol>
-<div class="rvps31">
+<div class="rvps46">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts54">dfname &lt;enter&gt;</span></p>
-   <p class="rvps36"><span class="rvts54">df_subsetname &lt;enter&gt;</span></p>
+   <p class="rvps34"><span class="rvts54">dfname &lt;enter&gt;</span></p>
+   <p class="rvps34"><span class="rvts54">df_subsetname &lt;enter&gt;</span></p>
   </td>
  </tr>
 </table>
 </div>
-<div class="rvps31">
+<div class="rvps46">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
-   <p class="rvps40"><span class="rvts55">🕮</span></p>
+   <p class="rvps37"><span class="rvts55">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
    <p class="rvps2"><span class="rvts56">Exercise</span></p>
    <p class="rvps2"><span class="rvts56">View the DataFrame and the DataFrame subset you created in the previous exercises.</span></p>
-   <p class="rvps36"><span class="rvts78"><details class="example-toggle">
+   <p class="rvps34"><span class="rvts93"><details class="example-toggle">
   <summary>View Solution</summary>
   <div class="html-code-box">
     <pre><code>julia> df
@@ -1589,30 +1589,30 @@ end</code></pre>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li class="rvps2 noindent"><span class="rvts6">Identify the sets of the variable you want to view.&nbsp;</span></li>
 </ol>
-<p class="rvps32"><span class="rvts6">You can find out more about a variable's sets by importing and using the attributes function </span><span class="rvts37">data_attrs</span><span class="rvts6">:</span></p>
-<div class="rvps31">
+<p class="rvps30"><span class="rvts6">You can find out more about a variable's sets by importing and using the attributes function </span><span class="rvts37">data_attrs</span><span class="rvts6">:</span></p>
+<div class="rvps46">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts61">import</span><span class="rvts63"> EnergyModel.data_attrs</span></p>
-   <p class="rvps36"><span class="rvts61">data_attrs</span><span class="rvts54">(DB, "DBPartition/VariableName")</span></p>
+   <p class="rvps34"><span class="rvts68">import</span><span class="rvts70"> EnergyModel.data_attrs</span></p>
+   <p class="rvps34"><span class="rvts68">data_attrs</span><span class="rvts54">(DB, "DBPartition/VariableName")</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps31"><span class="rvts48">The example below shows the results of calling the data attributes function for the variable </span><span class="rvts84">xPkSav</span><span class="rvts48"> in the industrial sector (stored on </span><span class="rvts84">IInput)</span><span class="rvts48">:</span></p>
-<div class="rvps32">
+<p class="rvps46"><span class="rvts48">The example below shows the results of calling the data attributes function for the variable </span><span class="rvts99">xPkSav</span><span class="rvts48"> in the industrial sector (stored on </span><span class="rvts99">IInput)</span><span class="rvts48">:</span></p>
+<div class="rvps30">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
-   <p class="rvps40"><span class="rvts55">🕮</span></p>
+   <p class="rvps37"><span class="rvts55">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
-   <p class="rvps2"><span class="rvts70">Example</span></p>
-   <p class="rvps53"><span class="rvts79">  <div class="html-code-box">
+   <p class="rvps2"><span class="rvts83">Example</span></p>
+   <p class="rvps50"><span class="rvts94">  <div class="html-code-box">
     <pre><code>julia> import EnergyModel.data_attrs
 julia> data_attrs(DB, "IInput/xPkSav")</code></pre>
 
@@ -1633,28 +1633,28 @@ julia> data_attrs(DB, "IInput/xPkSav")</code></pre>
  </tr>
 </table>
 </div>
-<p class="rvps31"><span class="rvts48">From the output of data_attrs, we see that xPkSav is defined by the sets &nbsp;</span><span class="rvts81">"Enduse", "EC", "Area",</span><span class="rvts79"> and </span><span class="rvts81">"Year".</span></p>
+<p class="rvps46"><span class="rvts48">From the output of data_attrs, we see that xPkSav is defined by the sets &nbsp;</span><span class="rvts96">"Enduse", "EC", "Area",</span><span class="rvts94"> and </span><span class="rvts96">"Year".</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li value="2" class="rvps2 noindent"><span class="rvts6">Read the desired variable and sets into your workspace.&nbsp;</span></li>
 </ol>
-<p class="rvps32"><span class="rvts6">By importing and using </span><span class="rvts37">ReadDiskAndSets</span><span class="rvts6">, you will read in the variable and sets to the names you specify on the left-hand-side of the equation as follows:</span></p>
-<p class="rvps31"><span class="rvts80"><div class="html-code-box indent-2">
+<p class="rvps30"><span class="rvts6">By importing and using </span><span class="rvts37">ReadDiskAndSets</span><span class="rvts6">, you will read in the variable and sets to the names you specify on the left-hand-side of the equation as follows:</span></p>
+<p class="rvps46"><span class="rvts95"><div class="html-code-box indent-2">
 <pre><code>import EnergyModel.ReadDiskAndSets
 (;VariableName, Set1Name, Set2Name, ...) = ReadDiskAndSets(DB, "DBPartition/VariableName")</code></pre>
 </div></span></p>
-<div class="rvps42">
+<div class="rvps44">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
-   <p class="rvps40"><span class="rvts55">🕮</span></p>
+   <p class="rvps37"><span class="rvts55">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
-   <p class="rvps47"><span class="rvts73">Exercise</span></p>
+   <p class="rvps53"><span class="rvts88">Exercise</span></p>
    <p class="rvps2"><span class="rvts56">Import Read the variable and sets for xPkSav from the industrial sector. If you don't know the sets, first find them using the data.attrs function.</span></p>
-   <p class="rvps36"><span class="rvts74"><details class="example-toggle">
+   <p class="rvps34"><span class="rvts89"><details class="example-toggle">
   <summary>View Solution</summary>
 
   <div class="html-code-box">
@@ -1669,7 +1669,7 @@ julia> (;xPkSav,Enduse,EC,Area,Year) = ReadDiskAndSets(DB, "IInput/xPkSav")</cod
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li value="3" class="rvps2 noindent"><span class="rvts6">Select sets and write desired variable values using </span><span class="rvts37">println</span><span class="rvts6">:</span></li>
 </ol>
-<p class="rvps32"><span class="rvts6"><div class="html-code-box indent-2">
+<p class="rvps30"><span class="rvts6"><div class="html-code-box indent-2">
 <pre><code>set1s = Select(Set1,["Set1Key","Set2Key",...])
 set2s = Select(Set2,"Set2Key")
 years = collect(Yr(year1):Yr(yearlast))
@@ -1677,19 +1677,19 @@ for enduse in set1 in set1s, set2 in set2s,...,year in years
     println("VariableName(",Set1[set1],",",Set2[set2],",",Year[year],")=", VariableName[set1,set2,...,year])
 end</code></pre>
 </div></span></p>
-<div class="rvps42">
+<div class="rvps44">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
-   <p class="rvps40"><span class="rvts55">🕮</span></p>
+   <p class="rvps37"><span class="rvts55">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
-   <p class="rvps2"><span class="rvts73">Exercise</span></p>
-   <p class="rvps2"><span class="rvts70">Generate the .dta outputs created by ElectricSummary.jl (stored in Output/ExcelOutput). Locate and view the .dta files that were generated.</span></p>
-   <p class="rvps36"><span class="rvts54"><details class="example-toggle">
+   <p class="rvps2"><span class="rvts88">Exercise</span></p>
+   <p class="rvps2"><span class="rvts83">Generate the .dta outputs created by ElectricSummary.jl (stored in Output/ExcelOutput). Locate and view the .dta files that were generated.</span></p>
+   <p class="rvps34"><span class="rvts54"><details class="example-toggle">
   <summary>View Solution</summary>
 
   <div class="html-code-box">
@@ -1720,32 +1720,32 @@ xPkSav(Heat,IronSteel,BC,2026) = 0.0951572</code></pre>
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19"></span></span><br/><a name="OutputFile"></a><span class="rvts0"><span class="rvts19">Run an Existing Output .jl File from the REPL</span></span></h3>
 <p class="rvps2"><span class="rvts6">To run an output file from the REPL, follow the instructions below:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li class="rvps32 noindent"><span class="rvts6">Include the path to the desired output file in your workspace:</span></li>
+ <li class="rvps30 noindent"><span class="rvts6">Include the path to the desired output file in your workspace:</span></li>
 </ol>
-<div class="rvps31">
+<div class="rvps46">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts63">include(Output/ExcelOutput/FileName.jl")</span></p>
-   <p class="rvps36"><span class="rvts63">include(Output/AccessOutput/SubfolderName/FileName.jl")</span></p>
+   <p class="rvps34"><span class="rvts70">include(Output/ExcelOutput/FileName.jl")</span></p>
+   <p class="rvps34"><span class="rvts70">include(Output/AccessOutput/SubfolderName/FileName.jl")</span></p>
   </td>
  </tr>
 </table>
 </div>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li value="2" class="rvps32 noindent"><span class="rvts6">Call the control function that is at the bottom of the output file:</span></li>
+ <li value="2" class="rvps30 noindent"><span class="rvts6">Call the control function that is at the bottom of the output file:</span></li>
 </ol>
-<div class="rvps31">
+<div class="rvps46">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps36"><span class="rvts83">ModuleName_DtaControl</span><span class="rvts82">(DB)</span></p>
+   <p class="rvps34"><span class="rvts98">ModuleName_DtaControl</span><span class="rvts97">(DB)</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps31"><span class="rvts48">Output will be generated and saved with .dta extensions in the </span><span class="rvts64">\2020Model\out</span><span class="rvts48"> folder.</span></p>
-<p class="rvps31"><span class="rvts48"><br/></span></p>
+<p class="rvps46"><span class="rvts48">Output will be generated and saved with .dta extensions in the </span><span class="rvts50">\2020Model\out</span><span class="rvts48"> folder.</span></p>
+<p class="rvps46"><span class="rvts48"><br/></span></p>
 <div class="rvps24">
 <table width="100%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
@@ -1753,11 +1753,11 @@ xPkSav(Heat,IronSteel,BC,2026) = 0.0951572</code></pre>
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 23px; height: 58px;">
-   <p class="rvps40"><span class="rvts55">🕮</span></p>
+   <p class="rvps37"><span class="rvts55">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 830px; height: 58px;">
-   <p class="rvps2"><span class="rvts70">Exercise</span></p>
-   <p class="rvps2"><span class="rvts70">Generate the .dta outputs created by ElectricSummary.jl (stored in Output/ExcelOutput). Locate and view the .dta files that were generated.</span></p>
+   <p class="rvps2"><span class="rvts83">Exercise</span></p>
+   <p class="rvps2"><span class="rvts83">Generate the .dta outputs created by ElectricSummary.jl (stored in Output/ExcelOutput). Locate and view the .dta files that were generated.</span></p>
    <p class="rvps2"><span class="rvts13"><details class="example-toggle">
   <summary>View Solution</summary>
   <div class="html-code-box">
