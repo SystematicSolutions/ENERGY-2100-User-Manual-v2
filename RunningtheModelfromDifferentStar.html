@@ -1182,50 +1182,49 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<p class="rvps2"><span class="rvts58">From Thomas: A </span><span class="rvts59">tutorial showing how to run the model from different steps</span><span class="rvts58">: for instance, starting at calib4, or just after loading vData, and so on. I need to know which files should be copied in which folder.</span></p>
-<p class="rvps2"><span class="rvts6">A full run of the model (RunAll.bat or RunAll_debug) saves breakpoints throughout the model run. If you make a change to model files, you may save time by starting the model after the point where your change in incorporated into the model.</span></p>
-<p class="rvps2"><span class="rvts6">To start the model at any point other than RunAll, you must be aware of what change you have made. Possible changes you may make include:</span></p>
-<p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts6">You must execute a complete RunAll if you have made any of the following changes:</span></p>
-<p class="rvps2"><span class="rvts18">Quick Rules-of-Thumb for Whether to Execute RunAll vs RunModel:</span></p>
-<div class="rvps2">
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Overview</span></span></h3>
+<p class="rvps2"><span class="rvts6">A full run of the model (</span><span class="rvts37">RunAll.bat</span><span class="rvts6"> or </span><span class="rvts37">RunAll_debug</span><span class="rvts6">) saves breakpoints throughout the model run. If you make a change to model files, you may save time by starting the model after the point where your change in incorporated into the model.</span></p>
+<p class="rvps2"><span class="rvts6">To start the model at any point other than RunAll, you must be aware of what change you have made.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts6">The table below shows quick rules-of-thumb for whether you need a RunAll or RunModel:</span></p>
+<p class="rvps5"><span class="rvts18">Quick Rules-of-Thumb for Whether to Execute RunAll vs RunModel:</span></p>
+<div class="rvps5">
 <table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
  <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 435px;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 473px;">
    <p class="rvps2"><span class="rvts18">If you do this...</span></p>
   </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 250px;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 188px;">
    <p class="rvps2"><span class="rvts18">You should run...</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 435px;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 473px;">
    <p class="rvps2"><span class="rvts6">If you have </span><span class="rvts18">not yet executed the model</span><span class="rvts6">:</span></p>
   </td>
-  <td rowspan="4" style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 250px;">
+  <td rowspan="4" style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 188px;">
    <p class="rvps3"><span class="rvts6">Execute </span><span class="rvts37">RunAll.bat</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 435px;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 473px;">
    <p class="rvps2"><span class="rvts6">If you change </span><span class="rvts18">model databases</span><span class="rvts6">, such as modifying or adding/deleting variables or sets:</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 435px;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 473px;">
    <p class="rvps2"><span class="rvts6">If you make changes to </span><span class="rvts18">mappings or aggregations of economic data</span><span class="rvts6">:</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 435px;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 473px;">
    <p class="rvps2"><span class="rvts6">If you make changes to </span><span class="rvts18">.dat input data files</span><span class="rvts6">:</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 435px;">
-   <p class="rvps2"><span class="rvts6">If you modify any files in </span><span class="rvts37">\Calibration</span><span class="rvts6"> or </span><span class="rvts37">\Input\Scripts</span><span class="rvts6"> folders:</span></p>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 473px;">
+   <p class="rvps2"><span class="rvts6">After having made a full model run with RunAll, and if you then you modify any files in </span><span class="rvts37">\Calibration</span><span class="rvts6"> or </span><span class="rvts37">\Input\Scripts</span><span class="rvts6"> folders:</span></p>
   </td>
-  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 250px;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 188px;">
    <p class="rvps3"><span class="rvts6">Execute </span><span class="rvts37">RunModel.bat</span></p>
   </td>
  </tr>
@@ -1249,6 +1248,267 @@ details.hnd-blue-callout code {
 </div>
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Breakpoints in RunModel</span></span></h3>
 <p class="rvps2"><span class="rvts6">To save execution time, RunModel creates breakpoints that store zipped databases that were saved at that point during the model run. These zipped databases can be used to re-run the model calibration at specific points instead of needing to re-execute the entire sequence.</span></p>
+<p class="rvps5"><span class="rvts18">Breakpoints Saved:</span></p>
+<div class="rvps5">
+<table width="80%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts62">RunAll.bat</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts62">RunAll_Debug.bat</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">Process</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">Process</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54"><br/></span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">Process2</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54"><br/></span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">Process3</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">CalibPrice</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">CalibPrice</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">CalibMEconomy</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">CalibMEconomy</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">CalibRes</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">CalibRes</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">CalibCom</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">CalibCom</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">CalibInd</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">CalibInd</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">CalibTrans</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">CalibTrans</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">Calib</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">Calib</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54"><br/></span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">Calib2</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">Calib3</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">Calib3</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">Calib4</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">Calib4</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">StartBase - </span><span class="rvts144">May be revised later in RunOGCalibrationShort</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">StartBase</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">StartBaseClean (Starting point for OG Calibration)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">StartBaseClean</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">Base</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">Base</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">OGRef</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">OGRef</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td colspan="2" style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 526px;">
+   <p class="rvps36"><span class="rvts144">RunOGCalibrationShort - Revises StartBase to use calibrated OG Units</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">Ref25</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 263px;">
+   <p class="rvps36"><span class="rvts54">Ref25</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Identifying the Breakpoints in RunModel</span></span></h3>
+<p class="rvps2"><span class="rvts6">If you make a change to a Julia script file that is called from </span><span class="rvts37">RunModel.bat</span><span class="rvts6">, you can restart a run at the last breakpoint saved before the revised file is called.</span></p>
+<p class="rvps2"><span class="rvts6">Open RunModel.bat and follow the instructions below:</span></p>
+<p class="rvps2"><span class="rvts6">1. Locate where your revised file is called.</span></p>
+<p class="rvps2"><span class="rvts6">2. Identify a call to </span><span class="rvts18">unzip databases</span><span class="rvts6"> ("</span><span class="rvts152">rem &nbsp;Call UnZip DB</span><span class="rvts154">"</span><span class="rvts6">) that occurs before the file is called.</span></p>
+<p class="rvps2"><span class="rvts6">3. Rename the file </span><span class="rvts37">RunModel.bat</span><span class="rvts6"> to a name of your choosing, example: </span><span class="rvts57">RunRed.bat</span><span class="rvts6">.</span></p>
+<p class="rvps2"><span class="rvts6">4. Remove the 'rem' comment from the call to unzip databases ("</span><span class="rvts152">rem &nbsp;Call UnZip DB</span><span class="rvts6">")</span></p>
+<div class="rvps31">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps79"><span class="rvts137">rem</span><span class="rvts146"> &nbsp;Call UnZip DB </span><span class="rvts155">SceName</span></p>
+   <p class="rvps45"><span class="rvts154">becomes</span></p>
+   <p class="rvps79"><span class="rvts146">Call UnZip DB </span><span class="rvts155">SceName</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6">5. Delete all the rows prior to unzipping the database.</span></p>
+<p class="rvps2"><span class="rvts6">6. Save your new file (with a new filename) and run it by double-clicking.</span></p>
+<div class="rvps24">
+<table width="100%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps22"><span class="rvts31"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 23px; height: 58px;">
+   <p class="rvps40"><span class="rvts55">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 830px; height: 58px;">
+   <p class="rvps2"><span class="rvts70">Example</span></p>
+   <p class="rvps2"><span class="rvts70">Let's say you changed the file, </span><span class="rvts152">PlantCharacteristics_Storage.jl</span><span class="rvts56"> and want to run the model starting at that point:</span></p>
+   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+    <li class="rvps2 noindent"><span class="rvts56">Locate where </span><span class="rvts152">PlantCharacteristics_Storage.jl</span><span class="rvts56"> is called in </span><span class="rvts152">RunModel.bat</span><span class="rvts56"> and identify the closest call to unzip a database (</span><span class="rvts152">Call Unzip DB</span><span class="rvts56">).</span></li>
+   </ol>
+   <div class="rvps39">
+   <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+    <tr style="vertical-align: top;">
+     <td style="padding: 6px 8px;">
+      <p class="rvps79"><span class="rvts153">RunModel.bat</span></p>
+      <p class="rvps79"><span class="rvts153"><br/></span></p>
+      <p class="rvps79"><span class="rvts114">&nbsp; &nbsp; &nbsp;</span><span class="rvts147">Call</span><span class="rvts114"> BreakPoint Calib&nbsp;</span></p>
+      <p class="rvps79"><span class="rvts114">&nbsp; &nbsp; &nbsp;</span><span class="rvts147">If</span><span class="rvts114"> </span><span class="rvts115">Not</span><span class="rvts114"> </span><span class="rvts148">%DebugFlag%</span><span class="rvts115">==</span><span class="rvts114">Debug </span><span class="rvts147">GoTo</span><span class="rvts114"> EndCalib &nbsp;</span></p>
+      <p class="rvps79"><span class="rvts114">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts147">Call</span><span class="rvts114"> CreateDTAs Calib Calib Calib ExcelDTAs NoUnZip</span></p>
+      <p class="rvps79"><span class="rvts114">&nbsp; &nbsp; &nbsp;:</span><span class="rvts137">EndCalib</span><span class="rvts114"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+      <p class="rvps79"><span class="rvts137">rem</span><span class="rvts146"> &nbsp;Call UnZip DB Calib &nbsp; </span><span class="rvts149">&lt;-- Closest "Unzip DB" before call to changed file</span></p>
+      <p class="rvps79"><span class="rvts114">&nbsp; &nbsp; &nbsp;</span><span class="rvts137">Echo</span><span class="rvts114"> </span><span class="rvts148">%Date%</span><span class="rvts114"> ;</span><span class="rvts148">%Time%</span><span class="rvts114">; End Load Curve and Post Supply </span><span class="rvts148">%computername%</span><span class="rvts114"> </span><span class="rvts115">&gt;&gt;</span><span class="rvts114"> RunAll_Report.log</span></p>
+      <p class="rvps79"><span class="rvts114"><br/></span></p>
+      <p class="rvps79"><span class="rvts114">&nbsp; &nbsp; &nbsp;cd..\Calibration &nbsp; &nbsp; &nbsp;&nbsp;</span></p>
+      <p class="rvps79"><span class="rvts114">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts147">Call</span><span class="rvts114"> RunJulia CogenMarketShareInitial.jl</span></p>
+      <p class="rvps79"><span class="rvts114">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts147">Call</span><span class="rvts114"> RunJulia PlantCharacteristics.jl</span></p>
+      <p class="rvps79"><span class="rvts114">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts147">Call</span><span class="rvts114"> RunJulia PlantCharacteristics_SMNR.jl &nbsp; &nbsp;&nbsp;</span></p>
+      <p class="rvps79"><span class="rvts114">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts147">Call</span><span class="rvts114"> RunJulia PlantCharacteristics_HydrogenCT.jl &nbsp; &nbsp;&nbsp;</span></p>
+      <p class="rvps79"><span class="rvts114">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts147">Call</span><span class="rvts114"> RunJulia PlantCharacteristics_SmallOGCC.jl</span></p>
+      <p class="rvps79"><span class="rvts114">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts147">Call</span><span class="rvts114"> RunJulia PlantCharacteristics_NGCCS.jl &nbsp;</span></p>
+      <p class="rvps79"><span class="rvts114">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts147">Call</span><span class="rvts114"> RunJulia PlantCharacteristics_BiomassCCS.jl</span></p>
+      <p class="rvps79"><span class="rvts114">&nbsp; &nbsp; &nbsp; </span><span class="rvts150">&nbsp;</span><span class="rvts151">Call</span><span class="rvts150"> RunJulia PlantCharacteristics_Storage.jl</span><span class="rvts146"> &nbsp; </span><span class="rvts149">&lt;-- Changed file</span></p>
+      <p class="rvps79"><span class="rvts114">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts147">Call</span><span class="rvts114"> RunJulia OGCCFractions.jl</span></p>
+      <p class="rvps79"><span class="rvts114">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts147">Call</span><span class="rvts114"> RunJulia ConstructionDelay2.jl &nbsp; &nbsp;</span></p>
+      <p class="rvps2"><span class="rvts114"><br/></span></p>
+      <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+       <li class="rvps2 noindent"><span class="rvts56"><br/></span></li>
+       <li class="rvps2 noindent"><span class="rvts56"><br/></span></li>
+      </ol>
+      <p class="rvps2"><span class="rvts114"><br/></span></p>
+     </td>
+    </tr>
+    <tr style="vertical-align: top;">
+     <td style="padding: 6px 8px;">
+      <p class="rvps79"><span class="rvts114"><br/></span></p>
+     </td>
+    </tr>
+   </table>
+   </div>
+   <p class="rvps79"><span class="rvts6"><br/></span></p>
+   <p class="rvps2"><span class="rvts70"><br/></span></p>
+   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+    <li value="2" class="rvps2 noindent"><span class="rvts56">Save RunModel.bat with a new name.</span></li>
+   </ol>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps24"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">These stopping points can be found in the file as commented out ‘Call UnZip DB’ statements that point to the saved name of the database, located in a subfolder in /2020Model. Use the following steps to shorten RunModel to incorporate a change:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+ <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Identify where in the file the change is being made, or where the modified file is being called.&nbsp;</span></li>
+ <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">From this location, move upwards until there is an UnZip statement.</span></li>
+ <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Verify that the subfolder with the name used in the UnZip statement contains a zipped database file matching the version you want to use. Remember that RunAll_Debug creates more stopping points, so make sure that the zip file was created. If it is not created, or has an older date, then search upwards for another UnZip statement</span></li>
+ <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Once the UnZip line is chosen, remove the comment (‘rem’) from in front of the line. Then delete all lines above until the UnZip statement is on the first line of the file.</span></li>
+ <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Save the edited batch file to 2020Model using a different name than ‘RunModel.bat’. This file can be considered temporary and deleted after use.</span></li>
+</ol>
+<p class="rvps2"><span class="rvts41"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts18">RunModel.bat:</span></p>
 <p class="rvps79"><span class="rvts137"><details class="example-toggle">
   <summary>View Solution</summary>
@@ -1938,16 +2198,7 @@ rem
   </div>
 </details></span></p>
 <p class="rvps79"><span class="rvts137"><br/></span></p>
-<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Identifying the Breakpoints in RunModel</span></span></h3>
-<p class="rvps2"><span class="rvts6">These stopping points can be found in the file as commented out ‘Call UnZip DB’ statements that point to the saved name of the database, located in a subfolder in /2020Model. Use the following steps to shorten RunModel to incorporate a change:</span></p>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Identify where in the file the change is being made, or where the modified file is being called.&nbsp;</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">From this location, move upwards until there is an UnZip statement.</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Verify that the subfolder with the name used in the UnZip statement contains a zipped database file matching the version you want to use. Remember that RunAll_Debug creates more stopping points, so make sure that the zip file was created. If it is not created, or has an older date, then search upwards for another UnZip statement</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Once the UnZip line is chosen, remove the comment (‘rem’) from in front of the line. Then delete all lines above until the UnZip statement is on the first line of the file.</span></li>
- <li style="text-indent: 0px" class="rvps81 noindent"><span class="rvts14">Save the edited batch file to 2020Model using a different name than ‘RunModel.bat’. This file can be considered temporary and deleted after use.</span></li>
-</ol>
-<p class="rvps2"><span class="rvts41"></span><span class="rvts6"></span></p>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts145"></span></span><span class="rvts0"><span class="rvts19"></span></span></h3>
 
             </div>
             

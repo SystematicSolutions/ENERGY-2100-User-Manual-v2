@@ -1194,7 +1194,7 @@ details.hnd-blue-callout code {
 <table width="90%" style="border-width: 0px; background-color: #ffffff; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: rgba(76,162,11,0.5); width: 7px;">
-   <p class="rvps99"><span class="rvts177"><br/></span></p>
+   <p class="rvps99"><span class="rvts186"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: #f1fff1; vertical-align: top; width: 29px;">
    <p class="rvps100"><span class="rvts123">🛈</span></p>
@@ -1208,11 +1208,11 @@ details.hnd-blue-callout code {
 <p class="rvps41"><span class="rvts6"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
-  <li value="2" style="text-indent: 0px" class="rvps107 noindent"><span class="rvts12">Modify the existing scenario file</span><span class="rvts13"> that incorporates policies into the scenario. This scenario file has the same name as the reference or scenario case name, such as </span><span class="rvts182">Ref25.jl</span><span class="rvts6">,</span><span class="rvts182"> Ref25A.jl</span><span class="rvts6">, or</span><span class="rvts182"> HighPrice.jl</span><span class="rvts6">, and </span><span class="rvts13">does two things: &nbsp;includes the policy files in the scope of the model with an "include" statement, and calls the Julia functions defined in each policy file. The function in each policy file that calls the policy file routines is, by &nbsp;convention, the last function listed in the policy file and is named "PolicyControl".</span></li>
+  <li value="2" style="text-indent: 0px" class="rvps107 noindent"><span class="rvts12">Modify the existing scenario file</span><span class="rvts13"> that incorporates policies into the scenario. This scenario file has the same name as the reference or scenario case name, such as </span><span class="rvts191">Ref25.jl</span><span class="rvts6">,</span><span class="rvts191"> Ref25A.jl</span><span class="rvts6">, or</span><span class="rvts191"> HighPrice.jl</span><span class="rvts6">, and </span><span class="rvts13">does two things: &nbsp;includes the policy files in the scope of the model with an "include" statement, and calls the Julia functions defined in each policy file. The function in each policy file that calls the policy file routines is, by &nbsp;convention, the last function listed in the policy file and is named "PolicyControl".</span></li>
  </ol>
 </ol>
 <p class="rvps107"><span class="rvts13"><br/></span></p>
-<p class="rvps41"><span class="rvts13">To add or remove policies from an existing reference or scenario case, </span><span class="rvts12">modify the scenario file</span><span class="rvts13"> that incorporates the policies into the model (ex: &nbsp;</span><span class="rvts182">Ref25.jl, HighPrice.jl)</span><span class="rvts13">, by following the steps below:</span></p>
+<p class="rvps41"><span class="rvts13">To add or remove policies from an existing reference or scenario case, </span><span class="rvts12">modify the scenario file</span><span class="rvts13"> that incorporates the policies into the model (ex: &nbsp;</span><span class="rvts191">Ref25.jl, HighPrice.jl)</span><span class="rvts13">, by following the steps below:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: lower-alpha;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
@@ -1220,8 +1220,8 @@ details.hnd-blue-callout code {
   </ol>
  </ol>
 </ol>
-<p class="rvps109"><span class="rvts183">include</span><span class="rvts13">(</span><span class="rvts184">“PolicyName.jl"</span><span class="rvts6">)</span></p>
-<p class="rvps109"><span class="rvts181"><br/></span></p>
+<p class="rvps109"><span class="rvts192">include</span><span class="rvts13">(</span><span class="rvts193">“PolicyName.jl"</span><span class="rvts6">)</span></p>
+<p class="rvps109"><span class="rvts190"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: lower-alpha;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
@@ -1229,13 +1229,13 @@ details.hnd-blue-callout code {
   </ol>
  </ol>
 </ol>
-<p class="rvps109"><span class="rvts13">PolicyName.</span><span class="rvts183">PolicyControl</span><span class="rvts13">(DB)</span></p>
+<p class="rvps109"><span class="rvts13">PolicyName.</span><span class="rvts192">PolicyControl</span><span class="rvts13">(DB)</span></p>
 <p class="rvps41"><span class="rvts6"><br/></span></p>
 <div class="rvps41">
 <table width="90%" style="border-width: 0px; background-color: #ffffff; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: rgba(76,162,11,0.5); width: 7px;">
-   <p class="rvps99"><span class="rvts177"><br/></span></p>
+   <p class="rvps99"><span class="rvts186"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: #f1fff1; vertical-align: top; width: 29px;">
    <p class="rvps100"><span class="rvts123">🛈</span></p>
@@ -1246,7 +1246,7 @@ details.hnd-blue-callout code {
  </tr>
 </table>
 </div>
-<p class="rvps41"><span class="rvts179"><br/></span></p>
+<p class="rvps41"><span class="rvts188"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
   <li value="4" class="rvps110 noindent"><span class="rvts13">Set up and execute </span><span class="rvts12">RunE2100Runs.bat</span><span class="rvts13"> from \2020Model to see the impact of incorporating the policy changes you made. See </span><a class="rvts11" href="ExecutingReferenceandScenarioCas.html">Executing Reference and Scenario Cases</a><span class="rvts13"> for instructions on setting up RunE2100Runs.bat.</span></li>
@@ -1254,19 +1254,19 @@ details.hnd-blue-callout code {
 </ol>
 <p class="rvps2"><span class="rvts13"><br/></span></p>
 <p class="rvps2"><span class="rvts13">The code sample below illustrates a scenario file that includes a set of policies as part of a Ref25 reference case:</span></p>
-<p class="rvps2"><span class="rvts180"><br/></span></p>
+<p class="rvps2"><span class="rvts189"><br/></span></p>
 <p class="rvps2"><span class="rvts18">&nbsp; &nbsp; &nbsp; &nbsp;Sample Scenario File: Ref25.jl:</span></p>
 <div class="rvps72">
 <table width="75%" style="border-color: #ffffff #969696 #969696 #ffffff; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; width: 527px;">
-   <p class="rvps106"><span class="rvts167">#</span></p>
-   <p class="rvps106"><span class="rvts167"># Ref25.jl - List of policies included in reference case scenario</span></p>
-   <p class="rvps106"><span class="rvts167">#</span></p>
+   <p class="rvps106"><span class="rvts146">#</span></p>
+   <p class="rvps106"><span class="rvts146"># Ref25.jl - List of policies included in reference case scenario</span></p>
+   <p class="rvps106"><span class="rvts146">#</span></p>
    <p class="rvps106"><span class="rvts114"><br/></span></p>
    <p class="rvps106"><span class="rvts137">module</span><span class="rvts114"> Policy</span></p>
    <p class="rvps106"><span class="rvts114"><br/></span></p>
-   <p class="rvps106"><span class="rvts169">import</span><span class="rvts114"> </span><span class="rvts115">...</span><span class="rvts114">EnergyModel</span><span class="rvts115">:</span><span class="rvts114"> DB</span></p>
+   <p class="rvps106"><span class="rvts147">import</span><span class="rvts114"> </span><span class="rvts115">...</span><span class="rvts114">EnergyModel</span><span class="rvts115">:</span><span class="rvts114"> DB</span></p>
    <p class="rvps106"><span class="rvts114"><br/></span></p>
    <p class="rvps106"><span class="rvts116">include</span><span class="rvts114">(</span><span class="rvts117">"PatchFsPOCXTrans.jl"</span><span class="rvts114">)</span></p>
    <p class="rvps106"><span class="rvts116">include</span><span class="rvts114">(</span><span class="rvts117">"SetAsReferenceCase.jl"</span><span class="rvts114">)</span></p>
@@ -1276,30 +1276,30 @@ details.hnd-blue-callout code {
    <p class="rvps106"><span class="rvts114"><br/></span></p>
    <p class="rvps106"><span class="rvts116">include</span><span class="rvts114">(</span><span class="rvts117">"ElectricDeliveryCharge_Switch.jl"</span><span class="rvts114">)</span></p>
    <p class="rvps106"><span class="rvts114"><br/></span></p>
-   <p class="rvps106"><span class="rvts167">#</span></p>
-   <p class="rvps106"><span class="rvts167"># Biofuels and Solar</span></p>
-   <p class="rvps106"><span class="rvts167">#</span></p>
+   <p class="rvps106"><span class="rvts146">#</span></p>
+   <p class="rvps106"><span class="rvts146"># Biofuels and Solar</span></p>
+   <p class="rvps106"><span class="rvts146">#</span></p>
    <p class="rvps106"><span class="rvts116">include</span><span class="rvts114">(</span><span class="rvts117">"KPIA_Biofuels_Prov.jl"</span><span class="rvts114">)</span></p>
    <p class="rvps106"><span class="rvts116">include</span><span class="rvts114">(</span><span class="rvts117">"LCFS_BC.jl"</span><span class="rvts114">)</span></p>
    <p class="rvps106"><span class="rvts114"><br/></span></p>
-   <p class="rvps106"><span class="rvts167">#</span></p>
-   <p class="rvps106"><span class="rvts167"># Residential and Commercial Building Code</span></p>
-   <p class="rvps106"><span class="rvts167">#</span></p>
+   <p class="rvps106"><span class="rvts146">#</span></p>
+   <p class="rvps106"><span class="rvts146"># Residential and Commercial Building Code</span></p>
+   <p class="rvps106"><span class="rvts146">#</span></p>
    <p class="rvps106"><span class="rvts116">include</span><span class="rvts114">(</span><span class="rvts117">"Com_BldgStdPolicy.jl"</span><span class="rvts114">)</span></p>
    <p class="rvps106"><span class="rvts116">include</span><span class="rvts114">(</span><span class="rvts117">"Res_BldgStdPolicy.jl"</span><span class="rvts114">)</span></p>
    <p class="rvps106"><span class="rvts114"><br/></span></p>
-   <p class="rvps106"><span class="rvts167">#</span></p>
-   <p class="rvps106"><span class="rvts167"># QC Process Retrofit</span></p>
-   <p class="rvps106"><span class="rvts167">#</span></p>
+   <p class="rvps106"><span class="rvts146">#</span></p>
+   <p class="rvps106"><span class="rvts146"># QC Process Retrofit</span></p>
+   <p class="rvps106"><span class="rvts146">#</span></p>
    <p class="rvps106"><span class="rvts116">include</span><span class="rvts114">(</span><span class="rvts117">"QC_EcoPerf_Com.jl"</span><span class="rvts114">)</span></p>
    <p class="rvps106"><span class="rvts114"><br/></span></p>
-   <p class="rvps106"><span class="rvts167">#</span></p>
-   <p class="rvps106"><span class="rvts167"># Residential and Commercial Equipment Standards</span></p>
-   <p class="rvps106"><span class="rvts167">#</span></p>
+   <p class="rvps106"><span class="rvts146">#</span></p>
+   <p class="rvps106"><span class="rvts146"># Residential and Commercial Equipment Standards</span></p>
+   <p class="rvps106"><span class="rvts146">#</span></p>
    <p class="rvps106"><span class="rvts116">include</span><span class="rvts114">(</span><span class="rvts117">"StdEq_Com_U19.jl"</span><span class="rvts114">)</span></p>
    <p class="rvps106"><span class="rvts116">include</span><span class="rvts114">(</span><span class="rvts117">"StdEq_Res_U19.jl"</span><span class="rvts114">)</span></p>
    <p class="rvps106"><span class="rvts114"><br/></span></p>
-   <p class="rvps106"><span class="rvts167">...</span></p>
+   <p class="rvps106"><span class="rvts146">...</span></p>
    <p class="rvps106"><span class="rvts114"><br/></span></p>
    <p class="rvps106"><span class="rvts114"><br/></span></p>
    <p class="rvps106"><span class="rvts137">function</span><span class="rvts114"> </span><span class="rvts116">IncorporatePolicies</span><span class="rvts114">()</span></p>
@@ -1313,34 +1313,34 @@ details.hnd-blue-callout code {
    <p class="rvps106"><span class="rvts114"><br/></span></p>
    <p class="rvps106"><span class="rvts114">&nbsp; ElectricDeliveryCharge_Switch</span><span class="rvts115">.</span><span class="rvts116">PolicyControl</span><span class="rvts114">(DB)</span></p>
    <p class="rvps106"><span class="rvts114"><br/></span></p>
-   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts167">#</span></p>
-   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts167"># Biofuels and Solar</span></p>
-   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts167">#</span></p>
+   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts146">#</span></p>
+   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts146"># Biofuels and Solar</span></p>
+   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts146">#</span></p>
    <p class="rvps106"><span class="rvts114">&nbsp; KPIA_Biofuels_Prov</span><span class="rvts115">.</span><span class="rvts116">PolicyControl</span><span class="rvts114">(DB)</span></p>
    <p class="rvps106"><span class="rvts114">&nbsp; LCFS_BC</span><span class="rvts115">.</span><span class="rvts116">PolicyControl</span><span class="rvts114">(DB)</span></p>
    <p class="rvps106"><span class="rvts114"><br/></span></p>
-   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts167">#</span></p>
-   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts167"># Residential and Commercial Building Code</span></p>
-   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts167">#</span></p>
+   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts146">#</span></p>
+   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts146"># Residential and Commercial Building Code</span></p>
+   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts146">#</span></p>
    <p class="rvps106"><span class="rvts114">&nbsp; Com_BldgStdPolicy</span><span class="rvts115">.</span><span class="rvts116">PolicyControl</span><span class="rvts114">(DB)</span></p>
    <p class="rvps106"><span class="rvts114">&nbsp; Res_BldgStdPolicy</span><span class="rvts115">.</span><span class="rvts116">PolicyControl</span><span class="rvts114">(DB)</span></p>
    <p class="rvps106"><span class="rvts114"><br/></span></p>
-   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts167">#</span></p>
-   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts167"># QC Process Retrofit</span></p>
-   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts167">#</span></p>
+   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts146">#</span></p>
+   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts146"># QC Process Retrofit</span></p>
+   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts146">#</span></p>
    <p class="rvps106"><span class="rvts114">&nbsp; QC_EcoPerf_Com</span><span class="rvts115">.</span><span class="rvts116">PolicyControl</span><span class="rvts114">(DB)</span></p>
    <p class="rvps106"><span class="rvts114"><br/></span></p>
-   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts167">#</span></p>
-   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts167"># Residential and Commercial Equipment Standards</span></p>
-   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts167">#</span></p>
+   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts146">#</span></p>
+   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts146"># Residential and Commercial Equipment Standards</span></p>
+   <p class="rvps106"><span class="rvts114">&nbsp; </span><span class="rvts146">#</span></p>
    <p class="rvps106"><span class="rvts114">&nbsp; StdEq_Com_U19</span><span class="rvts115">.</span><span class="rvts116">PolicyControl</span><span class="rvts114">(DB)</span></p>
    <p class="rvps106"><span class="rvts114">&nbsp; StdEq_Res_U19</span><span class="rvts115">.</span><span class="rvts116">PolicyControl</span><span class="rvts114">(DB)</span></p>
    <p class="rvps106"><span class="rvts114"><br/></span></p>
    <p class="rvps106"><span class="rvts114">&nbsp; ...</span></p>
    <p class="rvps106"><span class="rvts114"><br/></span></p>
-   <p class="rvps106"><span class="rvts169">end</span></p>
+   <p class="rvps106"><span class="rvts147">end</span></p>
    <p class="rvps106"><span class="rvts114"><br/></span></p>
-   <p class="rvps106"><span class="rvts169">end</span></p>
+   <p class="rvps106"><span class="rvts147">end</span></p>
    <p class="rvps106"><span class="rvts114"><br/></span></p>
   </td>
  </tr>
@@ -1348,7 +1348,7 @@ details.hnd-blue-callout code {
 </div>
 <p class="rvps2"><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
 <p class="rvps105"><span class="rvts114"><br/></span></p>
-<p class="rvps2"><span class="rvts180"></span><span class="rvts6"></span></p>
+<p class="rvps2"><span class="rvts189"></span><span class="rvts6"></span></p>
 
             </div>
             

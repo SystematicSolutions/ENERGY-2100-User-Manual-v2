@@ -1186,12 +1186,12 @@ details.hnd-blue-callout code {
 <p class="rvps35"><span class="rvts30">A Julia environment is a folder containing&nbsp;</span><span class="rvts109">Project.toml</span><span class="rvts30">&nbsp;(package list) and&nbsp;</span><span class="rvts109">Manifest.toml</span><span class="rvts30">&nbsp;(exact versions) files, enabling isolated, reproducible project dependencies. Managed via&nbsp;</span><span class="rvts109">Pkg.jl</span><span class="rvts30">, these allow users to create temporary or project-specific environments, avoiding package conflicts and ensuring consistent code execution.</span></p>
 <p class="rvps35"><span class="rvts30"><br/></span></p>
 <p class="rvps35"><span class="rvts30">To activate a Julia project in a batch file:&nbsp;</span></p>
-<p class="rvps35"><span class="rvts110">--project</span><span class="rvts209">&nbsp;command-line argument</span><span class="rvts30">&nbsp;when launching Julia</span></p>
+<p class="rvps35"><span class="rvts110">--project</span><span class="rvts218">&nbsp;command-line argument</span><span class="rvts30">&nbsp;when launching Julia</span></p>
 <p class="rvps35"><span class="rvts30"><br/></span></p>
 <p class="rvps35"><span class="rvts30"><br/></span></p>
-<p class="rvps144"><span class="rvts210">Specifying project on startup</span></p>
-<p class="rvps145"><span class="rvts211">Instead of using </span><span class="rvts214">activate</span><span class="rvts211"> from within Julia, you can specify the project on startup using the&nbsp;</span><span class="rvts212">--project=&lt;phat&gt;</span><span class="rvts211">&nbsp;flag. For example, to run a script from the command line using the environment in the current directory you can run</span></p>
-<p class="rvps146"><span class="rvts213">$ julia --project=. myscript.jl</span></p>
+<p class="rvps144"><span class="rvts219">Specifying project on startup</span></p>
+<p class="rvps145"><span class="rvts220">Instead of using </span><span class="rvts223">activate</span><span class="rvts220"> from within Julia, you can specify the project on startup using the&nbsp;</span><span class="rvts221">--project=&lt;phat&gt;</span><span class="rvts220">&nbsp;flag. For example, to run a script from the command line using the environment in the current directory you can run</span></p>
+<p class="rvps146"><span class="rvts222">$ julia --project=. myscript.jl</span></p>
 <p class="rvps35"><span class="rvts30"><br/></span></p>
 <p class="rvps35"><span class="rvts30"><br/></span></p>
 <p class="rvps35"><span class="rvts30"><br/></span></p>
@@ -1206,39 +1206,39 @@ details.hnd-blue-callout code {
 <p class="rvps35"><span class="rvts109"><br/></span></p>
 <p class="rvps61"><span class="rvts99">Files in the&nbsp;</span><span class="rvts109">src</span><span class="rvts99">&nbsp;folder in Julia are typically "called" (loaded and executed) using the&nbsp;</span><span class="rvts109">include</span><span class="rvts99">&nbsp;function or by structuring your project as a&nbsp;</span><span class="rvts112">package</span><span class="rvts99">&nbsp;and using the&nbsp;</span><span class="rvts109">import</span><span class="rvts99">&nbsp;or&nbsp;</span><span class="rvts109">using</span><span class="rvts99">&nbsp;keywords.&nbsp;</span></p>
 <p class="rvps61"><span class="rvts99"><br/></span></p>
-<p class="rvps137"><a name="img-keGyabjhH_rIp84PoYDMqAI_1"></a><img alt="Stack Overflow" style="width : 12px; height : 12px; margin : 0px 2px;" src="lib/NewItem%20125.png"><span class="rvts205">Stack Overflow&nbsp;+1</span></p>
-<p class="rvps66"><span class="rvts111">Using&nbsp;</span><span class="rvts206">include()</span></p>
+<p class="rvps137"><a name="img-keGyabjhH_rIp84PoYDMqAI_1"></a><img alt="Stack Overflow" style="width : 12px; height : 12px; margin : 0px 2px;" src="lib/NewItem%20125.png"><span class="rvts214">Stack Overflow&nbsp;+1</span></p>
+<p class="rvps66"><span class="rvts111">Using&nbsp;</span><span class="rvts215">include()</span></p>
 <p class="rvps61"><span class="rvts99">The&nbsp;</span><span class="rvts109">include()</span><span class="rvts99">&nbsp;function simply evaluates the contents of a specified file in the global scope of the module where the call occurs, as if the code was copy-pasted in that location.</span></p>
 <p class="rvps61"><span class="rvts99"><br/></span></p>
-<p class="rvps66"><span class="rvts111">Using Packages (</span><span class="rvts206">import</span><span class="rvts111">&nbsp;or&nbsp;</span><span class="rvts206">using</span><span class="rvts111">)&nbsp;</span><img alt="" style="margin : 1px 0px;" src="lib/NewItem%20120.svg"></p>
+<p class="rvps66"><span class="rvts111">Using Packages (</span><span class="rvts215">import</span><span class="rvts111">&nbsp;or&nbsp;</span><span class="rvts215">using</span><span class="rvts111">)&nbsp;</span><img alt="" style="margin : 1px 0px;" src="lib/NewItem%20120.svg"></p>
 <p class="rvps61"><span class="rvts99">For organized, reusable code, the standard Julia practice is to create a package. A package will have a main file in the&nbsp;</span><span class="rvts109">src</span><span class="rvts99">&nbsp;folder named&nbsp;</span><span class="rvts109">PackageName.jl</span><span class="rvts99">, which defines a module:&nbsp;</span></p>
-<p class="rvps137"><a name="img-keGyabjhH_rIp84PoYDMqAI_4"></a><img alt="Stack Overflow" style="width : 12px; height : 12px; margin : 0px 2px;" src="lib/NewItem%20119.png"><span class="rvts205">Stack Overflow&nbsp;+2</span></p>
-<p class="rvps138"><span class="rvts207">julia</span><img alt="" src="lib/NewItem%20118.svg"></p>
-<p class="rvps141"><span class="rvts208"># In src/MyPackage.jl</span></p>
-<p class="rvps142"><span class="rvts208">module MyPackage</span></p>
-<p class="rvps142"><span class="rvts208"><br/></span></p>
-<p class="rvps142"><span class="rvts208">include("other_file.jl") # Includes other files within the package module scope</span></p>
-<p class="rvps142"><span class="rvts208"><br/></span></p>
-<p class="rvps142"><span class="rvts208">function greet()</span></p>
-<p class="rvps142"><span class="rvts208">&nbsp; &nbsp; println("Hello!")</span></p>
-<p class="rvps142"><span class="rvts208">end</span></p>
-<p class="rvps142"><span class="rvts208"><br/></span></p>
-<p class="rvps143"><span class="rvts208">end</span></p>
+<p class="rvps137"><a name="img-keGyabjhH_rIp84PoYDMqAI_4"></a><img alt="Stack Overflow" style="width : 12px; height : 12px; margin : 0px 2px;" src="lib/NewItem%20119.png"><span class="rvts214">Stack Overflow&nbsp;+2</span></p>
+<p class="rvps138"><span class="rvts216">julia</span><img alt="" src="lib/NewItem%20118.svg"></p>
+<p class="rvps141"><span class="rvts217"># In src/MyPackage.jl</span></p>
+<p class="rvps142"><span class="rvts217">module MyPackage</span></p>
+<p class="rvps142"><span class="rvts217"><br/></span></p>
+<p class="rvps142"><span class="rvts217">include("other_file.jl") # Includes other files within the package module scope</span></p>
+<p class="rvps142"><span class="rvts217"><br/></span></p>
+<p class="rvps142"><span class="rvts217">function greet()</span></p>
+<p class="rvps142"><span class="rvts217">&nbsp; &nbsp; println("Hello!")</span></p>
+<p class="rvps142"><span class="rvts217">end</span></p>
+<p class="rvps142"><span class="rvts217"><br/></span></p>
+<p class="rvps143"><span class="rvts217">end</span></p>
 <p class="rvps61"><span class="rvts99">To "call" (load and use) the package, you first activate the project environment in the Julia REPL or environment manager, then use&nbsp;</span><span class="rvts109">import</span><span class="rvts99">&nbsp;or&nbsp;</span><span class="rvts109">using</span><span class="rvts99">:&nbsp;</span></p>
 <p class="rvps61"><span class="rvts99"><br/></span></p>
 <p class="rvps61"><span class="rvts112">Activate the project environment</span><span class="rvts99">&nbsp;in the package manager (press&nbsp;</span><span class="rvts109">]</span><span class="rvts99">&nbsp;in the REPL):</span></p>
-<p class="rvps138"><span class="rvts207">julia</span><img alt="" src="lib/NewItem%20116.svg"></p>
-<p class="rvps139"><span class="rvts208">pkg&gt; activate .</span></p>
+<p class="rvps138"><span class="rvts216">julia</span><img alt="" src="lib/NewItem%20116.svg"></p>
+<p class="rvps139"><span class="rvts217">pkg&gt; activate .</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside;">
  <li class="rvps61 noindent"><span class="rvts112">Import the package</span><span class="rvts99">&nbsp;in the REPL or another file:</span></li>
 </ol>
-<p class="rvps138"><span class="rvts207">julia</span><img alt="" src="lib/NewItem%20115.svg"></p>
-<p class="rvps139"><span class="rvts208">using MyPackage # or import MyPackage</span></p>
+<p class="rvps138"><span class="rvts216">julia</span><img alt="" src="lib/NewItem%20115.svg"></p>
+<p class="rvps139"><span class="rvts217">using MyPackage # or import MyPackage</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside;">
  <li value="2" class="rvps61 noindent"><span class="rvts112">Call a function</span><span class="rvts99">&nbsp;from the package:</span></li>
 </ol>
-<p class="rvps138"><span class="rvts207">julia</span><img alt="" src="lib/NewItem%20114.svg"></p>
-<p class="rvps140"><span class="rvts208">MyPackage.greet()</span></p>
+<p class="rvps138"><span class="rvts216">julia</span><img alt="" src="lib/NewItem%20114.svg"></p>
+<p class="rvps140"><span class="rvts217">MyPackage.greet()</span></p>
 <p class="rvps39"><span class="rvts99"></span><span class="rvts6"></span></p>
 
             </div>
