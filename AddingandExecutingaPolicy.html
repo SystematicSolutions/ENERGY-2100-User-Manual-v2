@@ -1191,9 +1191,9 @@ details.hnd-blue-callout code {
 <p class="rvps6"><span class="rvts14"><br/></span></p>
 <p class="rvps2"><span class="rvts6">This steps below describe how to create either type of policy file and register it in a scenario run.</span></p>
 <h3 class="rvps10"><a name="_Understanding_Policy_File_Structure"></a><span class="rvts0"><span class="rvts19">Understanding Policy File Structure</span></span></h3>
-<h4 class="rvps81"><a name="_Individual_Policy_Module_Files"></a><span class="rvts0"><span class="rvts147">Individual Policy Module Files</span></span></h4>
+<h4 class="rvps78"><a name="_Individual_Policy_Module_Files"></a><span class="rvts0"><span class="rvts147">Individual Policy Module Files</span></span></h4>
 <p class="rvps2"><span class="rvts6">Each individual policy (e.g., </span><span class="rvts142">Res_PeakSavings.jl</span><span class="rvts6">, </span><span class="rvts142">CarbonTax_OBA_BC.jl</span><span class="rvts6">) is a self-contained Julia module stored in the </span><span class="rvts142">\Policy</span><span class="rvts6"> folder. The standard structure is:</span></p>
-<div class="rvps46">
+<div class="rvps43">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
@@ -1212,11 +1212,11 @@ details.hnd-blue-callout code {
  </tr>
 </table>
 </div>
-<p class="rvps80"><span class="rvts145"><br/></span></p>
+<p class="rvps77"><span class="rvts145"><br/></span></p>
 <p class="rvps2"><span class="rvts6">The module name must exactly match the filename (without the </span><span class="rvts142">.jl</span><span class="rvts6"> extension).</span></p>
-<h4 class="rvps81"><a name="_Reference_Policy_Files_(Policy.jl)"></a><span class="rvts0"><span class="rvts147">Reference Policy Files (Policy.jl)</span></span></h4>
+<h4 class="rvps78"><a name="_Reference_Policy_Files_(Policy.jl)"></a><span class="rvts0"><span class="rvts147">Reference Policy Files (Policy.jl)</span></span></h4>
 <p class="rvps2"><span class="rvts6">A Reference Policy file (e.g., </span><span class="rvts142">Ref25.jl</span><span class="rvts6">) is a collector module named </span><span class="rvts142">Policy</span><span class="rvts6">. It does two things: (1) uses </span><span class="rvts142">include()</span><span class="rvts6"> to load all individual policy module files, and (2) defines an </span><span class="rvts142">IncorporatePolicies()</span><span class="rvts6"> function that calls each module’s </span><span class="rvts142">PolicyControl(DB)</span><span class="rvts6"> in the desired execution order.</span></p>
-<div class="rvps46">
+<div class="rvps43">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
@@ -1238,10 +1238,10 @@ details.hnd-blue-callout code {
  </tr>
 </table>
 </div>
-<p class="rvps80"><span class="rvts145"><br/></span></p>
-<h4 class="rvps81"><a name="_Test_Policy_Files_(PolicyTest.jl)"></a><span class="rvts0"><span class="rvts147">Test Policy Files (PolicyTest.jl)</span></span></h4>
+<p class="rvps77"><span class="rvts145"><br/></span></p>
+<h4 class="rvps78"><a name="_Test_Policy_Files_(PolicyTest.jl)"></a><span class="rvts0"><span class="rvts147">Test Policy Files (PolicyTest.jl)</span></span></h4>
 <p class="rvps2"><span class="rvts6">A Test Policy file is a collector module named </span><span class="rvts142">PolicyTest</span><span class="rvts6">. It follows the same pattern but defines </span><span class="rvts142">IncorporatePolicyTest()</span><span class="rvts6"> instead of </span><span class="rvts142">IncorporatePolicies()</span><span class="rvts6">. When no additional test policies are needed, use </span><span class="rvts142">PolicyTestEmpty.jl</span><span class="rvts6">, which contains an empty </span><span class="rvts142">IncorporatePolicyTest()</span><span class="rvts6"> function.</span></p>
-<div class="rvps46">
+<div class="rvps43">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
@@ -1261,9 +1261,9 @@ details.hnd-blue-callout code {
  </tr>
 </table>
 </div>
-<p class="rvps80"><span class="rvts145"><br/></span></p>
+<p class="rvps77"><span class="rvts145"><br/></span></p>
 <h3 class="rvps10"><a name="_Step-by-Step:_Adding_a_New_Policy"></a><span class="rvts0"><span class="rvts19">Step-by-Step: Adding a New Policy</span></span></h3>
-<h4 class="rvps81"><a name="_Step_1:_Create_the_Individual_Policy_Module_File"></a><span class="rvts0"><span class="rvts147">Step 1: Create the Individual Policy Module File</span></span></h4>
+<h4 class="rvps78"><a name="_Step_1:_Create_the_Individual_Policy_Module_File"></a><span class="rvts0"><span class="rvts147">Step 1: Create the Individual Policy Module File</span></span></h4>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li class="rvps6 noindent"><span class="rvts27">Create a new </span><span class="rvts146">.jl</span><span class="rvts14"> file in the </span><span class="rvts146">\Policy</span><span class="rvts14"> folder.</span></li>
  <li class="rvps6 noindent"><span class="rvts14">Name the file descriptively (e.g., </span><span class="rvts51">Ind_NewEfficiencyStd.jl</span><span class="rvts14">). There is no required naming convention.</span></li>
@@ -1281,20 +1281,20 @@ details.hnd-blue-callout code {
    <p class="rvps2"><span class="rvts148">🛈</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 608px; height: 42px;">
-   <p class="rvps51"><span class="rvts61">If your policy reads input data from .dat files, those files are stored in the \InputData folder.</span></p>
+   <p class="rvps48"><span class="rvts61">If your policy reads input data from .dat files, those files are stored in the \InputData folder.</span></p>
   </td>
  </tr>
 </table>
 </div>
-<h4 class="rvps81"><a name="_Step_2:_Add_the_Policy_to_a_Collector_File"></a><span class="rvts0"><span class="rvts147">Step 2: Add the Policy to a Collector File</span></span></h4>
+<h4 class="rvps78"><a name="_Step_2:_Add_the_Policy_to_a_Collector_File"></a><span class="rvts0"><span class="rvts147">Step 2: Add the Policy to a Collector File</span></span></h4>
 <p class="rvps2"><span class="rvts6">Depending on your goal, add the new policy to either the Reference Policy file or a Test Policy file.</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps5"><a name="_Option_A:_Adding_to_a_Reference_Policy_File"></a><span class="rvts18">Option A: Adding Policy to the Reference Policy File</span></p>
 <p class="rvps5"><span class="rvts6">Open the appropriate Reference Policy file (e.g., </span><span class="rvts37">Ref25.jl</span><span class="rvts6">) in the </span><span class="rvts142">\Policy</span><span class="rvts6"> folder.</span></p>
 <p class="rvps5"><span class="rvts6">Add an </span><span class="rvts37">include()</span><span class="rvts6"> statement near the top of the file, grouped with related policies:</span></p>
-<p class="rvps82"><span class="rvts142">include("MyNewPolicy.jl")</span></p>
-<p class="rvps78"><span class="rvts6">Add a corresponding </span><span class="rvts37">PolicyControl(DB)</span><span class="rvts6"> call inside the </span><span class="rvts37">IncorporatePolicies()</span><span class="rvts6"> function, in the same relative position:</span></p>
-<p class="rvps82"><span class="rvts142">MyNewPolicy.PolicyControl(DB)</span></p>
+<p class="rvps79"><span class="rvts142">include("MyNewPolicy.jl")</span></p>
+<p class="rvps75"><span class="rvts6">Add a corresponding </span><span class="rvts37">PolicyControl(DB)</span><span class="rvts6"> call inside the </span><span class="rvts37">IncorporatePolicies()</span><span class="rvts6"> function, in the same relative position:</span></p>
+<p class="rvps79"><span class="rvts142">MyNewPolicy.PolicyControl(DB)</span></p>
 <p class="rvps9"><span class="rvts14"><br/></span></p>
 <div class="rvps24">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
@@ -1306,12 +1306,12 @@ details.hnd-blue-callout code {
    <p class="rvps2"><span class="rvts148">🛈</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 660px; height: 42px;">
-   <p class="rvps51"><span class="rvts61">Order matters. Policies are executed sequentially, so place the new call where it logically belongs relative to other policies (e.g., after initialization steps and before policies that depend on it).</span></p>
+   <p class="rvps48"><span class="rvts61">Order matters. Policies are executed sequentially, so place the new call where it logically belongs relative to other policies (e.g., after initialization steps and before policies that depend on it).</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps44"><span class="rvts18"><br/></span></p>
+<p class="rvps41"><span class="rvts18"><br/></span></p>
 <p class="rvps5"><a name="_Option_B:_Adding_to_a_Test_Policy_File"></a><span class="rvts18">Option B: Adding Policy to a Test Policy File</span></p>
 <p class="rvps5"><span class="rvts6">If you want to test a new policy on top of an existing reference case without modifying the reference case itself, create or modify a Test Policy file.</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 72px; list-style-position: outside;">
@@ -1321,9 +1321,9 @@ details.hnd-blue-callout code {
  <li class="rvps9 noindent"><span class="rvts14">Add a </span><span class="rvts51">MyPolicy.PolicyControl(DB)</span><span class="rvts14"> call inside </span><span class="rvts51">IncorporatePolicyTest()</span><span class="rvts14">.</span></li>
 </ol>
 <p class="rvps6"><span class="rvts14"><br/></span></p>
-<h4 class="rvps81"><a name="_Step_3:_Register_the_Scenario_in_RunE2100Runs.bat"></a><span class="rvts0"><span class="rvts147">Step 3: Register the Scenario in RunE2100Runs.bat</span></span></h4>
+<h4 class="rvps78"><a name="_Step_3:_Register_the_Scenario_in_RunE2100Runs.bat"></a><span class="rvts0"><span class="rvts147">Step 3: Register the Scenario in RunE2100Runs.bat</span></span></h4>
 <p class="rvps2"><span class="rvts6">To run a scenario using your new policy files, add or modify a </span><span class="rvts37">Call RunE2100</span><span class="rvts6"> line in </span><span class="rvts37">RunE2100Runs.bat</span><span class="rvts6"> (located in the </span><span class="rvts142">\2020Model</span><span class="rvts6"> folder). The call takes the following parameters:</span></p>
-<div class="rvps77">
+<div class="rvps74">
 <table width="622" style="border-width: 0px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #2e75b6; vertical-align: top; width: 77px;">
@@ -1439,7 +1439,7 @@ details.hnd-blue-callout code {
 </div>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts6">Example call:</span></p>
-<div class="rvps46">
+<div class="rvps43">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
@@ -1448,7 +1448,7 @@ details.hnd-blue-callout code {
  </tr>
 </table>
 </div>
-<p class="rvps80"><span class="rvts145"><br/></span></p>
+<p class="rvps77"><span class="rvts145"><br/></span></p>
 <div class="rvps24">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
@@ -1459,7 +1459,7 @@ details.hnd-blue-callout code {
    <p class="rvps2"><span class="rvts148">🛈</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 608px; height: 42px;">
-   <p class="rvps51"><span class="rvts61">The Test Policy file is referenced by its suffix only. RunE2100.bat prepends "Policy" to form the filename: e.g., parameter value "MyScenario" becomes "PolicyMyScenario.jl". Use "TestEmpty" to reference PolicyTestEmpty.jl.</span></p>
+   <p class="rvps48"><span class="rvts61">The Test Policy file is referenced by its suffix only. RunE2100.bat prepends "Policy" to form the filename: e.g., parameter value "MyScenario" becomes "PolicyMyScenario.jl". Use "TestEmpty" to reference PolicyTestEmpty.jl.</span></p>
   </td>
  </tr>
 </table>
@@ -1469,10 +1469,10 @@ details.hnd-blue-callout code {
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <li class="rvps2 noindent"><span class="rvts6">Edit the policy test module template, </span><span class="rvts37">\Policy\PolicyTestTemplate.jl</span><span class="rvts6">:</span></li>
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li style="text-indent: 0px" class="rvps83 noindent"><span class="rvts6">Include the new policy file(s) to be executed at the top of the file:&nbsp;</span></li>
+  <li style="text-indent: 0px" class="rvps80 noindent"><span class="rvts6">Include the new policy file(s) to be executed at the top of the file:&nbsp;</span></li>
  </ol>
 </ol>
-<div class="rvps56">
+<div class="rvps53">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
@@ -1487,10 +1487,10 @@ details.hnd-blue-callout code {
 </div>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li value="2" style="text-indent: 0px" class="rvps83 noindent"><span class="rvts6">Call the policy's controlling function (</span><span class="rvts37">PolicyControl</span><span class="rvts6">) inside the </span><span class="rvts81">IncorporatePolicyTest()</span><span class="rvts6"> function:</span></li>
+  <li value="2" style="text-indent: 0px" class="rvps80 noindent"><span class="rvts6">Call the policy's controlling function (</span><span class="rvts37">PolicyControl</span><span class="rvts6">) inside the </span><span class="rvts82">IncorporatePolicyTest()</span><span class="rvts6"> function:</span></li>
  </ol>
 </ol>
-<div class="rvps56">
+<div class="rvps53">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
@@ -1500,12 +1500,12 @@ details.hnd-blue-callout code {
    <p class="rvps34"><span class="rvts150"><br/></span></p>
    <p class="rvps34"><span class="rvts152">include</span><span class="rvts153">(</span><span class="rvts154">"BuildingsStandard.jl"</span><span class="rvts153">) </span><span class="rvts158"># &lt;-- Include policy file here&nbsp;</span></p>
    <p class="rvps34"><span class="rvts54">...</span></p>
-   <p class="rvps59"><span class="rvts102"><br/></span></p>
+   <p class="rvps56"><span class="rvts103"><br/></span></p>
    <p class="rvps34"><span class="rvts155">function</span><span class="rvts153"> </span><span class="rvts152">IncorporatePolicyTest</span><span class="rvts155">()</span></p>
    <p class="rvps34"><span class="rvts153">&nbsp; </span><span class="rvts152">@info</span><span class="rvts153"> </span><span class="rvts154">"IncorporatePolicyTest - Policy Group Name"</span></p>
-   <p class="rvps34"><span class="rvts69"><br/></span></p>
-   <p class="rvps34"><span class="rvts69">&nbsp; BuildingsStandard.</span><span class="rvts159">PolicyControl</span><span class="rvts158">(</span><span class="rvts69">DB</span><span class="rvts158">) # &lt;-- Call policy's control function here&nbsp;</span></p>
-   <p class="rvps34"><span class="rvts69"><br/></span></p>
+   <p class="rvps34"><span class="rvts71"><br/></span></p>
+   <p class="rvps34"><span class="rvts71">&nbsp; BuildingsStandard.</span><span class="rvts159">PolicyControl</span><span class="rvts158">(</span><span class="rvts71">DB</span><span class="rvts158">) # &lt;-- Call policy's control function here&nbsp;</span></p>
+   <p class="rvps34"><span class="rvts71"><br/></span></p>
    <p class="rvps34"><span class="rvts54">end</span></p>
    <p class="rvps34"><span class="rvts54"><br/></span></p>
    <p class="rvps34"><span class="rvts54">end</span></p>
@@ -1518,12 +1518,12 @@ details.hnd-blue-callout code {
  <li value="2" class="rvps2 noindent"><span class="rvts6">Rename this file from "PolicyFileTemplate.jl" to something more descriptive, starting with the word Policy, such as "PolicyBuildingStandards.jl". You could also name the file PolicyTest.jl.</span></li>
  <li class="rvps2 noindent"><span class="rvts6">To run this policy through the model on top of the Ref25 policies, edit </span><span class="rvts37">RunE2100Runs.bat</span><span class="rvts6">:</span></li>
 </ol>
-<div class="rvps46">
+<div class="rvps43">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps34"><span class="rvts69">RunE2100Runs.bat</span></p>
-   <p class="rvps59"><span class="rvts160"><br/></span></p>
+   <p class="rvps34"><span class="rvts71">RunE2100Runs.bat</span></p>
+   <p class="rvps56"><span class="rvts160"><br/></span></p>
    <p class="rvps34"><span class="rvts54">Call RunE2100 BuildingStandards Ref25 BuildingStandards 2020 2050 Ref25 Ref25 Ref25 All</span></p>
   </td>
  </tr>
@@ -1544,7 +1544,7 @@ details.hnd-blue-callout code {
 </ol>
 <p class="rvps6"><span class="rvts14"><br/></span></p>
 <h3 class="rvps10"><a name="_Quick_Reference:_Files_to_Create_or_Modify"></a><span class="rvts0"><span class="rvts19">Quick Reference: Files to Create or Modify</span></span></h3>
-<div class="rvps76">
+<div class="rvps73">
 <table width="622" style="border-width: 0px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px 1px; background-color: #2e75b6; vertical-align: top; width: 210px;">

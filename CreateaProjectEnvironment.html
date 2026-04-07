@@ -1197,39 +1197,39 @@ details.hnd-blue-callout code {
  <li class="rvps2 noindent"><span class="rvts6">Start the Julia REPL (type </span><span class="rvts37">Julia: Start REPL</span><span class="rvts6">).</span></li>
 </ul>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li value="2" class="rvps43 noindent"><span class="rvts6">Activate the folder as a Julia project environment and install project dependencies (which are specified in the model's </span><span class="rvts56">Project.toml and Manifest.toml):</span></li>
+ <li value="2" class="rvps40 noindent"><span class="rvts6">Activate the folder as a Julia project environment and install project dependencies (which are specified in the model's </span><span class="rvts56">Project.toml and Manifest.toml):</span></li>
 </ol>
-<div class="rvps47">
+<div class="rvps44">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps34"><span class="rvts74">julia&gt;</span><span class="rvts54"> </span><span class="rvts68">using</span><span class="rvts54"> Pkg</span></p>
-   <p class="rvps34"><span class="rvts74">julia&gt;</span><span class="rvts54"> Pkg.activate("C:</span><span class="rvts69">\\</span><span class="rvts54">ModelFolderName")</span></p>
-   <p class="rvps34"><span class="rvts74">julia&gt;</span><span class="rvts54"> Pkg.instantiate()</span></p>
+   <p class="rvps34"><span class="rvts76">julia&gt;</span><span class="rvts54"> </span><span class="rvts70">using</span><span class="rvts54"> Pkg</span></p>
+   <p class="rvps34"><span class="rvts76">julia&gt;</span><span class="rvts54"> Pkg.activate("C:</span><span class="rvts71">\\</span><span class="rvts54">ModelFolderName")</span></p>
+   <p class="rvps34"><span class="rvts76">julia&gt;</span><span class="rvts54"> Pkg.instantiate()</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps46"><span class="rvts48">Alternatively, you could use </span><span class="rvts50">Pkg.activate(".")</span><span class="rvts48"> to activate the current project if you have opened VS code in the model's root folder:</span></p>
+<p class="rvps43"><span class="rvts48">Alternatively, you could use </span><span class="rvts50">Pkg.activate(".")</span><span class="rvts48"> to activate the current project if you have opened VS code in the model's root folder:</span></p>
 <div class="rvps30">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps34"><span class="rvts74">julia&gt;</span><span class="rvts54"> </span><span class="rvts68">using</span><span class="rvts54"> Pkg</span></p>
-   <p class="rvps34"><span class="rvts74">julia&gt;</span><span class="rvts54"> Pkg.activate</span><span class="rvts69">(".")</span></p>
-   <p class="rvps34"><span class="rvts74">julia&gt;</span><span class="rvts54"> Pkg.instantiate()</span></p>
+   <p class="rvps34"><span class="rvts76">julia&gt;</span><span class="rvts54"> </span><span class="rvts70">using</span><span class="rvts54"> Pkg</span></p>
+   <p class="rvps34"><span class="rvts76">julia&gt;</span><span class="rvts54"> Pkg.activate</span><span class="rvts71">(".")</span></p>
+   <p class="rvps34"><span class="rvts76">julia&gt;</span><span class="rvts54"> Pkg.instantiate()</span></p>
   </td>
  </tr>
 </table>
 </div>
-<div class="rvps44">
+<div class="rvps41">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 3px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #ff0000; vertical-align: top; width: 6px; height: 42px;">
    <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 27px; height: 42px;">
-   <p class="rvps45"><span class="rvts72"></span></p>
+   <p class="rvps42"><span class="rvts74"></span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 591px; height: 42px;">
    <p class="rvps2"><span class="rvts56">You must use two backslashes (\\) in the folder path for Julia to find the correct path.</span></p>
@@ -1237,23 +1237,23 @@ details.hnd-blue-callout code {
  </tr>
 </table>
 </div>
-<p class="rvps46"><span class="rvts48">Verify that you activated the correct Julia environment by checking the package status:</span></p>
+<p class="rvps43"><span class="rvts48">Verify that you activated the correct Julia environment by checking the package status:</span></p>
 <div class="rvps30">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps34"><span class="rvts74">julia&gt;</span><span class="rvts54"> Pkg.status()</span></p>
+   <p class="rvps34"><span class="rvts76">julia&gt;</span><span class="rvts54"> Pkg.status()</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps46"><span class="rvts48">If the correct environment was activated, this command will return "EnergyModel". Output should look something like:</span></p>
-<div class="rvps46">
+<p class="rvps43"><span class="rvts48">If the correct environment was activated, this command will return "EnergyModel". Output should look something like:</span></p>
+<div class="rvps43">
 <table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; border-left: none;">
-   <p class="rvps34"><span class="rvts75">Project</span><span class="rvts54"> EnergyModel v0.1.0</span></p>
-   <p class="rvps34"><span class="rvts74">Status</span><span class="rvts54"> `C:\2020CanadaPoplarNH3\Project.toml`</span></p>
+   <p class="rvps34"><span class="rvts77">Project</span><span class="rvts54"> EnergyModel v0.1.0</span></p>
+   <p class="rvps34"><span class="rvts76">Status</span><span class="rvts54"> `C:\2020CanadaPoplarNH3\Project.toml`</span></p>
    <p class="rvps34"><span class="rvts54">&nbsp; [336ed68f] CSV v0.10.16</span></p>
    <p class="rvps34"><span class="rvts54">&nbsp; [a93c6f00] DataFrames v1.8.1</span></p>
    <p class="rvps34"><span class="rvts54">&nbsp; [1313f7d8] DataFramesMeta v0.15.6</span></p>
@@ -1289,9 +1289,9 @@ details.hnd-blue-callout code {
  </tr>
 </table>
 </div>
-<p class="rvps30"><span class="rvts6">By activating the Julia environment, Julia finds the </span><span class="rvts77">Project.toml</span><span class="rvts6"> and </span><span class="rvts77">Manifest.toml</span><span class="rvts6"> files that define the scope and packages of the current project, and tells Julia to look for packages in the local folder rather than the default global environment.</span></p>
-<p class="rvps30"><span class="rvts6">Activating a Julia environment in VS Code means setting a specific project folder as the active project for the Julia REPL and language server. This ensures that </span><span class="rvts77">using</span><span class="rvts6"> or </span><span class="rvts77">import</span><span class="rvts6"> commands load the exact versions of packages specified in that project's </span><span class="rvts77">Project.toml</span><span class="rvts6"> and </span><span class="rvts77">Manifest.toml</span><span class="rvts6"> files, ensuring reproducibility and avoiding conflicts.</span></p>
-<p class="rvps30"><span class="rvts6">The Julia REPL will automatically open in the terminal, and you should see a </span><span class="rvts77">julia&gt;</span><span class="rvts6"> prompt.</span></p>
+<p class="rvps30"><span class="rvts6">By activating the Julia environment, Julia finds the </span><span class="rvts67">Project.toml</span><span class="rvts6"> and </span><span class="rvts67">Manifest.toml</span><span class="rvts6"> files that define the scope and packages of the current project, and tells Julia to look for packages in the local folder rather than the default global environment.</span></p>
+<p class="rvps30"><span class="rvts6">Activating a Julia environment in VS Code means setting a specific project folder as the active project for the Julia REPL and language server. This ensures that </span><span class="rvts67">using</span><span class="rvts6"> or </span><span class="rvts67">import</span><span class="rvts6"> commands load the exact versions of packages specified in that project's </span><span class="rvts67">Project.toml</span><span class="rvts6"> and </span><span class="rvts67">Manifest.toml</span><span class="rvts6"> files, ensuring reproducibility and avoiding conflicts.</span></p>
+<p class="rvps30"><span class="rvts6">The Julia REPL will automatically open in the terminal, and you should see a </span><span class="rvts67">julia&gt;</span><span class="rvts6"> prompt.</span></p>
 <div class="rvps30">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 3px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
@@ -1302,7 +1302,7 @@ details.hnd-blue-callout code {
    <p class="rvps37"><span class="rvts60">🛈</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 767px; height: 54px;">
-   <p class="rvps2"><span class="rvts61">If you ever need to re-open the Julia REPL in an activated environment, open the Command Palette and type </span><span class="rvts76">Julia: Start REPL</span><span class="rvts61">.</span></p>
+   <p class="rvps2"><span class="rvts61">If you ever need to re-open the Julia REPL in an activated environment, open the Command Palette and type </span><span class="rvts78">Julia: Start REPL</span><span class="rvts61">.</span></p>
   </td>
  </tr>
 </table>
@@ -1317,7 +1317,7 @@ details.hnd-blue-callout code {
    <p class="rvps37"><span class="rvts60">🛈</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 767px; height: 54px;">
-   <p class="rvps48"><span class="rvts78">Alternative ways to activate a Julia environment: click the </span><span class="rvts79">"Julia env"</span><span class="rvts78"> button on the bottom-left status bar in VS Code, or type </span><span class="rvts80">] activate .</span><span class="rvts78"> in the Julia REPL to activate the current directory. When you open a folder containing a </span><span class="rvts80">Project.toml</span><span class="rvts78"> file in VS Code, the Julia extension will often activate it automatically.</span></p>
+   <p class="rvps45"><span class="rvts79">Alternative ways to activate a Julia environment: click the </span><span class="rvts80">"Julia env"</span><span class="rvts79"> button on the bottom-left status bar in VS Code, or type </span><span class="rvts81">] activate .</span><span class="rvts79"> in the Julia REPL to activate the current directory. When you open a folder containing a </span><span class="rvts81">Project.toml</span><span class="rvts79"> file in VS Code, the Julia extension will often activate it automatically.</span></p>
   </td>
  </tr>
 </table>
@@ -1329,11 +1329,11 @@ details.hnd-blue-callout code {
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li value="1" class="rvps2 noindent"><span class="rvts6">Load ENERGY 2100's Julia package, named </span><span class="rvts37">EnergyModel</span><span class="rvts6">:</span></li>
 </ol>
-<div class="rvps46">
+<div class="rvps43">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps34"><span class="rvts68">using</span><span class="rvts54"> EnergyModel</span></p>
+   <p class="rvps34"><span class="rvts70">using</span><span class="rvts54"> EnergyModel</span></p>
   </td>
  </tr>
 </table>
@@ -1349,7 +1349,7 @@ details.hnd-blue-callout code {
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 767px; height: 54px;">
    <p class="rvps37"><span class="rvts56">Alternatively, you could import the EnergyModel using an alias, such as "M". Example: &nbsp;</span></p>
-   <p class="rvps37"><span class="rvts82">julia&gt;</span><span class="rvts81"> </span><span class="rvts37">import EnergyModel as M</span></p>
+   <p class="rvps37"><span class="rvts83">julia&gt;</span><span class="rvts82"> </span><span class="rvts37">import EnergyModel as M</span></p>
   </td>
  </tr>
 </table>
@@ -1358,21 +1358,21 @@ details.hnd-blue-callout code {
  <li value="2" class="rvps2 noindent"><span class="rvts6">Import ENERGY 2100's modules, constants, or functions you want to use in the REPL.&nbsp;</span></li>
 </ol>
 <p class="rvps30"><span class="rvts6">The structures listed below are common imports required to run a policy file and view variables:&nbsp;</span></p>
-<div class="rvps46">
+<div class="rvps43">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps34"><span class="rvts68">import</span><span class="rvts54"> EnergyModel.DB</span></p>
-   <p class="rvps34"><span class="rvts68">import</span><span class="rvts54"> EnergyModel.ReadDisk</span></p>
-   <p class="rvps34"><span class="rvts68">import</span><span class="rvts54"> EnergyModel.Select</span></p>
-   <p class="rvps34"><span class="rvts68">import </span><span class="rvts70">EnergyModel.</span><span class="rvts54">ReadDiskAndSets</span></p>
-   <p class="rvps34"><span class="rvts68">import </span><span class="rvts70">EnergyModel.</span><span class="rvts54">Yr</span></p>
+   <p class="rvps34"><span class="rvts70">import</span><span class="rvts54"> EnergyModel.DB</span></p>
+   <p class="rvps34"><span class="rvts70">import</span><span class="rvts54"> EnergyModel.ReadDisk</span></p>
+   <p class="rvps34"><span class="rvts70">import</span><span class="rvts54"> EnergyModel.Select</span></p>
+   <p class="rvps34"><span class="rvts70">import </span><span class="rvts72">EnergyModel.</span><span class="rvts54">ReadDiskAndSets</span></p>
+   <p class="rvps34"><span class="rvts70">import </span><span class="rvts72">EnergyModel.</span><span class="rvts54">Yr</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps46"><span class="rvts48">Alternatively, we could import all these structures in one line using the following:</span></p>
-<p class="rvps30"><span class="rvts71"><div class="html-code-box indent-2">
+<p class="rvps43"><span class="rvts48">Alternatively, we could import all these structures in one line using the following:</span></p>
+<p class="rvps30"><span class="rvts73"><div class="html-code-box indent-2">
 <pre><code><span class="kw">import</span> EnergyModel: DB, ReadDisk, Select, ReadDiskAndSets, Yr</code></pre>
 </div></span></p>
 <div class="rvps30">
@@ -1385,7 +1385,7 @@ details.hnd-blue-callout code {
    <p class="rvps37"><span class="rvts60">🛈</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 767px; height: 54px;">
-   <p class="rvps37"><span class="rvts56">Click </span><a class="rvts73" href="GlobalFunctions.html">here</a><span class="rvts56"> for a more complete list of possible modules, constants, and functions that are available to import from the EnergyModel project environment.</span></p>
+   <p class="rvps37"><span class="rvts56">Click </span><a class="rvts75" href="GlobalFunctions.html">here</a><span class="rvts56"> for a more complete list of possible modules, constants, and functions that are available to import from the EnergyModel project environment.</span></p>
   </td>
  </tr>
 </table>
@@ -1398,7 +1398,7 @@ details.hnd-blue-callout code {
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps34"><span class="rvts68">using</span><span class="rvts54"> DataFrames, DataFramesMeta, CSV</span></p>
+   <p class="rvps34"><span class="rvts70">using</span><span class="rvts54"> DataFrames, DataFramesMeta, CSV</span></p>
   </td>
  </tr>
 </table>

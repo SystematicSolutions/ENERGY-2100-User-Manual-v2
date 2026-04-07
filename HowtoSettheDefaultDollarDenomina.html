@@ -1183,8 +1183,8 @@ details.hnd-blue-callout code {
             <div class="main-content">
                 
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Overview</span></span></h3>
-<p class="rvps93"><span class="rvts6">Monetary values in output tables — such as expenditures on fuel, investments, and O&amp;M costs — are expressed in constant (real) dollars to allow meaningful comparisons across years. Two variables control which dollar year is used for these outputs:</span></p>
-<div class="rvps94">
+<p class="rvps90"><span class="rvts6">Monetary values in output tables — such as expenditures on fuel, investments, and O&amp;M costs — are expressed in constant (real) dollars to allow meaningful comparisons across years. Two variables control which dollar year is used for these outputs:</span></p>
+<div class="rvps91">
 <table width="622" style="border-width: 0px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #1f497d; vertical-align: top; width: 117px;">
@@ -1222,10 +1222,10 @@ details.hnd-blue-callout code {
 </table>
 </div>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps93"><span class="rvts6">Both variables are set in SData.jl and written to the database during model initialization. Output modules, including Expenditures.jl, read these values from the database at run time — you do not need to edit any output files.</span></p>
+<p class="rvps90"><span class="rvts6">Both variables are set in SData.jl and written to the database during model initialization. Output modules, including Expenditures.jl, read these values from the database at run time — you do not need to edit any output files.</span></p>
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">How the Constant Dollar Conversion Works</span></span></h3>
-<p class="rvps93"><span class="rvts6">Each monetary output value is adjusted from nominal dollars (the year in which the cost was incurred) to constant dollars (the base year you specify) using the Inflation index array. The formula applied in every output table calculation is:</span></p>
-<div class="rvps94">
+<p class="rvps90"><span class="rvts6">Each monetary output value is adjusted from nominal dollars (the year in which the cost was incurred) to constant dollars (the base year you specify) using the Inflation index array. The formula applied in every output table calculation is:</span></p>
+<div class="rvps91">
 <table width="626" style="border-width: 0px; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #f2f2f2; vertical-align: top; width: 620px;">
@@ -1235,13 +1235,13 @@ details.hnd-blue-callout code {
 </table>
 </div>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps93"><span class="rvts6">CDYear is the array index that selects the correct inflation factor for the chosen base year. CDTime is the same year expressed as a calendar year, used only for labeling table headers. Because CDYear is derived directly from CDTime (see below), users only ever need to change CDTime.</span></p>
+<p class="rvps90"><span class="rvts6">CDYear is the array index that selects the correct inflation factor for the chosen base year. CDTime is the same year expressed as a calendar year, used only for labeling table headers. Because CDYear is derived directly from CDTime (see below), users only ever need to change CDTime.</span></p>
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">How to Change the Constant Dollar Year</span></span></h3>
-<h4 class="rvps81"><span class="rvts0"><span class="rvts147">Step 1 — Open SData.jl</span></span></h4>
-<p class="rvps93"><span class="rvts6">Locate and open the file SData.jl in your text editor or Julia development environment. All edits are made within the SData_Inputs function in this file.</span></p>
-<h4 class="rvps81"><span class="rvts0"><span class="rvts147">Step 2 — Find the CDTime Assignment</span></span></h4>
-<p class="rvps93"><span class="rvts6">Search for the following block near the middle of the SData_Inputs function:</span></p>
-<div class="rvps94">
+<h4 class="rvps78"><span class="rvts0"><span class="rvts147">Step 1 — Open SData.jl</span></span></h4>
+<p class="rvps90"><span class="rvts6">Locate and open the file SData.jl in your text editor or Julia development environment. All edits are made within the SData_Inputs function in this file.</span></p>
+<h4 class="rvps78"><span class="rvts0"><span class="rvts147">Step 2 — Find the CDTime Assignment</span></span></h4>
+<p class="rvps90"><span class="rvts6">Search for the following block near the middle of the SData_Inputs function:</span></p>
+<div class="rvps91">
 <table width="626" style="border-width: 0px; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #f2f2f2; vertical-align: top; width: 620px;">
@@ -1253,10 +1253,10 @@ details.hnd-blue-callout code {
  </tr>
 </table>
 </div>
-<p class="rvps94"><span class="rvts6"><br/></span></p>
-<h4 class="rvps81"><span class="rvts0"><span class="rvts147">Step 3 — Change CDTime to the Desired Year</span></span></h4>
-<p class="rvps93"><span class="rvts6">Replace 2017 on the CDTime line with the four-digit calendar year you want to use as the constant dollar base year. For example, to use 2020 dollars:</span></p>
-<div class="rvps94">
+<p class="rvps91"><span class="rvts6"><br/></span></p>
+<h4 class="rvps78"><span class="rvts0"><span class="rvts147">Step 3 — Change CDTime to the Desired Year</span></span></h4>
+<p class="rvps90"><span class="rvts6">Replace 2017 on the CDTime line with the four-digit calendar year you want to use as the constant dollar base year. For example, to use 2020 dollars:</span></p>
+<div class="rvps91">
 <table width="626" style="border-width: 0px; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #f2f2f2; vertical-align: top; width: 620px;">
@@ -1269,17 +1269,17 @@ details.hnd-blue-callout code {
 </table>
 </div>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps93"><span class="rvts6">Do not modify the CDYear line. CDYear is calculated automatically from CDTime and ITime (the model's internal start-year index imported from EnergyModel), and is then written to the database alongside CDTime.</span></p>
-<h4 class="rvps81"><span class="rvts0"><span class="rvts147">Step 4 — Save the File and Re-run Model Initialization</span></span></h4>
-<p class="rvps93"><span class="rvts6">Save SData.jl. Then run model initialization so the updated CDTime and CDYear values are written to the database (SInput/CDTime and SInput/CDYear). Output modules read these values from the database at run time, so the change will be reflected automatically in all output tables the next time they are generated — no changes to Expenditures.jl or any other output file are required.</span></p>
+<p class="rvps90"><span class="rvts6">Do not modify the CDYear line. CDYear is calculated automatically from CDTime and ITime (the model's internal start-year index imported from EnergyModel), and is then written to the database alongside CDTime.</span></p>
+<h4 class="rvps78"><span class="rvts0"><span class="rvts147">Step 4 — Save the File and Re-run Model Initialization</span></span></h4>
+<p class="rvps90"><span class="rvts6">Save SData.jl. Then run model initialization so the updated CDTime and CDYear values are written to the database (SInput/CDTime and SInput/CDYear). Output modules read these values from the database at run time, so the change will be reflected automatically in all output tables the next time they are generated — no changes to Expenditures.jl or any other output file are required.</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<h1 class="rvps92"><span class="rvts0"><span class="rvts177">Important Constraints</span></span></h1>
-<p class="rvps93"><span class="rvts6">Keep the following in mind when selecting a constant dollar year:</span></p>
+<h1 class="rvps89"><span class="rvts0"><span class="rvts178">Important Constraints</span></span></h1>
+<p class="rvps90"><span class="rvts6">Keep the following in mind when selecting a constant dollar year:</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
- <li style="text-indent: 0px" class="rvps95 noindent"><span class="rvts14">The year must fall within the range of years covered by the model's Inflation array. Choosing a year outside this range will cause an index error at run time.</span></li>
- <li style="text-indent: 0px" class="rvps95 noindent"><span class="rvts14">The year must be a valid calendar year represented in the model's Year set. Years that fall before the historical data period or beyond the projection horizon are not valid.</span></li>
- <li style="text-indent: 0px" class="rvps95 noindent"><span class="rvts14">The same base year applies to all monetary output tables simultaneously — there is no mechanism to use different base years for different tables.</span></li>
- <li style="text-indent: 0px" class="rvps95 noindent"><span class="rvts14">After changing CDTime and re-running initialization, any previously generated output files will reflect the old base year. Regenerate all output tables to ensure consistency.</span></li>
+ <li style="text-indent: 0px" class="rvps92 noindent"><span class="rvts14">The year must fall within the range of years covered by the model's Inflation array. Choosing a year outside this range will cause an index error at run time.</span></li>
+ <li style="text-indent: 0px" class="rvps92 noindent"><span class="rvts14">The year must be a valid calendar year represented in the model's Year set. Years that fall before the historical data period or beyond the projection horizon are not valid.</span></li>
+ <li style="text-indent: 0px" class="rvps92 noindent"><span class="rvts14">The same base year applies to all monetary output tables simultaneously — there is no mechanism to use different base years for different tables.</span></li>
+ <li style="text-indent: 0px" class="rvps92 noindent"><span class="rvts14">After changing CDTime and re-running initialization, any previously generated output files will reflect the old base year. Regenerate all output tables to ensure consistency.</span></li>
 </ul>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <div class="rvps26">
@@ -1298,14 +1298,14 @@ details.hnd-blue-callout code {
 </table>
 </div>
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Effect on Output Tables</span></span></h3>
-<p class="rvps93"><span class="rvts6">Once the updated values are written to the database and output tables are regenerated, two visible changes will occur:</span></p>
+<p class="rvps90"><span class="rvts6">Once the updated values are written to the database and output tables are regenerated, two visible changes will occur:</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
- <li style="text-indent: 0px" class="rvps95 noindent"><span class="rvts14">Table headers will display the new base year. For example, a column header that previously read "Secondary Energy Expenditures (Millions 2017 CAD/Yr)" will instead read "Secondary Energy Expenditures (Millions 2020 CAD/Yr)" if CDTime is changed to 2020.</span></li>
- <li style="text-indent: 0px" class="rvps95 noindent"><span class="rvts14">All monetary values in the tables will be re-expressed in the new base year's dollars. Values for years before the base year will be inflated upward; values for years after the base year will be deflated downward relative to the previous output.</span></li>
+ <li style="text-indent: 0px" class="rvps92 noindent"><span class="rvts14">Table headers will display the new base year. For example, a column header that previously read "Secondary Energy Expenditures (Millions 2017 CAD/Yr)" will instead read "Secondary Energy Expenditures (Millions 2020 CAD/Yr)" if CDTime is changed to 2020.</span></li>
+ <li style="text-indent: 0px" class="rvps92 noindent"><span class="rvts14">All monetary values in the tables will be re-expressed in the new base year's dollars. Values for years before the base year will be inflated upward; values for years after the base year will be deflated downward relative to the previous output.</span></li>
 </ul>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Quick Reference</span></span></h3>
-<div class="rvps94">
+<div class="rvps91">
 <table width="623" style="border-width: 0px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #1f497d; vertical-align: top; width: 197px;">
@@ -1317,7 +1317,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #f2f2f2; vertical-align: top; width: 197px;">
-   <p class="rvps2"><span class="rvts174">File to edit</span></p>
+   <p class="rvps2"><span class="rvts175">File to edit</span></p>
   </td>
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #f2f2f2; vertical-align: top; width: 421px;">
    <p class="rvps2"><span class="rvts145">SData.jl</span></p>
@@ -1325,7 +1325,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 197px;">
-   <p class="rvps2"><span class="rvts174">Function to edit within</span></p>
+   <p class="rvps2"><span class="rvts175">Function to edit within</span></p>
   </td>
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 421px;">
    <p class="rvps2"><span class="rvts145">SData_Inputs</span></p>
@@ -1333,7 +1333,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #f2f2f2; vertical-align: top; width: 197px;">
-   <p class="rvps2"><span class="rvts174">Line to change</span></p>
+   <p class="rvps2"><span class="rvts175">Line to change</span></p>
   </td>
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #f2f2f2; vertical-align: top; width: 421px;">
    <p class="rvps2"><span class="rvts145">CDTime = 2017 &nbsp;→ &nbsp;CDTime = &lt;desired year&gt;</span></p>
@@ -1341,7 +1341,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 197px;">
-   <p class="rvps2"><span class="rvts174">Lines to leave unchanged</span></p>
+   <p class="rvps2"><span class="rvts175">Lines to leave unchanged</span></p>
   </td>
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 421px;">
    <p class="rvps2"><span class="rvts145">CDYear = CDTime-ITime+1 &nbsp;(calculated automatically)</span></p>
@@ -1349,7 +1349,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #f2f2f2; vertical-align: top; width: 197px;">
-   <p class="rvps2"><span class="rvts174">Files NOT to edit</span></p>
+   <p class="rvps2"><span class="rvts175">Files NOT to edit</span></p>
   </td>
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #f2f2f2; vertical-align: top; width: 421px;">
    <p class="rvps2"><span class="rvts145">Output script files, such as Expenditures.jl</span></p>
@@ -1357,7 +1357,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 197px;">
-   <p class="rvps2"><span class="rvts174">Required after editing</span></p>
+   <p class="rvps2"><span class="rvts175">Required after editing</span></p>
   </td>
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #ffffff; vertical-align: top; width: 421px;">
    <p class="rvps2"><span class="rvts145">Re-run model initialization to write values to database</span></p>
@@ -1365,7 +1365,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #f2f2f2; vertical-align: top; width: 197px;">
-   <p class="rvps2"><span class="rvts174">Required after initialization</span></p>
+   <p class="rvps2"><span class="rvts175">Required after initialization</span></p>
   </td>
   <td style="border-width : 1px; border-color: #bbbbbb; border-style: solid; padding: 0px 1px; background-color: #f2f2f2; vertical-align: top; width: 421px;">
    <p class="rvps2"><span class="rvts145">Regenerate all output tables</span></p>

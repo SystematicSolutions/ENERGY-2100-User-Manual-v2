@@ -1182,68 +1182,68 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<p class="rvps2"><span class="rvts176"><br/></span></p>
-<p class="rvps2"><span class="rvts176">Handling Undefined Values, Such as Divide by Zero</span></p>
+<p class="rvps2"><span class="rvts177"><br/></span></p>
+<p class="rvps2"><span class="rvts177">Handling Undefined Values, Such as Divide by Zero</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><img alt="" style="width : 721px; height : 260px; padding : 1px;" src="lib/NewItem%2068.png"></p>
-<p class="rvps2"><span class="rvts176"><br/></span></p>
-<p class="rvps104"><span class="rvts193">AI Overview</span></p>
-<p class="rvps105"><span class="rvts195"><br/></span></p>
-<p class="rvps69"><span class="rvts103">In Julia,&nbsp;</span><span class="rvts194">NaN</span><span class="rvts103">&nbsp;stands for&nbsp;</span><span class="rvts104">"Not a Number"</span><span class="rvts103">&nbsp;and is a special floating-point value used to represent undefined or unrepresentable numerical results, such as the result of&nbsp;0/0 or square root of -1. It is a standard feature of IEEE 754 floating-point arithmetic, designed to allow computations to continue without crashing, rather than halting execution when an indeterminate result occurs.&nbsp;</span></p>
-<p class="rvps69"><span class="rvts195"><br/></span></p>
-<p class="rvps69"><span class="rvts103">Here is a detailed breakdown of NaNs in Julia:</span></p>
-<p class="rvps69"><span class="rvts103"><br/></span></p>
-<p class="rvps106"><span class="rvts196">1. Key Characteristics</span></p>
+<p class="rvps2"><span class="rvts177"><br/></span></p>
+<p class="rvps101"><span class="rvts194">AI Overview</span></p>
+<p class="rvps102"><span class="rvts196"><br/></span></p>
+<p class="rvps66"><span class="rvts104">In Julia,&nbsp;</span><span class="rvts195">NaN</span><span class="rvts104">&nbsp;stands for&nbsp;</span><span class="rvts105">"Not a Number"</span><span class="rvts104">&nbsp;and is a special floating-point value used to represent undefined or unrepresentable numerical results, such as the result of&nbsp;0/0 or square root of -1. It is a standard feature of IEEE 754 floating-point arithmetic, designed to allow computations to continue without crashing, rather than halting execution when an indeterminate result occurs.&nbsp;</span></p>
+<p class="rvps66"><span class="rvts196"><br/></span></p>
+<p class="rvps66"><span class="rvts104">Here is a detailed breakdown of NaNs in Julia:</span></p>
+<p class="rvps66"><span class="rvts104"><br/></span></p>
+<p class="rvps103"><span class="rvts197">1. Key Characteristics</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps36 noindent"><span class="rvts104">Type:</span><span class="rvts103">&nbsp;</span><span class="rvts194">NaN</span><span class="rvts103">&nbsp;is a&nbsp;</span><span class="rvts194">Float64</span><span class="rvts103">&nbsp;or&nbsp;</span><span class="rvts194">Float32</span><span class="rvts103">&nbsp;value, not a separate type. It cannot be used with integers.</span></li>
- <li class="rvps69 noindent"><span class="rvts104">Propagation:</span><span class="rvts103">&nbsp;</span><span class="rvts194">NaN</span><span class="rvts103">&nbsp;acts as a "data virus"—any arithmetic operation involving a&nbsp;</span><span class="rvts194">NaN</span><span class="rvts103">&nbsp;will result in&nbsp;</span><span class="rvts194">NaN</span><span class="rvts103">&nbsp;(e.g.,&nbsp;</span></li>
+ <li class="rvps36 noindent"><span class="rvts105">Type:</span><span class="rvts104">&nbsp;</span><span class="rvts195">NaN</span><span class="rvts104">&nbsp;is a&nbsp;</span><span class="rvts195">Float64</span><span class="rvts104">&nbsp;or&nbsp;</span><span class="rvts195">Float32</span><span class="rvts104">&nbsp;value, not a separate type. It cannot be used with integers.</span></li>
+ <li class="rvps66 noindent"><span class="rvts105">Propagation:</span><span class="rvts104">&nbsp;</span><span class="rvts195">NaN</span><span class="rvts104">&nbsp;acts as a "data virus"—any arithmetic operation involving a&nbsp;</span><span class="rvts195">NaN</span><span class="rvts104">&nbsp;will result in&nbsp;</span><span class="rvts195">NaN</span><span class="rvts104">&nbsp;(e.g.,&nbsp;</span></li>
 </ul>
-<p class="rvps69"><img alt="" style="width : 136px; height : 24px;" src="lib/NewItem%20109.gif"></p>
-<p class="rvps36"><span class="rvts103">).</span></p>
+<p class="rvps66"><img alt="" style="width : 136px; height : 24px;" src="lib/NewItem%20109.gif"></p>
+<p class="rvps36"><span class="rvts104">).</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps36 noindent"><span class="rvts104">Comparison:</span><span class="rvts103">&nbsp;</span><span class="rvts194">NaN</span><span class="rvts103">&nbsp;is never equal to anything, including itself.&nbsp;</span><span class="rvts194">NaN == NaN</span><span class="rvts103">&nbsp;returns&nbsp;</span><span class="rvts194">false</span><span class="rvts103">.</span></li>
- <li class="rvps36 noindent"><span class="rvts104">Equality Check:</span><span class="rvts103">&nbsp;To check if a value is&nbsp;</span><span class="rvts194">NaN</span><span class="rvts103">, use&nbsp;</span><span class="rvts194">isnan(x)</span><span class="rvts103">&nbsp;instead of&nbsp;</span><span class="rvts194">x == NaN</span><span class="rvts103">.</span></li>
- <li class="rvps69 noindent"><span class="rvts104">Identity:</span><span class="rvts103">&nbsp;</span><span class="rvts194">isequal(NaN, NaN)</span><span class="rvts103">&nbsp;is&nbsp;</span><span class="rvts194">true</span><span class="rvts103">, even though&nbsp;</span><span class="rvts194">NaN == NaN</span><span class="rvts103">&nbsp;is&nbsp;</span><span class="rvts194">false</span><span class="rvts103">.&nbsp;</span></li>
+ <li class="rvps36 noindent"><span class="rvts105">Comparison:</span><span class="rvts104">&nbsp;</span><span class="rvts195">NaN</span><span class="rvts104">&nbsp;is never equal to anything, including itself.&nbsp;</span><span class="rvts195">NaN == NaN</span><span class="rvts104">&nbsp;returns&nbsp;</span><span class="rvts195">false</span><span class="rvts104">.</span></li>
+ <li class="rvps36 noindent"><span class="rvts105">Equality Check:</span><span class="rvts104">&nbsp;To check if a value is&nbsp;</span><span class="rvts195">NaN</span><span class="rvts104">, use&nbsp;</span><span class="rvts195">isnan(x)</span><span class="rvts104">&nbsp;instead of&nbsp;</span><span class="rvts195">x == NaN</span><span class="rvts104">.</span></li>
+ <li class="rvps66 noindent"><span class="rvts105">Identity:</span><span class="rvts104">&nbsp;</span><span class="rvts195">isequal(NaN, NaN)</span><span class="rvts104">&nbsp;is&nbsp;</span><span class="rvts195">true</span><span class="rvts104">, even though&nbsp;</span><span class="rvts195">NaN == NaN</span><span class="rvts104">&nbsp;is&nbsp;</span><span class="rvts195">false</span><span class="rvts104">.&nbsp;</span></li>
 </ul>
-<p class="rvps107"><a name="img-7oesaYSxEbrdptQPvrbSiQY_2"></a><img alt="The Julia Programming Language" style="width : 12px; height : 12px; margin : 0px 2px;" src="lib/NewItem%20108.png"><span class="rvts195">The Julia Programming Language&nbsp;+4</span></p>
-<p class="rvps106"><span class="rvts196">2. NaN vs. Missing</span></p>
-<p class="rvps69"><span class="rvts103">It is crucial to distinguish&nbsp;</span><span class="rvts194">NaN</span><span class="rvts103">&nbsp;from&nbsp;</span><span class="rvts194">missing</span><span class="rvts103">&nbsp;in Julia:&nbsp;</span><img alt="" style="margin : 1px 0px;" src="lib/NewItem%20107.svg"></p>
+<p class="rvps104"><a name="img-7oesaYSxEbrdptQPvrbSiQY_2"></a><img alt="The Julia Programming Language" style="width : 12px; height : 12px; margin : 0px 2px;" src="lib/NewItem%20108.png"><span class="rvts196">The Julia Programming Language&nbsp;+4</span></p>
+<p class="rvps103"><span class="rvts197">2. NaN vs. Missing</span></p>
+<p class="rvps66"><span class="rvts104">It is crucial to distinguish&nbsp;</span><span class="rvts195">NaN</span><span class="rvts104">&nbsp;from&nbsp;</span><span class="rvts195">missing</span><span class="rvts104">&nbsp;in Julia:&nbsp;</span><img alt="" style="margin : 1px 0px;" src="lib/NewItem%20107.svg"></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps69 noindent"><span class="rvts197">NaN</span><span class="rvts104">&nbsp;(Not a Number):</span><span class="rvts103">&nbsp;Represents a failed numerical calculation (e.g.,&nbsp;</span></li>
+ <li class="rvps66 noindent"><span class="rvts198">NaN</span><span class="rvts105">&nbsp;(Not a Number):</span><span class="rvts104">&nbsp;Represents a failed numerical calculation (e.g.,&nbsp;</span></li>
 </ul>
-<p class="rvps69"><img alt="" style="width : 51px; height : 24px;" src="lib/NewItem%20106.gif"></p>
-<p class="rvps36"><span class="rvts103">).</span></p>
+<p class="rvps66"><img alt="" style="width : 51px; height : 24px;" src="lib/NewItem%20106.gif"></p>
+<p class="rvps36"><span class="rvts104">).</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps36 noindent"><span class="rvts197">missing</span><span class="rvts104">:</span><span class="rvts103">&nbsp;Represents a value that is unknown or missing from a dataset (e.g., a survey response not filled in).</span></li>
- <li class="rvps69 noindent"><span class="rvts104">Difference:</span><span class="rvts103">&nbsp;</span><span class="rvts194">NaN</span><span class="rvts103">&nbsp;is a valid number type (</span><span class="rvts194">Float</span><span class="rvts103">), while&nbsp;</span><span class="rvts194">missing</span><span class="rvts103">&nbsp;is a special object that can be part of a&nbsp;</span><span class="rvts194">Union{Missing, Float64}</span><span class="rvts103">&nbsp;type.&nbsp;</span></li>
+ <li class="rvps36 noindent"><span class="rvts198">missing</span><span class="rvts105">:</span><span class="rvts104">&nbsp;Represents a value that is unknown or missing from a dataset (e.g., a survey response not filled in).</span></li>
+ <li class="rvps66 noindent"><span class="rvts105">Difference:</span><span class="rvts104">&nbsp;</span><span class="rvts195">NaN</span><span class="rvts104">&nbsp;is a valid number type (</span><span class="rvts195">Float</span><span class="rvts104">), while&nbsp;</span><span class="rvts195">missing</span><span class="rvts104">&nbsp;is a special object that can be part of a&nbsp;</span><span class="rvts195">Union{Missing, Float64}</span><span class="rvts104">&nbsp;type.&nbsp;</span></li>
 </ul>
-<p class="rvps107"><a name="img-7oesaYSxEbrdptQPvrbSiQY_3"></a><img alt="Stack Overflow" style="width : 12px; height : 12px; margin : 0px 2px;" src="lib/NewItem%20105.png"><span class="rvts195">Stack Overflow&nbsp;+4</span></p>
-<p class="rvps106"><span class="rvts196">3. How to Use NaNs</span></p>
+<p class="rvps104"><a name="img-7oesaYSxEbrdptQPvrbSiQY_3"></a><img alt="Stack Overflow" style="width : 12px; height : 12px; margin : 0px 2px;" src="lib/NewItem%20105.png"><span class="rvts196">Stack Overflow&nbsp;+4</span></p>
+<p class="rvps103"><span class="rvts197">3. How to Use NaNs</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps36 noindent"><span class="rvts104">Creating NaN:</span><span class="rvts103">&nbsp;You can type&nbsp;</span><span class="rvts194">NaN</span><span class="rvts103">&nbsp;directly, or use&nbsp;</span><span class="rvts194">NaN64</span><span class="rvts103">&nbsp;/&nbsp;</span><span class="rvts194">NaN32</span><span class="rvts103">.</span></li>
- <li class="rvps69 noindent"><span class="rvts104">Checking for NaN:</span></li>
+ <li class="rvps36 noindent"><span class="rvts105">Creating NaN:</span><span class="rvts104">&nbsp;You can type&nbsp;</span><span class="rvts195">NaN</span><span class="rvts104">&nbsp;directly, or use&nbsp;</span><span class="rvts195">NaN64</span><span class="rvts104">&nbsp;/&nbsp;</span><span class="rvts195">NaN32</span><span class="rvts104">.</span></li>
+ <li class="rvps66 noindent"><span class="rvts105">Checking for NaN:</span></li>
 </ul>
-<p class="rvps108"><span class="rvts198">julia</span><img alt="" src="lib/NewItem%20104.svg"></p>
-<p class="rvps109"><span class="rvts199">x = 0.0 / 0.0</span></p>
-<p class="rvps110"><span class="rvts199">isnan(x) # Returns true</span></p>
+<p class="rvps105"><span class="rvts199">julia</span><img alt="" src="lib/NewItem%20104.svg"></p>
+<p class="rvps106"><span class="rvts200">x = 0.0 / 0.0</span></p>
+<p class="rvps107"><span class="rvts200">isnan(x) # Returns true</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps36 noindent"><span class="rvts104">Filtering NaNs:</span><span class="rvts103">&nbsp;You can remove NaNs from data using&nbsp;</span><span class="rvts194">filter(!isnan, array)</span><span class="rvts103">.</span></li>
- <li class="rvps69 noindent"><span class="rvts104">Ignoring NaNs in Calculations:</span><span class="rvts103">&nbsp;Standard functions like&nbsp;</span><span class="rvts194">sum()</span><span class="rvts103">&nbsp;or&nbsp;</span><span class="rvts194">mean()</span><span class="rvts103">&nbsp;will return&nbsp;</span><span class="rvts194">NaN</span><span class="rvts103">&nbsp;if one is present. To ignore them, you can use packages like&nbsp;</span><span class="rvts194">NaNMath.jl</span><span class="rvts103">&nbsp;or&nbsp;</span><span class="rvts194">filter</span><span class="rvts103">&nbsp;them out.&nbsp;</span></li>
+ <li class="rvps36 noindent"><span class="rvts105">Filtering NaNs:</span><span class="rvts104">&nbsp;You can remove NaNs from data using&nbsp;</span><span class="rvts195">filter(!isnan, array)</span><span class="rvts104">.</span></li>
+ <li class="rvps66 noindent"><span class="rvts105">Ignoring NaNs in Calculations:</span><span class="rvts104">&nbsp;Standard functions like&nbsp;</span><span class="rvts195">sum()</span><span class="rvts104">&nbsp;or&nbsp;</span><span class="rvts195">mean()</span><span class="rvts104">&nbsp;will return&nbsp;</span><span class="rvts195">NaN</span><span class="rvts104">&nbsp;if one is present. To ignore them, you can use packages like&nbsp;</span><span class="rvts195">NaNMath.jl</span><span class="rvts104">&nbsp;or&nbsp;</span><span class="rvts195">filter</span><span class="rvts104">&nbsp;them out.&nbsp;</span></li>
 </ul>
-<p class="rvps107"><a name="img-7oesaYSxEbrdptQPvrbSiQY_14"></a><img alt="The Julia Programming Language" style="width : 12px; height : 12px; margin : 0px 2px;" src="lib/NewItem%20103.png"><span class="rvts195">The Julia Programming Language&nbsp;+4</span></p>
-<p class="rvps106"><span class="rvts196">4. Common Scenarios</span></p>
+<p class="rvps104"><a name="img-7oesaYSxEbrdptQPvrbSiQY_14"></a><img alt="The Julia Programming Language" style="width : 12px; height : 12px; margin : 0px 2px;" src="lib/NewItem%20103.png"><span class="rvts196">The Julia Programming Language&nbsp;+4</span></p>
+<p class="rvps103"><span class="rvts197">4. Common Scenarios</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps69 noindent"><span class="rvts104">Math Domains:</span><span class="rvts103">&nbsp;</span></li>
+ <li class="rvps66 noindent"><span class="rvts105">Math Domains:</span><span class="rvts104">&nbsp;</span></li>
 </ul>
-<p class="rvps69"><img alt="" style="width : 71px; height : 24px;" src="lib/NewItem%20102.gif"></p>
-<p class="rvps69"><span class="rvts103">&nbsp;or&nbsp;</span></p>
-<p class="rvps69"><img alt="" style="width : 55px; height : 27px;" src="lib/NewItem%20101.gif"></p>
-<p class="rvps36"><span class="rvts103">&nbsp;will return&nbsp;</span><span class="rvts194">NaN</span><span class="rvts103">.</span></p>
+<p class="rvps66"><img alt="" style="width : 71px; height : 24px;" src="lib/NewItem%20102.gif"></p>
+<p class="rvps66"><span class="rvts104">&nbsp;or&nbsp;</span></p>
+<p class="rvps66"><img alt="" style="width : 55px; height : 27px;" src="lib/NewItem%20101.gif"></p>
+<p class="rvps36"><span class="rvts104">&nbsp;will return&nbsp;</span><span class="rvts195">NaN</span><span class="rvts104">.</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 0px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps36 noindent"><span class="rvts104">Data Analysis:</span><span class="rvts103">&nbsp;When importing CSV files,&nbsp;</span><span class="rvts194">NaN</span><span class="rvts103">&nbsp;is often used to represent missing numerical data, which can be handled using&nbsp;</span><span class="rvts194">missingstring="NaN"</span><span class="rvts103">&nbsp;in&nbsp;</span><span class="rvts194">CSV.read</span><span class="rvts103">.</span></li>
- <li class="rvps69 noindent"><span class="rvts104">Array Initialization:</span><span class="rvts103">&nbsp;Sometimes used to initialize arrays to signify uninitialized or "poisoned" data, although&nbsp;</span><span class="rvts194">similar</span><span class="rvts103">&nbsp;or&nbsp;</span><span class="rvts194">undef</span><span class="rvts103">&nbsp;is generally preferred.&nbsp;</span></li>
+ <li class="rvps36 noindent"><span class="rvts105">Data Analysis:</span><span class="rvts104">&nbsp;When importing CSV files,&nbsp;</span><span class="rvts195">NaN</span><span class="rvts104">&nbsp;is often used to represent missing numerical data, which can be handled using&nbsp;</span><span class="rvts195">missingstring="NaN"</span><span class="rvts104">&nbsp;in&nbsp;</span><span class="rvts195">CSV.read</span><span class="rvts104">.</span></li>
+ <li class="rvps66 noindent"><span class="rvts105">Array Initialization:</span><span class="rvts104">&nbsp;Sometimes used to initialize arrays to signify uninitialized or "poisoned" data, although&nbsp;</span><span class="rvts195">similar</span><span class="rvts104">&nbsp;or&nbsp;</span><span class="rvts195">undef</span><span class="rvts104">&nbsp;is generally preferred.&nbsp;</span></li>
 </ul>
-<p class="rvps111"><a name="img-7oesaYSxEbrdptQPvrbSiQY_15"></a><img alt="The Julia Programming Language" style="width : 12px; height : 12px; margin : 0px 2px;" src="lib/NewItem%20100.png"><span class="rvts195">The Julia Programming Language&nbsp;+3</span><span class="rvts6"></span></p>
+<p class="rvps108"><a name="img-7oesaYSxEbrdptQPvrbSiQY_15"></a><img alt="The Julia Programming Language" style="width : 12px; height : 12px; margin : 0px 2px;" src="lib/NewItem%20100.png"><span class="rvts196">The Julia Programming Language&nbsp;+3</span><span class="rvts6"></span></p>
 
             </div>
             

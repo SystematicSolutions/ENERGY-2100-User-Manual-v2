@@ -1182,88 +1182,88 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<p class="rvps15"><span class="rvts258">Understanding Carbon Markets</span></p>
+<p class="rvps15"><span class="rvts259">Understanding Carbon Markets</span></p>
 <p class="rvps15"><span class="rvts6">Emissions markets are sections of the economy that cover a specified range of emissions, areas, sectors, and emission types in the model. These groupings are organized by the </span><span class="rvts18">Market</span><span class="rvts6"> set in the model code. Markets allow for grouping of emissions inventories to determine reductions needed and/or cost required to meet the policy goal. The current version of the model allows for up to 220 different market types.&nbsp;</span></p>
 <p class="rvps15"><span class="rvts6">A market is defined by selecting an available market in a policy or calibration file and specifying what is covered. These are assigned using flags that link a particular Market to sets in the model. The default value for these flags is 0, meaning a particular set is not included in a market. Changing a value to 1 adds the set to market. The flags for defining a market are below:</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">AreaMarket[Area,Market,Year] – Areas included in a specific Market</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">PollMarket[Poll,Market,Year] – Pollutants included in a specific Market</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">ECCMarket[ECC,Market,Year] – Economic sectors included in a specific Market</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">PCovMarket[PCov,Market,Year] – Types of pollutants included in a specific Market. This can used to select specific types of inventories covered, such as Process for non-energy emissions.</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">ECoverage[ECC,Poll,PCov,Area,Year] – Value that marks a combination of sets as covered for use in the demand modules. This value can be set to a percentage to simulate that only parts of the sector are covered.</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">AreaMarket[Area,Market,Year] – Areas included in a specific Market</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">PollMarket[Poll,Market,Year] – Pollutants included in a specific Market</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">ECCMarket[ECC,Market,Year] – Economic sectors included in a specific Market</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">PCovMarket[PCov,Market,Year] – Types of pollutants included in a specific Market. This can used to select specific types of inventories covered, such as Process for non-energy emissions.</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">ECoverage[ECC,Poll,PCov,Area,Year] – Value that marks a combination of sets as covered for use in the demand modules. This value can be set to a percentage to simulate that only parts of the sector are covered.</span></li>
 </ul>
 <p class="rvps15"><span class="rvts6">The flag variables are dimensioned by year, meaning combinations of sets and the markets can optionally be specified for a limited number of years. As an example, the code below sets up a new Sulphur Oxide (SOX) market in slot 100 for Ontario’s Cement sector from 2030 through 2050 for the Energy pollutant type</span></p>
-<p class="rvps131"><span class="rvts243">&nbsp;</span><span class="rvts105"> market = 100</span></p>
-<p class="rvps131"><span class="rvts105">&nbsp; area </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">Select</span><span class="rvts105">(Area,</span><span class="rvts108">"ON"</span><span class="rvts105">)</span></p>
-<p class="rvps131"><span class="rvts105">&nbsp; ecc = Select(ECC</span><span class="rvts243">,</span><span class="rvts108">”Cement”</span><span class="rvts105">)</span></p>
-<p class="rvps131"><span class="rvts105">&nbsp; poll = Select(Poll</span><span class="rvts243">,</span><span class="rvts108">”SOX”</span><span class="rvts105">)</span></p>
-<p class="rvps131"><span class="rvts105">&nbsp; pcov = Select(PCov</span><span class="rvts243">,</span><span class="rvts108">”Energy”</span><span class="rvts105">)</span></p>
-<p class="rvps131"><span class="rvts243"><br/></span></p>
-<p class="rvps131"><span class="rvts243">&nbsp;</span><span class="rvts105"> years </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">collect</span><span class="rvts105">(</span><span class="rvts107">Yr</span><span class="rvts105">(</span><span class="rvts225">2030</span><span class="rvts105">)</span><span class="rvts106">:</span><span class="rvts107">Yr</span><span class="rvts105">(</span><span class="rvts225">2050</span><span class="rvts105">))</span></p>
-<p class="rvps131"><span class="rvts105">&nbsp; </span><span class="rvts165">for</span><span class="rvts105"> year </span><span class="rvts106">in</span><span class="rvts105"> years</span></p>
-<p class="rvps131"><span class="rvts105">&nbsp; &nbsp; AreaMarket[area,market,year] = 1</span></p>
-<p class="rvps131"><span class="rvts105">&nbsp; &nbsp; ECCMarket[ecc,market,year] = 1</span></p>
-<p class="rvps131"><span class="rvts105">&nbsp; &nbsp; PollMarket[poll,market,year] = 1</span></p>
-<p class="rvps131"><span class="rvts105">&nbsp; &nbsp; PCovMarket[pcov,market,year] = 1</span></p>
-<p class="rvps131"><span class="rvts105">&nbsp; &nbsp; ECoverage[ecc,poll,pcov,area,year] = 1</span></p>
-<p class="rvps131"><span class="rvts243">&nbsp;</span><span class="rvts105"> </span><span class="rvts165">end</span></p>
-<p class="rvps131"><span class="rvts243">&nbsp;</span><span class="rvts105">&nbsp;</span></p>
+<p class="rvps128"><span class="rvts244">&nbsp;</span><span class="rvts106"> market = 100</span></p>
+<p class="rvps128"><span class="rvts106">&nbsp; area </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">Select</span><span class="rvts106">(Area,</span><span class="rvts109">"ON"</span><span class="rvts106">)</span></p>
+<p class="rvps128"><span class="rvts106">&nbsp; ecc = Select(ECC</span><span class="rvts244">,</span><span class="rvts109">”Cement”</span><span class="rvts106">)</span></p>
+<p class="rvps128"><span class="rvts106">&nbsp; poll = Select(Poll</span><span class="rvts244">,</span><span class="rvts109">”SOX”</span><span class="rvts106">)</span></p>
+<p class="rvps128"><span class="rvts106">&nbsp; pcov = Select(PCov</span><span class="rvts244">,</span><span class="rvts109">”Energy”</span><span class="rvts106">)</span></p>
+<p class="rvps128"><span class="rvts244"><br/></span></p>
+<p class="rvps128"><span class="rvts244">&nbsp;</span><span class="rvts106"> years </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">collect</span><span class="rvts106">(</span><span class="rvts108">Yr</span><span class="rvts106">(</span><span class="rvts226">2030</span><span class="rvts106">)</span><span class="rvts107">:</span><span class="rvts108">Yr</span><span class="rvts106">(</span><span class="rvts226">2050</span><span class="rvts106">))</span></p>
+<p class="rvps128"><span class="rvts106">&nbsp; </span><span class="rvts165">for</span><span class="rvts106"> year </span><span class="rvts107">in</span><span class="rvts106"> years</span></p>
+<p class="rvps128"><span class="rvts106">&nbsp; &nbsp; AreaMarket[area,market,year] = 1</span></p>
+<p class="rvps128"><span class="rvts106">&nbsp; &nbsp; ECCMarket[ecc,market,year] = 1</span></p>
+<p class="rvps128"><span class="rvts106">&nbsp; &nbsp; PollMarket[poll,market,year] = 1</span></p>
+<p class="rvps128"><span class="rvts106">&nbsp; &nbsp; PCovMarket[pcov,market,year] = 1</span></p>
+<p class="rvps128"><span class="rvts106">&nbsp; &nbsp; ECoverage[ecc,poll,pcov,area,year] = 1</span></p>
+<p class="rvps128"><span class="rvts244">&nbsp;</span><span class="rvts106"> </span><span class="rvts165">end</span></p>
+<p class="rvps128"><span class="rvts244">&nbsp;</span><span class="rvts106">&nbsp;</span></p>
 <p class="rvps15"><span class="rvts6">The market slot used for a policy can be selected by the user for any value up through 220. Existing policy and calibration files should be checked to make sure a market slot is not used elsewhere. Note that the model assumes any specific combination of area, pollutant, and sector to only be used in a single market. Using the same combination in multiple markets can produce unexpected results.&nbsp;</span></p>
-<p class="rvps15"><span class="rvts258">Market Types</span></p>
+<p class="rvps15"><span class="rvts259">Market Types</span></p>
 <p class="rvps15"><span class="rvts6">Markets can be simulated in different manners to match what is expected in a real-world policy. The type of market is controlled by the </span><span class="rvts18">CapTrade</span><span class="rvts6"> switch variable, which instructs the model code on which equations to use for each market. These types range from simple to complex, each with different levels of inputs and parameters required for accurate simulation. Below is a description of each market type available in the current model version.&nbsp;</span></p>
-<p class="rvps15"><span class="rvts261">Hard Cap</span></p>
+<p class="rvps15"><span class="rvts262">Hard Cap</span></p>
 <p class="rvps15"><span class="rvts6">A hard cap market applies a ceiling to covered emissions. The model compares an input emission cap to emissions totals in the market in the year prior. If this value is over the input cap then the model calculates a percentage reduction (</span><span class="rvts18">RPolicy</span><span class="rvts6">), which is applied to energy demands. Demands are reduced and an emissions cost is calculated at the technology level, which can result in technology shifting and other demand impacts.</span></p>
 <p class="rvps15"><span class="rvts6">Key inputs for setting a hard cap are:</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">xGoalPol[Market,Year] – Maximum amount of emissions allowed in a market by year. This should account for combined emissions across all covered sectors, areas, and pollutants.&nbsp;</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">MaxIter[Year] – Maximum number of iterations by year. This can optionally execute the model multiple times for a modeled year to incorporate expected impacts from the policy. The default value is 1.</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">CapTrade[Market,Year] = 2 is used to specify a hard cap market</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">xGoalPol[Market,Year] – Maximum amount of emissions allowed in a market by year. This should account for combined emissions across all covered sectors, areas, and pollutants.&nbsp;</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">MaxIter[Year] – Maximum number of iterations by year. This can optionally execute the model multiple times for a modeled year to incorporate expected impacts from the policy. The default value is 1.</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">CapTrade[Market,Year] = 2 is used to specify a hard cap market</span></li>
 </ul>
-<p class="rvps15"><span class="rvts261">GHG Market</span></p>
+<p class="rvps15"><span class="rvts262">GHG Market</span></p>
 <p class="rvps15"><span class="rvts6">A GHG market simulates a cap and trade system using an input carbon price as a focal point for a emissions permit marketplace. This type of market also includes numerous parameters and switches to control specifics of the simulated market. The model code accounts for any offsets, buys and sells emissions permits as needed, and iterates to produce a permit cost to produce resulting impacts on energy consumption, prices, and investments.</span></p>
 <p class="rvps15"><span class="rvts6">Key inputs for setting a hard cap are:</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">xETAPr[Market,Year] – Cost per tonne of GHG emissions by year in fixed dollars</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">ETAPr[Market,Year] – Cost per tonne of GHG emissions by year in nominal dollars</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">ETABY[Market] – Beginning year for trading allowances</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">Enforce[Market] – First year market limits are enforced</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">CapTrade[Market,Year] = 5 is used to specify a GHG market</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">xETAPr[Market,Year] – Cost per tonne of GHG emissions by year in fixed dollars</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">ETAPr[Market,Year] – Cost per tonne of GHG emissions by year in nominal dollars</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">ETABY[Market] – Beginning year for trading allowances</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">Enforce[Market] – First year market limits are enforced</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">CapTrade[Market,Year] = 5 is used to specify a GHG market</span></li>
 </ul>
 <p class="rvps15"><span class="rvts6">Other inputs are optional and used to specify details about the market:</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">ETADAP[Market,Year] – Technology fund price in fixed dollars</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">ETRSw[Market] – Switch to determine if permit costs are calculated using iterations of credit prices (ETRSw = 1), iterations of emissions (ETRSw = 2), or are set exogenous (ETRSw = 0).</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">ISaleSw[Market,Year] – Determines the parameters of the market technology fund. Numerous options are available with some developed to match a specific policy proposal</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">CBSw[Market,Year] – Controls how program revenues are calculated. Can be used to add revenue to government</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">FacSw[Market,Year] – Target is set at the facility level for electric generation units</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">GPEUSw[Market,Year] – Sets how gratis permits are allocated to electric generation units</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">GoalPolSw[Market,Year] – Used to optionally use gratis permits as emissions goal base</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">GratSw[Market,Year] – Determines if gratis permits are calculated from input fractions or from exogenous values</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">PBnkSw[Market,Year] – Sets assumptions on how permit are banked when under limit and when they are redeemed</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">OffMktFr[ECC,Area,Market,Year] – Controls if covered sectors can be used to generate offsets for market</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">OBAFraction[ECC,Area,Year] – Fraction of gratis permits generated by sector in OBA policies</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">xUnGP[Unit,FuelEP,Poll,Year] – Exogenous unit-level gratis permits</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">xFSell[Market,Year] – Exogenous federal permits sold</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">ETADAP[Market,Year] – Technology fund price in fixed dollars</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">ETRSw[Market] – Switch to determine if permit costs are calculated using iterations of credit prices (ETRSw = 1), iterations of emissions (ETRSw = 2), or are set exogenous (ETRSw = 0).</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">ISaleSw[Market,Year] – Determines the parameters of the market technology fund. Numerous options are available with some developed to match a specific policy proposal</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">CBSw[Market,Year] – Controls how program revenues are calculated. Can be used to add revenue to government</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">FacSw[Market,Year] – Target is set at the facility level for electric generation units</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">GPEUSw[Market,Year] – Sets how gratis permits are allocated to electric generation units</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">GoalPolSw[Market,Year] – Used to optionally use gratis permits as emissions goal base</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">GratSw[Market,Year] – Determines if gratis permits are calculated from input fractions or from exogenous values</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">PBnkSw[Market,Year] – Sets assumptions on how permit are banked when under limit and when they are redeemed</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">OffMktFr[ECC,Area,Market,Year] – Controls if covered sectors can be used to generate offsets for market</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">OBAFraction[ECC,Area,Year] – Fraction of gratis permits generated by sector in OBA policies</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">xUnGP[Unit,FuelEP,Poll,Year] – Exogenous unit-level gratis permits</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">xFSell[Market,Year] – Exogenous federal permits sold</span></li>
 </ul>
-<p class="rvps15"><span class="rvts261">Clean Fuel Standard Market</span></p>
+<p class="rvps15"><span class="rvts262">Clean Fuel Standard Market</span></p>
 <p class="rvps15"><span class="rvts6">Clean Fuel Standards (CFS) markets simulate programs that incentivizes usage of low carbon lifecycle fuels to replace existing higher carbon options. Many of the options for GHG markets above can also be applied to CFS markets. Below are key inputs specific for CFS policies:</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">EIGoalCFS[Fuel,ES,Nation,Year] - Emission Intensity Goal</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">EIOfficial[Fuel,Area,Year] – Official Intensity Value, used in comparison to the goal.</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">CoverageCFS[Fuel,ECC,Area,Year] – Switch to determine which fuels and sectors are included in the regulation (CoverageCFS = 1)&nbsp;</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">CapTrade[Market,Year] = 6 is used to specify a CFS market</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">EIGoalCFS[Fuel,ES,Nation,Year] - Emission Intensity Goal</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">EIOfficial[Fuel,Area,Year] – Official Intensity Value, used in comparison to the goal.</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">CoverageCFS[Fuel,ECC,Area,Year] – Switch to determine which fuels and sectors are included in the regulation (CoverageCFS = 1)&nbsp;</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">CapTrade[Market,Year] = 6 is used to specify a CFS market</span></li>
 </ul>
 <p class="rvps15"><span class="rvts6">Optionally, credits can be applied to various CFS credit variables to account for specifics in the program. Examples include CreditsFossil for fossil fuels and CreditsFugitive for fugitive. Examples of the available credit variables in the current model version are available in CFS policy files. More credits variables can be developed and added to the model as needed for analysis.</span></p>
-<p class="rvps15"><span class="rvts261">OGEC Market</span></p>
+<p class="rvps15"><span class="rvts262">OGEC Market</span></p>
 <p class="rvps15"><span class="rvts6">OGEC markets share characteristics with both GHG and CFS markets. They include several specific input variables for use in the OGEC module:</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">EIOGEC[ECC,Area,Year] - Emission intensity goal</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">GoalPolOGEC [ECC,Area,Year] – Emissions cap.</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">POCXOGEC [Fuel,ECC,Area,Year] – Emissions coefficients for OGEC&nbsp;</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">CoveredOGEC[ECC,Area,Year] – Sectors covered by OGEC policy</span></li>
- <li style="text-indent: 0px" class="rvps152 noindent"><span class="rvts14">CapTrade[Market,Year] = 8 is used to specify an OGEC market</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">EIOGEC[ECC,Area,Year] - Emission intensity goal</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">GoalPolOGEC [ECC,Area,Year] – Emissions cap.</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">POCXOGEC [Fuel,ECC,Area,Year] – Emissions coefficients for OGEC&nbsp;</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">CoveredOGEC[ECC,Area,Year] – Sectors covered by OGEC policy</span></li>
+ <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">CapTrade[Market,Year] = 8 is used to specify an OGEC market</span></li>
 </ul>
-<p class="rvps15"><span class="rvts231"><br/></span></p>
+<p class="rvps15"><span class="rvts232"><br/></span></p>
 <p class="rvps15"><span class="rvts6"></span><span class="rvts6"></span></p>
 
             </div>

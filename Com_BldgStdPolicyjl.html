@@ -1182,160 +1182,160 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<p class="rvps5"><span class="rvts292"><br/></span></p>
+<p class="rvps5"><span class="rvts293"><br/></span></p>
 <div class="rvps5">
 <table width="90%" style="border-width: 0px; background-color: #ffffff; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: rgba(76,162,11,0.5); width: 7px;">
-   <p class="rvps140"><span class="rvts115"><br/></span></p>
+   <p class="rvps137"><span class="rvts116"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: #f1fff1; vertical-align: top; width: 29px;">
-   <p class="rvps141"><span class="rvts116">🛈</span></p>
+   <p class="rvps138"><span class="rvts117">🛈</span></p>
   </td>
   <td style="border-width : 1px; border-color: #008000; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #f1fff1; vertical-align: top; width: 722px;">
-   <p class="rvps28"><span class="rvts294">Note:</span><span class="rvts293"> &nbsp;See </span><a class="rvts295" href="ProcessEnergyEfficiencyBuildings.html">Building/Process Energy Efficiency</a><span class="rvts293"> for a description of the typical policy variables used and factors to consider when modeling a building efficiency policy.&nbsp;</span></p>
-   <p class="rvps28"><span class="rvts293">Also see the </span><a class="rvts295" href="PolicyAnalysis.html">Mechanics of Creating Policy Files</a><span class="rvts293"> for more information on the </span><a class="rvts295" href="PolicyFilesusingJulia.html">structure</a><span class="rvts293"> of policy files and on </span><a class="rvts295" href="JuliaCodinginENERGY2100.html">Julia coding syntax</a><span class="rvts293"> used in policy files.</span></p>
+   <p class="rvps28"><span class="rvts295">Note:</span><span class="rvts294"> &nbsp;See </span><a class="rvts296" href="ProcessEnergyEfficiencyBuildings.html">Building/Process Energy Efficiency</a><span class="rvts294"> for a description of the typical policy variables used and factors to consider when modeling a building efficiency policy.&nbsp;</span></p>
+   <p class="rvps28"><span class="rvts294">Also see the </span><a class="rvts296" href="PolicyAnalysis.html">Mechanics of Creating Policy Files</a><span class="rvts294"> for more information on the </span><a class="rvts296" href="PolicyFilesusingJulia.html">structure</a><span class="rvts294"> of policy files and on </span><a class="rvts296" href="JuliaCodinginENERGY2100.html">Julia coding syntax</a><span class="rvts294"> used in policy files.</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps63"><span class="rvts292"><br/></span></p>
-<p class="rvps126"><span class="rvts164"><br/></span></p>
+<p class="rvps60"><span class="rvts293"><br/></span></p>
+<p class="rvps123"><span class="rvts164"><br/></span></p>
 <p class="rvps5"><span class="rvts18">Sample Policy File: &nbsp;Com_BldgStdPolicy.jl</span></p>
-<div class="rvps63">
+<div class="rvps60">
 <table width="90%" style="border-color: #ffffff #969696 #969696 #ffffff; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #fafafa;">
-   <p class="rvps60"><span class="rvts164">#</span></p>
-   <p class="rvps60"><span class="rvts164"># Com_BldgStdPolicy.jl - Future building code standards</span></p>
-   <p class="rvps60"><span class="rvts164">#</span></p>
-   <p class="rvps60"><span class="rvts164">########################</span></p>
-   <p class="rvps60"><span class="rvts164">#</span></p>
-   <p class="rvps60"><span class="rvts164"># This policy increases the process efficiency standard (PEStdP).</span></p>
-   <p class="rvps60"><span class="rvts164"># The policy is aimed to reflect provincial actions aimed at increasing</span></p>
-   <p class="rvps60"><span class="rvts164"># the energy efficiency of new commercial buildings.</span></p>
-   <p class="rvps60"><span class="rvts164">#</span></p>
-   <p class="rvps60"><span class="rvts164"># It is important to note that provincial measures are expressed as improvements to&nbsp;</span></p>
-   <p class="rvps60"><span class="rvts164"># energy intensity, while the PEStdP variable is expressed in terms of energy&nbsp;</span></p>
-   <p class="rvps60"><span class="rvts164"># efficiency. For this reason, the provincial energy intensity improvement targets&nbsp;</span></p>
-   <p class="rvps60"><span class="rvts164"># need to be converted to energy efficiency targets using the following equation:</span></p>
-   <p class="rvps60"><span class="rvts164"># deltaEfficiency = 1/(1-deltaIntensity)-1&nbsp;</span></p>
-   <p class="rvps60"><span class="rvts164"># where deltaIntensity is expressed as a positive number.</span></p>
-   <p class="rvps60"><span class="rvts164">#</span></p>
-   <p class="rvps60"><span class="rvts164"># For background on how the energy efficiency values were developed, see&nbsp;</span></p>
-   <p class="rvps60"><span class="rvts164"># \\ncr.int.ec.gc.ca\shares\e\ECOMOD\Policy Support Work\Bld Codes Analysis\.</span></p>
-   <p class="rvps60"><span class="rvts164"># Detailed factors available in "Bld Codes Stringencyv7.xlsx".</span></p>
-   <p class="rvps60"><span class="rvts164">#</span></p>
-   <p class="rvps60"><span class="rvts164">########################</span></p>
-   <p class="rvps60"><span class="rvts164">#</span></p>
-   <p class="rvps60"><span class="rvts105"><br/></span></p>
-   <p class="rvps60"><span class="rvts165">using</span><span class="rvts105"> EnergyModel</span></p>
-   <p class="rvps60"><span class="rvts105"><br/></span></p>
-   <p class="rvps60"><span class="rvts163">module</span><span class="rvts105"> Com_BldgStdPolicy</span></p>
-   <p class="rvps60"><span class="rvts105"><br/></span></p>
-   <p class="rvps60"><span class="rvts165">import</span><span class="rvts105"> </span><span class="rvts106">...</span><span class="rvts105">EnergyModel</span><span class="rvts106">:</span><span class="rvts105"> ReadDisk,WriteDisk,Select</span></p>
-   <p class="rvps60"><span class="rvts165">import</span><span class="rvts105"> </span><span class="rvts106">...</span><span class="rvts105">EnergyModel</span><span class="rvts106">:</span><span class="rvts105"> HisTime,ITime,MaxTime,First,Last,Future,Final,Yr</span></p>
-   <p class="rvps60"><span class="rvts165">import</span><span class="rvts105"> </span><span class="rvts106">...</span><span class="rvts105">EnergyModel</span><span class="rvts106">:</span><span class="rvts105"> </span><span class="rvts107">@finite_math</span><span class="rvts105">,finite_inverse,finite_divide,finite_power,finite_exp,finite_log</span></p>
-   <p class="rvps60"><span class="rvts165">import</span><span class="rvts105"> </span><span class="rvts106">...</span><span class="rvts105">EnergyModel</span><span class="rvts106">:</span><span class="rvts105"> DB</span></p>
-   <p class="rvps60"><span class="rvts105"><br/></span></p>
-   <p class="rvps60"><span class="rvts163">const</span><span class="rvts105"> VariableArray{N} </span><span class="rvts106">=</span><span class="rvts105"> Array{Float32,N} </span><span class="rvts163">where</span><span class="rvts105"> {N}</span></p>
-   <p class="rvps60"><span class="rvts163">const</span><span class="rvts105"> SetArray </span><span class="rvts106">=</span><span class="rvts105"> Vector{String}</span></p>
-   <p class="rvps60"><span class="rvts105"><br/></span></p>
-   <p class="rvps60"><span class="rvts105">Base</span><span class="rvts106">.</span><span class="rvts107">@kwdef</span><span class="rvts105"> </span><span class="rvts163">struct</span><span class="rvts105"> CControl</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; db</span><span class="rvts106">::</span><span class="rvts224">String</span></p>
-   <p class="rvps60"><span class="rvts105"><br/></span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; </span><span class="rvts164"># CalDB::String = "CCalDB"</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; </span><span class="rvts164"># Input::String = "CInput"</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; </span><span class="rvts164"># Outpt::String = "COutput"</span></p>
-   <p class="rvps60"><span class="rvts105"><br/></span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; Area</span><span class="rvts106">::</span><span class="rvts224">SetArray</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">ReadDisk</span><span class="rvts105">(db,</span><span class="rvts108">"MainDB/AreaKey"</span><span class="rvts105">)</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; Areas</span><span class="rvts106">::</span><span class="rvts224">Vector{Int}</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">collect</span><span class="rvts105">(</span><span class="rvts107">Select</span><span class="rvts105">(Area))</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; EC</span><span class="rvts106">::</span><span class="rvts224">SetArray</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">ReadDisk</span><span class="rvts105">(db,</span><span class="rvts108">"CInput/ECKey"</span><span class="rvts105">)</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; ECs</span><span class="rvts106">::</span><span class="rvts224">Vector{Int}</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">collect</span><span class="rvts105">(</span><span class="rvts107">Select</span><span class="rvts105">(EC))</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; Enduse</span><span class="rvts106">::</span><span class="rvts224">SetArray</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">ReadDisk</span><span class="rvts105">(db,</span><span class="rvts108">"CInput/EnduseKey"</span><span class="rvts105">)</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; Tech</span><span class="rvts106">::</span><span class="rvts224">SetArray</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">ReadDisk</span><span class="rvts105">(db,</span><span class="rvts108">"CInput/TechKey"</span><span class="rvts105">)</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; Techs</span><span class="rvts106">::</span><span class="rvts224">Vector{Int}</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">collect</span><span class="rvts105">(</span><span class="rvts107">Select</span><span class="rvts105">(Tech))</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; Year</span><span class="rvts106">::</span><span class="rvts224">SetArray</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">ReadDisk</span><span class="rvts105">(db,</span><span class="rvts108">"MainDB/YearKey"</span><span class="rvts105">)</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; YearDS</span><span class="rvts106">::</span><span class="rvts224">SetArray</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">ReadDisk</span><span class="rvts105">(db,</span><span class="rvts108">"MainDB/YearDS"</span><span class="rvts105">)</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; Years</span><span class="rvts106">::</span><span class="rvts224">Vector{Int}</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">collect</span><span class="rvts105">(</span><span class="rvts107">Select</span><span class="rvts105">(Year))</span></p>
-   <p class="rvps60"><span class="rvts105"><br/></span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; PEE</span><span class="rvts106">::</span><span class="rvts224">VariableArray{5}</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">ReadDisk</span><span class="rvts105">(db,</span><span class="rvts108">"COutput/PEE"</span><span class="rvts105">) </span><span class="rvts164"># [Enduse,Tech,EC,Area,Year] Process Efficiency ($/Btu)</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; PEM</span><span class="rvts106">::</span><span class="rvts224">VariableArray{3}</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">ReadDisk</span><span class="rvts105">(db,</span><span class="rvts108">"CCalDB/PEM"</span><span class="rvts105">) </span><span class="rvts164"># [Enduse,EC,Area] Maximum Process Efficiency ($/mmBtu)</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; PEMM</span><span class="rvts106">::</span><span class="rvts224">VariableArray{5}</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">ReadDisk</span><span class="rvts105">(db,</span><span class="rvts108">"CCalDB/PEMM"</span><span class="rvts105">) </span><span class="rvts164"># [Enduse,Tech,EC,Area,Year] Process Efficiency Max. Mult. ($/Btu/($/Btu))</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; PEStd</span><span class="rvts106">::</span><span class="rvts224">VariableArray{5}</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">ReadDisk</span><span class="rvts105">(db,</span><span class="rvts108">"CInput/PEStd"</span><span class="rvts105">) </span><span class="rvts164"># [Enduse,Tech,EC,Area,Year] Process Efficiency Standard ($/Btu)</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; PEStdP</span><span class="rvts106">::</span><span class="rvts224">VariableArray{5}</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">ReadDisk</span><span class="rvts105">(db,</span><span class="rvts108">"CInput/PEStdP"</span><span class="rvts105">) </span><span class="rvts164"># [Enduse,Tech,EC,Area,Year] Process Efficiency Standard Policy ($/Btu)</span></p>
-   <p class="rvps60"><span class="rvts105"><br/></span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; EEImprovement</span><span class="rvts106">::</span><span class="rvts224">VariableArray{2}</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">zeros</span><span class="rvts105">(Float32,</span><span class="rvts107">length</span><span class="rvts105">(Area),</span><span class="rvts107">length</span><span class="rvts105">(Year)) </span><span class="rvts164"># Energy Efficiency Improvement from Baseline Value ($/Btu)/($/Btu) [Area,Year]</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; EIImprovement</span><span class="rvts106">::</span><span class="rvts224">VariableArray{2}</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">zeros</span><span class="rvts105">(Float32,</span><span class="rvts107">length</span><span class="rvts105">(Area),</span><span class="rvts107">length</span><span class="rvts105">(Year)) </span><span class="rvts164"># Energy Intensity Improvement from Baseline Value ($/Btu)/($/Btu) [Area,Year]</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; PEEAvg_BC</span><span class="rvts106">::</span><span class="rvts224">VariableArray{4}</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">zeros</span><span class="rvts105">(Float32,</span><span class="rvts107">length</span><span class="rvts105">(Enduse),</span><span class="rvts107">length</span><span class="rvts105">(Tech),</span><span class="rvts107">length</span><span class="rvts105">(EC),</span><span class="rvts107">length</span><span class="rvts105">(Area)) </span><span class="rvts164"># Base Case Process Efficiency ($/Btu) [Enduse,Tech,EC,Area]</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; PEMMAvg_BC</span><span class="rvts106">::</span><span class="rvts224">VariableArray{4}</span><span class="rvts105"> </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">zeros</span><span class="rvts105">(Float32,</span><span class="rvts107">length</span><span class="rvts105">(Enduse),</span><span class="rvts107">length</span><span class="rvts105">(Tech),</span><span class="rvts107">length</span><span class="rvts105">(EC),</span><span class="rvts107">length</span><span class="rvts105">(Area)) </span><span class="rvts164"># Process Efficiency Max. Mult. ($/Btu/($/Btu)) [Enduse,Tech,EC,Area]</span></p>
-   <p class="rvps60"><span class="rvts165">end</span></p>
-   <p class="rvps60"><span class="rvts105"><br/></span></p>
-   <p class="rvps60"><span class="rvts163">function</span><span class="rvts105"> </span><span class="rvts107">ComPolicy</span><span class="rvts105">(db)</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; data </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">CControl</span><span class="rvts105">(; db)</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; (; Area,Areas,ECs,Enduse,Techs,Year,Years) </span><span class="rvts106">=</span><span class="rvts105"> data</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; (; EEImprovement,EIImprovement,PEE,PEEAvg_BC) </span><span class="rvts106">=</span><span class="rvts105"> data</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; (; PEM,PEMM,PEMMAvg_BC,PEStd,PEStdP) </span><span class="rvts106">=</span><span class="rvts105"> data</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; &nbsp;</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; areas </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">Select</span><span class="rvts105">(Area,</span><span class="rvts108">"BC"</span><span class="rvts105">)</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; </span><span class="rvts165">for</span><span class="rvts105"> area </span><span class="rvts106">in</span><span class="rvts105"> areas</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; &nbsp;&nbsp;</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; years </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">collect</span><span class="rvts105">(</span><span class="rvts107">Yr</span><span class="rvts105">(</span><span class="rvts225">2026</span><span class="rvts105">)</span><span class="rvts106">:</span><span class="rvts107">Yr</span><span class="rvts105">(</span><span class="rvts225">2030</span><span class="rvts105">))</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; </span><span class="rvts165">for</span><span class="rvts105"> year </span><span class="rvts106">in</span><span class="rvts105"> years</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp; EEImprovement[area,year] </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts225">0.419</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; </span><span class="rvts165">end</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp;&nbsp;</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; years </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">collect</span><span class="rvts105">(</span><span class="rvts107">Yr</span><span class="rvts105">(</span><span class="rvts225">2031</span><span class="rvts105">)</span><span class="rvts106">:</span><span class="rvts107">Yr</span><span class="rvts105">(</span><span class="rvts225">2035</span><span class="rvts105">))</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; </span><span class="rvts165">for</span><span class="rvts105"> year </span><span class="rvts106">in</span><span class="rvts105"> years</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp; EEImprovement[area,year] </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts225">0.647</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; </span><span class="rvts165">end</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp;&nbsp;</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; years </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">collect</span><span class="rvts105">(</span><span class="rvts107">Yr</span><span class="rvts105">(</span><span class="rvts225">2036</span><span class="rvts105">)</span><span class="rvts106">:</span><span class="rvts107">Yr</span><span class="rvts105">(</span><span class="rvts225">2050</span><span class="rvts105">))</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; </span><span class="rvts165">for</span><span class="rvts105"> year </span><span class="rvts106">in</span><span class="rvts105"> years</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp; EEImprovement[area,year] </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts225">0.651</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; </span><span class="rvts165">end</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp;&nbsp;</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; </span><span class="rvts165">end</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp;&nbsp;</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; </span><span class="rvts165">for</span><span class="rvts105"> year </span><span class="rvts106">in</span><span class="rvts105"> Years, area </span><span class="rvts106">in</span><span class="rvts105"> Areas</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; EIImprovement[area,year] </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts225">1</span><span class="rvts106">/</span><span class="rvts105">(</span><span class="rvts225">1</span><span class="rvts106">-</span><span class="rvts105">EEImprovement[area,year])</span><span class="rvts106">-</span><span class="rvts225">1</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; </span><span class="rvts165">end</span></p>
-   <p class="rvps60"><span class="rvts105"></span><br/><span class="rvts105"><br/></span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; Heat </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">Select</span><span class="rvts105">(Enduse,</span><span class="rvts108">"Heat"</span><span class="rvts105">)</span></p>
-   <p class="rvps60"><span class="rvts105"><br/></span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; areas </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">Select</span><span class="rvts105">(Area,</span><span class="rvts108">"BC"</span><span class="rvts105">)</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; </span><span class="rvts165">for</span><span class="rvts105"> area </span><span class="rvts106">in</span><span class="rvts105"> areas, ec </span><span class="rvts106">in</span><span class="rvts105"> ECs, tech </span><span class="rvts106">in</span><span class="rvts105"> Techs</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; years </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">Select</span><span class="rvts105">(Year,(from </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts108">"2006"</span><span class="rvts105">,to </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts108">"2010"</span><span class="rvts105">))</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; PEEAvg_BC[Heat,tech,ec,area] </span><span class="rvts106">=</span><span class="rvts105">&nbsp;</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; &nbsp; </span><span class="rvts107">sum</span><span class="rvts105">(PEE[Heat,tech,ec,area,year] </span><span class="rvts165">for</span><span class="rvts105"> year </span><span class="rvts106">in</span><span class="rvts105"> years)</span><span class="rvts106">/</span><span class="rvts225">5</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; PEMMAvg_BC[Heat,tech,ec,area] </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">sum</span><span class="rvts105">(PEMM[Heat,tech,ec,area,year] </span><span class="rvts165">for</span><span class="rvts105"> year </span><span class="rvts106">in</span><span class="rvts105"> years)</span><span class="rvts106">/</span><span class="rvts225">5</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; </span><span class="rvts165">end</span></p>
-   <p class="rvps60"><span class="rvts105"><br/></span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; years </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">collect</span><span class="rvts105">(</span><span class="rvts107">Yr</span><span class="rvts105">(</span><span class="rvts225">2026</span><span class="rvts105">)</span><span class="rvts106">:</span><span class="rvts105">Final)</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; areas </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">Select</span><span class="rvts105">(Area,</span><span class="rvts108">"BC"</span><span class="rvts105">)</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; </span><span class="rvts165">for</span><span class="rvts105"> year </span><span class="rvts106">in</span><span class="rvts105"> years, area </span><span class="rvts106">in</span><span class="rvts105"> areas, ec </span><span class="rvts106">in</span><span class="rvts105"> ECs, tech </span><span class="rvts106">in</span><span class="rvts105"> Techs</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; PEMM[Heat,tech,ec,area,year] </span><span class="rvts106">=</span><span class="rvts105"> PEMM[Heat,tech,ec,area,year]</span><span class="rvts106">*</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; &nbsp; (</span><span class="rvts225">1</span><span class="rvts106">+</span><span class="rvts105">EIImprovement[area,year])</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; PEStdP[Heat,tech,ec,area,year] </span><span class="rvts106">=</span><span class="rvts105"> </span><span class="rvts107">max</span><span class="rvts105">(PEStd[Heat,tech,ec,area,year],</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; &nbsp; PEStdP[Heat,tech,ec,area,year],</span><span class="rvts107">min</span><span class="rvts105">(PEM[Heat,ec,area]</span><span class="rvts106">*</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp; PEMM[Heat,tech,ec,area,year]</span><span class="rvts106">*</span><span class="rvts225">0.98</span><span class="rvts105">,PEEAvg_BC[Heat,tech,ec,area]</span><span class="rvts106">*</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (</span><span class="rvts225">1</span><span class="rvts106">+</span><span class="rvts105">EIImprovement[area,year])))</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; </span><span class="rvts165">end</span></p>
-   <p class="rvps60"><span class="rvts105"><br/></span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; </span><span class="rvts107">WriteDisk</span><span class="rvts105">(db,</span><span class="rvts108">"CCalDB/PEMM"</span><span class="rvts105">,PEMM)</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; </span><span class="rvts107">WriteDisk</span><span class="rvts105">(db,</span><span class="rvts108">"CInput/PEStdP"</span><span class="rvts105">,PEStdP)</span></p>
-   <p class="rvps60"><span class="rvts165">end</span></p>
-   <p class="rvps60"><span class="rvts105"><br/></span></p>
-   <p class="rvps60"><span class="rvts163">function</span><span class="rvts105"> </span><span class="rvts107">PolicyControl</span><span class="rvts105">(db)</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; </span><span class="rvts107">@info</span><span class="rvts105"> </span><span class="rvts108">"Com_BldgStdPolicy.jl - PolicyControl"</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; </span><span class="rvts107">ComPolicy</span><span class="rvts105">(db)</span></p>
-   <p class="rvps60"><span class="rvts165">end</span></p>
-   <p class="rvps60"><span class="rvts105"><br/></span></p>
-   <p class="rvps60"><span class="rvts165">if</span><span class="rvts105"> </span><span class="rvts107">abspath</span><span class="rvts105">(PROGRAM_FILE) </span><span class="rvts106">==</span><span class="rvts105"> </span><span class="rvts107">@__FILE__</span></p>
-   <p class="rvps60"><span class="rvts105">&nbsp; </span><span class="rvts107">PolicyControl</span><span class="rvts105">(DB)</span></p>
-   <p class="rvps60"><span class="rvts165">end</span></p>
-   <p class="rvps60"><span class="rvts105"><br/></span></p>
-   <p class="rvps60"><span class="rvts165">end</span></p>
+   <p class="rvps57"><span class="rvts164">#</span></p>
+   <p class="rvps57"><span class="rvts164"># Com_BldgStdPolicy.jl - Future building code standards</span></p>
+   <p class="rvps57"><span class="rvts164">#</span></p>
+   <p class="rvps57"><span class="rvts164">########################</span></p>
+   <p class="rvps57"><span class="rvts164">#</span></p>
+   <p class="rvps57"><span class="rvts164"># This policy increases the process efficiency standard (PEStdP).</span></p>
+   <p class="rvps57"><span class="rvts164"># The policy is aimed to reflect provincial actions aimed at increasing</span></p>
+   <p class="rvps57"><span class="rvts164"># the energy efficiency of new commercial buildings.</span></p>
+   <p class="rvps57"><span class="rvts164">#</span></p>
+   <p class="rvps57"><span class="rvts164"># It is important to note that provincial measures are expressed as improvements to&nbsp;</span></p>
+   <p class="rvps57"><span class="rvts164"># energy intensity, while the PEStdP variable is expressed in terms of energy&nbsp;</span></p>
+   <p class="rvps57"><span class="rvts164"># efficiency. For this reason, the provincial energy intensity improvement targets&nbsp;</span></p>
+   <p class="rvps57"><span class="rvts164"># need to be converted to energy efficiency targets using the following equation:</span></p>
+   <p class="rvps57"><span class="rvts164"># deltaEfficiency = 1/(1-deltaIntensity)-1&nbsp;</span></p>
+   <p class="rvps57"><span class="rvts164"># where deltaIntensity is expressed as a positive number.</span></p>
+   <p class="rvps57"><span class="rvts164">#</span></p>
+   <p class="rvps57"><span class="rvts164"># For background on how the energy efficiency values were developed, see&nbsp;</span></p>
+   <p class="rvps57"><span class="rvts164"># \\ncr.int.ec.gc.ca\shares\e\ECOMOD\Policy Support Work\Bld Codes Analysis\.</span></p>
+   <p class="rvps57"><span class="rvts164"># Detailed factors available in "Bld Codes Stringencyv7.xlsx".</span></p>
+   <p class="rvps57"><span class="rvts164">#</span></p>
+   <p class="rvps57"><span class="rvts164">########################</span></p>
+   <p class="rvps57"><span class="rvts164">#</span></p>
+   <p class="rvps57"><span class="rvts106"><br/></span></p>
+   <p class="rvps57"><span class="rvts165">using</span><span class="rvts106"> EnergyModel</span></p>
+   <p class="rvps57"><span class="rvts106"><br/></span></p>
+   <p class="rvps57"><span class="rvts163">module</span><span class="rvts106"> Com_BldgStdPolicy</span></p>
+   <p class="rvps57"><span class="rvts106"><br/></span></p>
+   <p class="rvps57"><span class="rvts165">import</span><span class="rvts106"> </span><span class="rvts107">...</span><span class="rvts106">EnergyModel</span><span class="rvts107">:</span><span class="rvts106"> ReadDisk,WriteDisk,Select</span></p>
+   <p class="rvps57"><span class="rvts165">import</span><span class="rvts106"> </span><span class="rvts107">...</span><span class="rvts106">EnergyModel</span><span class="rvts107">:</span><span class="rvts106"> HisTime,ITime,MaxTime,First,Last,Future,Final,Yr</span></p>
+   <p class="rvps57"><span class="rvts165">import</span><span class="rvts106"> </span><span class="rvts107">...</span><span class="rvts106">EnergyModel</span><span class="rvts107">:</span><span class="rvts106"> </span><span class="rvts108">@finite_math</span><span class="rvts106">,finite_inverse,finite_divide,finite_power,finite_exp,finite_log</span></p>
+   <p class="rvps57"><span class="rvts165">import</span><span class="rvts106"> </span><span class="rvts107">...</span><span class="rvts106">EnergyModel</span><span class="rvts107">:</span><span class="rvts106"> DB</span></p>
+   <p class="rvps57"><span class="rvts106"><br/></span></p>
+   <p class="rvps57"><span class="rvts163">const</span><span class="rvts106"> VariableArray{N} </span><span class="rvts107">=</span><span class="rvts106"> Array{Float32,N} </span><span class="rvts163">where</span><span class="rvts106"> {N}</span></p>
+   <p class="rvps57"><span class="rvts163">const</span><span class="rvts106"> SetArray </span><span class="rvts107">=</span><span class="rvts106"> Vector{String}</span></p>
+   <p class="rvps57"><span class="rvts106"><br/></span></p>
+   <p class="rvps57"><span class="rvts106">Base</span><span class="rvts107">.</span><span class="rvts108">@kwdef</span><span class="rvts106"> </span><span class="rvts163">struct</span><span class="rvts106"> CControl</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; db</span><span class="rvts107">::</span><span class="rvts225">String</span></p>
+   <p class="rvps57"><span class="rvts106"><br/></span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; </span><span class="rvts164"># CalDB::String = "CCalDB"</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; </span><span class="rvts164"># Input::String = "CInput"</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; </span><span class="rvts164"># Outpt::String = "COutput"</span></p>
+   <p class="rvps57"><span class="rvts106"><br/></span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; Area</span><span class="rvts107">::</span><span class="rvts225">SetArray</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">ReadDisk</span><span class="rvts106">(db,</span><span class="rvts109">"MainDB/AreaKey"</span><span class="rvts106">)</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; Areas</span><span class="rvts107">::</span><span class="rvts225">Vector{Int}</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">collect</span><span class="rvts106">(</span><span class="rvts108">Select</span><span class="rvts106">(Area))</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; EC</span><span class="rvts107">::</span><span class="rvts225">SetArray</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">ReadDisk</span><span class="rvts106">(db,</span><span class="rvts109">"CInput/ECKey"</span><span class="rvts106">)</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; ECs</span><span class="rvts107">::</span><span class="rvts225">Vector{Int}</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">collect</span><span class="rvts106">(</span><span class="rvts108">Select</span><span class="rvts106">(EC))</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; Enduse</span><span class="rvts107">::</span><span class="rvts225">SetArray</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">ReadDisk</span><span class="rvts106">(db,</span><span class="rvts109">"CInput/EnduseKey"</span><span class="rvts106">)</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; Tech</span><span class="rvts107">::</span><span class="rvts225">SetArray</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">ReadDisk</span><span class="rvts106">(db,</span><span class="rvts109">"CInput/TechKey"</span><span class="rvts106">)</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; Techs</span><span class="rvts107">::</span><span class="rvts225">Vector{Int}</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">collect</span><span class="rvts106">(</span><span class="rvts108">Select</span><span class="rvts106">(Tech))</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; Year</span><span class="rvts107">::</span><span class="rvts225">SetArray</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">ReadDisk</span><span class="rvts106">(db,</span><span class="rvts109">"MainDB/YearKey"</span><span class="rvts106">)</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; YearDS</span><span class="rvts107">::</span><span class="rvts225">SetArray</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">ReadDisk</span><span class="rvts106">(db,</span><span class="rvts109">"MainDB/YearDS"</span><span class="rvts106">)</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; Years</span><span class="rvts107">::</span><span class="rvts225">Vector{Int}</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">collect</span><span class="rvts106">(</span><span class="rvts108">Select</span><span class="rvts106">(Year))</span></p>
+   <p class="rvps57"><span class="rvts106"><br/></span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; PEE</span><span class="rvts107">::</span><span class="rvts225">VariableArray{5}</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">ReadDisk</span><span class="rvts106">(db,</span><span class="rvts109">"COutput/PEE"</span><span class="rvts106">) </span><span class="rvts164"># [Enduse,Tech,EC,Area,Year] Process Efficiency ($/Btu)</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; PEM</span><span class="rvts107">::</span><span class="rvts225">VariableArray{3}</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">ReadDisk</span><span class="rvts106">(db,</span><span class="rvts109">"CCalDB/PEM"</span><span class="rvts106">) </span><span class="rvts164"># [Enduse,EC,Area] Maximum Process Efficiency ($/mmBtu)</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; PEMM</span><span class="rvts107">::</span><span class="rvts225">VariableArray{5}</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">ReadDisk</span><span class="rvts106">(db,</span><span class="rvts109">"CCalDB/PEMM"</span><span class="rvts106">) </span><span class="rvts164"># [Enduse,Tech,EC,Area,Year] Process Efficiency Max. Mult. ($/Btu/($/Btu))</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; PEStd</span><span class="rvts107">::</span><span class="rvts225">VariableArray{5}</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">ReadDisk</span><span class="rvts106">(db,</span><span class="rvts109">"CInput/PEStd"</span><span class="rvts106">) </span><span class="rvts164"># [Enduse,Tech,EC,Area,Year] Process Efficiency Standard ($/Btu)</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; PEStdP</span><span class="rvts107">::</span><span class="rvts225">VariableArray{5}</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">ReadDisk</span><span class="rvts106">(db,</span><span class="rvts109">"CInput/PEStdP"</span><span class="rvts106">) </span><span class="rvts164"># [Enduse,Tech,EC,Area,Year] Process Efficiency Standard Policy ($/Btu)</span></p>
+   <p class="rvps57"><span class="rvts106"><br/></span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; EEImprovement</span><span class="rvts107">::</span><span class="rvts225">VariableArray{2}</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">zeros</span><span class="rvts106">(Float32,</span><span class="rvts108">length</span><span class="rvts106">(Area),</span><span class="rvts108">length</span><span class="rvts106">(Year)) </span><span class="rvts164"># Energy Efficiency Improvement from Baseline Value ($/Btu)/($/Btu) [Area,Year]</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; EIImprovement</span><span class="rvts107">::</span><span class="rvts225">VariableArray{2}</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">zeros</span><span class="rvts106">(Float32,</span><span class="rvts108">length</span><span class="rvts106">(Area),</span><span class="rvts108">length</span><span class="rvts106">(Year)) </span><span class="rvts164"># Energy Intensity Improvement from Baseline Value ($/Btu)/($/Btu) [Area,Year]</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; PEEAvg_BC</span><span class="rvts107">::</span><span class="rvts225">VariableArray{4}</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">zeros</span><span class="rvts106">(Float32,</span><span class="rvts108">length</span><span class="rvts106">(Enduse),</span><span class="rvts108">length</span><span class="rvts106">(Tech),</span><span class="rvts108">length</span><span class="rvts106">(EC),</span><span class="rvts108">length</span><span class="rvts106">(Area)) </span><span class="rvts164"># Base Case Process Efficiency ($/Btu) [Enduse,Tech,EC,Area]</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; PEMMAvg_BC</span><span class="rvts107">::</span><span class="rvts225">VariableArray{4}</span><span class="rvts106"> </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">zeros</span><span class="rvts106">(Float32,</span><span class="rvts108">length</span><span class="rvts106">(Enduse),</span><span class="rvts108">length</span><span class="rvts106">(Tech),</span><span class="rvts108">length</span><span class="rvts106">(EC),</span><span class="rvts108">length</span><span class="rvts106">(Area)) </span><span class="rvts164"># Process Efficiency Max. Mult. ($/Btu/($/Btu)) [Enduse,Tech,EC,Area]</span></p>
+   <p class="rvps57"><span class="rvts165">end</span></p>
+   <p class="rvps57"><span class="rvts106"><br/></span></p>
+   <p class="rvps57"><span class="rvts163">function</span><span class="rvts106"> </span><span class="rvts108">ComPolicy</span><span class="rvts106">(db)</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; data </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">CControl</span><span class="rvts106">(; db)</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; (; Area,Areas,ECs,Enduse,Techs,Year,Years) </span><span class="rvts107">=</span><span class="rvts106"> data</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; (; EEImprovement,EIImprovement,PEE,PEEAvg_BC) </span><span class="rvts107">=</span><span class="rvts106"> data</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; (; PEM,PEMM,PEMMAvg_BC,PEStd,PEStdP) </span><span class="rvts107">=</span><span class="rvts106"> data</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; &nbsp;</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; areas </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">Select</span><span class="rvts106">(Area,</span><span class="rvts109">"BC"</span><span class="rvts106">)</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; </span><span class="rvts165">for</span><span class="rvts106"> area </span><span class="rvts107">in</span><span class="rvts106"> areas</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; &nbsp;&nbsp;</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; years </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">collect</span><span class="rvts106">(</span><span class="rvts108">Yr</span><span class="rvts106">(</span><span class="rvts226">2026</span><span class="rvts106">)</span><span class="rvts107">:</span><span class="rvts108">Yr</span><span class="rvts106">(</span><span class="rvts226">2030</span><span class="rvts106">))</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; </span><span class="rvts165">for</span><span class="rvts106"> year </span><span class="rvts107">in</span><span class="rvts106"> years</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; &nbsp; &nbsp; EEImprovement[area,year] </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts226">0.419</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; </span><span class="rvts165">end</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp;&nbsp;</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; years </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">collect</span><span class="rvts106">(</span><span class="rvts108">Yr</span><span class="rvts106">(</span><span class="rvts226">2031</span><span class="rvts106">)</span><span class="rvts107">:</span><span class="rvts108">Yr</span><span class="rvts106">(</span><span class="rvts226">2035</span><span class="rvts106">))</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; </span><span class="rvts165">for</span><span class="rvts106"> year </span><span class="rvts107">in</span><span class="rvts106"> years</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; &nbsp; &nbsp; EEImprovement[area,year] </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts226">0.647</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; </span><span class="rvts165">end</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp;&nbsp;</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; years </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">collect</span><span class="rvts106">(</span><span class="rvts108">Yr</span><span class="rvts106">(</span><span class="rvts226">2036</span><span class="rvts106">)</span><span class="rvts107">:</span><span class="rvts108">Yr</span><span class="rvts106">(</span><span class="rvts226">2050</span><span class="rvts106">))</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; </span><span class="rvts165">for</span><span class="rvts106"> year </span><span class="rvts107">in</span><span class="rvts106"> years</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; &nbsp; &nbsp; EEImprovement[area,year] </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts226">0.651</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; </span><span class="rvts165">end</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp;&nbsp;</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; </span><span class="rvts165">end</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp;&nbsp;</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; </span><span class="rvts165">for</span><span class="rvts106"> year </span><span class="rvts107">in</span><span class="rvts106"> Years, area </span><span class="rvts107">in</span><span class="rvts106"> Areas</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; EIImprovement[area,year] </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts226">1</span><span class="rvts107">/</span><span class="rvts106">(</span><span class="rvts226">1</span><span class="rvts107">-</span><span class="rvts106">EEImprovement[area,year])</span><span class="rvts107">-</span><span class="rvts226">1</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; </span><span class="rvts165">end</span></p>
+   <p class="rvps57"><span class="rvts106"></span><br/><span class="rvts106"><br/></span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; Heat </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">Select</span><span class="rvts106">(Enduse,</span><span class="rvts109">"Heat"</span><span class="rvts106">)</span></p>
+   <p class="rvps57"><span class="rvts106"><br/></span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; areas </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">Select</span><span class="rvts106">(Area,</span><span class="rvts109">"BC"</span><span class="rvts106">)</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; </span><span class="rvts165">for</span><span class="rvts106"> area </span><span class="rvts107">in</span><span class="rvts106"> areas, ec </span><span class="rvts107">in</span><span class="rvts106"> ECs, tech </span><span class="rvts107">in</span><span class="rvts106"> Techs</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; years </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">Select</span><span class="rvts106">(Year,(from </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts109">"2006"</span><span class="rvts106">,to </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts109">"2010"</span><span class="rvts106">))</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; PEEAvg_BC[Heat,tech,ec,area] </span><span class="rvts107">=</span><span class="rvts106">&nbsp;</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; &nbsp; </span><span class="rvts108">sum</span><span class="rvts106">(PEE[Heat,tech,ec,area,year] </span><span class="rvts165">for</span><span class="rvts106"> year </span><span class="rvts107">in</span><span class="rvts106"> years)</span><span class="rvts107">/</span><span class="rvts226">5</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; PEMMAvg_BC[Heat,tech,ec,area] </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">sum</span><span class="rvts106">(PEMM[Heat,tech,ec,area,year] </span><span class="rvts165">for</span><span class="rvts106"> year </span><span class="rvts107">in</span><span class="rvts106"> years)</span><span class="rvts107">/</span><span class="rvts226">5</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; </span><span class="rvts165">end</span></p>
+   <p class="rvps57"><span class="rvts106"><br/></span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; years </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">collect</span><span class="rvts106">(</span><span class="rvts108">Yr</span><span class="rvts106">(</span><span class="rvts226">2026</span><span class="rvts106">)</span><span class="rvts107">:</span><span class="rvts106">Final)</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; areas </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">Select</span><span class="rvts106">(Area,</span><span class="rvts109">"BC"</span><span class="rvts106">)</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; </span><span class="rvts165">for</span><span class="rvts106"> year </span><span class="rvts107">in</span><span class="rvts106"> years, area </span><span class="rvts107">in</span><span class="rvts106"> areas, ec </span><span class="rvts107">in</span><span class="rvts106"> ECs, tech </span><span class="rvts107">in</span><span class="rvts106"> Techs</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; PEMM[Heat,tech,ec,area,year] </span><span class="rvts107">=</span><span class="rvts106"> PEMM[Heat,tech,ec,area,year]</span><span class="rvts107">*</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; &nbsp; (</span><span class="rvts226">1</span><span class="rvts107">+</span><span class="rvts106">EIImprovement[area,year])</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; PEStdP[Heat,tech,ec,area,year] </span><span class="rvts107">=</span><span class="rvts106"> </span><span class="rvts108">max</span><span class="rvts106">(PEStd[Heat,tech,ec,area,year],</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; &nbsp; PEStdP[Heat,tech,ec,area,year],</span><span class="rvts108">min</span><span class="rvts106">(PEM[Heat,ec,area]</span><span class="rvts107">*</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; &nbsp; &nbsp; PEMM[Heat,tech,ec,area,year]</span><span class="rvts107">*</span><span class="rvts226">0.98</span><span class="rvts106">,PEEAvg_BC[Heat,tech,ec,area]</span><span class="rvts107">*</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (</span><span class="rvts226">1</span><span class="rvts107">+</span><span class="rvts106">EIImprovement[area,year])))</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; </span><span class="rvts165">end</span></p>
+   <p class="rvps57"><span class="rvts106"><br/></span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; </span><span class="rvts108">WriteDisk</span><span class="rvts106">(db,</span><span class="rvts109">"CCalDB/PEMM"</span><span class="rvts106">,PEMM)</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; </span><span class="rvts108">WriteDisk</span><span class="rvts106">(db,</span><span class="rvts109">"CInput/PEStdP"</span><span class="rvts106">,PEStdP)</span></p>
+   <p class="rvps57"><span class="rvts165">end</span></p>
+   <p class="rvps57"><span class="rvts106"><br/></span></p>
+   <p class="rvps57"><span class="rvts163">function</span><span class="rvts106"> </span><span class="rvts108">PolicyControl</span><span class="rvts106">(db)</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; </span><span class="rvts108">@info</span><span class="rvts106"> </span><span class="rvts109">"Com_BldgStdPolicy.jl - PolicyControl"</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; </span><span class="rvts108">ComPolicy</span><span class="rvts106">(db)</span></p>
+   <p class="rvps57"><span class="rvts165">end</span></p>
+   <p class="rvps57"><span class="rvts106"><br/></span></p>
+   <p class="rvps57"><span class="rvts165">if</span><span class="rvts106"> </span><span class="rvts108">abspath</span><span class="rvts106">(PROGRAM_FILE) </span><span class="rvts107">==</span><span class="rvts106"> </span><span class="rvts108">@__FILE__</span></p>
+   <p class="rvps57"><span class="rvts106">&nbsp; </span><span class="rvts108">PolicyControl</span><span class="rvts106">(DB)</span></p>
+   <p class="rvps57"><span class="rvts165">end</span></p>
+   <p class="rvps57"><span class="rvts106"><br/></span></p>
+   <p class="rvps57"><span class="rvts165">end</span></p>
   </td>
  </tr>
 </table>

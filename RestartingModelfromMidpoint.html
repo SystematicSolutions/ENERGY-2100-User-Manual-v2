@@ -1194,7 +1194,7 @@ details.hnd-blue-callout code {
    <p class="rvps2"><span class="rvts60">🛈</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 608px; height: 42px;">
-   <p class="rvps51"><span class="rvts137">A mid-run restart bat file can itself be run in either Fast or Debug mode by passing the appropriate argument — the DebugFlag is respected throughout RunModel.bat.</span></p>
+   <p class="rvps48"><span class="rvts137">A mid-run restart bat file can itself be run in either Fast or Debug mode by passing the appropriate argument — the DebugFlag is respected throughout RunModel.bat.</span></p>
   </td>
  </tr>
 </table>
@@ -1202,7 +1202,7 @@ details.hnd-blue-callout code {
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Procedure: Restarting from a Checkpoint</span></span></h3>
 <p class="rvps2"><span class="rvts6">If you make a change to a Julia script file that is called from </span><span class="rvts37">RunModel.bat</span><span class="rvts6">, you can restart a run at the last checkpoint saved before the revised file is called.</span></p>
 <p class="rvps2"><span class="rvts6">Follow these steps to create a bat file that resumes the model run from a specific checkpoint.</span></p>
-<p class="rvps2"><span class="rvts18">Step 1 - Identify the checkpoint in RunModel.bat to restart.</span></p>
+<h4 class="rvps78"><span class="rvts0"><span class="rvts172">Step 1 - Identify the checkpoint in RunModel.bat to restart.</span></span></h4>
 <p class="rvps2"><span class="rvts6">If you made changes to any files called in RunModel.bat, identify where the file is called. Then move upwards in the file to locate the nearest "rem Call UnZip DB </span><span class="rvts58">SceName</span><span class="rvts6">".&nbsp;</span></p>
 <div class="rvps24">
 <table width="100%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
@@ -1214,54 +1214,54 @@ details.hnd-blue-callout code {
    <p class="rvps37"><span class="rvts55">🕮</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 830px; height: 58px;">
-   <p class="rvps2"><span class="rvts83">Example</span></p>
-   <p class="rvps2"><span class="rvts83">Let's say you changed the file, </span><span class="rvts81">PlantCharacteristics_Storage.jl</span><span class="rvts56"> and want to run the model starting at the last saved checkpoint before that file is called:</span></p>
-   <p class="rvps2"><span class="rvts56">Locate where </span><span class="rvts81">PlantCharacteristics_Storage.jl</span><span class="rvts56"> is called in </span><span class="rvts81">RunModel.bat</span><span class="rvts56"> and identify the closest call to unzip a database (</span><span class="rvts81">rem Call Unzip DB</span><span class="rvts56">).</span></p>
+   <p class="rvps2"><span class="rvts84">Example</span></p>
+   <p class="rvps2"><span class="rvts84">Let's say you changed the file, </span><span class="rvts82">PlantCharacteristics_Storage.jl</span><span class="rvts56"> and want to run the model starting at the last saved checkpoint before that file is called:</span></p>
+   <p class="rvps2"><span class="rvts56">Locate where </span><span class="rvts82">PlantCharacteristics_Storage.jl</span><span class="rvts56"> is called in </span><span class="rvts82">RunModel.bat</span><span class="rvts56"> and identify the closest call to unzip a database (</span><span class="rvts82">rem Call Unzip DB</span><span class="rvts56">).</span></p>
    <div class="rvps36">
    <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
     <tr style="vertical-align: top;">
      <td style="padding: 6px 8px;">
-      <p class="rvps72"><span class="rvts170">RunModel.bat</span></p>
-      <p class="rvps72"><span class="rvts170"><br/></span></p>
-      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> BreakPoint Calib&nbsp;</span></p>
-      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp;</span><span class="rvts165">If</span><span class="rvts105"> </span><span class="rvts106">Not</span><span class="rvts105"> </span><span class="rvts166">%DebugFlag%</span><span class="rvts106">==</span><span class="rvts105">Debug </span><span class="rvts165">GoTo</span><span class="rvts105"> EndCalib</span></p>
-      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> CreateDTAs Calib Calib Calib ExcelDTAs NoUnZip</span></p>
-      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp;:</span><span class="rvts163">EndCalib</span><span class="rvts105"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
-      <p class="rvps72"><span class="rvts163">rem</span><span class="rvts164"> &nbsp;Call UnZip DB Calib &nbsp; </span><span class="rvts167">&lt;-- Closest "Unzip DB" before call to changed file</span></p>
-      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp;</span><span class="rvts163">Echo</span><span class="rvts105"> </span><span class="rvts166">%Date%</span><span class="rvts105"> ;</span><span class="rvts166">%Time%</span><span class="rvts105">; End Load Curve and Post Supply </span><span class="rvts166">%computername%</span><span class="rvts105"> </span><span class="rvts106">&gt;&gt;</span><span class="rvts105"> RunAll_Report.log</span></p>
-      <p class="rvps72"><span class="rvts105"><br/></span></p>
-      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp;cd..\Calibration &nbsp; &nbsp; &nbsp;&nbsp;</span></p>
-      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> RunJulia CogenMarketShareInitial.jl</span></p>
-      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> RunJulia PlantCharacteristics.jl</span></p>
-      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> RunJulia PlantCharacteristics_SMNR.jl &nbsp; &nbsp;&nbsp;</span></p>
-      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> RunJulia PlantCharacteristics_HydrogenCT.jl &nbsp; &nbsp;&nbsp;</span></p>
-      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> RunJulia PlantCharacteristics_SmallOGCC.jl</span></p>
-      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> RunJulia PlantCharacteristics_NGCCS.jl &nbsp;</span></p>
-      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> RunJulia PlantCharacteristics_BiomassCCS.jl</span></p>
-      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; </span><span class="rvts168">&nbsp;</span><span class="rvts169">Call</span><span class="rvts168"> RunJulia PlantCharacteristics_Storage.jl</span><span class="rvts164"> &nbsp; </span><span class="rvts167">&lt;-- Changed file</span></p>
-      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> RunJulia OGCCFractions.jl</span></p>
-      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> RunJulia ConstructionDelay2.jl &nbsp; &nbsp;</span></p>
-      <p class="rvps2"><span class="rvts105"><br/></span></p>
+      <p class="rvps69"><span class="rvts170">RunModel.bat</span></p>
+      <p class="rvps69"><span class="rvts170"><br/></span></p>
+      <p class="rvps69"><span class="rvts106">&nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts106"> BreakPoint Calib&nbsp;</span></p>
+      <p class="rvps69"><span class="rvts106">&nbsp; &nbsp; &nbsp;</span><span class="rvts165">If</span><span class="rvts106"> </span><span class="rvts107">Not</span><span class="rvts106"> </span><span class="rvts166">%DebugFlag%</span><span class="rvts107">==</span><span class="rvts106">Debug </span><span class="rvts165">GoTo</span><span class="rvts106"> EndCalib</span></p>
+      <p class="rvps69"><span class="rvts106">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts106"> CreateDTAs Calib Calib Calib ExcelDTAs NoUnZip</span></p>
+      <p class="rvps69"><span class="rvts106">&nbsp; &nbsp; &nbsp;:</span><span class="rvts163">EndCalib</span><span class="rvts106"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+      <p class="rvps69"><span class="rvts163">rem</span><span class="rvts164"> &nbsp;Call UnZip DB Calib &nbsp; </span><span class="rvts167">&lt;-- Closest "Unzip DB" before call to changed file</span></p>
+      <p class="rvps69"><span class="rvts106">&nbsp; &nbsp; &nbsp;</span><span class="rvts163">Echo</span><span class="rvts106"> </span><span class="rvts166">%Date%</span><span class="rvts106"> ;</span><span class="rvts166">%Time%</span><span class="rvts106">; End Load Curve and Post Supply </span><span class="rvts166">%computername%</span><span class="rvts106"> </span><span class="rvts107">&gt;&gt;</span><span class="rvts106"> RunAll_Report.log</span></p>
+      <p class="rvps69"><span class="rvts106"><br/></span></p>
+      <p class="rvps69"><span class="rvts106">&nbsp; &nbsp; &nbsp;cd..\Calibration &nbsp; &nbsp; &nbsp;&nbsp;</span></p>
+      <p class="rvps69"><span class="rvts106">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts106"> RunJulia CogenMarketShareInitial.jl</span></p>
+      <p class="rvps69"><span class="rvts106">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts106"> RunJulia PlantCharacteristics.jl</span></p>
+      <p class="rvps69"><span class="rvts106">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts106"> RunJulia PlantCharacteristics_SMNR.jl &nbsp; &nbsp;&nbsp;</span></p>
+      <p class="rvps69"><span class="rvts106">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts106"> RunJulia PlantCharacteristics_HydrogenCT.jl &nbsp; &nbsp;&nbsp;</span></p>
+      <p class="rvps69"><span class="rvts106">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts106"> RunJulia PlantCharacteristics_SmallOGCC.jl</span></p>
+      <p class="rvps69"><span class="rvts106">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts106"> RunJulia PlantCharacteristics_NGCCS.jl &nbsp;</span></p>
+      <p class="rvps69"><span class="rvts106">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts106"> RunJulia PlantCharacteristics_BiomassCCS.jl</span></p>
+      <p class="rvps69"><span class="rvts106">&nbsp; &nbsp; &nbsp; </span><span class="rvts168">&nbsp;</span><span class="rvts169">Call</span><span class="rvts168"> RunJulia PlantCharacteristics_Storage.jl</span><span class="rvts164"> &nbsp; </span><span class="rvts167">&lt;-- Changed file</span></p>
+      <p class="rvps69"><span class="rvts106">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts106"> RunJulia OGCCFractions.jl</span></p>
+      <p class="rvps69"><span class="rvts106">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts106"> RunJulia ConstructionDelay2.jl &nbsp; &nbsp;</span></p>
+      <p class="rvps2"><span class="rvts106"><br/></span></p>
      </td>
     </tr>
     <tr style="vertical-align: top;">
      <td style="padding: 6px 8px;">
-      <p class="rvps72"><span class="rvts105"><br/></span></p>
+      <p class="rvps69"><span class="rvts106"><br/></span></p>
      </td>
     </tr>
    </table>
    </div>
-   <p class="rvps2"><span class="rvts83">In this example, "</span><span class="rvts163">rem</span><span class="rvts164"> &nbsp;Call UnZip DB Calib</span><span class="rvts56">" is the previous checkpoint saved before a call is made to </span><span class="rvts37">PlantCharacteristics_Storage.jl</span><span class="rvts56">.</span><span class="rvts83">&nbsp;</span></p>
+   <p class="rvps2"><span class="rvts84">In this example, "</span><span class="rvts163">rem</span><span class="rvts164"> &nbsp;Call UnZip DB Calib</span><span class="rvts56">" is the previous checkpoint saved before a call is made to </span><span class="rvts37">PlantCharacteristics_Storage.jl</span><span class="rvts56">.</span><span class="rvts84">&nbsp;</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps2"><span class="rvts18">Step 1 — Verify the checkpoint database exists</span></p>
+<h4 class="rvps78"><span class="rvts0"><span class="rvts172">Step 2 — Verify the checkpoint database exists</span></span></h4>
 <p class="rvps2"><span class="rvts6">Before creating a restart script, confirm that the checkpoint database was actually saved by a previous run. Checkpoint databases are stored as zip archives in the 2020Model directory. The file naming convention follows:</span></p>
-<p class="rvps84"><span class="rvts162">database_&lt;CheckpointName&gt;.zip</span></p>
+<p class="rvps81"><span class="rvts162">database_&lt;CheckpointName&gt;.zip</span></p>
 <p class="rvps2"><span class="rvts6">For example, for the </span><span class="rvts37">Calib</span><span class="rvts6"> checkpoint:</span></p>
-<p class="rvps84"><span class="rvts162">database_Calib.zip</span></p>
-<p class="rvps75"><span class="rvts6"><br/></span></p>
+<p class="rvps81"><span class="rvts162">database_Calib.zip</span></p>
+<p class="rvps72"><span class="rvts6"><br/></span></p>
 <div class="rvps24">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
@@ -1272,20 +1272,18 @@ details.hnd-blue-callout code {
    <p class="rvps2"><span class="rvts60">🛈</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 608px; height: 42px;">
-   <p class="rvps51"><span class="rvts161">If the checkpoint zip does not exist, you must run up to that point first. Use RunAll_Debug.bat to produce Debug-only checkpoints such as Process2, CalibPrice, CalibRes, etc.</span></p>
+   <p class="rvps48"><span class="rvts161">If the checkpoint zip does not exist, you must run up to that point first. Use RunAll_Debug.bat to produce Debug-only checkpoints such as Process2, CalibPrice, CalibRes, etc.</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps24"><span class="rvts162"><br/></span></p>
-<p class="rvps2"><span class="rvts18">Step 2 — Copy RunModel.bat</span></p>
+<h4 class="rvps78"><span class="rvts0"><span class="rvts172">Step 3 — Copy RunModel.bat</span></span></h4>
 <p class="rvps2"><span class="rvts6">Create a copy of RunModel.bat with a descriptive name, for example:</span></p>
-<p class="rvps84"><span class="rvts162">RunFrom_Calib.bat</span></p>
+<p class="rvps81"><span class="rvts162">RunFrom_Calib.bat</span></p>
 <p class="rvps2"><span class="rvts6">Do not edit the original RunModel.bat. The copy is your working file.</span></p>
-<p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts18">Step 3 — Uncomment the UnZip line for your checkpoint</span></p>
+<h4 class="rvps78"><span class="rvts0"><span class="rvts172">Step 4 — Uncomment the UnZip line for your checkpoint</span></span></h4>
 <p class="rvps2"><span class="rvts6">Inside RunModel.bat, each checkpoint has a commented-out UnZip line near the BreakPoint call. Find the commented line for your target checkpoint and remove the rem prefix. For example, for Calib, find:</span></p>
-<div class="rvps46">
+<div class="rvps43">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
@@ -1294,9 +1292,9 @@ details.hnd-blue-callout code {
  </tr>
 </table>
 </div>
-<p class="rvps84"><span class="rvts162"><br/></span></p>
+<p class="rvps81"><span class="rvts162"><br/></span></p>
 <p class="rvps2"><span class="rvts6">and change it to:</span></p>
-<div class="rvps46">
+<div class="rvps43">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
@@ -1305,7 +1303,7 @@ details.hnd-blue-callout code {
  </tr>
 </table>
 </div>
-<p class="rvps84"><span class="rvts162"><br/></span></p>
+<p class="rvps81"><span class="rvts162"><br/></span></p>
 <div class="rvps26">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
@@ -1316,19 +1314,19 @@ details.hnd-blue-callout code {
    <p class="rvps2"><span class="rvts60">🛈</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 608px; height: 42px;">
-   <p class="rvps51"><span class="rvts137">The UnZip call restores the saved database state for that checkpoint. Without this step, the model will run against whatever database is currently present, which will produce incorrect results.</span></p>
+   <p class="rvps48"><span class="rvts137">The UnZip call restores the saved database state for that checkpoint. Without this step, the model will run against whatever database is currently present, which will produce incorrect results.</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps75"><span class="rvts135"><br/></span></p>
-<p class="rvps2"><span class="rvts18">Step 4 — Delete all lines before unzipping the checkpoint database</span></p>
+<p class="rvps72"><span class="rvts135"><br/></span></p>
+<h4 class="rvps78"><span class="rvts0"><span class="rvts172">Step 5 — Delete all lines before unzipping the checkpoint database</span></span></h4>
 <p class="rvps2"><span class="rvts6">Delete (or comment out) every line that executes before your checkpoint. The goal is to skip all the work that was already completed and saved into the checkpoint database.</span></p>
 <p class="rvps24"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts18">Step 5 — Run the new bat file</span></p>
+<h4 class="rvps78"><span class="rvts0"><span class="rvts172">Step 6 — Run the new bat file</span></span></h4>
 <p class="rvps2"><span class="rvts6">Run your new bat file (in this example the batch file is: </span><span class="rvts37">RunFrom_Calib4.bat</span><span class="rvts6">) from the 2020Model directory, passing the desired mode flag.&nbsp;</span></p>
 <p class="rvps2"><span class="rvts6">Make the call to your new batch file either 1) directly from the </span><span class="rvts18">terminal</span><span class="rvts6"> or 2) from a </span><span class="rvts18">second batch file</span><span class="rvts6"> that makes the following call:</span></p>
-<div class="rvps46">
+<div class="rvps43">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
@@ -1338,7 +1336,7 @@ details.hnd-blue-callout code {
 </table>
 </div>
 <p class="rvps2"><span class="rvts6">or for debug mode with intermediate outputs:</span></p>
-<div class="rvps46">
+<div class="rvps43">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
@@ -1347,7 +1345,7 @@ details.hnd-blue-callout code {
  </tr>
 </table>
 </div>
-<p class="rvps84"><span class="rvts6"><br/></span></p>
+<p class="rvps81"><span class="rvts6"><br/></span></p>
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Notes and Cautions</span></span></h3>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
  <li class="rvps6 noindent"><span class="rvts27">Debug-only checkpoints</span><span class="rvts14"> — Checkpoints marked Debug in the table above are only saved when RunAll_Debug.bat (or RunModel Debug) was used for the original run. If you ran in Fast mode, these intermediate databases will not exist.</span></li>
@@ -1356,7 +1354,7 @@ details.hnd-blue-callout code {
  <li class="rvps6 noindent"><span class="rvts27">StartBase is not a BreakPoint checkpoint</span><span class="rvts14"> — StartBase is created via Call Zip Results rather than the BreakPoint mechanism and is stored as StartBase\database. To restart from StartBase (re-running only the scenario runs), reference StartBase\database directly rather than using an UnZip DB call.</span></li>
  <li class="rvps6 noindent"><span class="rvts27">CalibInd and Calib are always saved in both modes</span><span class="rvts14"> — The BreakPoint calls for CalibInd and Calib are not conditional on the DebugFlag, so these checkpoints are always available regardless of whether the original run used Fast or Debug mode.</span></li>
 </ul>
-<p class="rvps75"><span class="rvts135"></span><span class="rvts6"></span></p>
+<p class="rvps72"><span class="rvts135"></span><span class="rvts6"></span></p>
 
             </div>
             

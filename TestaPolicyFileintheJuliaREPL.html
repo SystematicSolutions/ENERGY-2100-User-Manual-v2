@@ -1187,21 +1187,21 @@ details.hnd-blue-callout code {
 <p class="rvps2"><span class="rvts6">You can test compiling a policy file interactively directly from the Julia REPL.</span></p>
 <p class="rvps2"><span class="rvts18">Step 1 - Include your policy file in the Julia workspace</span></p>
 <p class="rvps30"><span class="rvts6">Including the policy file in your workspace gives you access to the functions defined in the given policy module. In the Julia REPL, type the following:</span></p>
-<div class="rvps46">
+<div class="rvps43">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps34"><span class="rvts84">julia&gt;</span><span class="rvts54"> </span><span class="rvts85">include</span><span class="rvts54">("Policy/MyPolicyFile.jl")</span></p>
+   <p class="rvps34"><span class="rvts85">julia&gt;</span><span class="rvts54"> </span><span class="rvts86">include</span><span class="rvts54">("Policy/MyPolicyFile.jl")</span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps2"><span class="rvts18">Step 2 - Execute the policy code by calling its PolicyControl function</span></p>
-<div class="rvps46">
+<div class="rvps43">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps34"><span class="rvts84">julia&gt;</span><span class="rvts54"> MyPolicyModule.PolicyControl(DB)</span></p>
+   <p class="rvps34"><span class="rvts85">julia&gt;</span><span class="rvts54"> MyPolicyModule.PolicyControl(DB)</span></p>
   </td>
  </tr>
 </table>
@@ -1218,7 +1218,7 @@ details.hnd-blue-callout code {
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
    <p class="rvps2"><span class="rvts13">Exercise</span></p>
-   <p class="rvps2"><span class="rvts83">Run the policy file, Res_PeakSavings.jl. Make sure you have all the needed packages loaded in your VS code workspace.</span></p>
+   <p class="rvps2"><span class="rvts84">Run the policy file, Res_PeakSavings.jl. Make sure you have all the needed packages loaded in your VS code workspace.</span></p>
    <p class="rvps34"><span class="rvts54"><details class="example-toggle">
   <p> </p>
   <summary>View Solution</summary>
@@ -1234,7 +1234,7 @@ Res_PeakSavings.PolicyControl(DB)</code></pre>
  </tr>
 </table>
 </div>
-<p class="rvps50"><span class="rvts48"><details class="hnd-blue-callout">
+<p class="rvps47"><span class="rvts48"><details class="hnd-blue-callout">
   <summary>Alternative Method of Calling a Policy File from the REPL</summary>
 
   <div class="callout-body">
@@ -1288,7 +1288,7 @@ include("Policy/Res_PeakSavings.jl")
 Res_PeakSavings.PolicyControl(DB)</code></pre>
   </div>
 </details></span></p>
-<p class="rvps50"><span class="rvts48">If the policy file hits errors and you make changes to the file and save it, VS Code may not recognize the newly saved file in your current workspace.&nbsp;</span></p>
+<p class="rvps47"><span class="rvts48">If the policy file hits errors and you make changes to the file and save it, VS Code may not recognize the newly saved file in your current workspace.&nbsp;</span></p>
 <p class="rvps2"><span class="rvts18">Step 3 - Load Julia's "Revise" package if you make changes to your policy file</span></p>
 <p class="rvps33"><span class="rvts37">Revise.jl</span><span class="rvts6"> is a Julia package that automatically updates function, module, and type definitions in a running Julia session whenever the underlying source code files change. It eliminates the need to restart the REPL or manually re-include files, significantly speeding up development workflows by allowing immediate testing of code changes.</span></p>
 <p class="rvps33"><span class="rvts6"><br/></span></p>
@@ -1308,7 +1308,7 @@ Res_PeakSavings.PolicyControl(DB)</code></pre>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li value="2" class="rvps2 noindent"><span class="rvts6">Run the policy's control procedure again:</span></li>
 </ol>
-<div class="rvps49">
+<div class="rvps46">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
