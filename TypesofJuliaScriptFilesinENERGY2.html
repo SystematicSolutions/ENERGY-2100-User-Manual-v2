@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="favicon.ico"/>
 
-  <title>Executing Policies</title>
+  <title>Types of Julia Script Files in ENERGY 2100</title>
   <meta name="description" content="" /> 
   <meta name="keywords" content="">
 
@@ -22,11 +22,11 @@
 
   <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Executing Policies">
+  <meta name="twitter:title" content="Types of Julia Script Files in ENERGY 2100">
   <meta name="twitter:description" content="">
 
   <!-- Open Graph data -->
-  <meta property="og:title" content="Executing Policies" />
+  <meta property="og:title" content="Types of Julia Script Files in ENERGY 2100" />
   <meta property="og:type" content="article" />
   <meta property="og:description" content="" />
   <meta property="og:site_name" content="ENERGY 2100 User Manual" /> 
@@ -1161,106 +1161,227 @@ details.hnd-blue-callout code {
 
     <article>
         <div id="topic-content" class="container-fluid" 
-		  data-hnd-id="ExecutingPolicies1"
-		  data-hnd-context="44"
-		  data-hnd-title="Executing Policies"
+		  data-hnd-id="TypesofJuliaScriptFilesinENERGY2"
+		  data-hnd-context="194"
+		  data-hnd-title="Types of Julia Script Files in ENERGY 2100"
 		>
             
                 <div class="navigation">
                     <ol class="breadcrumb">
-                        <li><a href="ExecutingtheModel.html">Executing the Model</a></li>
+                        <li><a href="JuliaCodinginENERGY2100.html">Julia Coding in ENERGY 2100</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="ExecutingtheModel.html" title="Executing the Model" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="AddingaPolicyFileAIGenerated.html" title="Adding a Policy File (AI Generated)" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="ModelExecutionFunctions.html" title="Model Execution Functions" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="JuliaCodinginENERGY2100.html" title="Julia Coding in ENERGY 2100" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="CodingConventionsandStandards.html" title="Coding Conventions and Standards" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="CommonJuliaSyntaxUsedinENERGY210.html" title="Common Julia Syntax Used in ENERGY 2100" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
 
             <a id="main-content"></a>
 
-            <h2>Executing Policies</h2>
+            <h2>Types of Julia Script Files in ENERGY 2100</h2>
 
             <div class="main-content">
                 
-<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Overview of Executing Policies</span></span></h3>
-<p class="rvps15"><span class="rvts6">To execute a new policy file or group of policy files through the model equations, you first need to </span><span class="rvts18">set up a PolicyTest module</span><span class="rvts6">, then you can </span><span class="rvts18">run a batch file </span><span class="rvts6">(</span><span class="rvts37">RunE2100Runs.bat</span><span class="rvts171">)</span><span class="rvts59"> </span><span class="rvts6">that unzips the required databases, assigns names to the policy run, calls the policy modules, executes the model from the starting year to ending year, and saves the results.&nbsp;</span></p>
-<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Set Up a PolicyTest Module</span></span></h3>
-<p class="rvps2"><span class="rvts6">Your model version has a template policy test module that you can use as a starting point, located in </span><span class="rvts37">\Policy\PolicyTestTemplate.jl</span><span class="rvts6">. This policy test module includes your new policy files then calls their control functions.&nbsp;</span></p>
-<p class="rvps2"><span class="rvts6">To set up a policy test module, follow the steps below:</span></p>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <li class="rvps2 noindent"><span class="rvts6">Edit the policy test module template, </span><span class="rvts37">\Policy\PolicyTestTemplate.jl</span><span class="rvts6">:</span></li>
- <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts6">Include the new policy file(s) to be executed at the top of the file:&nbsp;</span></li>
- </ol>
-</ol>
-<div class="rvps56">
-<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+<p class="rvps19"><span class="rvts6">Various types of Julia script files make up ENERGY 2100. The purpose of the file determines its location. Below lists the types of Julia script files that make up ENERGY 2100 and their storage location.</span></p>
+<div class="rvps8">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
  <tr style="vertical-align: top;">
-  <td style="padding: 6px 8px;">
-   <p class="rvps34"><span class="rvts54">module PolicyTest</span></p>
-   <p class="rvps34"><span class="rvts54"><br/></span></p>
-   <p class="rvps34"><span class="rvts164">import</span><span class="rvts54"> ...EnergyModel: DB</span></p>
-   <p class="rvps34"><span class="rvts54"><br/></span></p>
-   <p class="rvps34"><span class="rvts167">include</span><span class="rvts54">(</span><span class="rvts169">"NewPolicyFile1.jl"</span><span class="rvts54">) &nbsp;# &lt;-- Add your first policy file name here</span></p>
-   <p class="rvps34"><span class="rvts167">include</span><span class="rvts54">(</span><span class="rvts169">"NewPolicyFile2.jl"</span><span class="rvts54">) &nbsp;# &lt;-- Add your second policy file name here</span></p>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-right: none; width: 567px;">
+   <p class="rvps97"><span class="rvts27">Purpose&nbsp;</span></p>
+   <p class="rvps97"><span class="rvts27">of Julia Script File</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-left: none; width: 200px;">
+   <p class="rvps97"><span class="rvts27">Folder Location&nbsp;</span></p>
+   <p class="rvps97"><span class="rvts27">of Julia Script Files</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td colspan="2" style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-bottom: none; width: 650px;">
+   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+    <li class="rvps98 noindent"><span class="rvts27">Set up the model architecture</span></li>
+   </ol>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; width: 567px;">
+   <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
+    <li class="rvps98 noindent"><span class="rvts14">Define variables and sets on the HDF5 database&nbsp;</span></li>
+   </ul>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-bottom: none; border-left: none; width: 200px;">
+   <p class="rvps98"><span class="rvts14">\Database</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; width: 567px;">
+   <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
+    <li class="rvps99 noindent"><span class="rvts14">Set up global constants, functions, and macros</span></li>
+   </ul>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-left: none; width: 200px;">
+   <p class="rvps98"><span class="rvts27">&nbsp;</span><span class="rvts14">\Core</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td colspan="2" style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; width: 650px;">
+   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+    <li value="2" class="rvps98 noindent"><span class="rvts27">Populate variables with data and default assumptions</span></li>
+   </ol>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; width: 567px;">
+   <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
+    <li class="rvps98 noindent"><span class="rvts14">Inputting default data values and assumptions&nbsp;</span></li>
+   </ul>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-bottom: none; border-left: none; width: 200px;">
+   <p class="rvps98"><span class="rvts14">\Input and \Calibration</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; width: 567px; height: 12px;">
+   <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
+    <li class="rvps98 noindent"><span class="rvts14">Adjusting default input values and assumptions&nbsp;</span></li>
+   </ul>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-bottom: none; border-left: none; width: 200px; height: 12px;">
+   <p class="rvps98"><span class="rvts14">\Calibration</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-right: none; border-bottom: none; width: 567px;">
+   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+    <li value="3" class="rvps99 noindent"><span class="rvts27">Calibrate model equations to historical data</span></li>
+   </ol>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-bottom: none; border-left: none; width: 200px;">
+   <br/>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; width: 567px;">
+   <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
+    <li class="rvps98 noindent"><span class="rvts14">Calibration of historical data to model equations&nbsp;</span></li>
+   </ul>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-left: none; width: 200px;">
+   <p class="rvps98"><span class="rvts14">&nbsp;\Calibration</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; width: 567px;">
+   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+    <li value="4" class="rvps99 noindent"><span class="rvts27">Execute model equations into the future</span></li>
+   </ol>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-bottom: none; border-left: none; width: 200px;">
+   <br/>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; width: 567px;">
+   <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
+    <li class="rvps98 noindent"><span class="rvts14">Making projections based on model logic and equations&nbsp;</span></li>
+   </ul>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-left: none; width: 200px;">
+   <p class="rvps98"><span class="rvts14">\Engine</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; width: 567px;">
+   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+    <li value="5" class="rvps99 noindent"><span class="rvts27">Create automated output files</span></li>
+   </ol>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-bottom: none; border-left: none; width: 200px;">
+   <br/>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; width: 567px;">
+   <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
+    <li class="rvps98 noindent"><span class="rvts14">Creating access-format and Excel-format output files&nbsp;</span></li>
+   </ul>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-left: none; width: 200px;">
+   <p class="rvps98"><span class="rvts14">\Output</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; width: 567px;">
+   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+    <li value="6" class="rvps99 noindent"><span class="rvts27">Control support files for running model and creating outputs</span></li>
+   </ol>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-bottom: none; border-left: none; width: 200px;">
+   <br/>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; width: 567px;">
+   <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
+    <li class="rvps98 noindent"><span class="rvts14">Execution support files (such as </span><span class="rvts181">RunScenario.jl)</span><span class="rvts14"> and test/temporary files</span></li>
+   </ul>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-left: none; width: 200px;">
+   <p class="rvps98"><span class="rvts14">\2020Model</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; width: 567px;">
+   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+    <li value="7" class="rvps98 noindent"><span class="rvts27">Define Reference and Scenario Case Policy Assumptions</span></li>
+   </ol>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-bottom: none; border-left: none; width: 200px;">
+   <p class="rvps98"><span class="rvts14"><br/></span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; width: 567px;">
+   <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
+    <li class="rvps98 noindent"><span class="rvts14">Inputting reference case policy assumptions</span></li>
+   </ul>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-bottom: none; border-left: none; width: 200px;">
+   <p class="rvps98"><span class="rvts14">\Policy</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; width: 567px;">
+   <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
+    <li class="rvps98 noindent"><span class="rvts14">Inputting scenario case policy assumptions</span></li>
+   </ul>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-left: none; width: 200px;">
+   <p class="rvps98"><span class="rvts14">\Policy</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; border-bottom: none; width: 567px;">
+   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+    <li value="8" class="rvps98 noindent"><span class="rvts27">Process variables for transfer to economic model</span></li>
+   </ol>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-bottom: none; border-left: none; width: 200px;">
+   <p class="rvps98"><span class="rvts14"><br/></span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-right: none; width: 567px;">
+   <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
+    <li class="rvps98 noindent"><span class="rvts14">Aggregating and mapping ENERGY 2100 variables to the TOM macroeconomic model</span></li>
+   </ul>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; border-top: none; border-left: none; width: 200px;">
+   <p class="rvps98"><span class="rvts14">\EconomicTransfers</span></p>
   </td>
  </tr>
 </table>
 </div>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li value="2" style="text-indent: 0px" class="rvps84 noindent"><span class="rvts6">Call the policy's controlling function (</span><span class="rvts37">PolicyControl</span><span class="rvts6">) inside the </span><span class="rvts81">IncorporatePolicyTest()</span><span class="rvts6"> function:</span></li>
- </ol>
-</ol>
-<div class="rvps56">
-<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
- <tr style="vertical-align: top;">
-  <td style="padding: 6px 8px;">
-   <p class="rvps34"><span class="rvts166">module</span><span class="rvts165"> PolicyTest</span></p>
-   <p class="rvps34"><span class="rvts164"><br/></span></p>
-   <p class="rvps2"><span class="rvts172">import</span><span class="rvts173"> ...EnergyModel: DB</span></p>
-   <p class="rvps34"><span class="rvts165"><br/></span></p>
-   <p class="rvps34"><span class="rvts167">include</span><span class="rvts168">(</span><span class="rvts169">"NewPolicyFile1.jl"</span><span class="rvts168">)</span></p>
-   <p class="rvps34"><span class="rvts167">include</span><span class="rvts168">(</span><span class="rvts169">"NewPolicyFile2.jl"</span><span class="rvts168">)</span></p>
-   <p class="rvps34"><span class="rvts54">...</span></p>
-   <p class="rvps34"><span class="rvts54"><br/></span></p>
-   <p class="rvps34"><span class="rvts170">function</span><span class="rvts168"> </span><span class="rvts167">IncorporatePolicyTest</span><span class="rvts170">()</span></p>
-   <p class="rvps34"><span class="rvts168">&nbsp; </span><span class="rvts167">@info</span><span class="rvts168"> </span><span class="rvts169">"IncorporatePolicyTest - Policy Group Name"</span></p>
-   <p class="rvps34"><span class="rvts69"><br/></span></p>
-   <p class="rvps34"><span class="rvts69">&nbsp; NewPolicyModule1.</span><span class="rvts175">PolicyControl</span><span class="rvts174">(</span><span class="rvts69">DB</span><span class="rvts174">) # &lt;-- Add name of 1st policy's module&nbsp;</span></p>
-   <p class="rvps34"><span class="rvts69">&nbsp; NewPolicyModule2.</span><span class="rvts175">PolicyControl</span><span class="rvts174">(</span><span class="rvts69">DB</span><span class="rvts174">) # &lt;-- Add name of 2nd policy's module</span></p>
-   <p class="rvps34"><span class="rvts54">end</span></p>
-   <p class="rvps34"><span class="rvts54"><br/></span></p>
-   <p class="rvps34"><span class="rvts54">end</span></p>
-   <p class="rvps34"><span class="rvts54"><br/></span></p>
-  </td>
- </tr>
-</table>
-</div>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li style="text-indent: 0px" class="rvps83 noindent"><span class="rvts6">Save the batch file with a descriptive name for the policies being tested. For example, a collection of building standard policies could be named </span><span class="rvts34">‘BuildStdTest.jl’</span><span class="rvts6">. For the example here, we will name our file: &nbsp;</span><span class="rvts34">PolicyTest.jl.</span></li>
-</ol>
-<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Edit Batch File to Make Policy Run (RunE2100Runs.bat)</span></span></h3>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
- <li style="text-indent: 0px" class="rvps83 noindent"><span class="rvts6">Edit the batch file, </span><span class="rvts37">RunE2100Runs.bat</span><span class="rvts6">, used to call the desired scenario to include the newly created file as the third parameter. The default is ‘TestEmpty’, which tells the model that there are no additional files to test. Modifying this to ‘BuildStdTest’ will add the files from ‘BuildStdTest.jl’ on top of the existing scenario in the second parameter.</span></li>
-</ol>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li style="text-indent: 0px" class="rvps84 noindent"><span class="rvts6"><br/></span></li>
- </ol>
-</ol>
-<div class="rvps56">
-<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
- <tr style="vertical-align: top;">
-  <td style="padding: 6px 8px;">
-   <p class="rvps34"><span class="rvts166"><br/></span></p>
-   <p class="rvps34"><span class="rvts54"><br/></span></p>
-  </td>
- </tr>
-</table>
-</div>
-<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Execute Batch File (RunE2100Runs.bat)</span></span></h3>
-<p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
+<p class="rvps19"><span class="rvts6"></span><span class="rvts6"></span></p>
 
             </div>
             

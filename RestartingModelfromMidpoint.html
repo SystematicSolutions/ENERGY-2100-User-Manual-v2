@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="favicon.ico"/>
 
-  <title>MidRun Restart (AI Generated)</title>
+  <title>Restarting Model from Midpoint</title>
   <meta name="description" content="" /> 
   <meta name="keywords" content="">
 
@@ -22,11 +22,11 @@
 
   <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="MidRun Restart (AI Generated)">
+  <meta name="twitter:title" content="Restarting Model from Midpoint">
   <meta name="twitter:description" content="">
 
   <!-- Open Graph data -->
-  <meta property="og:title" content="MidRun Restart (AI Generated)" />
+  <meta property="og:title" content="Restarting Model from Midpoint" />
   <meta property="og:type" content="article" />
   <meta property="og:description" content="" />
   <meta property="og:site_name" content="ENERGY 2100 User Manual" /> 
@@ -1161,9 +1161,9 @@ details.hnd-blue-callout code {
 
     <article>
         <div id="topic-content" class="container-fluid" 
-		  data-hnd-id="MidRunRestartAIGenerated"
+		  data-hnd-id="RestartingModelfromMidpoint"
 		  data-hnd-context="232"
-		  data-hnd-title="MidRun Restart (AI Generated)"
+		  data-hnd-title="Restarting Model from Midpoint"
 		>
             
                 <div class="navigation">
@@ -1171,20 +1171,19 @@ details.hnd-blue-callout code {
                         <li><a href="ExecutingtheModel.html">Executing the Model</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="ExecutingtheModel.html" title="Executing the Model" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="ExecutingRunAllandRunModel.html" title="Executing RunAll and RunModel" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="RunningtheModelfromDifferentStar.html" title="Running the Model from Different Starting Points" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="ExecutingtheModel.html" title="Executing the Model" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="AddingandExecutingaPolicy.html" title="Adding and Executing a Policy" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="ModelOutputs.html" title="Model Outputs" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
 
             <a id="main-content"></a>
 
-            <h2>MidRun Restart (AI Generated)</h2>
+            <h2>Restarting Model from Midpoint</h2>
 
             <div class="main-content">
                 
-<h3 class="rvps10"><span class="rvts0"><span class="rvts19">1. Overview</span></span></h3>
-<p class="rvps2"><span class="rvts6">A complete model run is initiated by RunAll.bat (standard) or RunAll_Debug.bat (debug mode). Both scripts call RunModel.bat, which executes the full calibration pipeline before running scenarios. A complete run can take many hours.</span></p>
-<p class="rvps2"><span class="rvts6">To avoid restarting from scratch when work is needed downstream of a specific calibration stage, the model uses a checkpoint system. At key points in RunModel.bat, the database state is saved (via BreakPoint or SaveDatabase). To resume from any of these checkpoints, a copy of RunModel.bat is made, the database for that checkpoint is restored (UnZip), and the steps prior to that checkpoint are skipped.</span></p>
+<p class="rvps2"><span class="rvts6">To avoid restarting from scratch when work is needed downstream of a specific calibration stage, the model uses a </span><a class="rvts11" href="ExecutingaFullModelRun.html#Checkpoint">checkpoint</a><span class="rvts6"> system.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts6">At key points in </span><span class="rvts37">RunModel.bat</span><span class="rvts6">, the database state is saved (via BreakPoint or SaveDatabase). To resume from any of these checkpoints, a copy of RunModel.bat is made, the database for that checkpoint is restored (UnZip), and the steps prior to that checkpoint are skipped.</span></p>
 <div class="rvps26">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
@@ -1195,293 +1194,74 @@ details.hnd-blue-callout code {
    <p class="rvps2"><span class="rvts60">🛈</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 608px; height: 42px;">
-   <p class="rvps51"><span class="rvts143">Debug mode (RunAll_Debug.bat/RunModel Debug) saves additional intermediate checkpoints and produces Excel DTA output files at each stage, making it easier to inspect results at each step. Fast mode skips some of these saves.</span></p>
+   <p class="rvps51"><span class="rvts137">A mid-run restart bat file can itself be run in either Fast or Debug mode by passing the appropriate argument — the DebugFlag is respected throughout RunModel.bat.</span></p>
   </td>
  </tr>
 </table>
 </div>
-<h3 class="rvps10"><span class="rvts0"><span class="rvts19">2. Fast Mode vs. Debug Mode</span></span></h3>
-<p class="rvps18"><span class="rvts136">RunModel.bat accepts a single argument that controls how many checkpoints are saved and whether Excel DTA files are produced:</span></p>
-<p class="rvps76"><span class="rvts136"><br/></span></p>
-<div class="rvps77">
-<table width="100%" style="border-width: 0px; border-collapse: collapse;">
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #1f4e79; vertical-align: top; width: 133px;">
-   <p class="rvps2"><span class="rvts138">Mode</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #1f4e79; vertical-align: top; width: 175px;">
-   <p class="rvps2"><span class="rvts138">Launched via</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #1f4e79; vertical-align: top; width: 443px;">
-   <p class="rvps2"><span class="rvts138">Behavior</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 133px;">
-   <p class="rvps2"><span class="rvts144">Fast</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; vertical-align: top; width: 175px;">
-   <p class="rvps2"><span class="rvts56">RunAll.bat</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; vertical-align: top; width: 443px;">
-   <p class="rvps2"><span class="rvts56">Saves only the checkpoints marked Both in the checkpoint table below. No Excel DTA output at intermediate stages. Faster overall run time.</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 133px;">
-   <p class="rvps2"><span class="rvts144">Debug</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; vertical-align: top; width: 175px;">
-   <p class="rvps2"><span class="rvts56">RunAll_Debug.bat</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; vertical-align: top; width: 443px;">
-   <p class="rvps2"><span class="rvts56">Saves all checkpoints (Both and Debug-only). Produces Excel DTA files at each calibration stage. Slower, but provides full audit trail.</span></p>
-  </td>
- </tr>
-</table>
-</div>
-<p class="rvps76"><span class="rvts6"><br/></span></p>
-<div class="rvps26">
-<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
- <tr style="vertical-align: top;">
-  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #0080c0; vertical-align: top; width: 2px; height: 42px;">
-   <p class="rvps22"><span class="rvts31"><br/></span></p>
-  </td>
-  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 17px; height: 42px;">
-   <p class="rvps2"><span class="rvts60">🛈</span></p>
-  </td>
-  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 608px; height: 42px;">
-   <p class="rvps51"><span class="rvts143">A mid-run restart bat file can itself be run in either Fast or Debug mode by passing the appropriate argument — the DebugFlag is respected throughout RunModel.bat.</span></p>
-  </td>
- </tr>
-</table>
-</div>
-<p class="rvps2"><span class="rvts136"><br/></span></p>
-<h3 class="rvps10"><span class="rvts0"><span class="rvts19">3. Checkpoint Reference</span></span></h3>
-<p class="rvps2"><span class="rvts6">The table below lists all available checkpoints in the order they appear in RunModel.bat, which mode produces them, what stage they represent, and what follows.</span></p>
-<div class="rvps77">
-<table width="100%" style="border-width: 0px; border-collapse: collapse;">
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #1f4e79; vertical-align: top; width: 157px;">
-   <p class="rvps2"><span class="rvts138">Checkpoint</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #1f4e79; vertical-align: top; width: 96px;">
-   <p class="rvps2"><span class="rvts138">Available In</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #1f4e79; vertical-align: top; width: 195px;">
-   <p class="rvps2"><span class="rvts138">Database State When Saved</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #1f4e79; vertical-align: top; width: 292px;">
-   <p class="rvps2"><span class="rvts138">What Runs After This Point</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 157px;">
-   <p class="rvps2"><span class="rvts139">Process</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 96px;">
-   <p class="rvps2"><span class="rvts140">Both</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 195px;">
-   <p class="rvps2"><span class="rvts6">All process input data loaded into database</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 292px;">
-   <p class="rvps2"><span class="rvts6">RunModel (beginning) — economic drivers, maps, calibration</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 157px;">
-   <p class="rvps2"><span class="rvts139">Process2</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 96px;">
-   <p class="rvps2"><span class="rvts141">Debug</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 195px;">
-   <p class="rvps2"><span class="rvts6">After maps, economic drivers, and initial VB scripts</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 292px;">
-   <p class="rvps2"><span class="rvts6">OG switches, GHG/CAC setup, economic calibration</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 157px;">
-   <p class="rvps2"><span class="rvts139">Process3</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 96px;">
-   <p class="rvps2"><span class="rvts141">Debug</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 195px;">
-   <p class="rvps2"><span class="rvts6">After OG calibration, GHG/CAC coefficients applied</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 292px;">
-   <p class="rvps2"><span class="rvts6">Price calibration (SCalibRun / SCalibPricesRun)</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 157px;">
-   <p class="rvps2"><span class="rvts139">CalibPrice</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 96px;">
-   <p class="rvps2"><span class="rvts141">Debug</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 195px;">
-   <p class="rvps2"><span class="rvts6">After price calibration</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 292px;">
-   <p class="rvps2"><span class="rvts6">Biofuels, hydrogen, MEconomy calibration</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 157px;">
-   <p class="rvps2"><span class="rvts139">CalibMEconomy</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 96px;">
-   <p class="rvps2"><span class="rvts141">Debug</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 195px;">
-   <p class="rvps2"><span class="rvts6">After MEconomy calibration (MCalibRun)</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 292px;">
-   <p class="rvps2"><span class="rvts6">Demand totals, CCS, carbon taxes, residential calibration</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 157px;">
-   <p class="rvps2"><span class="rvts139">CalibRes</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 96px;">
-   <p class="rvps2"><span class="rvts141">Debug</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 195px;">
-   <p class="rvps2"><span class="rvts6">After residential sector calibration</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 292px;">
-   <p class="rvps2"><span class="rvts6">Commercial sector calibration</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 157px;">
-   <p class="rvps2"><span class="rvts139">CalibCom</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 96px;">
-   <p class="rvps2"><span class="rvts141">Debug</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 195px;">
-   <p class="rvps2"><span class="rvts6">After commercial sector calibration</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 292px;">
-   <p class="rvps2"><span class="rvts6">Industrial sector calibration</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 157px;">
-   <p class="rvps2"><span class="rvts139">CalibInd</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 96px;">
-   <p class="rvps2"><span class="rvts140">Both</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 195px;">
-   <p class="rvps2"><span class="rvts6">After industrial sector calibration</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 292px;">
-   <p class="rvps2"><span class="rvts6">Transportation sector calibration</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 157px;">
-   <p class="rvps2"><span class="rvts139">CalibTrans</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 96px;">
-   <p class="rvps2"><span class="rvts141">Debug</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 195px;">
-   <p class="rvps2"><span class="rvts6">After transportation sector calibration</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 292px;">
-   <p class="rvps2"><span class="rvts6">Load curves, post-supply run</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 157px;">
-   <p class="rvps2"><span class="rvts139">Calib</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 96px;">
-   <p class="rvps2"><span class="rvts140">Both</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 195px;">
-   <p class="rvps2"><span class="rvts6">After load curve and post-supply calibration</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 292px;">
-   <p class="rvps2"><span class="rvts6">Plant/unit characteristics, electric unit build-out</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 157px;">
-   <p class="rvps2"><span class="rvts139">Calib2</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 96px;">
-   <p class="rvps2"><span class="rvts140">Both</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 195px;">
-   <p class="rvps2"><span class="rvts6">After first full scenario run (1986–2024)</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 292px;">
-   <p class="rvps2"><span class="rvts6">Electric generation calibration (EGCalibRun), price endogenization</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 157px;">
-   <p class="rvps2"><span class="rvts139">Calib3</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 96px;">
-   <p class="rvps2"><span class="rvts140">Both</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 195px;">
-   <p class="rvps2"><span class="rvts6">After second full scenario run (1986–2050) with elec price calib</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 292px;">
-   <p class="rvps2"><span class="rvts6">GHG/CAC macro, refining, supply/demand balancing</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 157px;">
-   <p class="rvps2"><span class="rvts139">Calib4</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 96px;">
-   <p class="rvps2"><span class="rvts140">Both</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 195px;">
-   <p class="rvps2"><span class="rvts6">After third full scenario run (1986–2050) with full GHG/CAC</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ebf3fa; vertical-align: top; width: 292px;">
-   <p class="rvps2"><span class="rvts6">Final adjustments, SetAsPolicyCase, StartBase creation</span></p>
-  </td>
- </tr>
- <tr style="vertical-align: top;">
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 157px;">
-   <p class="rvps2"><span class="rvts139">StartBase</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 96px;">
-   <p class="rvps2"><span class="rvts140">Both</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 195px;">
-   <p class="rvps2"><span class="rvts6">Calibrated baseline database ready for scenario runs</span></p>
-  </td>
-  <td style="border-width : 1px; border-color: #cccccc; border-style: solid; padding: 0px; background-color: #ffffff; vertical-align: top; width: 292px;">
-   <p class="rvps2"><span class="rvts6">Base, OGRef, Ref25, DataCenters scenario runs</span></p>
-  </td>
- </tr>
-</table>
-</div>
-<p class="rvps76"><span class="rvts136"><br/></span></p>
-<h3 class="rvps10"><span class="rvts0"><span class="rvts19">4. Procedure: Restarting from a Checkpoint</span></span></h3>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Procedure: Restarting from a Checkpoint</span></span></h3>
+<p class="rvps2"><span class="rvts6">If you make a change to a Julia script file that is called from </span><span class="rvts37">RunModel.bat</span><span class="rvts6">, you can restart a run at the last checkpoint saved before the revised file is called.</span></p>
 <p class="rvps2"><span class="rvts6">Follow these steps to create a bat file that resumes the model run from a specific checkpoint.</span></p>
+<p class="rvps2"><span class="rvts18">Step 1 - Identify the checkpoint in RunModel.bat to restart.</span></p>
+<p class="rvps2"><span class="rvts6">If you made changes to any files called in RunModel.bat, identify where the file is called. Then move upwards in the file to locate the nearest "rem Call UnZip DB </span><span class="rvts58">SceName</span><span class="rvts6">".&nbsp;</span></p>
+<div class="rvps24">
+<table width="100%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps22"><span class="rvts31"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 23px; height: 58px;">
+   <p class="rvps37"><span class="rvts55">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 830px; height: 58px;">
+   <p class="rvps2"><span class="rvts83">Example</span></p>
+   <p class="rvps2"><span class="rvts83">Let's say you changed the file, </span><span class="rvts81">PlantCharacteristics_Storage.jl</span><span class="rvts56"> and want to run the model starting at the last saved checkpoint before that file is called:</span></p>
+   <p class="rvps2"><span class="rvts56">Locate where </span><span class="rvts81">PlantCharacteristics_Storage.jl</span><span class="rvts56"> is called in </span><span class="rvts81">RunModel.bat</span><span class="rvts56"> and identify the closest call to unzip a database (</span><span class="rvts81">rem Call Unzip DB</span><span class="rvts56">).</span></p>
+   <div class="rvps36">
+   <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+    <tr style="vertical-align: top;">
+     <td style="padding: 6px 8px;">
+      <p class="rvps72"><span class="rvts170">RunModel.bat</span></p>
+      <p class="rvps72"><span class="rvts170"><br/></span></p>
+      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> BreakPoint Calib&nbsp;</span></p>
+      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp;</span><span class="rvts165">If</span><span class="rvts105"> </span><span class="rvts106">Not</span><span class="rvts105"> </span><span class="rvts166">%DebugFlag%</span><span class="rvts106">==</span><span class="rvts105">Debug </span><span class="rvts165">GoTo</span><span class="rvts105"> EndCalib</span></p>
+      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> CreateDTAs Calib Calib Calib ExcelDTAs NoUnZip</span></p>
+      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp;:</span><span class="rvts163">EndCalib</span><span class="rvts105"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+      <p class="rvps72"><span class="rvts163">rem</span><span class="rvts164"> &nbsp;Call UnZip DB Calib &nbsp; </span><span class="rvts167">&lt;-- Closest "Unzip DB" before call to changed file</span></p>
+      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp;</span><span class="rvts163">Echo</span><span class="rvts105"> </span><span class="rvts166">%Date%</span><span class="rvts105"> ;</span><span class="rvts166">%Time%</span><span class="rvts105">; End Load Curve and Post Supply </span><span class="rvts166">%computername%</span><span class="rvts105"> </span><span class="rvts106">&gt;&gt;</span><span class="rvts105"> RunAll_Report.log</span></p>
+      <p class="rvps72"><span class="rvts105"><br/></span></p>
+      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp;cd..\Calibration &nbsp; &nbsp; &nbsp;&nbsp;</span></p>
+      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> RunJulia CogenMarketShareInitial.jl</span></p>
+      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> RunJulia PlantCharacteristics.jl</span></p>
+      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> RunJulia PlantCharacteristics_SMNR.jl &nbsp; &nbsp;&nbsp;</span></p>
+      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> RunJulia PlantCharacteristics_HydrogenCT.jl &nbsp; &nbsp;&nbsp;</span></p>
+      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> RunJulia PlantCharacteristics_SmallOGCC.jl</span></p>
+      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> RunJulia PlantCharacteristics_NGCCS.jl &nbsp;</span></p>
+      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> RunJulia PlantCharacteristics_BiomassCCS.jl</span></p>
+      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; </span><span class="rvts168">&nbsp;</span><span class="rvts169">Call</span><span class="rvts168"> RunJulia PlantCharacteristics_Storage.jl</span><span class="rvts164"> &nbsp; </span><span class="rvts167">&lt;-- Changed file</span></p>
+      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> RunJulia OGCCFractions.jl</span></p>
+      <p class="rvps72"><span class="rvts105">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts165">Call</span><span class="rvts105"> RunJulia ConstructionDelay2.jl &nbsp; &nbsp;</span></p>
+      <p class="rvps2"><span class="rvts105"><br/></span></p>
+     </td>
+    </tr>
+    <tr style="vertical-align: top;">
+     <td style="padding: 6px 8px;">
+      <p class="rvps72"><span class="rvts105"><br/></span></p>
+     </td>
+    </tr>
+   </table>
+   </div>
+   <p class="rvps2"><span class="rvts83">In this example, "</span><span class="rvts163">rem</span><span class="rvts164"> &nbsp;Call UnZip DB Calib</span><span class="rvts56">" is the previous checkpoint saved before a call is made to </span><span class="rvts37">PlantCharacteristics_Storage.jl</span><span class="rvts56">.</span><span class="rvts83">&nbsp;</span></p>
+  </td>
+ </tr>
+</table>
+</div>
 <p class="rvps2"><span class="rvts18">Step 1 — Verify the checkpoint database exists</span></p>
 <p class="rvps2"><span class="rvts6">Before creating a restart script, confirm that the checkpoint database was actually saved by a previous run. Checkpoint databases are stored as zip archives in the 2020Model directory. The file naming convention follows:</span></p>
-<p class="rvps78"><span class="rvts142">database_&lt;CheckpointName&gt;.zip</span></p>
-<p class="rvps2"><span class="rvts6">For example, for the Calib4 checkpoint:</span></p>
-<p class="rvps78"><span class="rvts142">database_Calib4.zip</span></p>
-<p class="rvps76"><span class="rvts6"><br/></span></p>
+<p class="rvps84"><span class="rvts162">database_&lt;CheckpointName&gt;.zip</span></p>
+<p class="rvps2"><span class="rvts6">For example, for the </span><span class="rvts37">Calib</span><span class="rvts6"> checkpoint:</span></p>
+<p class="rvps84"><span class="rvts162">database_Calib.zip</span></p>
+<p class="rvps75"><span class="rvts6"><br/></span></p>
 <div class="rvps24">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
@@ -1492,24 +1272,41 @@ details.hnd-blue-callout code {
    <p class="rvps2"><span class="rvts60">🛈</span></p>
   </td>
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 608px; height: 42px;">
-   <p class="rvps51"><span class="rvts137">If the checkpoint zip does not exist, you must run up to that point first. Use RunAll_Debug.bat to produce Debug-only checkpoints such as Process2, CalibPrice, CalibRes, etc.</span></p>
+   <p class="rvps51"><span class="rvts161">If the checkpoint zip does not exist, you must run up to that point first. Use RunAll_Debug.bat to produce Debug-only checkpoints such as Process2, CalibPrice, CalibRes, etc.</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps24"><span class="rvts142"><br/></span></p>
+<p class="rvps24"><span class="rvts162"><br/></span></p>
 <p class="rvps2"><span class="rvts18">Step 2 — Copy RunModel.bat</span></p>
 <p class="rvps2"><span class="rvts6">Create a copy of RunModel.bat with a descriptive name, for example:</span></p>
-<p class="rvps78"><span class="rvts142">RunFrom_Calib4.bat</span></p>
+<p class="rvps84"><span class="rvts162">RunFrom_Calib.bat</span></p>
 <p class="rvps2"><span class="rvts6">Do not edit the original RunModel.bat. The copy is your working file.</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts18">Step 3 — Uncomment the UnZip line for your checkpoint</span></p>
-<p class="rvps2"><span class="rvts6">Inside RunModel.bat, each checkpoint has a commented-out UnZip line near the BreakPoint call. Find the commented line for your target checkpoint and remove the rem prefix. For example, for Calib4, find:</span></p>
-<p class="rvps78"><span class="rvts142">rem &nbsp;Call UnZip DB Calib4</span></p>
+<p class="rvps2"><span class="rvts6">Inside RunModel.bat, each checkpoint has a commented-out UnZip line near the BreakPoint call. Find the commented line for your target checkpoint and remove the rem prefix. For example, for Calib, find:</span></p>
+<div class="rvps46">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps34"><span class="rvts171">rem &nbsp;Call UnZip DB Calib</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps84"><span class="rvts162"><br/></span></p>
 <p class="rvps2"><span class="rvts6">and change it to:</span></p>
-<p class="rvps78"><span class="rvts142">Call UnZip DB Calib4</span></p>
-<p class="rvps78"><span class="rvts142"><br/></span></p>
-<div class="rvps24">
+<div class="rvps46">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps34"><span class="rvts171">Call UnZip DB Calib</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps84"><span class="rvts162"><br/></span></p>
+<div class="rvps26">
 <table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
  <tr style="vertical-align: top;">
   <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #0080c0; vertical-align: top; width: 2px; height: 42px;">
@@ -1524,76 +1321,34 @@ details.hnd-blue-callout code {
  </tr>
 </table>
 </div>
-<p class="rvps76"><span class="rvts136"><br/></span></p>
-<p class="rvps2"><span class="rvts18">Step 4 — Comment out all steps before the checkpoint</span></p>
-<p class="rvps2"><span class="rvts6">Add rem to the beginning of every line that executes before your checkpoint. The goal is to skip all the work that was already completed and saved into the checkpoint database.</span></p>
-<p class="rvps2"><span class="rvts6">The cleanest approach is to add a GoTo label immediately after the UnZip call and place the matching label just before the code that should run. For example:</span></p>
-<p class="rvps76"><span class="rvts136"><br/></span></p>
-<p class="rvps78"><span class="rvts142">rem &nbsp;---- Added for restart from Calib4 ----</span></p>
-<p class="rvps78"><span class="rvts142">&nbsp; Call UnZip DB Calib4</span></p>
-<p class="rvps78"><span class="rvts142">&nbsp; GoTo :StartFromCalib4</span></p>
-<p class="rvps76"><span class="rvts136"><br/></span></p>
-<p class="rvps78"><span class="rvts142">&nbsp; rem ... (all of the original Calib4-and-earlier code here, now skipped)</span></p>
-<p class="rvps76"><span class="rvts136"><br/></span></p>
-<p class="rvps78"><span class="rvts142">:StartFromCalib4</span></p>
-<p class="rvps78"><span class="rvts142">&nbsp; cd..\Calibration</span></p>
-<p class="rvps78"><span class="rvts142">&nbsp; &nbsp; Call RunJulia Ind_MS_Biomass_Exo.jl</span></p>
-<p class="rvps78"><span class="rvts142">&nbsp; &nbsp; ...</span></p>
-<p class="rvps78"><span class="rvts142"><br/></span></p>
-<div class="rvps24">
-<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+<p class="rvps75"><span class="rvts135"><br/></span></p>
+<p class="rvps2"><span class="rvts18">Step 4 — Delete all lines before unzipping the checkpoint database</span></p>
+<p class="rvps2"><span class="rvts6">Delete (or comment out) every line that executes before your checkpoint. The goal is to skip all the work that was already completed and saved into the checkpoint database.</span></p>
+<p class="rvps24"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts18">Step 5 — Run the new bat file</span></p>
+<p class="rvps2"><span class="rvts6">Run your new bat file (in this example the batch file is: </span><span class="rvts37">RunFrom_Calib4.bat</span><span class="rvts6">) from the 2020Model directory, passing the desired mode flag.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts6">Make the call to your new batch file either 1) directly from the </span><span class="rvts18">terminal</span><span class="rvts6"> or 2) from a </span><span class="rvts18">second batch file</span><span class="rvts6"> that makes the following call:</span></p>
+<div class="rvps46">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
-  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #0080c0; vertical-align: top; width: 2px; height: 42px;">
-   <p class="rvps22"><span class="rvts31"><br/></span></p>
-  </td>
-  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 17px; height: 42px;">
-   <p class="rvps2"><span class="rvts60">🛈</span></p>
-  </td>
-  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #e9f1ff; vertical-align: top; width: 608px; height: 42px;">
-   <p class="rvps51"><span class="rvts137">Alternatively, you can comment out the preceding lines individually with rem. The GoTo approach is less error-prone for large sections of code.</span></p>
+  <td style="padding: 6px 8px;">
+   <p class="rvps34"><span class="rvts171">Call RunFrom_Calib4 Fast</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps24"><span class="rvts142"><br/></span></p>
-<p class="rvps2"><span class="rvts18">Step 5 — Confirm the Policy files</span></p>
-<p class="rvps2"><span class="rvts6">The restart script does not re-run the Policy initialization at the top of RunAll. If you are restarting for a baseline/reference run, confirm that the correct Policy.jl, PolicyMarketShare.jl, and PolicyTest.jl files are in place in the Policy directory before running. If needed, copy the empty policy files manually:</span></p>
-<p class="rvps78"><span class="rvts142">Copy PolicyEmpty.jl &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Policy.jl</span></p>
-<p class="rvps78"><span class="rvts142">Copy PolicyMarketShareEmpty.jl PolicyMarketShare.jl</span></p>
-<p class="rvps78"><span class="rvts142">Copy PolicyTestEmpty.jl &nbsp; &nbsp; &nbsp; &nbsp;PolicyTest.jl</span></p>
-<p class="rvps76"><span class="rvts136"><br/></span></p>
-<p class="rvps2"><span class="rvts18">Step 6 — Run the new bat file</span></p>
-<p class="rvps2"><span class="rvts6">Run your new bat file from the 2020Model directory, passing the desired mode flag:</span></p>
-<p class="rvps78"><span class="rvts142">Call RunFrom_Calib4 Fast</span></p>
 <p class="rvps2"><span class="rvts6">or for debug mode with intermediate outputs:</span></p>
-<p class="rvps78"><span class="rvts142">Call RunFrom_Calib4 Debug</span></p>
-<p class="rvps76"><span class="rvts136"><br/></span></p>
-<h3 class="rvps10"><span class="rvts0"><span class="rvts19">5. Example: Restarting from Calib4</span></span></h3>
-<p class="rvps2"><span class="rvts6">This example shows the exact edits needed to restart from the Calib4 checkpoint in RunModel.bat.</span></p>
-<p class="rvps76"><span class="rvts136"><br/></span></p>
-<p class="rvps2"><span class="rvts18">What Calib4 represents</span></p>
-<p class="rvps2"><span class="rvts6">Calib4 is saved after the third full scenario run (1986–2050) which incorporates complete GHG and CAC calibration. Restarting from Calib4 lets you re-run the final adjustments (SetAsPolicyCase, economic driver restoration, MCalibRun) and all scenario runs (Base, OGRef, Ref25, DataCenters) without repeating the lengthy calibration pipeline.</span></p>
-<p class="rvps76"><span class="rvts136"><br/></span></p>
-<p class="rvps2"><span class="rvts18">Edit 1 — Uncomment the UnZip call</span></p>
-<p class="rvps2"><span class="rvts6">Locate this block in your copy of RunModel.bat (near the end of the Calib4 section):</span></p>
-<p class="rvps78"><span class="rvts142">rem &nbsp;Call UnZip DB Calib4</span></p>
-<p class="rvps2"><span class="rvts6">Change to:</span></p>
-<p class="rvps78"><span class="rvts142">Call UnZip DB Calib4</span></p>
-<p class="rvps76"><span class="rvts136"><br/></span></p>
-<p class="rvps2"><span class="rvts18">Edit 2 — Skip preceding steps with GoTo</span></p>
-<p class="rvps2"><span class="rvts6">Immediately after the UnZip line, add:</span></p>
-<p class="rvps78"><span class="rvts142">GoTo :StartFromCalib4</span></p>
-<p class="rvps2"><span class="rvts6">Then scroll down to the Calibration block that immediately follows the :EndCalib4 label, and add the matching label just before it:</span></p>
-<p class="rvps78"><span class="rvts142">:StartFromCalib4</span></p>
-<p class="rvps78"><span class="rvts142">&nbsp; &nbsp; &nbsp;cd..\Calibration</span></p>
-<p class="rvps78"><span class="rvts142">&nbsp; &nbsp; &nbsp; &nbsp;Call RunJulia Ind_MS_Biomass_Exo.jl</span></p>
-<p class="rvps78"><span class="rvts142">&nbsp; &nbsp; &nbsp; &nbsp;...</span></p>
-<p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts18">Edit 3 — Save and run</span></p>
-<p class="rvps2"><span class="rvts6">Save the file as RunFrom_Calib4.bat and run from the 2020Model directory:</span></p>
-<p class="rvps78"><span class="rvts142">RunFrom_Calib4 Fast</span></p>
-<p class="rvps76"><span class="rvts136"><br/></span></p>
-<h3 class="rvps10"><span class="rvts0"><span class="rvts19">6. Notes and Cautions</span></span></h3>
+<div class="rvps46">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps34"><span class="rvts171">Call RunFrom_Calib4 Debug</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps84"><span class="rvts6"><br/></span></p>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Notes and Cautions</span></span></h3>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
  <li class="rvps6 noindent"><span class="rvts27">Debug-only checkpoints</span><span class="rvts14"> — Checkpoints marked Debug in the table above are only saved when RunAll_Debug.bat (or RunModel Debug) was used for the original run. If you ran in Fast mode, these intermediate databases will not exist.</span></li>
  <li class="rvps6 noindent"><span class="rvts27">Never modify the original RunModel.bat</span><span class="rvts14"> — Always work from a named copy. This ensures the full pipeline bat files (RunAll, RunAll_Debug) continue to function correctly.</span></li>
@@ -1601,7 +1356,7 @@ details.hnd-blue-callout code {
  <li class="rvps6 noindent"><span class="rvts27">StartBase is not a BreakPoint checkpoint</span><span class="rvts14"> — StartBase is created via Call Zip Results rather than the BreakPoint mechanism and is stored as StartBase\database. To restart from StartBase (re-running only the scenario runs), reference StartBase\database directly rather than using an UnZip DB call.</span></li>
  <li class="rvps6 noindent"><span class="rvts27">CalibInd and Calib are always saved in both modes</span><span class="rvts14"> — The BreakPoint calls for CalibInd and Calib are not conditional on the DebugFlag, so these checkpoints are always available regardless of whether the original run used Fast or Debug mode.</span></li>
 </ul>
-<p class="rvps76"><span class="rvts136"></span><span class="rvts6"></span></p>
+<p class="rvps75"><span class="rvts135"></span><span class="rvts6"></span></p>
 
             </div>
             

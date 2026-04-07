@@ -1182,9 +1182,9 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<h3 class="rvps10"><span class="rvts0"><span class="rvts210">Overview</span></span></h3>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts172">Overview</span></span></h3>
 <p class="rvps2"><span class="rvts6">When the model is executed, a set of </span><a class="rvts11" href="Excel-FormatandAccess-FormatOutp.html">Excel-format and Access-format output .dta files</a><span class="rvts6"> are generated automatically for each scenario. These output .dta files are created by Julia script files stored and categorized under the </span><span class="rvts37">\Output</span><span class="rvts6"> folder.</span></p>
-<h3 class="rvps10"><span class="rvts0"><span class="rvts210">Storage Location for Output Script Files</span></span></h3>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts172">Storage Location for Output Script Files</span></span></h3>
 <p class="rvps2"><span class="rvts6">The output script files that are executed during model runs are stored in either </span><span class="rvts37">\Output\ExcelOutput</span><span class="rvts6"> or in a </span><span class="rvts37">\Output\AccessOutput\Subfolder</span><span class="rvts6">. A third storage location is used for storing output script files to be executed without running the model: </span><span class="rvts37">\Output\TestOutput</span><span class="rvts6">.</span></p>
 <div class="rvps5">
 <table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
@@ -1198,7 +1198,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 285px;">
-   <p class="rvps129"><span class="rvts211">\Output\ExcelOutput</span></p>
+   <p class="rvps85"><span class="rvts173">\Output\ExcelOutput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 409px;">
    <p class="rvps2"><span class="rvts56">Controls list of Excel-format output files that will be generated, when passing an "ExcelDTAs" or "All" argument.</span></p>
@@ -1206,7 +1206,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 285px;">
-   <p class="rvps129"><span class="rvts211">\Output\AccessOutput\Subfolder</span></p>
+   <p class="rvps85"><span class="rvts173">\Output\AccessOutput\Subfolder</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 409px;">
    <p class="rvps2"><span class="rvts56">Controls list of Access-format output files that will be generated, given an "AccessDTAs" or "All" argument.</span></p>
@@ -1214,7 +1214,7 @@ details.hnd-blue-callout code {
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; vertical-align: middle; width: 285px;">
-   <p class="rvps129"><span class="rvts211">&nbsp;\Output\TestOutput</span></p>
+   <p class="rvps85"><span class="rvts173">&nbsp;\Output\TestOutput</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 409px;">
    <p class="rvps2"><span class="rvts56">Controls list of "Test" output files that will be generated, given an "Test" argument.</span></p>
@@ -1238,7 +1238,7 @@ details.hnd-blue-callout code {
 </table>
 </div>
 <p class="rvps26"><span class="rvts6"><br/></span></p>
-<h3 class="rvps10"><span class="rvts0"><span class="rvts210">Control File for Generating Outputs</span></span></h3>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts172">Control File for Generating Outputs</span></span></h3>
 <p class="rvps2"><span class="rvts6">Two text files in the </span><span class="rvts37">\Output</span><span class="rvts6"> folder control which of the output script files get executed during model execution: &nbsp;</span><span class="rvts37">\Output\ExcelOutput.txt</span><span class="rvts6"> and </span><span class="rvts37">\Output\AccessOutput.txt</span><span class="rvts6">.&nbsp;</span></p>
 <div class="rvps5">
 <table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
@@ -1277,18 +1277,18 @@ details.hnd-blue-callout code {
 </table>
 </div>
 <p class="rvps2"><span class="rvts37"><br/></span></p>
-<h3 class="rvps10"><span class="rvts0"><span class="rvts210">Generating Outputs without Running the Model</span></span></h3>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts172">Generating Outputs without Running the Model</span></span></h3>
 <p class="rvps2"><span class="rvts6">The batch file, </span><span class="rvts37">\2020Model\CreateAllOutputFiles.bat</span><span class="rvts6"> can be used to generate output files for a user-specified scenario without running the model. This batch file consists of a call to another batch file, </span><span class="rvts37">CreateOutputFiles.bat</span><span class="rvts6">, which accepts user-specified argments as shown below:</span></p>
-<p class="rvps8"><span class="rvts183">CreateAllOutputFiles.bat</span></p>
-<p class="rvps8"><span class="rvts183"><div class="html-code-box indent-1">
+<p class="rvps8"><span class="rvts174">CreateAllOutputFiles.bat</span></p>
+<p class="rvps8"><span class="rvts174"><div class="html-code-box indent-1">
 <pre><code>Call CreateOutputFiles ScenarioName BaseCaseName zInitialScenario TypeOfOutputFiles</code></pre>
 </div></span></p>
-<p class="rvps5"><span class="rvts136">where:</span></p>
+<p class="rvps5"><span class="rvts135">where:</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
- <li class="rvps2 noindent"><span class="rvts136">ScenarioName = name of scenario to generate outputs;</span></li>
- <li class="rvps2 noindent"><span class="rvts136">BaseCaseName = name of scenario used to calculate differences in some of the output files;</span></li>
- <li class="rvps2 noindent"><span class="rvts136">zInitialScenario = name of scenario used for the zInitial column in the Access outputs. This scenario is often the same as the BaseCaseName;</span></li>
- <li class="rvps2 noindent"><span class="rvts136">TypeOfOutputFiles = indicates which type of output files to create (</span><span class="rvts37">ExcelDTAs</span><span class="rvts136">, </span><span class="rvts37">AccessDTAs</span><span class="rvts136">, </span><span class="rvts37">All</span><span class="rvts136">, or </span><span class="rvts37">Test</span><span class="rvts136">).</span></li>
+ <li class="rvps2 noindent"><span class="rvts135">ScenarioName = name of scenario to generate outputs;</span></li>
+ <li class="rvps2 noindent"><span class="rvts135">BaseCaseName = name of scenario used to calculate differences in some of the output files;</span></li>
+ <li class="rvps2 noindent"><span class="rvts135">zInitialScenario = name of scenario used for the zInitial column in the Access outputs. This scenario is often the same as the BaseCaseName;</span></li>
+ <li class="rvps2 noindent"><span class="rvts135">TypeOfOutputFiles = indicates which type of output files to create (</span><span class="rvts37">ExcelDTAs</span><span class="rvts135">, </span><span class="rvts37">AccessDTAs</span><span class="rvts135">, </span><span class="rvts37">All</span><span class="rvts135">, or </span><span class="rvts37">Test</span><span class="rvts135">).</span></li>
 </ul>
 <div class="rvps24">
 <table width="100%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">

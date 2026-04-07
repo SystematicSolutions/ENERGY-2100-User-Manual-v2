@@ -1168,7 +1168,7 @@ details.hnd-blue-callout code {
             
                 <div class="navigation">
                     <ol class="breadcrumb">
-                        <li><a href="PolicyAnalysis.html">Policy Analysis</a></li><li><a href="DemandSectorPolicies.html">Demand Sector Policies</a></li><li><a href="MarketShareFuelChoicePolicies.html">Market Share/Fuel Choice Policies</a></li><li><a href="DevelopingMarketShareFuelChoiceP.html">Developing Market Share/Fuel Choice Policies</a></li>
+                        <li><a href="PolicyAnalysis.html">Policy Analysis</a></li><li><a href="DevelopingPolicies.html">Developing Policies</a></li><li><a href="DemandSectorPolicies.html">Demand Sector Policies</a></li><li><a href="MarketShareFuelChoicePolicies.html">Market Share/Fuel Choice Policies</a></li><li><a href="DevelopingMarketShareFuelChoiceP.html">Developing Market Share/Fuel Choice Policies</a></li>
                     </ol>
                     <div class="nav-arrows">
                         <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="DevelopingMarketShareFuelChoiceP.html" title="Developing Market Share/Fuel Choice Policies" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="DevelopingMarketShareFuelChoiceP.html" title="Developing Market Share/Fuel Choice Policies" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="FuelSwitchingforFeedstockEnergy.html" title="Fuel Switching for Feedstock Energy" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
@@ -1182,15 +1182,15 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<h3 class="rvps183"><span class="rvts0"><span class="rvts287">Fuel Switching Policies</span></span></h3>
+<h3 class="rvps147"><span class="rvts0"><span class="rvts258">Fuel Switching Policies</span></span></h3>
 <p class="rvps2"><span class="rvts6">New energy stock requirements are created each year to satisfy economic driver growth, to replace retiring stock, or other factors. Details about the stocks and flows portion of the demand modules is located in the Volume 2 Demand Sector Structure Overview documentation. The market share determines which technology is selected when adding new energy stock for a given modeled year.</span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts6">Initial market share values in the forecast are output from the model calibration and projected using the selected statistical method. The xMMSF variable can be directly given a different value in a policy file and the model will re-calibrate market shares and re-project the forecasted value to match the new value given market share inputs from a base case. This means that the model aligns parameters to attempt to reproduce the new market share value, but leaves the actual market share endogenous and responsive to other changes in the policy (such as fuel prices, efficiencies, etc). Optionally, a policy file can set a market share to be fully exogenous to reproduce the exact input value regardless of another forecast changes.</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
- <li style="text-indent: 0px" class="rvps182 noindent"><span class="rvts14">Examples: &nbsp;Trans_MS_HDV_Electric_BC.jl, Ind_MS_Biomass_Exo.jl</span></li>
- <li style="text-indent: 0px" class="rvps182 noindent"><span class="rvts14">Market Share Fraction (</span><span class="rvts27">xMMSF</span><span class="rvts14">)</span></li>
- <li style="text-indent: 0px" class="rvps182 noindent"><span class="rvts14">Exogenous switch (</span><span class="rvts27">MMSFSwitch</span><span class="rvts14">) – Indicates whether market share is endogenous or exogenous (1=Endogenous, 0=Exogenous)</span></li>
- <li style="text-indent: 0px" class="rvps182 noindent"><span class="rvts14">Exogenous Market Share (</span><span class="rvts27">MMSFExogenous</span><span class="rvts14">) - For exogenous policies only</span></li>
+ <li style="text-indent: 0px" class="rvps146 noindent"><span class="rvts14">Examples: &nbsp;Trans_MS_HDV_Electric_BC.jl, Ind_MS_Biomass_Exo.jl</span></li>
+ <li style="text-indent: 0px" class="rvps146 noindent"><span class="rvts14">Market Share Fraction (</span><span class="rvts27">xMMSF</span><span class="rvts14">)</span></li>
+ <li style="text-indent: 0px" class="rvps146 noindent"><span class="rvts14">Exogenous switch (</span><span class="rvts27">MMSFSwitch</span><span class="rvts14">) – Indicates whether market share is endogenous or exogenous (1=Endogenous, 0=Exogenous)</span></li>
+ <li style="text-indent: 0px" class="rvps146 noindent"><span class="rvts14">Exogenous Market Share (</span><span class="rvts27">MMSFExogenous</span><span class="rvts14">) - For exogenous policies only</span></li>
 </ul>
 <p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
 

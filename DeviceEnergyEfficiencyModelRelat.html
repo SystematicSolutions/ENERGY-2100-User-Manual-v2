@@ -1168,7 +1168,7 @@ details.hnd-blue-callout code {
             
                 <div class="navigation">
                     <ol class="breadcrumb">
-                        <li><a href="PolicyAnalysis.html">Policy Analysis</a></li><li><a href="DemandSectorPolicies.html">Demand Sector Policies</a></li><li><a href="EnergyEfficiencyPolicies.html">Energy Efficiency Policies</a></li><li><a href="MethodologyandModelRelationships.html">Methodology and Model Relationships</a></li>
+                        <li><a href="PolicyAnalysis.html">Policy Analysis</a></li><li><a href="DevelopingPolicies.html">Developing Policies</a></li><li><a href="DemandSectorPolicies.html">Demand Sector Policies</a></li><li><a href="EnergyEfficiencyPolicies.html">Energy Efficiency Policies</a></li><li><a href="MethodologyandModelRelationships.html">Methodology and Model Relationships</a></li>
                     </ol>
                     <div class="nav-arrows">
                         <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="MethodologyandModelRelationships.html" title="Methodology and Model Relationships" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="ProcessEnergyEfficiencyModelRela.html" title="Process Energy Efficiency Model Relationships" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="DevelopingEnergyEfficiencyPolici.html" title="Developing Energy Efficiency Policies" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
@@ -1186,67 +1186,67 @@ details.hnd-blue-callout code {
 <p class="rvps15"><span class="rvts6">Establishing appliance/equipment efficiency standards and promoting appliance/equipment energy efficiency programs are examples of device energy efficiency policies. Equipment standards establish minimum device energy efficiencies for residential appliances, commercial and industrial equipment, and transportation vehicles. Each type of appliance, such as furnaces, could have a different efficiency standard for each fuel type. Policies that simulate energy efficiency programs are designed to encourage consumers to reduce energy consumption, such as programs to promote purchasing energy efficient light bulbs.&nbsp;</span></p>
 <p class="rvps15"><span class="rvts6">The principles of increasing device efficiency mimic those of increasing process efficiency. </span><a class="rvts24" href="ENERGY2100UserManual.html#_Ref480396751">Figure 7</a><span class="rvts6"> illustrates the variables that are used to calculate device energy efficiency. The device efficiency of a specific enduse and fuel is determined using a device efficiency fuel trade-off curve. The coefficient that defines the trade-off curve, DFTC, is developed during model initialization and held constant through the model run. Marginal device efficiency (DEE) is determined by the relative energy price (ECFP, DFPN) and the device efficiency curve parameters (DEM, DFTC). The device efficiency multiplier (DEMM), the domestic grant fraction (DGF) and the device price multiplier (DEPM) are policy variables. The ultimate device energy efficiency (DEE) is assigned the maximum of the calculated device efficiency and any device efficiency standards (either existing or policy-related).</span></p>
 <p class="rvps16"><span class="rvts18">Other Factors to Consider</span></p>
-<p class="rvps174"><span class="rvts6">Other factors to consider when simulating policies that modify device energy efficiency are: 1) capital cost of the new energy efficient devices, and 2) lifetime of the new energy efficiency devices. The model equations related to device capital cost are described below. Modifying the device lifetime will impact the rate of retirements and new additions of device energy. Model equations related to device lifetime are described in </span><span class="rvts58">Section </span><a class="rvts276" href="ENERGY2100UserManual.html#_Ref484173530">3.6</a><span class="rvts6"> related to policies impacting stock levels.</span></p>
-<p class="rvps174"><span class="rvts6">Device energy capital costs are calculated based on the level of device efficiency using a device capital trade off curve coefficient (DCTC), developed during model initialization and held constant through the model run, combined with cost and efficiency multipliers and subject to a maximum efficiency. </span><a class="rvts24" href="ENERGY2100UserManual.html#_Ref480398107">Figure 8</a><span class="rvts6"> identifies the inputs to the device capital cost equation.&nbsp;</span></p>
-<p class="rvps176"><span class="rvts278">Device Energy Capital Costs &nbsp;</span><span class="rvts279">When simulating a device energy efficiency policy, the resulting capital costs should be examined. With an increase in energy efficiency, the capital costs increase based on a curve developed from historical relationships calculated during model initialization. As part of the policy simulation, you may want to adjust the capital cost curve up or down to reflect current thinking as to the relationship of cost and efficiency levels.</span></p>
-<p class="rvps177"><span class="rvts280">Device Capital Costs Inputs</span></p>
-<p class="rvps174"><img alt="" style="width : 549px; height : 269px; padding : 1px;" src="lib/NewItem%2091.png"></p>
+<p class="rvps136"><span class="rvts6">Other factors to consider when simulating policies that modify device energy efficiency are: 1) capital cost of the new energy efficient devices, and 2) lifetime of the new energy efficiency devices. The model equations related to device capital cost are described below. Modifying the device lifetime will impact the rate of retirements and new additions of device energy. Model equations related to device lifetime are described in </span><span class="rvts58">Section </span><a class="rvts246" href="ENERGY2100UserManual.html#_Ref484173530">3.6</a><span class="rvts6"> related to policies impacting stock levels.</span></p>
+<p class="rvps136"><span class="rvts6">Device energy capital costs are calculated based on the level of device efficiency using a device capital trade off curve coefficient (DCTC), developed during model initialization and held constant through the model run, combined with cost and efficiency multipliers and subject to a maximum efficiency. </span><a class="rvts24" href="ENERGY2100UserManual.html#_Ref480398107">Figure 8</a><span class="rvts6"> identifies the inputs to the device capital cost equation.&nbsp;</span></p>
+<p class="rvps138"><span class="rvts248">Device Energy Capital Costs &nbsp;</span><span class="rvts249">When simulating a device energy efficiency policy, the resulting capital costs should be examined. With an increase in energy efficiency, the capital costs increase based on a curve developed from historical relationships calculated during model initialization. As part of the policy simulation, you may want to adjust the capital cost curve up or down to reflect current thinking as to the relationship of cost and efficiency levels.</span></p>
+<p class="rvps139"><span class="rvts250">Device Capital Costs Inputs</span></p>
+<p class="rvps136"><img alt="" style="width : 549px; height : 269px; padding : 1px;" src="lib/NewItem%2091.png"></p>
 <div class="rvps2">
 <table width="90%" style="border-width: 0px; background-color: #ffffff; border-spacing: 0px;">
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: rgba(76,162,11,0.5); width: 7px;">
-   <p class="rvps66"><span class="rvts192"><br/></span></p>
+   <p class="rvps66"><span class="rvts241"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #ccffcc; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; background-color: #f1fff1; vertical-align: top; width: 29px;">
    <p class="rvps28"><span class="rvts116">🛈</span></p>
   </td>
   <td style="border-width : 1px; border-color: #008000; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #f1fff1; vertical-align: top; width: 722px;">
-   <p class="rvps28"><span class="rvts272">Note:</span><span class="rvts271"> &nbsp;Several methods are available to calculate </span><span class="rvts272">device efficiency</span><span class="rvts271">. The specific method used is determined based on a switch (</span><a class="rvts11" href="PEESw.html">DEESw</a><span class="rvts271">).</span></p>
+   <p class="rvps28"><span class="rvts242">Note:</span><span class="rvts240"> &nbsp;Several methods are available to calculate </span><span class="rvts242">device efficiency</span><span class="rvts240">. The specific method used is determined based on a switch (</span><a class="rvts11" href="PEESw.html">DEESw</a><span class="rvts240">).</span></p>
   </td>
  </tr>
 </table>
 </div>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps174"><span class="rvts24">The table below</span><span class="rvts6"> lists the policy variables commonly used to simulate appliance/equipment efficiency standards and appliance energy efficiency programs. These policy variables can be applied to any of the residential, commercial, industrial, or transportation sectors.</span></p>
-<p class="rvps174"><span class="rvts18">Policy Variables for Device Efficiency Policies</span></p>
+<p class="rvps136"><span class="rvts24">The table below</span><span class="rvts6"> lists the policy variables commonly used to simulate appliance/equipment efficiency standards and appliance energy efficiency programs. These policy variables can be applied to any of the residential, commercial, industrial, or transportation sectors.</span></p>
+<p class="rvps136"><span class="rvts18">Policy Variables for Device Efficiency Policies</span></p>
 <div class="rvps26">
 <table style="border-width: 0px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
   <td colspan="2" style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; background-color: #0070c0; vertical-align: middle; width: 608px; height: 28px;">
-   <p class="rvps2"><span class="rvts162">Device Energy Efficiency Policy Variables</span></p>
+   <p class="rvps2"><span class="rvts143">Device Energy Efficiency Policy Variables</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; background-color: #0070c0; vertical-align: middle; width: 189px; height: 28px;">
-   <p class="rvps2"><span class="rvts162">Variable Name</span></p>
+   <p class="rvps2"><span class="rvts143">Variable Name</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; background-color: #0070c0; vertical-align: middle; width: 405px; height: 28px;">
-   <p class="rvps2"><span class="rvts162">Description</span></p>
+   <p class="rvps2"><span class="rvts143">Description</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 189px;">
-   <p class="rvps2"><span class="rvts136">DEStdP</span><span class="rvts277">(Enduse,Tech,EC,Area,Year)</span></p>
-   <p class="rvps15"><span class="rvts136"><br/></span></p>
+   <p class="rvps2"><span class="rvts135">DEStdP</span><span class="rvts247">(Enduse,Tech,EC,Area,Year)</span></p>
+   <p class="rvps15"><span class="rvts135"><br/></span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 405px;">
-   <p class="rvps18"><span class="rvts136">Device efficiency standard policy (Btu/Btu). Assign a device efficiency standard policy which establishes the minimum level of device efficiency chosen by the model. This option can be used when the level of desired efficiency is known and can be directly input. An efficiency standard can also be set to allow for the model to increase capital cost based on the efficiency curve parameters.</span></p>
+   <p class="rvps18"><span class="rvts135">Device efficiency standard policy (Btu/Btu). Assign a device efficiency standard policy which establishes the minimum level of device efficiency chosen by the model. This option can be used when the level of desired efficiency is known and can be directly input. An efficiency standard can also be set to allow for the model to increase capital cost based on the efficiency curve parameters.</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 189px;">
-   <p class="rvps15"><span class="rvts136">DEMM</span><span class="rvts277">(Enduse,Tech,EC,Area,Year)</span></p>
+   <p class="rvps15"><span class="rvts135">DEMM</span><span class="rvts247">(Enduse,Tech,EC,Area,Year)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 405px;">
-   <p class="rvps18"><span class="rvts136">Device Efficiency Maximum Multiplier (Btu/Btu). Adjusting the device efficiency maximum multiplier (DEMM) modifies the efficiency curve by increasing its maximum level and results in an increase in the marginal efficiency selected at each fuel price. Changing the efficiency maximum multiplier will produce a response in efficiency without a corresponding change in capital cost given the same level of fuel price.</span></p>
+   <p class="rvps18"><span class="rvts135">Device Efficiency Maximum Multiplier (Btu/Btu). Adjusting the device efficiency maximum multiplier (DEMM) modifies the efficiency curve by increasing its maximum level and results in an increase in the marginal efficiency selected at each fuel price. Changing the efficiency maximum multiplier will produce a response in efficiency without a corresponding change in capital cost given the same level of fuel price.</span></p>
   </td>
  </tr>
  <tr style="vertical-align: top;">
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 189px;">
-   <p class="rvps15"><span class="rvts136">DPL</span><span class="rvts277">(Enduse,Tech,EC,Area,Year)</span></p>
+   <p class="rvps15"><span class="rvts135">DPL</span><span class="rvts247">(Enduse,Tech,EC,Area,Year)</span></p>
   </td>
   <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 405px;">
-   <p class="rvps18"><span class="rvts136">Physical life of devices (Years).</span><span class="rvts183"> &nbsp;</span><span class="rvts136">With increased appliance energy efficiency, the lifetime of devices may need to be increased if appropriate, for example, CFL or LED lighting have longer lifetimes than incandescent. The physical lifetime of devices is used to calculate the retirement rate of the device. Policies that promote early scrappage of devices, such as vehicles, in favor of new efficient devices can be applied by adjusting the device physical lifetime variable.</span></p>
+   <p class="rvps18"><span class="rvts135">Physical life of devices (Years).</span><span class="rvts174"> &nbsp;</span><span class="rvts135">With increased appliance energy efficiency, the lifetime of devices may need to be increased if appropriate, for example, CFL or LED lighting have longer lifetimes than incandescent. The physical lifetime of devices is used to calculate the retirement rate of the device. Policies that promote early scrappage of devices, such as vehicles, in favor of new efficient devices can be applied by adjusting the device physical lifetime variable.</span></p>
   </td>
  </tr>
 </table>
@@ -1255,10 +1255,10 @@ details.hnd-blue-callout code {
 <p class="rvps2"><span class="rvts18">Expected Device Efficiency Policy Impacts</span></p>
 <p class="rvps2"><span class="rvts6">The expected impacts of these process efficiency policies include the following:</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
- <li style="text-indent: 0px" class="rvps175 noindent"><span class="rvts6">Direct impacts: &nbsp;Increase to specific device efficiencies; adjustments to device cost curve to match anticipated increases to capital costs by technology; quicker adoption of newer, more efficiency devices.</span></li>
- <li style="text-indent: 0px" class="rvps175 noindent"><span class="rvts6">Indirect impacts: &nbsp;Reduction in energy use and emissions; changes to expenditures; reduction in electric generation (from reduced enduse demand).</span></li>
+ <li style="text-indent: 0px" class="rvps137 noindent"><span class="rvts6">Direct impacts: &nbsp;Increase to specific device efficiencies; adjustments to device cost curve to match anticipated increases to capital costs by technology; quicker adoption of newer, more efficiency devices.</span></li>
+ <li style="text-indent: 0px" class="rvps137 noindent"><span class="rvts6">Indirect impacts: &nbsp;Reduction in energy use and emissions; changes to expenditures; reduction in electric generation (from reduced enduse demand).</span></li>
 </ul>
-<p class="rvps175"><span class="rvts6"><br/></span></p>
+<p class="rvps137"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts18"></span><span class="rvts6"></span></p>
 
             </div>
