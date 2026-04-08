@@ -16,6 +16,7 @@ $(function() {
   "use strict";
 
   var lastSignature = "";
+  var leftNavCollapsed = false;
 
 function getPageSignature() {
   var h1 = Array.from(document.querySelectorAll("h1")).find(function (el) {
@@ -253,6 +254,7 @@ function getHeaders() {
     var sig = getPageSignature();
     if (sig !== lastSignature) {
       lastSignature = sig;
+      leftNavCollapsed = false; // reset so collapse runs again on new page
       setTimeout(buildRightNav, 50);
       setTimeout(buildRightNav, 250);
       setTimeout(buildRightNav, 700);
@@ -294,19 +296,20 @@ function getHeaders() {
   function collapseLeftNav() {
     if (!window.jQuery) return;
 
-    // Find the jsTree container via its rendered UL, then get the instance from its parent
+    // Find the jsTree container via its rendered UL
     var treeUl = document.querySelector(".jstree-container-ul");
     if (!treeUl) return;
 
     var $treeContainer = jQuery(treeUl.parentElement);
     if (!$treeContainer.length) return;
 
-    // .jstree(true) returns the instance if initialized, or false if not yet ready
+    // .jstree(true) returns false if not yet initialized
     var instance = $treeContainer.jstree(true);
     if (!instance) return;
 
     // Collapse all nodes
     instance.close_all();
+    leftNavCollapsed = true;
 
     // After collapsing, re-open just the parent of the active page item
     setTimeout(function () {
@@ -321,6 +324,21 @@ function getHeaders() {
     }, 100);
   }
 
+  // Poll for jsTree to be ready — handles fast servers (e.g. GitHub Pages)
+  // where ready.jstree may fire before our listener is attached
+  function pollForJsTree() {
+    var attempts = 0;
+    var maxAttempts = 20; // try for up to ~5 seconds
+    var interval = setInterval(function () {
+      attempts++;
+      if (leftNavCollapsed || attempts >= maxAttempts) {
+        clearInterval(interval);
+        return;
+      }
+      collapseLeftNav();
+    }, 250);
+  }
+
   function refreshUi() {
     buildRightNav();
     addCopyButtons();
@@ -333,14 +351,16 @@ function getHeaders() {
   setTimeout(refreshUi, 2500);
   setTimeout(refreshUi, 4000);
 
-  // Also hook into jsTree's own ready event, which fires once the tree
-  // finishes initializing — this is the most reliable trigger for collapse
+  // Listen for jsTree's ready event as a primary trigger
   if (window.jQuery) {
     jQuery(document).on("ready.jstree", function () {
       setTimeout(collapseLeftNav, 100);
       setTimeout(collapseLeftNav, 500);
     });
   }
+
+  // Also poll as a fallback for when the event is missed (e.g. GitHub Pages)
+  pollForJsTree();
 
   setInterval(refreshIfNeeded, 500);
 
