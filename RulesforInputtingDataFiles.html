@@ -1171,7 +1171,7 @@ details.hnd-blue-callout code {
                         <li><a href="IncorporatingInputData.html">Incorporating Input Data</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="IncorporatingInputData.html" title="Incorporating Input Data" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="InputDataUpdatedAnnually.html" title="Input Data Updated Annually" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="PolicyAnalysis.html" title="Policy Analysis" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="IncorporatingInputData.html" title="Incorporating Input Data" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="DataRequirements.html" title="Data Requirements" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="PolicyAnalysis.html" title="Policy Analysis" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
@@ -1182,18 +1182,20 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<h2 class="rvps12"><span class="rvts0"><span class="rvts23">Updating an Existing Input Data File</span></span></h2>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Updating an Existing Input Data File</span></span></h3>
 <p class="rvps2"><span class="rvts6">If you want to update input data that already has existing input data file, modify the existing file to revise or add new values or replace the existing file with a new .dat file having the same format.</span></p>
-<h2 class="rvps12"><span class="rvts0"><span class="rvts23">Creating a New Input Data File</span></span></h2>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Creating a New Input Data File</span></span></h3>
 <div class="rvps26">
-<table width="100%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 3px; border-collapse: collapse;">
  <tr style="vertical-align: top;">
-  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #f3f300; vertical-align: top; width: 2px; height: 54px;">
-   <p class="rvps22"><span class="rvts211"><br/></span></p>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #ff0000; vertical-align: top; width: 6px; height: 42px;">
+   <p class="rvps22"><span class="rvts31"><br/></span></p>
   </td>
-  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px 1px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #ffffe7; vertical-align: top; width: 938px; height: 54px;">
-   <p class="rvps28"><span class="rvts135">⚠️</span><span class="rvts175">Warning</span></p>
-   <p class="rvps2"><span class="rvts135">Before adding a new input variable, verify the variable is defined in \Database\VBInput.jl.</span></p>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 27px; height: 42px;">
+   <p class="rvps42"><span class="rvts88"></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 591px; height: 42px;">
+   <p class="rvps48"><span class="rvts56">Before adding a new input variable, verify the variable is defined in \Database\VBInput.jl.</span></p>
   </td>
  </tr>
 </table>
@@ -1211,7 +1213,7 @@ details.hnd-blue-callout code {
  </ol>
 </ol>
 <p class="rvps33"><span class="rvts6"><br/></span></p>
-<p class="rvps115"><span class="rvts6">Below shows an example of the column entries for the variable, </span><span class="rvts34">vGCPot[Plant,Node,Area,Year]</span></p>
+<p class="rvps114"><span class="rvts6">Below shows an example of the column entries for the variable, </span><span class="rvts34">vGCPot[Plant,Node,Area,Year]</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 96px; list-style-position: outside; list-style-type: disc;">
  <li class="rvps33 noindent"><span class="rvts6">Column 1: Variable name (ex: &nbsp;vGCPot;)&nbsp;</span></li>
  <li class="rvps33 noindent"><span class="rvts6">Column 2: Year descriptors (ex: 2023;)</span></li>
@@ -1222,12 +1224,12 @@ details.hnd-blue-callout code {
  <li class="rvps33 noindent"><span class="rvts6">Column 7: Data value (ex: 6708.32)</span></li>
 </ul>
 <p class="rvps33"><span class="rvts6"><br/></span></p>
-<p class="rvps113"><span class="rvts210">vGCPot.dat</span></p>
-<p class="rvps114"><span class="rvts103">Variable;Year;Area;Node;Plant;Units;Data</span></p>
-<p class="rvps114"><span class="rvts103">vGCPot;2023;Ontario;Ontario;Gas/Oil Combined Cycle;MW;6708.32</span></p>
-<p class="rvps114"><span class="rvts103">vGCPot;2023;Ontario;Ontario;Onshore Wind;10000&nbsp;</span></p>
-<p class="rvps114"><span class="rvts103">...</span></p>
-<h2 class="rvps12"><span class="rvts0"><span class="rvts23">Incorporating a New .DAT File into the Model</span></span></h2>
+<p class="rvps112"><span class="rvts209">vGCPot.dat</span></p>
+<p class="rvps113"><span class="rvts103">Variable;Year;Area;Node;Plant;Units;Data</span></p>
+<p class="rvps113"><span class="rvts103">vGCPot;2023;Ontario;Ontario;Gas/Oil Combined Cycle;MW;6708.32</span></p>
+<p class="rvps113"><span class="rvts103">vGCPot;2023;Ontario;Ontario;Onshore Wind;10000&nbsp;</span></p>
+<p class="rvps113"><span class="rvts103">...</span></p>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Incorporating a New .DAT File into the Model</span></span></h3>
 <p class="rvps2"><span class="rvts6">To incorporate the new </span><span class="rvts18">.dat</span><span class="rvts6"> file into the model, follow the steps below:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <li style="text-indent: 0px" class="rvps21 noindent"><span class="rvts14">Add variable to database source code (VBInput.jl, vData_ElectricUnits.jl, etc).</span></li>
@@ -1253,7 +1255,7 @@ details.hnd-blue-callout code {
   <li style="text-indent: 0px" class="rvps83 noindent"><span class="rvts14">The unit in the input file (.dat) must be in the first column.</span></li>
   <li style="text-indent: 0px" class="rvps83 noindent"><span class="rvts14">The unit of the database source code variable (from step 1) must be in the second column.&nbsp;</span></li>
   <li style="text-indent: 0px" class="rvps83 noindent"><span class="rvts14">If a unit conversion is required, input the Factor into column 3 (Factor). &nbsp; The input data will be divided by the factor.</span></li>
-  <li style="text-indent: 0px" class="rvps83 noindent"><span class="rvts14">If a currency conversion is required, the units must include ‘</span><span class="rvts209">Nominal CN$’, ‘US$’, or ‘CN$’.</span></li>
+  <li style="text-indent: 0px" class="rvps83 noindent"><span class="rvts14">If a currency conversion is required, the units must include ‘</span><span class="rvts208">Nominal CN$’, ‘US$’, or ‘CN$’.</span></li>
  </ul>
 </ul>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
@@ -1266,11 +1268,11 @@ details.hnd-blue-callout code {
 </ul>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li style="text-indent: 0px" class="rvps116 noindent"><span class="rvts14">vUnArea is moved to UnArea.</span></li>
-  <li style="text-indent: 0px" class="rvps116 noindent"><span class="rvts14">Many variables need to be moved to an “X” variable, for example vUnGC is moved to XUnGC.</span></li>
+  <li style="text-indent: 0px" class="rvps115 noindent"><span class="rvts14">vUnArea is moved to UnArea.</span></li>
+  <li style="text-indent: 0px" class="rvps115 noindent"><span class="rvts14">Many variables need to be moved to an “X” variable, for example vUnGC is moved to XUnGC.</span></li>
   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-roman;">
-   <li style="text-indent: 0px" class="rvps117 noindent"><span class="rvts14">This relationship is mapped in \InputData\InputVariableToModelVariable.csv.</span></li>
-   <li style="text-indent: 0px" class="rvps117 noindent"><span class="rvts14">Only exception variables need to be mapped.</span></li>
+   <li style="text-indent: 0px" class="rvps116 noindent"><span class="rvts14">This relationship is mapped in \InputData\InputVariableToModelVariable.csv.</span></li>
+   <li style="text-indent: 0px" class="rvps116 noindent"><span class="rvts14">Only exception variables need to be mapped.</span></li>
   </ol>
  </ol>
 </ol>
@@ -1281,7 +1283,7 @@ details.hnd-blue-callout code {
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
   <li value="3" style="text-indent: 0px" class="rvps83 noindent"><span class="rvts14">A full list of the header exceptions can be found here:</span></li>
   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-roman;">
-   <li style="text-indent: 0px" class="rvps112 noindent"><span class="rvts14">\InputData\PromulaHeaders_ClientHeaders.txt</span></li>
+   <li style="text-indent: 0px" class="rvps111 noindent"><span class="rvts14">\InputData\PromulaHeaders_ClientHeaders.txt</span></li>
   </ol>
  </ol>
 </ol>
@@ -1292,7 +1294,7 @@ details.hnd-blue-callout code {
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
   <li value="4" style="text-indent: 0px" class="rvps83 noindent"><span class="rvts14">You can use batch files in 2020Model.</span></li>
   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-roman;">
-   <li style="text-indent: 0px" class="rvps112 noindent"><span class="rvts14">CreateVBInput.bat/ CreateElectricUnitDBs.bat</span></li>
+   <li style="text-indent: 0px" class="rvps111 noindent"><span class="rvts14">CreateVBInput.bat/ CreateElectricUnitDBs.bat</span></li>
   </ol>
  </ol>
 </ol>

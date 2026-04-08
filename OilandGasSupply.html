@@ -1193,57 +1193,57 @@ details.hnd-blue-callout code {
 <h4 class="rvps78"><span class="rvts0"><span class="rvts147">Modify Marginal Fuel Market Share</span></span></h4>
 <p class="rvps2"><span class="rvts6">Examples</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">[Res|Com|Ind|Trans]_MS_*.jl files where * is the file descriptor:</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">Res_MS_CGBS_OilProhibition.jl</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">Com_MS_HEES_BC_GasProhibition.jl</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">[Res|Com|Ind|Trans]_MS_*.jl files where * is the file descriptor:</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">Res_MS_CGBS_OilProhibition.jl</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">Com_MS_HEES_BC_GasProhibition.jl</span></li>
 </ul>
 <p class="rvps2"><span class="rvts6">Turn off oiltechs by reallocating the xMMSF values from the fossil fuel to another tech like heat pump.</span></p>
 <h4 class="rvps78"><span class="rvts0"><span class="rvts147">Modify Demand Fuel Fractions</span></span></h4>
 <p class="rvps2"><span class="rvts6">Examples</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">RNG_Standard.jl</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">RNG_H2_Pipeline_CA.jl</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">RNG_Standard.jl</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">RNG_H2_Pipeline_CA.jl</span></li>
 </ul>
 <p class="rvps2"><span class="rvts6">Modify fuel shares for specific enduse/tech pairs using DmFrac[Max|Min] and xDmFrac</span></p>
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Emissions</span></span></h3>
 <p class="rvps2"><span class="rvts6">Venting (Vn), flaring (Fl), and fugitive (Fu) emissions can be modified. Across these three types of emissions, basic structures are the same with differences only in the values. There are, therefore, three sets of the same variables with different prefixes: [Vn|Fl|Fu]. These specify whether the variable is for venting, flaring or fugitive emissions, respectively. Where a Vn is written, be aware that the other two versions (Fl and Fu) of these variables also exist.</span></p>
 <p class="rvps2"><span class="rvts6">Emissions are generally determined by a price curve which are determined by these variables:</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">VnCCA0, VnCCB0, VnCCC0: These variables make up a capital cost curve determining how much capacity will be built for a given level.</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">VnA0, VnB0, and VnC0: These variables (with capacity installed from the capital curve) make up the reduction curve determining emissions reductions for a given emission price.</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">VnPriceSw: Venting reduction curve price switch (1=Endogenous for future years, 0=Exogenous for historical)</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">xVnPrice: Exogenous price for venting reduction curve (set to $50/tonne for future years, indexed to 2013)</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">VnCCA0, VnCCB0, VnCCC0: These variables make up a capital cost curve determining how much capacity will be built for a given level.</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">VnA0, VnB0, and VnC0: These variables (with capacity installed from the capital curve) make up the reduction curve determining emissions reductions for a given emission price.</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">VnPriceSw: Venting reduction curve price switch (1=Endogenous for future years, 0=Exogenous for historical)</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">xVnPrice: Exogenous price for venting reduction curve (set to $50/tonne for future years, indexed to 2013)</span></li>
 </ul>
 <p class="rvps2"><span class="rvts6">Additional variables modified include (with example values):</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">VnC2H6PerCH4: C2H6 captured per CH4 captured (0.1085 for light oil, 0.0069 for heavy oil/primary oil sands)</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">VnCH4CapturedFraction: Fraction of CH4 reduction which is captured (set to 0.5 for all)</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">VnCH4FlaredPOCF: Pollution coefficient for flared CH4 (CO2 emissions: 2.4014 for light oil, 1.5041 for heavy oil)</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">VnGFr: Venting reduction grant fraction (set to 0.0)</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">VnOCF: Venting reduction operating cost factor (set to 0.21)</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">VnPL: Venting reduction physical lifetime (set to 15 years)</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">VnPOCF: Venting reduction emission factors for CO2 and VOC</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">VnFlPOCXMult: Pollution coefficient multipliers by ECC, pollutant, area, and year</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">VnC2H6PerCH4: C2H6 captured per CH4 captured (0.1085 for light oil, 0.0069 for heavy oil/primary oil sands)</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">VnCH4CapturedFraction: Fraction of CH4 reduction which is captured (set to 0.5 for all)</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">VnCH4FlaredPOCF: Pollution coefficient for flared CH4 (CO2 emissions: 2.4014 for light oil, 1.5041 for heavy oil)</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">VnGFr: Venting reduction grant fraction (set to 0.0)</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">VnOCF: Venting reduction operating cost factor (set to 0.21)</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">VnPL: Venting reduction physical lifetime (set to 15 years)</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">VnPOCF: Venting reduction emission factors for CO2 and VOC</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">VnFlPOCXMult: Pollution coefficient multipliers by ECC, pollutant, area, and year</span></li>
 </ul>
 <p class="rvps2"><span class="rvts18">VnPolSwitch (or FuPolSwitch / FlPolSwitch) :</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">0 = Exogenous emissions (use baseline emission factors)</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">1 = Endogenous reduction (model optimizes emission reductions)</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">2 = Exogenous multipliers applied (MRA regulations)</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">0 = Exogenous emissions (use baseline emission factors)</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">1 = Endogenous reduction (model optimizes emission reductions)</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">2 = Exogenous multipliers applied (MRA regulations)</span></li>
 </ul>
 <p class="rvps2"><span class="rvts18">VnPriceSw (of FuPriceSw / FlPriceSw):</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">0 = Exogenous prices (use xVnPrice or xFuPrice or xFlPrice)</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">1 = Endogenous prices (model determines reduction prices)</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">2 = Carbon price-driven (use carbon price to drive reductions)</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">0 = Exogenous prices (use xVnPrice or xFuPrice or xFlPrice)</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">1 = Endogenous prices (model determines reduction prices)</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">2 = Carbon price-driven (use carbon price to drive reductions)</span></li>
 </ul>
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Supply</span></span></h3>
 <p class="rvps2"><span class="rvts6">Supply is generally modified through switches that determine whether a play’s production or development is exogenous and by setting values for capital costs.</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">DevSw: Development switch (set to 0 for all OGUnits and years, indicating exogenous development decisions)</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">PdSw: Production switch (set to 0 for all OGUnits and years, indicating exogenous production levels)</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">xDevCap: Exogenous development capital costs often set for specific OG units</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps147"><span class="rvts6">xSusCap: Exogenous sustaining capital costs often set for specific OG units</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">DevSw: Development switch (set to 0 for all OGUnits and years, indicating exogenous development decisions)</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">PdSw: Production switch (set to 0 for all OGUnits and years, indicating exogenous production levels)</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">xDevCap: Exogenous development capital costs often set for specific OG units</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps146"><span class="rvts6">xSusCap: Exogenous sustaining capital costs often set for specific OG units</span></li>
 </ul>
 <h2 class="rvps12"><span class="rvts0"><span class="rvts23"><br/></span></span></h2>
 <p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>

@@ -291,9 +291,40 @@ function getHeaders() {
     });
   }
 
+  function collapseLeftNav() {
+    if (!window.jQuery) return;
+
+    // Find the jsTree container via its rendered UL, then get the instance from its parent
+    var treeUl = document.querySelector(".jstree-container-ul");
+    if (!treeUl) return;
+
+    var $treeContainer = jQuery(treeUl.parentElement);
+    if (!$treeContainer.length) return;
+
+    // .jstree(true) returns the instance if initialized, or false if not yet ready
+    var instance = $treeContainer.jstree(true);
+    if (!instance) return;
+
+    // Collapse all nodes
+    instance.close_all();
+
+    // After collapsing, re-open just the parent of the active page item
+    setTimeout(function () {
+      var activeAnchor = $treeContainer[0].querySelector(".jstree-clicked");
+      if (activeAnchor) {
+        var activeLi = activeAnchor.closest("li");
+        var parentLi = activeLi ? activeLi.parentElement.closest("li") : null;
+        if (parentLi) {
+          instance.open_node(parentLi);
+        }
+      }
+    }, 100);
+  }
+
   function refreshUi() {
     buildRightNav();
     addCopyButtons();
+    collapseLeftNav();
   }
 
   refreshUi();
@@ -302,6 +333,14 @@ function getHeaders() {
   setTimeout(refreshUi, 2500);
   setTimeout(refreshUi, 4000);
 
+  // Also hook into jsTree's own ready event, which fires once the tree
+  // finishes initializing — this is the most reliable trigger for collapse
+  if (window.jQuery) {
+    jQuery(document).on("ready.jstree", function () {
+      setTimeout(collapseLeftNav, 100);
+      setTimeout(collapseLeftNav, 500);
+    });
+  }
 
   setInterval(refreshIfNeeded, 500);
 
