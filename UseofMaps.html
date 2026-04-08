@@ -1168,10 +1168,10 @@ details.hnd-blue-callout code {
             
                 <div class="navigation">
                     <ol class="breadcrumb">
-                        <li><a href="JuliaCodinginENERGY2100.html">Julia Coding in ENERGY 2100</a></li><li><a href="CommonJuliaSyntaxUsedinENERGY210.html">Common Julia Syntax Used in ENERGY 2100</a></li>
+                        <li><a href="JuliaCodinginENERGY2100.html">Julia Coding in ENERGY 2100</a></li><li><a href="CommonJuliaCommandsUsedinENERGY2.html">Common Julia Commands Used in ENERGY 2100</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="CommonJuliaSyntaxUsedinENERGY210.html" title="Common Julia Syntax Used in ENERGY 2100" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="ComparisonOperators.html" title="Comparison Operators" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="ForLoops.html" title="For Loops" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="CommonJuliaCommandsUsedinENERGY2.html" title="Common Julia Commands Used in ENERGY 2100" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="ComparisonOperators.html" title="Comparison Operators" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="ForLoops.html" title="For Loops" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
@@ -1182,10 +1182,33 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Using Area-Nation Map (ANMap)</span></span></h3>
 <p class="rvps2"><span class="rvts188"><br/></span></p>
-<p class="rvps2"><span class="rvts188">Use ANMap to select Canada areas, ANMap[Area,Nation]</span></p>
-<p class="rvps2"><span class="rvts189"><br/></span></p>
-<p class="rvps2"><img alt="" style="width : 392px; height : 103px; padding : 1px;" src="lib/NewItem%2062.png"><span class="rvts6"></span></p>
+<p class="rvps2"><span class="rvts6">Use ANMap to select Canada areas, ANMap[Area,Nation]:</span></p>
+<div class="rvps31">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps34"><span class="rvts54">CN = Select(Nation,"CN")</span></p>
+   <p class="rvps34"><span class="rvts54">areas = findall(ANMap[:,CN] .== 1)</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6">&nbsp;</span></p>
+<p class="rvps2"><span class="rvts6">Use ANMap to select US areas, ANMap[Area,Nation]:</span></p>
+<div class="rvps31">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps34"><span class="rvts54">US = Select(Nation,"US")</span></p>
+   <p class="rvps34"><span class="rvts54">areas = findall(ANMap[:,US] .== 1)</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
 
             </div>
             

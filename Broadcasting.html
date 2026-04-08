@@ -1168,10 +1168,10 @@ details.hnd-blue-callout code {
             
                 <div class="navigation">
                     <ol class="breadcrumb">
-                        <li><a href="JuliaCodinginENERGY2100.html">Julia Coding in ENERGY 2100</a></li><li><a href="CommonJuliaSyntaxUsedinENERGY210.html">Common Julia Syntax Used in ENERGY 2100</a></li>
+                        <li><a href="JuliaCodinginENERGY2100.html">Julia Coding in ENERGY 2100</a></li><li><a href="CommonJuliaCommandsUsedinENERGY2.html">Common Julia Commands Used in ENERGY 2100</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="CommonJuliaSyntaxUsedinENERGY210.html" title="Common Julia Syntax Used in ENERGY 2100" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="ForLoops.html" title="For Loops" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="Conditionals.html" title="Conditionals" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="CommonJuliaCommandsUsedinENERGY2.html" title="Common Julia Commands Used in ENERGY 2100" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="ForLoops.html" title="For Loops" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="Conditionals.html" title="Conditionals" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
@@ -1182,19 +1182,35 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps6"><span class="rvts14"><br/></span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
- <li style="text-indent: 0px" class="rvps97 noindent"><span class="rvts6">Julia allows for not having to always loop through sets through its “broadcasting” (.=).&nbsp;</span></li>
- <li style="text-indent: 0px" class="rvps97 noindent"><span class="rvts6">Policy files do </span><span class="rvts18">not</span><span class="rvts6"> use broadcasting to simplify and avoid confusion related to the rules of broadcasting.</span></li>
- <li style="text-indent: 0px" class="rvps97 noindent"><span class="rvts6">You may see some broadcasting equations still remain in the policy files</span></li>
+ <li class="rvps6 noindent"><span class="rvts14">Julia allows for not having to always loop through sets through its “broadcasting” (.=).&nbsp;</span></li>
+ <li class="rvps6 noindent"><span class="rvts14">Policy files do </span><span class="rvts27">not</span><span class="rvts14"> use broadcasting to simplify and avoid confusion related to the rules of broadcasting.</span></li>
+ <li class="rvps98 noindent"><span class="rvts14">You may see some broadcasting equations still remain in the policy files:</span></li>
 </ul>
-<p class="rvps100"><span class="rvts6">Example: &nbsp; Target .= 0, where Target is defined by Year&nbsp;</span></p>
-<p class="rvps97"><span class="rvts6"><br/></span></p>
+<div class="rvps31">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps34"><span class="rvts54">Target .= 0 # where Target is defined by Year&nbsp;</span></p>
+  </td>
+ </tr>
+</table>
+</div>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
- <li style="text-indent: 0px" class="rvps97 noindent"><span class="rvts6">These instances are being modified, using loops, such as:</span></li>
+ <li class="rvps98 noindent"><span class="rvts14">These instances are being modified to eliminate the broadcasting and use loops instead, such as:</span></li>
 </ul>
-<p class="rvps97"><span class="rvts6"><br/></span></p>
-<p class="rvps98"><img alt="" style="width : 352px; height : 93px; padding : 1px;" src="lib/NewItem%2065.png"></p>
+<div class="rvps31">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps34"><span class="rvts54">for year in Years</span></p>
+   <p class="rvps34"><span class="rvts54">&nbsp; Target[year] = 0</span></p>
+   <p class="rvps34"><span class="rvts54">end</span></p>
+  </td>
+ </tr>
+</table>
+</div>
 <p class="rvps97"><span class="rvts6"><br/></span></p>
 <p class="rvps99"><span class="rvts6"></span><span class="rvts6"></span></p>
 

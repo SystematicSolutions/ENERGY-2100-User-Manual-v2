@@ -1168,10 +1168,10 @@ details.hnd-blue-callout code {
             
                 <div class="navigation">
                     <ol class="breadcrumb">
-                        <li><a href="JuliaCodinginENERGY2100.html">Julia Coding in ENERGY 2100</a></li><li><a href="CommonJuliaSyntaxUsedinENERGY210.html">Common Julia Syntax Used in ENERGY 2100</a></li>
+                        <li><a href="JuliaCodinginENERGY2100.html">Julia Coding in ENERGY 2100</a></li><li><a href="CommonJuliaCommandsUsedinENERGY2.html">Common Julia Commands Used in ENERGY 2100</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="CommonJuliaSyntaxUsedinENERGY210.html" title="Common Julia Syntax Used in ENERGY 2100" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="HandlingUndefinedValuesNANs.html" title="Handling Undefined Values (NANs)" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="InfoStatementstoWriteValuestoScr.html" title="Info Statements to Write Values to Screen" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="CommonJuliaCommandsUsedinENERGY2.html" title="Common Julia Commands Used in ENERGY 2100" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="HandlingUndefinedValuesNANs.html" title="Handling Undefined Values (NANs)" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="InfoStatementstoWriteValuestoScr.html" title="Info Statements to Write Values to Screen" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
@@ -1182,12 +1182,42 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts177">Read Disk</span></p>
-<p class="rvps2"><img alt="" style="width : 703px; height : 110px; padding : 1px;" src="lib/NewItem%2069.png"></p>
-<p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts177">Write Disk</span></p>
-<p class="rvps2"><img alt="" style="width : 698px; height : 79px; padding : 1px;" src="lib/NewItem%2070.png"><span class="rvts6"></span></p>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Read Disk</span></span></h3>
+<p class="rvps2"><span class="rvts6">Reads the entire dataset name from the HDF5 database at path db and returns it as a raw array. Throws </span><span class="rvts37">HDF5DataSetNotFoundException</span><span class="rvts6"> if the dataset is not found.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts56">Example:&nbsp;</span></p>
+<div class="rvps31">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps34"><span class="rvts54">xPkSav = ReadDisk(DB,"RInput/xPkSav")</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps100"><span class="rvts37"><br/></span></p>
+<p class="rvps2"><span class="rvts6">Alternatively, we can specify the type of variable xPkSav will be saved as:</span></p>
+<div class="rvps31">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps34"><span class="rvts54">xPkSav::VariableArray{4} = ReadDisk(DB,"RInput/xPkSav")</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps31"><span class="rvts101"><br/></span></p>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Write Disk</span></span></h3>
+<div class="rvps31">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps34"><span class="rvts54">WriteDisk(db,"RInput/xPkSav",xPkSav)</span></p>
+   <p class="rvps34"><span class="rvts54">WriteDisk(db,"SInput/xPkSavECC",xPkSavECC)</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p></p>
 
             </div>
             

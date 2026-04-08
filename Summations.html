@@ -1168,10 +1168,10 @@ details.hnd-blue-callout code {
             
                 <div class="navigation">
                     <ol class="breadcrumb">
-                        <li><a href="JuliaCodinginENERGY2100.html">Julia Coding in ENERGY 2100</a></li><li><a href="CommonJuliaSyntaxUsedinENERGY210.html">Common Julia Syntax Used in ENERGY 2100</a></li>
+                        <li><a href="JuliaCodinginENERGY2100.html">Julia Coding in ENERGY 2100</a></li><li><a href="CommonJuliaCommandsUsedinENERGY2.html">Common Julia Commands Used in ENERGY 2100</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="CommonJuliaSyntaxUsedinENERGY210.html" title="Common Julia Syntax Used in ENERGY 2100" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="Conditionals.html" title="Conditionals" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="HandlingUndefinedValuesNANs.html" title="Handling Undefined Values (NANs)" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="CommonJuliaCommandsUsedinENERGY2.html" title="Common Julia Commands Used in ENERGY 2100" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="Conditionals.html" title="Conditionals" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="HandlingUndefinedValuesNANs.html" title="Handling Undefined Values (NANs)" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
@@ -1182,11 +1182,32 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><span class="rvts191">Sum across dimensions using the following format:</span></p>
-<p class="rvps3"><span class="rvts192">sum(VariableName[set] for set in Sets)</span></p>
-<p class="rvps2"><span class="rvts193"><br/></span></p>
-<p class="rvps2"><img alt="" style="width : 616px; height : 148px; padding : 1px;" src="lib/NewItem%2067.png"><span class="rvts6"></span></p>
+<p class="rvps2"><span class="rvts6">Sum across dimensions using the following format: &nbsp;</span></p>
+<div class="rvps31">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps34"><span class="rvts54">sum(VariableName[set] for set in Sets)</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps31"><span class="rvts190"><br/></span></p>
+<p class="rvps31"><span class="rvts190">Example:</span></p>
+<div class="rvps31">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps34"><span class="rvts54">years = collect(Future:Final)</span></p>
+   <p class="rvps34"><span class="rvts54">for area in Areas, ec in ECs, enduse in Enduses, year in years</span></p>
+   <p class="rvps34"><span class="rvts54">&nbsp; xMMSFTotal[enduse,ec,area,year] =&nbsp;</span></p>
+   <p class="rvps34"><span class="rvts54">&nbsp; &nbsp; sum(xMMSF[enduse,tech,ec,area,year] for tech in Techs)</span></p>
+   <p class="rvps34"><span class="rvts54">end</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p></p>
 
             </div>
             

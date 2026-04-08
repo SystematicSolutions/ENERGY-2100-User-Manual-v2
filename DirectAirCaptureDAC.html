@@ -1182,34 +1182,34 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<p class="rvps15"><span class="rvts256">Enabling Direct Air Capture</span></p>
+<p class="rvps15"><span class="rvts244">Enabling Direct Air Capture</span></p>
 <p class="rvps15"><span class="rvts6">Direct Air Capture (DAC) is a module in the model that contains code to simulate energy consumption, emissions, and carbon sequestration of direct air capture devices for each modeled year. Demand and emission values from this module can be found in the </span><span class="rvts18">DirectAirCapture</span><span class="rvts6"> economic sector in the model results. &nbsp;Reduction in carbon emissions from running devices can be also be seen in the overall GHG inventory totals.&nbsp;</span></p>
 <p class="rvps15"><span class="rvts6">The DAC module requires inputs to produce an impact in the model results. These inputs can vary depending on which option (</span><span class="rvts18">DACSw</span><span class="rvts6">) is selected for simulating DAC in the model. Below is a list of options and the inputs required for each:</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 51px; list-style-position: outside; list-style-type: disc;">
- <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">Exogenous DAC (DACSw = 0)&nbsp;</span></li>
+ <li style="text-indent: 0px" class="rvps141 noindent"><span class="rvts14">Exogenous DAC (DACSw = 0)&nbsp;</span></li>
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
-  <li style="text-indent: 0px" class="rvps150 noindent"><span class="rvts14">xDACDem[Area,Year] &nbsp;- Exogenous demand for DAC&nbsp;</span></li>
+  <li style="text-indent: 0px" class="rvps142 noindent"><span class="rvts14">xDACDem[Area,Year] &nbsp;- Exogenous demand for DAC&nbsp;</span></li>
  </ul>
- <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">DAC used to meet emissions goal (DACSw = 1)</span></li>
+ <li style="text-indent: 0px" class="rvps141 noindent"><span class="rvts14">DAC used to meet emissions goal (DACSw = 1)</span></li>
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
-  <li style="text-indent: 0px" class="rvps150 noindent"><span class="rvts14">xPolGoal[Area,Year] – Emissions goal</span></li>
+  <li style="text-indent: 0px" class="rvps142 noindent"><span class="rvts14">xPolGoal[Area,Year] – Emissions goal</span></li>
  </ul>
- <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">DAC used to meet emissions goal or produce to an exogenous level (whichever is higher) (DACSw = 2)</span></li>
+ <li style="text-indent: 0px" class="rvps141 noindent"><span class="rvts14">DAC used to meet emissions goal or produce to an exogenous level (whichever is higher) (DACSw = 2)</span></li>
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
-  <li style="text-indent: 0px" class="rvps150 noindent"><span class="rvts14">xDACDem[Area,Year] &nbsp;- Exogenous demand for DAC&nbsp;</span></li>
-  <li style="text-indent: 0px" class="rvps150 noindent"><span class="rvts14">xPolGoal[Area,Year] – Emissions goal</span></li>
+  <li style="text-indent: 0px" class="rvps142 noindent"><span class="rvts14">xDACDem[Area,Year] &nbsp;- Exogenous demand for DAC&nbsp;</span></li>
+  <li style="text-indent: 0px" class="rvps142 noindent"><span class="rvts14">xPolGoal[Area,Year] – Emissions goal</span></li>
  </ul>
- <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">DAC meets national Goal, with production split by exogenous weights (DACSw = 3)</span></li>
+ <li style="text-indent: 0px" class="rvps141 noindent"><span class="rvts14">DAC meets national Goal, with production split by exogenous weights (DACSw = 3)</span></li>
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
-  <li style="text-indent: 0px" class="rvps150 noindent"><span class="rvts14">DACDemNation[Nation,Year] – National DAC demands</span></li>
-  <li style="text-indent: 0px" class="rvps150 noindent"><span class="rvts14">xGoalPolNation[Nation,Year] – National emissions goal</span></li>
-  <li style="text-indent: 0px" class="rvps150 noindent"><span class="rvts14">DACWeight[Area,Year] - Share of area DAC demands of national total</span></li>
+  <li style="text-indent: 0px" class="rvps142 noindent"><span class="rvts14">DACDemNation[Nation,Year] – National DAC demands</span></li>
+  <li style="text-indent: 0px" class="rvps142 noindent"><span class="rvts14">xGoalPolNation[Nation,Year] – National emissions goal</span></li>
+  <li style="text-indent: 0px" class="rvps142 noindent"><span class="rvts14">DACWeight[Area,Year] - Share of area DAC demands of national total</span></li>
  </ul>
- <li style="text-indent: 0px" class="rvps149 noindent"><span class="rvts14">DAC response to Carbon Price (DACSw = 4)</span></li>
+ <li style="text-indent: 0px" class="rvps141 noindent"><span class="rvts14">DAC response to Carbon Price (DACSw = 4)</span></li>
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
-  <li style="text-indent: 0px" class="rvps150 noindent"><span class="rvts14">eCO2Price[Area,Year] – Carbon price</span></li>
-  <li style="text-indent: 0px" class="rvps150 noindent"><span class="rvts14">DACWeight[Area,Year] - Share of area DAC demands of national total</span></li>
-  <li style="text-indent: 0px" class="rvps150 noindent"><span class="rvts14">DACPriceDiffMax[Area,Year] – Price difference fraction for building DAC</span><span class="rvts14"></span></li>
+  <li style="text-indent: 0px" class="rvps142 noindent"><span class="rvts14">eCO2Price[Area,Year] – Carbon price</span></li>
+  <li style="text-indent: 0px" class="rvps142 noindent"><span class="rvts14">DACWeight[Area,Year] - Share of area DAC demands of national total</span></li>
+  <li style="text-indent: 0px" class="rvps142 noindent"><span class="rvts14">DACPriceDiffMax[Area,Year] – Price difference fraction for building DAC</span><span class="rvts14"></span></li>
  </ul>
 </ul>
 

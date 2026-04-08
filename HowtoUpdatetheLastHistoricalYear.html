@@ -1184,239 +1184,239 @@ details.hnd-blue-callout code {
                 
 <p class="rvps2"><span class="rvts6">To update the last historical year, follow the instructions below:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <li style="text-indent: 0px" class="rvps155 noindent"><span class="rvts267">Modify ENERGY 2100’s last historical year</span></li>
+ <li style="text-indent: 0px" class="rvps147 noindent"><span class="rvts255">Modify ENERGY 2100’s last historical year</span></li>
 </ol>
-<p class="rvps96"><span class="rvts123">The variable, </span><span class="rvts268">XHisTime</span><span class="rvts123">, is used throughout the model to indicate the last historical year of data. &nbsp; The value of </span><span class="rvts268">XHisTime</span><span class="rvts123"> is assigned inside Engine, in the E2020_Constants.jl file. &nbsp;</span></p>
+<p class="rvps96"><span class="rvts123">The variable, </span><span class="rvts256">XHisTime</span><span class="rvts123">, is used throughout the model to indicate the last historical year of data. &nbsp; The value of </span><span class="rvts256">XHisTime</span><span class="rvts123"> is assigned inside Engine, in the E2020_Constants.jl file. &nbsp;</span></p>
 <p class="rvps96"><span class="rvts123"><br/></span></p>
 <p class="rvps96"><span class="rvts123">To modify ENERGY 2100’s last historical year, follow the steps below.</span></p>
 <p class="rvps96"><span class="rvts123"><br/></span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Open E2020_Constants.jl in \Engine and search for x</span><span class="rvts268">HisTime</span><span class="rvts123"> to locate the line that assigns a year to xHisTime, for example “x</span><span class="rvts182">HisTime = 2025</span><span class="rvts123">”.</span></li>
+  <li style="text-indent: 0px" class="rvps148 noindent"><span class="rvts123">Open E2020_Constants.jl in \Engine and search for x</span><span class="rvts256">HisTime</span><span class="rvts123"> to locate the line that assigns a year to xHisTime, for example “x</span><span class="rvts182">HisTime = 2025</span><span class="rvts123">”.</span></li>
  </ol>
 </ul>
-<p class="rvps157"><span class="rvts123"><br/></span></p>
+<p class="rvps149"><span class="rvts123"><br/></span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li value="2" style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Modify the value of xHisTime to be the new last historical year, for example “</span><span class="rvts182">xHisTime = 2026</span><span class="rvts123">”. &nbsp;Save the file.</span></li>
+  <li value="2" style="text-indent: 0px" class="rvps148 noindent"><span class="rvts123">Modify the value of xHisTime to be the new last historical year, for example “</span><span class="rvts182">xHisTime = 2026</span><span class="rvts123">”. &nbsp;Save the file.</span></li>
  </ol>
 </ul>
 <p class="rvps96"><span class="rvts123"><br/></span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li value="3" style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Execute </span><span class="rvts268">E2020_Constants.jl</span><span class="rvts123"> to verify the file compiles and creates the new last historical year.&nbsp;</span></li>
+  <li value="3" style="text-indent: 0px" class="rvps148 noindent"><span class="rvts123">Execute </span><span class="rvts256">E2020_Constants.jl</span><span class="rvts123"> to verify the file compiles and creates the new last historical year.&nbsp;</span></li>
  </ol>
 </ul>
-<p class="rvps9"><span class="rvts267"><br/></span></p>
+<p class="rvps9"><span class="rvts255"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <li value="2" style="text-indent: 0px" class="rvps155 noindent"><span class="rvts267">Update raw input data with additional year of data</span></li>
+ <li value="2" style="text-indent: 0px" class="rvps147 noindent"><span class="rvts255">Update raw input data with additional year of data</span></li>
 </ol>
 <p class="rvps96"><span class="rvts123">Most, if not all, of the Canadian input data are housed in one of three Access databases – vData.accdb, vData_CAC.accdb, or vData_ElectricUnits_CN.accdb.</span></p>
 <p class="rvps96"><span class="rvts123"><br/></span></p>
 <p class="rvps96"><span class="rvts123">Follow the steps below to update raw input data in the model.</span></p>
-<p class="rvps157"><span class="rvts123"><br/></span></p>
+<p class="rvps149"><span class="rvts123"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 72px; list-style-position: outside; list-style-type: lower-alpha;">
- <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Replace the three Canadian input Access databases with new databases containing revised data in \VBInput\InputData:</span></li>
+ <li style="text-indent: 0px" class="rvps148 noindent"><span class="rvts123">Replace the three Canadian input Access databases with new databases containing revised data in \VBInput\InputData:</span></li>
 </ol>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 49px; list-style-position: outside;">
-   <li style="text-indent: 0px" class="rvps158 noindent"><span class="rvts123">vData.accdb</span></li>
-   <li style="text-indent: 0px" class="rvps159 noindent"><span class="rvts123">vData_CAC.accdb</span></li>
-   <li style="text-indent: 0px" class="rvps159 noindent"><span class="rvts123">vData_ElectricUnits_CN.accdb</span></li>
+   <li style="text-indent: 0px" class="rvps150 noindent"><span class="rvts123">vData.accdb</span></li>
+   <li style="text-indent: 0px" class="rvps151 noindent"><span class="rvts123">vData_CAC.accdb</span></li>
+   <li style="text-indent: 0px" class="rvps151 noindent"><span class="rvts123">vData_ElectricUnits_CN.accdb</span></li>
   </ol>
  </ol>
 </ol>
-<p class="rvps157"><span class="rvts123"><br/></span></p>
+<p class="rvps149"><span class="rvts123"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 72px; list-style-position: outside; list-style-type: lower-alpha;">
- <li value="2" style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Execute VBInput to read the Access input data into the Promula database:&nbsp;</span></li>
+ <li value="2" style="text-indent: 0px" class="rvps148 noindent"><span class="rvts123">Execute VBInput to read the Access input data into the Promula database:&nbsp;</span></li>
 </ol>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 132px; list-style-position: outside;">
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps160"><span class="rvts123">Double-click RunVBInput.bat directly under the \VBInput subdirectory. &nbsp;</span></li>
- <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps160"><span class="rvts123">If an error occurs running VBInput, there is an issue with the input data. &nbsp;If you can identify what the issue is, revise the Access database, then re-execute VBInput. &nbsp;If you cannot identify the source of the error, contact SSI.</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps152"><span class="rvts123">Double-click RunVBInput.bat directly under the \VBInput subdirectory. &nbsp;</span></li>
+ <li style="margin-left: 0; padding-left: 8px; text-indent: 0px" class="rvps152"><span class="rvts123">If an error occurs running VBInput, there is an issue with the input data. &nbsp;If you can identify what the issue is, revise the Access database, then re-execute VBInput. &nbsp;If you cannot identify the source of the error, contact SSI.</span></li>
 </ol>
-<p class="rvps157"><span class="rvts123"><br/></span></p>
+<p class="rvps149"><span class="rvts123"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 72px; list-style-position: outside; list-style-type: lower-alpha;">
- <li value="3" style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Check data files stored in \Input\Scripts to see if any data needs to be updated.</span></li>
+ <li value="3" style="text-indent: 0px" class="rvps148 noindent"><span class="rvts123">Check data files stored in \Input\Scripts to see if any data needs to be updated.</span></li>
 </ol>
-<p class="rvps157"><span class="rvts123"><br/></span></p>
+<p class="rvps149"><span class="rvts123"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 72px; list-style-position: outside; list-style-type: lower-alpha;">
- <li value="4" style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Check for syntax errors in the modified text files by compiling each individual file in Julia. </span><span class="rvts269">Needs instruction.</span></li>
+ <li value="4" style="text-indent: 0px" class="rvps148 noindent"><span class="rvts123">Check for syntax errors in the modified text files by compiling each individual file in Julia. </span><span class="rvts257">Needs instruction.</span></li>
 </ol>
 <p class="rvps96"><span class="rvts123"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <li value="3" style="text-indent: 0px" class="rvps155 noindent"><span class="rvts267">Modify year selections in the \Input\Scripts text files that assign variables read into Promula via VBInput (‘v’ variables) to model variables (typically ‘X’ variables).</span></li>
+ <li value="3" style="text-indent: 0px" class="rvps147 noindent"><span class="rvts255">Modify year selections in the \Input\Scripts text files that assign variables read into Promula via VBInput (‘v’ variables) to model variables (typically ‘X’ variables).</span></li>
 </ol>
-<p class="rvps96"><span class="rvts123">All data read in through the </span><span class="rvts268">VBInput</span><span class="rvts123"> program are assigned to model variables named with a ‘v’ prefix, such as </span><span class="rvts268">vENPN or vDmd</span><span class="rvts123">. Julia files in \Input\Scripts transfer those ‘v’ variables to model variables (usually named using an ‘x’ prefix). &nbsp;For example, </span><span class="rvts268">vENPN</span><span class="rvts123"> is written to x</span><span class="rvts268">ENPN</span><span class="rvts123"> in the </span><span class="rvts268">WholesalePrices_VB.jl</span><span class="rvts123"> file. These data transfer files often contain year selections that may need to be updated given a different set of years of input data. For example, if vENPN data were only input through 2045, the file </span><span class="rvts268">WholesalePrices_VB.jl</span><span class="rvts123"> may extrapolate values from 2046 to 2050. If the last year of the input data changed from 2045 to 2050, then the year selections and extrapolations in the script file would need to change.</span></p>
+<p class="rvps96"><span class="rvts123">All data read in through the </span><span class="rvts256">VBInput</span><span class="rvts123"> program are assigned to model variables named with a ‘v’ prefix, such as </span><span class="rvts256">vENPN or vDmd</span><span class="rvts123">. Julia files in \Input\Scripts transfer those ‘v’ variables to model variables (usually named using an ‘x’ prefix). &nbsp;For example, </span><span class="rvts256">vENPN</span><span class="rvts123"> is written to x</span><span class="rvts256">ENPN</span><span class="rvts123"> in the </span><span class="rvts256">WholesalePrices_VB.jl</span><span class="rvts123"> file. These data transfer files often contain year selections that may need to be updated given a different set of years of input data. For example, if vENPN data were only input through 2045, the file </span><span class="rvts256">WholesalePrices_VB.jl</span><span class="rvts123"> may extrapolate values from 2046 to 2050. If the last year of the input data changed from 2045 to 2050, then the year selections and extrapolations in the script file would need to change.</span></p>
 <p class="rvps96"><span class="rvts123"><br/></span></p>
-<p class="rvps96"><span class="rvts123">Following the execution of </span><span class="rvts268">VBInput</span><span class="rvts123">, review the files in </span><span class="rvts270">\Input\Scripts</span><span class="rvts123"> listed below to determine if any year selections need to be revised. Below is a list of the files that transfer the 'v' variables to model variables.</span></p>
+<p class="rvps96"><span class="rvts123">Following the execution of </span><span class="rvts256">VBInput</span><span class="rvts123">, review the files in </span><span class="rvts258">\Input\Scripts</span><span class="rvts123"> listed below to determine if any year selections need to be revised. Below is a list of the files that transfer the 'v' variables to model variables.</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 120px; list-style-position: outside; list-style-type: disc;">
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">DegreeDay_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">DeliveredPrices_VB_US.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">DeliveredPricesFuelSet_VB</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">DeviceInputs_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">DeviceSaturation_VB_Com.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">DeviceSaturation_VB_Res.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">DeviceSaturation_VB_Ind.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">DeviceSaturation_VB_Trans.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">EconomicDrivers_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">Elec_SalesPurch_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">Elec_UnRetire_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">Electric_PeaksMinimumsOutputs_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">ElectricPlantCharacteristics_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">Electric_Transmission_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">ElectricGeneration_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps165 noindent"><span class="rvts123">ElectricUtilityFuelUse_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">Elec_SalesPurch_VB.jl&nbsp;</span></li>
- <li style="text-indent: 0px" class="rvps165 noindent"><span class="rvts123">Energy_Flows_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">EnergyDemand_VB_Com.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">EnergyDemand_VB_Res.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">EnergyDemand_VB_Ind.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">EnergyDemand_VB_Trans.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">FlowFraction_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">GasOilSupply_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">GHG_VB_Res.jl &nbsp; &nbsp;&nbsp;</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">GHG_VB_Com.jl &nbsp; &nbsp;&nbsp;</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">GHG_VB_Ind.jl &nbsp; &nbsp;&nbsp;</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">GHG_VB_Trans.jl &nbsp; &nbsp;&nbsp;</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">GHG_VB_ElecUtility.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">GHG_VB_RCI.jl &nbsp; &nbsp;&nbsp;</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">CAC_VB_RCI.jl &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">CAC_VB_Trans.jl &nbsp;</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">CAC_VB_ElecUtility.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">CAC_VB_ReductionCurves.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">ImportEmissions_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">LNGProduction_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">NGTransmission_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">OG_UnitDefinitions_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">OGExchangeAndInflation.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">RefiningDefinitions_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">RPP_ProductionImportsExports_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">Steam_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">Transportation_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">VehicleStock_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">Waste_VB.jl</span></li>
- <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">WholesalePrices_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">DegreeDay_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">DeliveredPrices_VB_US.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">DeliveredPricesFuelSet_VB</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">DeviceInputs_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">DeviceSaturation_VB_Com.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">DeviceSaturation_VB_Res.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">DeviceSaturation_VB_Ind.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">DeviceSaturation_VB_Trans.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">EconomicDrivers_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Elec_SalesPurch_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Elec_UnRetire_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Electric_PeaksMinimumsOutputs_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">ElectricPlantCharacteristics_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Electric_Transmission_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">ElectricGeneration_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps157 noindent"><span class="rvts123">ElectricUtilityFuelUse_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Elec_SalesPurch_VB.jl&nbsp;</span></li>
+ <li style="text-indent: 0px" class="rvps157 noindent"><span class="rvts123">Energy_Flows_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">EnergyDemand_VB_Com.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">EnergyDemand_VB_Res.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">EnergyDemand_VB_Ind.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">EnergyDemand_VB_Trans.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">FlowFraction_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">GasOilSupply_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">GHG_VB_Res.jl &nbsp; &nbsp;&nbsp;</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">GHG_VB_Com.jl &nbsp; &nbsp;&nbsp;</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">GHG_VB_Ind.jl &nbsp; &nbsp;&nbsp;</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">GHG_VB_Trans.jl &nbsp; &nbsp;&nbsp;</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">GHG_VB_ElecUtility.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">GHG_VB_RCI.jl &nbsp; &nbsp;&nbsp;</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">CAC_VB_RCI.jl &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">CAC_VB_Trans.jl &nbsp;</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">CAC_VB_ElecUtility.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">CAC_VB_ReductionCurves.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">ImportEmissions_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">LNGProduction_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">NGTransmission_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">OG_UnitDefinitions_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">OGExchangeAndInflation.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">RefiningDefinitions_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">RPP_ProductionImportsExports_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Steam_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Transportation_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">VehicleStock_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Waste_VB.jl</span></li>
+ <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">WholesalePrices_VB.jl</span></li>
 </ul>
-<p class="rvps157"><span class="rvts123"><br/></span></p>
+<p class="rvps149"><span class="rvts123"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <li value="4" style="text-indent: 0px" class="rvps155 noindent"><span class="rvts267">Modify years to be calibrated given new year of data</span></li>
+ <li value="4" style="text-indent: 0px" class="rvps147 noindent"><span class="rvts255">Modify years to be calibrated given new year of data</span></li>
 </ol>
 <p class="rvps31"><span class="rvts101">All required historical data must be updated through the last historical year or the model may not calibrate properly. &nbsp;However, the last historical calibration year can vary by sector if needed. &nbsp;</span></p>
 <p class="rvps5"><span class="rvts56">Given a new year of historical data, determine and set the calibration years using the following steps.</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 72px; list-style-position: outside; list-style-type: lower-alpha;">
  <li class="rvps2 noindent"><span class="rvts6">If there are any sectors that have zero demands starting in 1985 then modify the </span><span class="rvts34">InitialDemandYear[EC,Area]</span><span class="rvts6"> variable in Calibration\AdjustInitialYear.jl. </span><span class="rvts34">InitialDemandYear[EC,Area]</span><span class="rvts6"> indicates, for a given sector, which year to use as the first year to be used for initializing calibration equations and curves.</span></li>
  <li class="rvps2 noindent"><span class="rvts6">Modify </span><span class="rvts34">CalibTime[EC,Area]</span><span class="rvts6"> in Calibration\CalibSettings.jl. &nbsp;</span><span class="rvts34">CalibTime[EC,Area]</span><span class="rvts6"> indicates the last year to be calibrated.</span></li>
- <li style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">Modify electric load calibration years in Calibration\</span><span class="rvts268">CalibSettings.jl</span><span class="rvts123"> using the variable </span><span class="rvts182">CalibLTime[Area]</span><span class="rvts123">.</span></li>
+ <li style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">Modify electric load calibration years in Calibration\</span><span class="rvts256">CalibSettings.jl</span><span class="rvts123"> using the variable </span><span class="rvts182">CalibLTime[Area]</span><span class="rvts123">.</span></li>
 </ol>
-<p class="rvps162"><span class="rvts123"><br/></span></p>
-<p class="rvps162"><span class="rvts123">Revise the final year of execution to be the new last historical year.</span></p>
-<p class="rvps162"><span class="rvts123"><br/></span></p>
+<p class="rvps154"><span class="rvts123"><br/></span></p>
+<p class="rvps154"><span class="rvts123">Revise the final year of execution to be the new last historical year.</span></p>
+<p class="rvps154"><span class="rvts123"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 72px; list-style-position: outside; list-style-type: lower-alpha;">
- <li value="4" style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">Modify the electric price calibration in </span><span class="rvts268">RunModel.jl</span><span class="rvts123">.&nbsp;</span></li>
+ <li value="4" style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">Modify the electric price calibration in </span><span class="rvts256">RunModel.jl</span><span class="rvts123">.&nbsp;</span></li>
 </ol>
-<p class="rvps166"><span class="rvts123">Electric prices are calibrated in the second execution statement in </span><span class="rvts268">RunModel.jl</span><span class="rvts123"> in the 2020Model subdirectory. &nbsp;The calibration for electric prices is different in that we calibrate prices five years out into the future. &nbsp;</span></p>
-<p class="rvps163"><span class="rvts123"><br/></span></p>
-<p class="rvps163"><span class="rvts123">rem &nbsp;=========================</span></p>
-<p class="rvps163"><span class="rvts123">rem &nbsp;Calibrate Electric Prices</span></p>
-<p class="rvps163"><span class="rvts123">rem &nbsp;=========================</span></p>
-<p class="rvps163"><span class="rvts123">rem</span></p>
-<p class="rvps163"><span class="rvts123">&nbsp; &nbsp; &nbsp;Call PrmFile ElecPriceSwitches.jl &nbsp;&nbsp;</span></p>
-<p class="rvps163"><span class="rvts123">&nbsp; &nbsp; &nbsp;Call ExecuteModel 1986 </span><span class="rvts267">2015</span></p>
-<p class="rvps162"><span class="rvts123"><br/></span></p>
-<p class="rvps166"><span class="rvts123">Given a new year of historical data, modify the electric price calibration to be equal to five years past the last historical year.</span></p>
+<p class="rvps158"><span class="rvts123">Electric prices are calibrated in the second execution statement in </span><span class="rvts256">RunModel.jl</span><span class="rvts123"> in the 2020Model subdirectory. &nbsp;The calibration for electric prices is different in that we calibrate prices five years out into the future. &nbsp;</span></p>
+<p class="rvps155"><span class="rvts123"><br/></span></p>
+<p class="rvps155"><span class="rvts123">rem &nbsp;=========================</span></p>
+<p class="rvps155"><span class="rvts123">rem &nbsp;Calibrate Electric Prices</span></p>
+<p class="rvps155"><span class="rvts123">rem &nbsp;=========================</span></p>
+<p class="rvps155"><span class="rvts123">rem</span></p>
+<p class="rvps155"><span class="rvts123">&nbsp; &nbsp; &nbsp;Call PrmFile ElecPriceSwitches.jl &nbsp;&nbsp;</span></p>
+<p class="rvps155"><span class="rvts123">&nbsp; &nbsp; &nbsp;Call ExecuteModel 1986 </span><span class="rvts255">2015</span></p>
+<p class="rvps154"><span class="rvts123"><br/></span></p>
+<p class="rvps158"><span class="rvts123">Given a new year of historical data, modify the electric price calibration to be equal to five years past the last historical year.</span></p>
 <p class="rvps2"><span class="rvts56"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <li value="5" style="text-indent: 0px" class="rvps155 noindent"><span class="rvts267">Modify the start year of the model execution </span><span class="rvts271">This section needs redone</span></li>
+ <li value="5" style="text-indent: 0px" class="rvps147 noindent"><span class="rvts255">Modify the start year of the model execution </span><span class="rvts259">This section needs redone</span></li>
 </ol>
 <p class="rvps9"><span class="rvts123">Even though there is a new last historical year, the year to start the execution of ENERGY 2020 forecast often does not change.&nbsp;</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">Change the first year of execution for the Reference case (Ref26) run by changing the start year in the calls to </span><span class="rvts268">RunScenario</span><span class="rvts123"> and </span><span class="rvts268">RunIntegratedPolicy</span><span class="rvts123"> statements in 2020Model\RunRef26.bat.</span></li>
+  <li style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">Change the first year of execution for the Reference case (Ref26) run by changing the start year in the calls to </span><span class="rvts256">RunScenario</span><span class="rvts123"> and </span><span class="rvts256">RunIntegratedPolicy</span><span class="rvts123"> statements in 2020Model\RunRef26.bat.</span></li>
  </ol>
 </ol>
-<p class="rvps166"><span class="rvts123"><br/></span></p>
-<p class="rvps162"><span class="rvts123">The non-integrated runs are executed using a call to RunScenario:</span></p>
-<p class="rvps166"><span class="rvts123">&nbsp; &nbsp; &nbsp;Call RunScenario </span><span class="rvts267">2020</span><span class="rvts123"> 2050 Ref13 Base Base Ref13 Short</span></p>
-<p class="rvps162"><span class="rvts123"><br/></span></p>
-<p class="rvps162"><span class="rvts123">The integrated runs in Ref13 are executed using a call to RunIntegratedPolicy:</span></p>
-<p class="rvps166"><span class="rvts123">&nbsp; &nbsp; &nbsp;Call RunIntegratedPolicy </span><span class="rvts267">2020</span><span class="rvts123"> 2050 Ref13_TIM Base_TIM Base_TIM Ref13</span></p>
-<p class="rvps163"><span class="rvts123">&nbsp;F1201_EC Base</span></p>
+<p class="rvps158"><span class="rvts123"><br/></span></p>
+<p class="rvps154"><span class="rvts123">The non-integrated runs are executed using a call to RunScenario:</span></p>
+<p class="rvps158"><span class="rvts123">&nbsp; &nbsp; &nbsp;Call RunScenario </span><span class="rvts255">2020</span><span class="rvts123"> 2050 Ref13 Base Base Ref13 Short</span></p>
+<p class="rvps154"><span class="rvts123"><br/></span></p>
+<p class="rvps154"><span class="rvts123">The integrated runs in Ref13 are executed using a call to RunIntegratedPolicy:</span></p>
+<p class="rvps158"><span class="rvts123">&nbsp; &nbsp; &nbsp;Call RunIntegratedPolicy </span><span class="rvts255">2020</span><span class="rvts123"> 2050 Ref13_TIM Base_TIM Base_TIM Ref13</span></p>
+<p class="rvps155"><span class="rvts123">&nbsp;F1201_EC Base</span></p>
 <p class="rvps6"><span class="rvts123"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li value="2" style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">Search through other batch files used to execute scenarios and change the first year to any calls to RunScenario or RunIntegratedPolicy.</span></li>
+  <li value="2" style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">Search through other batch files used to execute scenarios and change the first year to any calls to RunScenario or RunIntegratedPolicy.</span></li>
  </ol>
 </ol>
 <p class="rvps2"><span class="rvts56"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <li value="6" style="text-indent: 0px" class="rvps155 noindent"><span class="rvts267">Finding and troubleshooting issues with historical data</span></li>
+ <li value="6" style="text-indent: 0px" class="rvps147 noindent"><span class="rvts255">Finding and troubleshooting issues with historical data</span></li>
 </ol>
 <p class="rvps5"><span class="rvts56">Adding a new historical year requires changing a significant number of files and incorporating a large amount of new data. Occasionally, the scale of these changes results in missing data or an unintended bug being introduced when changing model files. Finding these issues can be time-consuming. &nbsp;Follow the steps below when looking for and trouble-shooting issues with the historical data.</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">Run the model incrementally when adding new data</span></li>
+  <li style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">Run the model incrementally when adding new data</span></li>
  </ol>
 </ol>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 132px; list-style-position: outside;">
- <li style="text-indent: 0px" class="rvps161 noindent"><span class="rvts123">If new data is added to the vData Access databases or Superset then execute a RunAll and check for any issues using the \Process database</span></li>
- <li style="text-indent: 0px" class="rvps161 noindent"><span class="rvts123">If data is incorporated correctly then \Process can be the new starting point for new runs. &nbsp;In other words, when making subsequent model runs, you can execute a </span><span class="rvts268">RunModel.bat</span><span class="rvts123"> from \2020Model rather than a </span><span class="rvts268">RunAll.cmd</span><span class="rvts123">.</span></li>
+ <li style="text-indent: 0px" class="rvps153 noindent"><span class="rvts123">If new data is added to the vData Access databases or Superset then execute a RunAll and check for any issues using the \Process database</span></li>
+ <li style="text-indent: 0px" class="rvps153 noindent"><span class="rvts123">If data is incorporated correctly then \Process can be the new starting point for new runs. &nbsp;In other words, when making subsequent model runs, you can execute a </span><span class="rvts256">RunModel.bat</span><span class="rvts123"> from \2020Model rather than a </span><span class="rvts256">RunAll.cmd</span><span class="rvts123">.</span></li>
 </ol>
 <p class="rvps6"><span class="rvts123"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li value="2" style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">Use the model to check for missing historical data</span></li>
+  <li value="2" style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">Use the model to check for missing historical data</span></li>
  </ol>
 </ol>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 132px; list-style-position: outside;">
- <li style="text-indent: 0px" class="rvps161 noindent"><span class="rvts123">To check if all required data is being read in for the new historical year, execute the model through the calibration (dba.zip is created in \Calib).</span></li>
- <li style="text-indent: 0px" class="rvps161 noindent"><span class="rvts123">If the model stops with an error:</span></li>
+ <li style="text-indent: 0px" class="rvps153 noindent"><span class="rvts123">To check if all required data is being read in for the new historical year, execute the model through the calibration (dba.zip is created in \Calib).</span></li>
+ <li style="text-indent: 0px" class="rvps153 noindent"><span class="rvts123">If the model stops with an error:</span></li>
 </ol>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 132px; list-style-position: outside; list-style-type: disc;">
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
   <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: square;">
    <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 -60px; list-style-position: outside; list-style-type: disc;">
-    <li style="text-indent: 0px" class="rvps116 noindent"><span class="rvts123">Note the error message on screen (ex: “Could not divide by zero”). Executing non-compiled Promula will often generate an error message if the compiled outputs are not helpful.</span></li>
-    <li style="text-indent: 0px" class="rvps116 noindent"><span class="rvts123">Examine .log files in 2020Model folder to determine which sector is generating the error. Which file was most recently created?</span></li>
-    <li style="text-indent: 0px" class="rvps116 noindent"><span class="rvts123">Once sector is identified, check historical data for missing data. Are some variables missing values in the newest year?</span></li>
+    <li style="text-indent: 0px" class="rvps108 noindent"><span class="rvts123">Note the error message on screen (ex: “Could not divide by zero”). Executing non-compiled Promula will often generate an error message if the compiled outputs are not helpful.</span></li>
+    <li style="text-indent: 0px" class="rvps108 noindent"><span class="rvts123">Examine .log files in 2020Model folder to determine which sector is generating the error. Which file was most recently created?</span></li>
+    <li style="text-indent: 0px" class="rvps108 noindent"><span class="rvts123">Once sector is identified, check historical data for missing data. Are some variables missing values in the newest year?</span></li>
    </ul>
   </ul>
  </ul>
 </ul>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 132px; list-style-position: outside;">
- <li value="3" style="text-indent: 0px" class="rvps161 noindent"><span class="rvts123">If issue persists then contact SSI for assistance</span></li>
+ <li value="3" style="text-indent: 0px" class="rvps153 noindent"><span class="rvts123">If issue persists then contact SSI for assistance</span></li>
 </ol>
-<p class="rvps163"><span class="rvts123"><br/></span></p>
+<p class="rvps155"><span class="rvts123"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li value="3" style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">Check the calibration of historical data:</span></li>
+  <li value="3" style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">Check the calibration of historical data:</span></li>
  </ol>
 </ol>
-<p class="rvps166"><span class="rvts123">Calibration is essentially the simulation of the historical period by the model to set model parameters by matching the input data. Even if historical data is present, outliers or inconsistent data can result in the model not calibrating correctly.</span></p>
-<p class="rvps166"><span class="rvts123"><br/></span></p>
-<p class="rvps166"><span class="rvts123">To check if the model calibrated, check the model’s values of historical demand, gross output, electric prices compared to the exogenous inputs of historical demand, gross output, and electric prices. &nbsp;In terms of variables, this means check that Dmd matches XDmd, GO matches XGO, and PE matches XPE historically. &nbsp;You can do this through the Promula interface (2020.bat) or using output files created to help check the calibration.</span></p>
-<p class="rvps166"><span class="rvts123"><br/></span></p>
-<p class="rvps166"><span class="rvts123">To check if the model calibrated, check results from the calibration output file: &nbsp;CalibrationCheck.dta.</span></p>
-<p class="rvps166"><span class="rvts123"><br/></span></p>
+<p class="rvps158"><span class="rvts123">Calibration is essentially the simulation of the historical period by the model to set model parameters by matching the input data. Even if historical data is present, outliers or inconsistent data can result in the model not calibrating correctly.</span></p>
+<p class="rvps158"><span class="rvts123"><br/></span></p>
+<p class="rvps158"><span class="rvts123">To check if the model calibrated, check the model’s values of historical demand, gross output, electric prices compared to the exogenous inputs of historical demand, gross output, and electric prices. &nbsp;In terms of variables, this means check that Dmd matches XDmd, GO matches XGO, and PE matches XPE historically. &nbsp;You can do this through the Promula interface (2020.bat) or using output files created to help check the calibration.</span></p>
+<p class="rvps158"><span class="rvts123"><br/></span></p>
+<p class="rvps158"><span class="rvts123">To check if the model calibrated, check results from the calibration output file: &nbsp;CalibrationCheck.dta.</span></p>
+<p class="rvps158"><span class="rvts123"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li value="4" style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">Identify the data issue causing the calibration issue</span></li>
+  <li value="4" style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">Identify the data issue causing the calibration issue</span></li>
  </ol>
 </ol>
-<p class="rvps166"><span class="rvts123">If the model did not calibrate, then it is due to data inconsistencies, zeros, or anomalies. &nbsp;The following is a list of common data issues. &nbsp;Please contact SSI if your model is not calibrating to help identify the data source of the problem.</span></p>
+<p class="rvps158"><span class="rvts123">If the model did not calibrate, then it is due to data inconsistencies, zeros, or anomalies. &nbsp;The following is a list of common data issues. &nbsp;Please contact SSI if your model is not calibrating to help identify the data source of the problem.</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 132px; list-style-position: outside; list-style-type: disc;">
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
   <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 -60px; list-style-position: outside; list-style-type: square;">
-   <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">Disagreements between the input energy data and macroeconomic data in TIM. For instance, calibration issues can arise if energy usage in a sector declines but the economic driver significantly increases.</span></li>
-   <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">Disagreements between related energy data, such as if historical electric sales are significantly than electric generation values in a given area.</span></li>
-   <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">Errors in data formatting. If a decimal point in the input data is accidentally moved one spot in the new historical year then the model can have issues accounting for the large spike or drop when all other factors are held constant.</span></li>
-   <li style="text-indent: 0px" class="rvps164 noindent"><span class="rvts123">Adding new sectors to the historical period without any previous initialization values.</span></li>
+   <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Disagreements between the input energy data and macroeconomic data in TIM. For instance, calibration issues can arise if energy usage in a sector declines but the economic driver significantly increases.</span></li>
+   <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Disagreements between related energy data, such as if historical electric sales are significantly than electric generation values in a given area.</span></li>
+   <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Errors in data formatting. If a decimal point in the input data is accidentally moved one spot in the new historical year then the model can have issues accounting for the large spike or drop when all other factors are held constant.</span></li>
+   <li style="text-indent: 0px" class="rvps156 noindent"><span class="rvts123">Adding new sectors to the historical period without any previous initialization values.</span></li>
   </ul>
  </ul>
 </ul>
-<p class="rvps167"><span class="rvts123"><br/></span></p>
+<p class="rvps159"><span class="rvts123"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <li value="7" style="text-indent: 0px" class="rvps155 noindent"><span class="rvts267">Review and/or remove “Adjust” files in 2020Model</span></li>
+ <li value="7" style="text-indent: 0px" class="rvps147 noindent"><span class="rvts255">Review and/or remove “Adjust” files in 2020Model</span></li>
 </ol>
 <p class="rvps9"><span class="rvts123">Adjustments to input data or to the forecast are typically made in text files stored in the 2020Model subdirectory and are named with the prefix “Adjust”. &nbsp;These adjustment files do a variety of tasks, including fixing issues with historical data and adjusting the forecast assumptions to reflect expert thinking. &nbsp;</span></p>
 <p class="rvps6"><span class="rvts123"><br/></span></p>
@@ -1425,49 +1425,49 @@ details.hnd-blue-callout code {
 <p class="rvps9"><span class="rvts123">In order to determine whether an adjustment file is needed when updating the model, follow the steps below:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">Review Adjust files to check for Select Year statements. If the adjustment begins or ends at the last historical year then change to new value</span></li>
-  <li style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">Run the model to develop a new Base scenario for comparison purposes.</span></li>
-  <li style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">Remove all adjustment files from RunModel.jl and rerun the Base scenario.</span></li>
-  <li style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">Compare results of the model before and after the adjustment files have been removed.</span></li>
-  <li style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">If it is determined that some of the adjustment files may still be needed, then review each file for its relevance, then put the adjustments back in one at a time and rerun the Base scenario after each one and do a before and comparison before moving on to the next adjustment file.</span></li>
+  <li style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">Review Adjust files to check for Select Year statements. If the adjustment begins or ends at the last historical year then change to new value</span></li>
+  <li style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">Run the model to develop a new Base scenario for comparison purposes.</span></li>
+  <li style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">Remove all adjustment files from RunModel.jl and rerun the Base scenario.</span></li>
+  <li style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">Compare results of the model before and after the adjustment files have been removed.</span></li>
+  <li style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">If it is determined that some of the adjustment files may still be needed, then review each file for its relevance, then put the adjustments back in one at a time and rerun the Base scenario after each one and do a before and comparison before moving on to the next adjustment file.</span></li>
  </ol>
 </ol>
 <p class="rvps2"><span class="rvts56"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <li value="8" style="text-indent: 0px" class="rvps155 noindent"><span class="rvts267">Review policy files&nbsp;</span></li>
+ <li value="8" style="text-indent: 0px" class="rvps147 noindent"><span class="rvts255">Review policy files&nbsp;</span></li>
 </ol>
 <p class="rvps96"><span class="rvts123">Each scenario is constructed using policy files, which are created to simulate a specific event, planned policy, or general assumption about the forecast. Policy files are designed with the best possible knowledge of future events at the time they are created. Over time, the expected impacts of policies can change and diverge from the intent of the file when it was created.&nbsp;</span></p>
 <p class="rvps96"><span class="rvts123"><br/></span></p>
 <p class="rvps96"><span class="rvts123">Therefore, a review of policy files and scenarios should be conducted every time the historical data is updated for the following:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">Does the policy start in a specific year? Is this year now in the historical period? &nbsp;Should we expect to see the impact of the policy in the historical data?</span></li>
-  <li style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">How has the new data altered the impact of the policy?</span></li>
-  <li style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">Is the policy still relevant to the forecast scenario? How have expectations about the scenario changed over the past year?</span></li>
+  <li style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">Does the policy start in a specific year? Is this year now in the historical period? &nbsp;Should we expect to see the impact of the policy in the historical data?</span></li>
+  <li style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">How has the new data altered the impact of the policy?</span></li>
+  <li style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">Is the policy still relevant to the forecast scenario? How have expectations about the scenario changed over the past year?</span></li>
  </ol>
 </ol>
 <p class="rvps96"><span class="rvts123"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <li value="9" style="text-indent: 0px" class="rvps155 noindent"><span class="rvts267">Review Base and Reference Case forecasts</span></li>
+ <li value="9" style="text-indent: 0px" class="rvps147 noindent"><span class="rvts255">Review Base and Reference Case forecasts</span></li>
 </ol>
 <p class="rvps9"><span class="rvts123">Reviewing the forecast is another key check for ensuring that the new historical data is being read into the model properly. The last historical year is a central component for trends into the future, so any abnormal data can have a large influence on the forecast.&nbsp;</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">Compare new Base and Ref13 case to previous versions. Which sectors have a large change in the forecast values? Can these new trends be traced to data in the new historical year?</span></li>
-  <li style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">Compare results to outside forecasts and expert analysis. Are the model outputs reasonable?</span></li>
+  <li style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">Compare new Base and Ref13 case to previous versions. Which sectors have a large change in the forecast values? Can these new trends be traced to data in the new historical year?</span></li>
+  <li style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">Compare results to outside forecasts and expert analysis. Are the model outputs reasonable?</span></li>
  </ol>
 </ol>
 <p class="rvps6"><span class="rvts123"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
- <li value="10" style="text-indent: 0px" class="rvps155 noindent"><span class="rvts267">Review special adjustments to finalize Reference Case forecast</span></li>
+ <li value="10" style="text-indent: 0px" class="rvps147 noindent"><span class="rvts255">Review special adjustments to finalize Reference Case forecast</span></li>
 </ol>
 <p class="rvps9"><span class="rvts123">To finalize the Reference case, there are several additional Reference case policies that require special adjustments. &nbsp;The adjustments required need to be made after the initial Reference case has been run in order to obtain initial levels used in the policies. &nbsp;The following are current examples of Reference case policies that require special adjustments. &nbsp;These special adjustment files change each year, so contact SSI for the most up-to-date list of adjustments and instructions on how these are created.</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;">
-  <li style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">Alberta Cap and Trade</span></li>
-  <li style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">OnFarm forecast</span></li>
-  <li style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">Transportation Road Dust driver</span></li>
-  <li style="text-indent: 0px" class="rvps144 noindent"><span class="rvts123">HFC emissions forecast</span><span class="rvts14"></span></li>
+  <li style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">Alberta Cap and Trade</span></li>
+  <li style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">OnFarm forecast</span></li>
+  <li style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">Transportation Road Dust driver</span></li>
+  <li style="text-indent: 0px" class="rvps136 noindent"><span class="rvts123">HFC emissions forecast</span><span class="rvts14"></span></li>
  </ul>
 </ol>
 
