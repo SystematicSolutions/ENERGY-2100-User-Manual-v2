@@ -1,0 +1,1376 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="generator" content="HelpNDoc Professional Edition 10.4.0.281">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="favicon.ico"/>
+
+  <title>Modifying Projection Methods</title>
+  <meta name="description" content="" /> 
+  <meta name="keywords" content="">
+
+
+
+  
+  
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Modifying Projection Methods">
+  <meta name="twitter:description" content="">
+
+  <!-- Open Graph data -->
+  <meta property="og:title" content="Modifying Projection Methods" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="ENERGY 2100 User Manual" /> 
+
+  <!-- Bootstrap CSS -->
+  <link href="vendors/bootstrap-5.3.7/bootstrap.min.css" rel="stylesheet"/>
+  <link href="vendors/bootstrap-icons-1.13.1/bootstrap-icons.min.css" rel="stylesheet"/>
+
+  <!-- JsTree styles -->
+  <link href="vendors/jstree-3.3.17/themes/default/style.min.css" rel="stylesheet"/>
+
+  <!-- Hnd styles -->
+  <link href="css/layout.min.css" rel="stylesheet" />
+  <link href="css/effects.min.css" rel="stylesheet" />
+  <link href="css/theme-light-blue.min.css" rel="stylesheet" />
+  <link href="css/print.min.css" rel="stylesheet" media="print" />
+  <style type="text/css">nav { width: 350px} @media screen and (min-width:769px) { body.md-nav-expanded div#main { margin-left: 350px} body.md-nav-expanded header { padding-left: 364px} }</style>
+  <style type="text/css">.navigation #inline-toc { width: auto !important}</style>
+
+  <!-- Content style -->
+  <link href="css/hnd.content.css" rel="stylesheet" />
+
+  <style type="text/css">/* =========================================================
+   HELPNDOC DOCUMENTATION THEME v9
+   Cleaned and consolidated
+   ========================================================= */
+
+
+/* =========================================================
+   1) BASE PAGE
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin-right: 300px;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.62;
+  color: #111827;
+}
+
+main,
+article,
+.topic,
+.topic-content,
+#topic_content {
+  max-width: 920px;
+}
+
+
+/* =========================================================
+   2) HEADINGS, TEXT, LISTS
+   ========================================================= */
+
+h1 {
+  margin-top: 0.15em;
+  margin-bottom: 0.45em;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+h2 {
+  margin-top: 1.1em;
+  margin-bottom: 0.35em;
+  line-height: 1.22;
+  font-weight: 600;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 16px;
+}
+
+h3 {
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+  line-height: 1.28;
+  font-weight: 600;
+}
+
+h4 {
+  margin-top: 0.85em;
+  margin-bottom: 0.25em;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+h2,
+h3,
+h4 {
+  scroll-margin-top: 120px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.82em;
+}
+
+#topic_content h1,
+#topic_content h2,
+#topic_content h3,
+#topic_content h4 {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif !important;
+}
+
+/* =========================================================
+   LIST SYSTEM (CLEAN + CONSISTENT NUMBERING)
+   ========================================================= */
+
+/* Base spacing */
+ul,
+ol {
+  margin-top: 0.4em;
+  margin-bottom: 0.9em;
+}
+
+/* Unordered lists */
+ul {
+  padding-left: 1.6em;
+}
+
+ul li {
+  margin-bottom: 0.24em;
+  line-height: 1.62;
+}
+
+/* Ordered lists */
+ol {
+  list-style: decimal;
+  padding-left: 1.8em;
+}
+
+/* Ordered list items */
+ol li {
+  margin-bottom: 0.4em;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.62;
+  color: #111827;
+}
+
+/* Number styling */
+ol li::marker {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #111827;
+}
+
+/* Paragraphs inside list items */
+li p {
+  margin-bottom: 0.35em;
+}
+
+
+/* =========================================================
+   3) INLINE CODE + PRE/CODE
+   ========================================================= */
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.95em;
+  background: #f3f4f6;
+  color: #111827;
+  border-radius: 4px;
+}
+
+pre {
+  position: relative;
+  margin-top: 0.35em;
+  margin-bottom: 0.8em;
+  padding: 14px 16px;
+  border: 1px solid #dde3ea;
+  border-radius: 8px;
+  background: #f7f9fb;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: pre;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  -webkit-overflow-scrolling: touch;
+}
+
+pre code {
+  padding: 0;
+  background: transparent;
+}
+
+p + pre {
+  margin-top: 0.25em;
+}
+
+pre + p {
+  margin-top: 0.7em;
+}
+
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+
+/* =========================================================
+   4) LEFT NAVIGATION
+   ========================================================= */
+
+nav,
+aside,
+#contents,
+#toc,
+.tree,
+.treeview {
+  background: #fafafa;
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: #4b5563;
+}
+
+nav a,
+aside a,
+#contents a,
+#toc a,
+.tree a,
+.treeview a {
+  border-radius: 6px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+nav a:hover,
+aside a:hover,
+#contents a:hover,
+#toc a:hover,
+.tree a:hover,
+.treeview a:hover {
+  background: #eef2f7;
+  color: #111827;
+}
+
+nav .active,
+aside .active,
+#contents .active,
+#toc .active,
+.tree .active,
+.treeview .active,
+nav a[aria-current="page"],
+aside a[aria-current="page"],
+#contents a[aria-current="page"],
+#toc a[aria-current="page"] {
+  background: #e8eefc;
+  color: #1f3a8a;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+nav li,
+aside li,
+#contents li,
+#toc li,
+.tree li,
+.treeview li {
+  margin-bottom: 2px;
+  padding: 2px 0;
+}
+
+nav > ul > li > a,
+aside > ul > li > a,
+#contents > ul > li > a,
+#toc > ul > li > a {
+  font-weight: 600;
+  color: #374151;
+}
+
+nav li li a,
+aside li li a,
+#contents li li a,
+#toc li li a {
+  color: #6b7280;
+}
+
+
+/* =========================================================
+   5) RIGHT "ON THIS PAGE" NAV
+   ========================================================= */
+
+#right-nav {
+  position: fixed;
+  right: 24px;
+  top: 120px;
+  width: 260px;
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+  padding: 16px;
+  background: #fafafa;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.55;
+  z-index: 99999;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+#right-nav .right-nav-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+#right-nav .nav-group {
+  margin-bottom: 10px;
+}
+
+#right-nav .nav-group-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #111827;
+  cursor: pointer;
+  margin-bottom: 6px;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+#right-nav .nav-group-title:hover {
+  background: #f3f4f6;
+}
+
+#right-nav .nav-group-items.collapsed {
+  display: none;
+}
+
+#right-nav .right-nav-link {
+  display: block;
+  padding: 5px 8px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  color: #374151;
+  text-decoration: none;
+}
+
+#right-nav .right-nav-link:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+#right-nav .right-nav-link.h3 {
+  margin-left: 14px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+#right-nav .right-nav-link.h4 {
+  margin-left: 28px;
+  font-size: 12.5px;
+  color: #6b7280;
+}
+
+#right-nav .right-nav-link.active {
+  background: #e8eefc;
+  color: #1f3a8a;
+  font-weight: 600;
+}
+
+#right-nav .back-to-top {
+  margin-top: 14px;
+  padding: 4px 6px;
+  font-size: 12px;
+  color: #6b7280;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+#right-nav .back-to-top:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+#right-nav::-webkit-scrollbar {
+  width: 8px;
+}
+
+#right-nav::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 8px;
+}
+
+
+/* =========================================================
+   6) ANCHOR HIGHLIGHT
+   ========================================================= */
+
+:target {
+  animation: rightNavTargetFlash 0.8s ease;
+}
+
+@keyframes rightNavTargetFlash {
+  0% { background: #fff3cd; }
+  100% { background: transparent; }
+}
+
+/* =========================================================
+   7) ONE-CELL CODE TABLES ONLY
+   Turn true one-cell tables into code-style boxes
+   Leave all other tables alone so HelpNDoc formatting shows
+   ========================================================= */
+
+/* One-cell, non-callout tables only */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child),
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) {
+  border: 1px solid #dde3ea !important;
+  border-radius: 8px;
+  background: #f7f9fb !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  overflow: hidden;
+  margin: 14px 0;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* The single cell inside the one-cell code table */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) > tbody > tr:only-child > td:only-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) > tr:only-child > td:only-child {
+  padding: 10px 14px !important;
+  border: none !important;
+  background: transparent !important;
+  vertical-align: top !important;
+}
+
+/* Text inside one-cell code tables */
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p {
+  font-weight: 400 !important;
+  color: #111827 !important;
+  margin: 0 0 6px 0 !important;
+}
+
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:first-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:first-child {
+  margin-top: 0 !important;
+}
+
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tbody > tr:only-child > td:only-child) p:last-child,
+table:not(:has(td[style*="background-color: #cc99ff"]))
+     :not(:has(td[style*="background-color: #ff0000"]))
+     :not(:has(td[style*="background-color: #e9f1ff"]))
+     :not(:has(td[style*="background-color: #00c030"]))
+     :has(> tr:only-child > td:only-child) p:last-child {
+  margin-bottom: 0 !important;
+}
+
+
+/* =========================================================
+   8) TABLE-BASED CALLOUT SYSTEM
+   ========================================================= */
+
+table:has(td[style*="background-color: #cc99ff"]),
+table:has(td[style*="background-color: #ff0000"]),
+table:has(td[style*="background-color: #e9f1ff"]),
+table:has(td[style*="background-color: #00c030"]) {
+  margin: 14px 0;
+  border-collapse: separate !important;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.025);
+  width: 100% !important;
+  max-width: 100% !important;
+  table-layout: fixed !important;
+  box-sizing: border-box !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td,
+table:has(td[style*="background-color: #ff0000"]) td,
+table:has(td[style*="background-color: #e9f1ff"]) td,
+table:has(td[style*="background-color: #00c030"]) td {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  vertical-align: top;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:not(:last-child),
+table:has(td[style*="background-color: #ff0000"]) td:not(:last-child),
+table:has(td[style*="background-color: #e9f1ff"]) td:not(:last-child),
+table:has(td[style*="background-color: #00c030"]) td:not(:last-child) {
+  display: none;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child,
+table:has(td[style*="background-color: #ff0000"]) td:last-child,
+table:has(td[style*="background-color: #e9f1ff"]) td:last-child,
+table:has(td[style*="background-color: #00c030"]) td:last-child {
+  padding: 12px 14px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p,
+table:has(td[style*="background-color: #ff0000"]) td:last-child p,
+table:has(td[style*="background-color: #e9f1ff"]) td:last-child p,
+table:has(td[style*="background-color: #00c030"]) td:last-child p {
+  margin: 0 0 6px 0 !important;
+  font-weight: 400 !important;
+  color: #374151;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p:last-child,
+table:has(td[style*="background-color: #ff0000"]) td:last-child p:last-child,
+table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:last-child,
+table:has(td[style*="background-color: #00c030"]) td:last-child p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Exercise */
+table:has(td[style*="background-color: #cc99ff"]) {
+  border: 1px solid #e5e7eb !important;
+  border-left: 4px solid #a855f7 !important;
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type {
+  font-weight: 500 !important;
+  color: #111827 !important;
+  margin-bottom: 8px !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) > tbody > tr > td:last-child > p:first-of-type::before {
+  content: "📚";
+  display: inline-block;
+  margin-right: 8px;
+  color: #a855f7;
+}
+
+/* Warning */
+table:has(td[style*="background-color: #ff0000"]) {
+  border: 1px solid #e5e7eb !important;
+  border-left: 4px solid #ef4444 !important;
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #ff0000"]) td:last-child p:first-child::before {
+  content: "⚠";
+  display: inline-block;
+  margin-right: 8px;
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* Note */
+table:has(td[style*="background-color: #e9f1ff"]) {
+  border: 1px solid #e5e7eb !important;
+  border-left: 4px solid #2b9af3 !important;
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #e9f1ff"]) td:last-child p:first-child::before {
+  content: "i";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #2b9af3;
+  border-radius: 50%;
+}
+
+/* Tip */
+table:has(td[style*="background-color: #00c030"]) {
+  border: 1px solid #e5e7eb !important;
+  border-left: 4px solid #22c55e !important;
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #00c030"]) td:last-child p:first-child::before {
+  content: "💡";
+  display: inline-block;
+  margin-right: 8px;
+  color: #22c55e;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   9) REAL CODE BLOCKS ONLY
+   ========================================================= */
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child span,
+table:has(td[style*="background-color: #00c030"]) td:last-child span {
+  background: transparent !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child pre,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
+  margin: 0 !important;
+  padding: 12px 16px !important;
+  background: #f7f9fb !important;
+  border: 1px solid #dde3ea !important;
+  border-radius: 8px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  white-space: pre !important;
+  font-family: Consolas, "Courier New", monospace !important;
+  font-size: 13.5px !important;
+  line-height: 1.55 !important;
+  color: #111827 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child code,
+table:has(td[style*="background-color: #00c030"]) td:last-child code {
+  font-family: Consolas, "Courier New", monospace !important;
+}
+
+
+/* =========================================================
+   10) COLLAPSIBLE NOTE-STYLE BOX
+   ========================================================= */
+
+details.hnd-blue-callout {
+  margin: 14px 0 !important;
+
+  transform: translateX(48px);
+  width: calc(100% - 48px) !important;
+  max-width: calc(100% - 48px) !important;
+
+  box-sizing: border-box !important;
+
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #2b9af3;
+  border-radius: 10px;
+  background: transparent;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.025);
+}
+
+/* Header (summary) */
+details.hnd-blue-callout > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 14px;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+details.hnd-blue-callout > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Info icon (matches Note box) */
+details.hnd-blue-callout > summary::before {
+  content: "i";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #2b9af3;
+  border-radius: 50%;
+}
+
+/* Arrow */
+details.hnd-blue-callout > summary::after {
+  content: "▸";
+  margin-left: auto;
+  font-size: 18px;
+  color: #4b5563;
+  transition: transform 0.18s ease;
+}
+
+details.hnd-blue-callout[open] > summary::after {
+  transform: rotate(90deg);
+}
+
+/* Body */
+details.hnd-blue-callout .callout-body {
+  padding: 0 14px 12px 14px;
+}
+
+details.hnd-blue-callout p {
+  margin: 0 0 6px 0;
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+details.hnd-blue-callout p:last-child {
+  margin-bottom: 0;
+}
+
+/* Code inside collapsible (match your other code blocks) */
+details.hnd-blue-callout pre {
+  margin: 8px 0 10px 0;
+  padding: 10px 14px;
+  background: #f7f9fb;
+  border: 1px solid #dde3ea;
+  border-radius: 8px;
+  overflow-x: auto;
+  white-space: pre;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+details.hnd-blue-callout > summary:hover {
+  background: #f9fafb;
+}
+
+
+/* =========================================================
+   11) COPY BUTTONS
+   ========================================================= */
+
+.copy-code-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 12px;
+  padding: 4px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #374151;
+  cursor: pointer;
+  opacity: 0.92;
+}
+
+.copy-code-btn:hover {
+  background: #f3f4f6;
+}
+
+.copy-code-btn.copied {
+  color: #065f46;
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+}
+
+.copy-code-btn { display: none !important; }
+
+
+/* =========================================================
+   12) RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+  #right-nav {
+    display: none;
+  }
+
+  body {
+    margin-right: 0;
+  }
+}
+
+
+/* =========================================================
+   13) HELPER CLASSES
+   ========================================================= */
+
+.code-block {
+  margin-left: 0;
+}
+
+.indent-1 { margin-left: 20px; }
+.indent-2 { margin-left: 48px; }
+.indent-3 { margin-left: 60px; }
+
+.code-indent {
+  margin-left: 40px;
+  max-width: calc(100% - 40px);
+}
+
+pre code {
+  padding: 0;
+  background: transparent;
+}
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.95em;
+  background: #f3f4f6;
+  color: #111827;
+  padding: 2px 5px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.html-code-box {
+  width: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.html-code-box.indent-1 { margin-left: 20px !important; }
+.html-code-box.indent-2 { margin-left: 48px !important; }
+.html-code-box.indent-3 { margin-left: 68px !important; }
+
+.html-code-box {
+  margin-bottom: 16px;  /* adjust to taste (12–20px works well) */
+}
+
+/* =========================================================
+   14) EMPTY PARAGRAPH CLEANUP
+   ========================================================= */
+
+table td p:empty,
+table td p:has(br:only-child) {
+  display: none;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p:empty,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child p:has(br:only-child) {
+  display: none !important;
+}
+
+
+/* =========================================================
+   15) HTML CODE BOXES INSIDE EXERCISES
+   ========================================================= */
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box {
+  margin-top: 6px !important;
+}
+
+
+/* =========================================================
+   16) COLLAPSIBLE EXERCISE BOXES
+   ========================================================= */
+
+details.example-toggle {
+  margin: 0;
+}
+
+details.example-toggle > summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  color: #6b21a8;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+details.example-toggle > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.example-toggle > summary::before {
+  content: "▸";
+  font-size: 12px;
+  color: #6b21a8;
+  transition: transform 0.18s ease;
+  margin-right: 2px;
+}
+
+details.example-toggle[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+details.example-toggle > summary::after {
+/*  content: "📚";*/
+  font-size: 14px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+details.example-toggle p:first-child::before {
+  content: none !important;
+}
+
+details.example-toggle > *:not(summary) {
+  margin-top: 8px;
+}
+
+details.example-toggle .html-code-box {
+  margin-top: 6px;
+}
+
+/* =========================================================
+   17) CODE LABELS
+   ========================================================= */
+
+.code-label {
+  display: block !important;
+  font-size: 12px;
+  font-weight: 500;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 12px 0 6px 2px !important;
+  white-space: normal !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  padding: 0 !important;
+}
+
+.html-code-box + .code-label {
+  margin-top: 14px !important;
+}
+
+/* =========================================================
+   18) FINAL CODE SPACING SYSTEM (v10.1 CLEAN)
+   ========================================================= */
+
+/* Base <pre> fallback */
+pre {
+  line-height: 1.4;
+  padding: 10px 14px;
+}
+
+/* Main HTML code boxes */
+.html-code-box pre {
+  margin: 0;
+  padding: 12px 16px !important;
+  font-size: 14.5px;
+  line-height: 1.55 !important;
+}
+
+.html-code-box code {
+  display: block;
+  line-height: inherit !important;
+}
+
+/* Code inside exercise tables */
+table:has(td[style*="background-color: #cc99ff"]) td:last-child pre,
+table:has(td[style*="background-color: #cc99ff"]) td:last-child .html-code-box pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child pre,
+table:has(td[style*="background-color: #00c030"]) td:last-child .html-code-box pre {
+  line-height: 1.55 !important;
+  padding: 12px 16px !important;
+}
+
+table:has(td[style*="background-color: #cc99ff"]) td:last-child code,
+table:has(td[style*="background-color: #00c030"]) td:last-child code {
+  line-height: inherit !important;
+}
+
+/* Collapsible callout code */
+details.hnd-blue-callout pre {
+  line-height: 1.4;
+  padding: 10px 14px;
+}
+
+details.hnd-blue-callout code {
+  line-height: inherit !important;
+}
+
+/* Syntax color */
+.kw {
+  color: #AF00DB;
+  font-weight: 500;
+}</style>
+
+
+
+</head>
+
+<body class="md-nav-expanded">
+
+
+
+  
+
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible">Skip to main content</a>
+  </div>
+
+  <header class="headroom">
+    <button class="hnd-toggle btn btn-default">
+      <span class="visually-hidden">Toggle navigation</span>
+      <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>        
+    </button>
+    <h1>ENERGY 2100 User Manual</h1>
+    <img src="_logo.png" alt="logo" class="logo"/>
+  </header>
+
+  <nav id="panel-left" class="md-nav-expanded">
+    <!-- Nav tabs -->
+    <ul class="tab-tabs nav nav-tabs" role="tablist">
+      <li id="nav-close" role="presentation"> 
+        <button class="hnd-toggle btn btn-default" aria-label="close">
+          <span class="bi bi-x" aria-hidden="true"></span>
+        </button>
+      </li>
+      
+	  
+        <li role="presentation" class="nav-item tab">
+            <a href="#contents" id="tab-contents" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#contents" aria-controls="contents" aria-selected="true">
+                <i class="bi bi-list-ul"></i>
+                Contents
+            </a>
+        </li>
+      
+        <li role="presentation" class="nav-item tab">
+            <a href="#index" id="tab-index" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#index" aria-controls="index" aria-selected="false">
+                <i class="bi bi-asterisk"></i>
+                Index
+            </a>
+        </li>
+      
+        <li role="presentation" class="nav-item tab">
+            <a href="#search" id="tab-search" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#search" aria-controls="search" aria-selected="false">
+                <i class="bi bi-search"></i>
+                Search
+            </a>
+        </li>
+      
+    </ul>  <!-- /Nav tabs -->
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+	  
+      <div role="tabpanel" class="tab-pane active" id="contents">
+        <div id="toc" class="tree-container unselectable"
+            data-url="_toc.json"
+            data-openlvl="1"
+        >
+            
+        </div>
+      </div>  <!-- /contents-->
+      
+      <div role="tabpanel" class="tab-pane" id="index">
+        <div id="keywords" class="tree-container unselectable"
+            data-url="_keywords.json"
+            data-openlvl="1"
+        >
+            
+        </div>
+      </div>  <!-- /index-->
+      
+      <div role="tabpanel" class="tab-pane" id="search">
+        <div class="search-content">
+          <div class="search-input">
+            <form id="search-form">
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" class="form-control" id="input-search" name="input-search" placeholder="Search..." aria-label="Search..." />
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit" aria-label="Search...">
+                      <span class="bi bi-search" aria-hidden="true"></span>
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </form>
+          </div>  <!-- /search-input -->
+          <div class="search-result">
+            <div id="search-info"></div>
+            <div class="tree-container unselectable" id="search-tree"></div>
+          </div>  <!-- /search-result -->
+        </div>  <!-- /search-content -->
+      </div>  <!-- /search-->
+      
+    </div>  <!-- /Tab panes -->
+
+  </nav>
+
+  <div id="main">
+
+    <article>
+        <div id="topic-content" class="container-fluid" 
+		  data-hnd-id="ModifyingProjectionMethods"
+		  data-hnd-context="187"
+		  data-hnd-title="Modifying Projection Methods"
+		>
+            
+                <div class="navigation">
+                    <ol class="breadcrumb">
+                        <li><a href="Calibration.html">Calibration</a></li><li><a href="DemandModuleCalibration.html">Demand Module Calibration</a></li>
+                    </ol>
+                    <div class="nav-arrows">
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="DemandModuleCalibration.html" title="Demand Module Calibration" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="DefaultProjectionMethods.html" title="Default Projection Methods" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="SupplyModuleCalibration.html" title="Supply Module Calibration" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                    </div>
+                </div> 
+            
+
+            <a id="main-content"></a>
+
+            <h2>Modifying Projection Methods</h2>
+
+            <div class="main-content">
+                
+<p class="rvps167"><span class="rvts285"><br/></span></p>
+<div class="rvps26">
+<table width="100%" style="border-width: 0px; border-collapse: collapse;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; background-color: #2e74b5; vertical-align: middle; width: 13%;">
+   <p class="rvps3"><span class="rvts136">Control Variables</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; background-color: #2e74b5; vertical-align: middle; width: 11%;">
+   <p class="rvps3"><span class="rvts136">User-Set Value</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; background-color: #2e74b5; vertical-align: middle; width: 74%;">
+   <p class="rvps3"><span class="rvts136">Methodology Options</span></p>
+   <p class="rvps3"><span class="rvts136">Of Projecting Calibration Variable into Future</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td rowspan="13" style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: middle; width: 13%;">
+   <p class="rvps2"><span class="rvts6">YPEMM</span></p>
+   <p class="rvps2"><span class="rvts6">YCERSM</span></p>
+   <p class="rvps2"><span class="rvts6">YCUF</span></p>
+   <p class="rvps2"><span class="rvts6">YDEMM</span></p>
+   <p class="rvps2"><span class="rvts6">YFsPEE</span></p>
+   <p class="rvps2"><span class="rvts6">YMMSM</span></p>
+   <p class="rvps2"><span class="rvts6">YCgCUF</span></p>
+   <p class="rvps2"><span class="rvts6">YCgMSM</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 11%;">
+   <p class="rvps3"><span class="rvts6">=1</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 74%;">
+   <p class="rvps2"><span class="rvts6">Assign future values equal to exogenous values</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 11%;">
+   <p class="rvps3"><span class="rvts6">=2</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 74%;">
+   <p class="rvps2"><span class="rvts6">Assign future values equal to exogenous values scaled to the last historical year’s value</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 11%;">
+   <p class="rvps3"><span class="rvts6">=3</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 74%;">
+   <p class="rvps2"><span class="rvts6">Assign future values equal to last historical year’s value</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 11%;">
+   <p class="rvps3"><span class="rvts6">=4</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 74%;">
+   <p class="rvps2"><span class="rvts6">Assign future values equal to the mean of the historical values</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 11%;">
+   <p class="rvps3"><span class="rvts6">=5</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 74%;">
+   <p class="rvps2"><span class="rvts6">Trend the future values toward an exogenous value</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 11%;">
+   <p class="rvps3"><span class="rvts6">=6</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 74%;">
+   <p class="rvps2"><span class="rvts6">Develop a trend line from the historical values</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 11%;">
+   <p class="rvps3"><span class="rvts6">=7</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 74%;">
+   <p class="rvps2"><span class="rvts6">Develop an exponential trend line from the historical values</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 11%;">
+   <p class="rvps3"><span class="rvts6">=8</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 74%;">
+   <p class="rvps2"><span class="rvts6">Estimate a full asymptotic line from the historical values</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 11%;">
+   <p class="rvps3"><span class="rvts6">=9</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 74%;">
+   <p class="rvps2"><span class="rvts6">Estimate a particle asymptotic line from the historical values</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 11%;">
+   <p class="rvps3"><span class="rvts6">=11</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 74%;">
+   <p class="rvps2"><span class="rvts6">Develop projections based on maximum likelihood estimation</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 11%;">
+   <p class="rvps3"><span class="rvts6">=16</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 74%;">
+   <p class="rvps2"><span class="rvts6">Set future marginal value equal to last historical average value using last historical year input values</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 11%;">
+   <p class="rvps3"><span class="rvts6">=17</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 74%;">
+   <p class="rvps2"><span class="rvts6">Set future marginal value equal to last historical average value using trended input values.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 11%;">
+   <p class="rvps3"><span class="rvts6">=18</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px 7px; vertical-align: top; width: 74%;">
+   <p class="rvps2"><span class="rvts6">Set future marginal value equal to an exogenous value.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
+
+            </div>
+            
+            <div id="topic_footer"><div id="topic_footer_content">Copyright &copy; 2026 by Systematic Solutions, Inc. All Rights Reserved.</div></div>
+        </div>  <!-- /#topic-content -->
+    </article>
+
+    <footer></footer>
+
+  </div>  <!-- /#main -->
+
+  <div class="mask" data-bs-toggle="sm-nav-expanded"></div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="hndModal" tabindex="-1" role="dialog" aria-labelledby="hndModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="hndModalLabel"></h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary modal-btn-close" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Splitter -->
+  <div id="hnd-splitter" style="left: 350px"></div>  
+
+  <!-- Scripts -->
+  <script src="vendors/jquery-3.7.1/jquery.min.js"></script>
+  <script src="vendors/bootstrap-5.3.7/bootstrap.bundle.min.js"></script>
+  <script src="vendors/markjs-8.11.1/jquery.mark.min.js"></script>
+  <script src="vendors/uri-1.19.11/uri.min.js"></script>
+  <script src="vendors/imageMapResizer-1.0.10/imageMapResizer.min.js"></script>
+  <script src="vendors/headroom-0.11.0/headroom.min.js"></script>
+  <script src="vendors/jstree-3.3.17/jstree.min.js"></script>  
+  <script src="vendors/interactjs-1.9.22/interact.min.js"></script>  
+
+  <!-- HelpNDoc scripts -->
+  <script src="_translations.js"></script>
+  <script src="js/hndsd.min.js"></script>
+  <script src="js/hndse.min.js"></script>
+  <script src="js/app.min.js"></script>
+
+  <!-- Init script -->
+  <script src="_topic_init.js"></script>
+
+
+
+</body>
+
+</html>
+
