@@ -329,10 +329,12 @@ function getHeaders() {
   }
 
   // Poll for jsTree to be ready â€” handles fast servers (e.g. GitHub Pages)
-  // where ready.jstree may fire before our listener is attached
+  // where ready.jstree may fire before our listener is attached.
+  // Poll window is kept short (8 attempts / ~2 seconds) to avoid firing
+  // after the user has already manually interacted with the tree.
   function pollForJsTree() {
     var attempts = 0;
-    var maxAttempts = 20; // try for up to ~5 seconds
+    var maxAttempts = 8;
     var interval = setInterval(function () {
       attempts++;
       if (leftNavCollapsed || attempts >= maxAttempts) {
@@ -355,15 +357,15 @@ function getHeaders() {
   setTimeout(refreshUi, 2500);
   setTimeout(refreshUi, 4000);
 
-  // Listen for jsTree's ready event as a primary trigger
+  // Collapse immediately when jsTree signals it is fully ready â€”
+  // no setTimeout delay here, so we beat any user interaction
   if (window.jQuery) {
     jQuery(document).on("ready.jstree", function () {
-      setTimeout(collapseLeftNav, 100);
-      setTimeout(collapseLeftNav, 500);
+      collapseLeftNav();
     });
   }
 
-  // Also poll as a fallback for when the event is missed (e.g. GitHub Pages)
+  // Poll as a fallback for when the ready.jstree event is missed
   pollForJsTree();
 
   setInterval(refreshIfNeeded, 500);
