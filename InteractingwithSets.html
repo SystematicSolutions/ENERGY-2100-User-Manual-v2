@@ -1182,7 +1182,119 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<p class="rvps2"><img alt="" style="width : 766px; height : 309px; padding : 1px;" src="lib/NewItem%2054.png"></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2 noindent"><span class="rvts6">To refer to sets in equations, the set object must be an index value (1, 2, 3, etc.)</span></li>
+</ul>
+<p class="rvps5"><span class="rvts6">Example: &nbsp;</span></p>
+<div class="rvps43">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps99"><span class="rvts54">for year in Years, area in Areas</span></p>
+   <p class="rvps99"><span class="rvts54">&nbsp; Multiplier[area,year] = 0.50</span></p>
+   <p class="rvps99"><span class="rvts54">end</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps5"><span class="rvts6">&nbsp; is the same as:</span></p>
+<div class="rvps43">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps99"><span class="rvts54">Multiplier[1,1] = 0.50 &nbsp; # area = 1, year = 1</span></p>
+   <p class="rvps99"><span class="rvts54">Multiplier[2,1] = 0.50 &nbsp; # area = 2, year = 1</span></p>
+   <p class="rvps99"><span class="rvts54">Multiplier[3,1] = 0.50 &nbsp; # area = 3, year = 1</span></p>
+   <p class="rvps100"><span class="rvts103">...</span></p>
+   <p class="rvps99"><span class="rvts54">Multiplier[25,1] = 0.50 &nbsp;# area = 25, year = 1</span></p>
+   <p class="rvps99"><span class="rvts54"><br/></span></p>
+   <p class="rvps99"><span class="rvts54">Multiplier[1,2] = 0.50 &nbsp; # area = 1, year = 2</span></p>
+   <p class="rvps99"><span class="rvts54">Multiplier[2,2] = 0.50 &nbsp; # area = 2, year = 2</span></p>
+   <p class="rvps99"><span class="rvts54">Multiplier[3,2] = 0.50 &nbsp; # area = 3, year = 2</span></p>
+   <p class="rvps100"><span class="rvts103">...</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2 noindent"><span class="rvts6">In the data struct, we define two types of set containers: with and without a final 's'. For example, </span><span class="rvts37">Area</span><span class="rvts6"> vs </span><span class="rvts37">Areas</span><span class="rvts6">.</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2 noindent"><span class="rvts6">Capitalized set names </span><span class="rvts18">without a final 's'</span><span class="rvts6"> (ex: </span><span class="rvts37">Area</span><span class="rvts6">) store a </span><span class="rvts18">vector of set keys</span><span class="rvts6"> (ex: "AB", "BC",...)</span></li>
+  <li class="rvps2 noindent"><span class="rvts6">Capitalized set names </span><span class="rvts18">with a final 's'</span><span class="rvts6"> (ex: </span><span class="rvts37">Areas</span><span class="rvts6">) store the indexes as a </span><span class="rvts18">vector of integers</span><span class="rvts6"> (ex: 1, 2, etc.)</span></li>
+ </ul>
+</ul>
+<div class="rvps40">
+<table width="50%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps102"><span class="rvts174">Enduse&nbsp;</span></p>
+   <p class="rvps101"><span class="rvts14">(Vector of Keys)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps102"><span class="rvts174">Enduses</span></p>
+   <p class="rvps101"><span class="rvts14">(Vector of Integers)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps101"><span class="rvts14">Heat</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps101"><span class="rvts14">1</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps101"><span class="rvts14">HW</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps101"><span class="rvts14">2</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps101"><span class="rvts14">OthSub</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps101"><span class="rvts14">3</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps101"><span class="rvts14">Refrig</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps101"><span class="rvts14">4</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps101"><span class="rvts14">Light</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps101"><span class="rvts14">5</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps101"><span class="rvts14">AC</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps101"><span class="rvts14">6</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps101"><span class="rvts14">OthNSub</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps101"><span class="rvts14">7</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts6"><br/></span></p>
 <p class="rvps2"><span class="rvts177"></span><span class="rvts6"></span></p>
 

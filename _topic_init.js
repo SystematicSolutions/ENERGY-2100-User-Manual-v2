@@ -241,7 +241,7 @@ function getHeaders() {
 
     var back = document.createElement("div");
     back.className = "back-to-top";
-    back.textContent = "↑ Back to top";
+    back.textContent = "â†‘ Back to top";
     back.addEventListener("click", function () {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
@@ -294,6 +294,10 @@ function getHeaders() {
   }
 
   function collapseLeftNav() {
+    // Once collapsed on this page, do not collapse again â€”
+    // this prevents re-collapsing when the user manually expands a section
+    if (leftNavCollapsed) return;
+
     if (!window.jQuery) return;
 
     // Find the jsTree container via its rendered UL
@@ -324,7 +328,7 @@ function getHeaders() {
     }, 100);
   }
 
-  // Poll for jsTree to be ready — handles fast servers (e.g. GitHub Pages)
+  // Poll for jsTree to be ready â€” handles fast servers (e.g. GitHub Pages)
   // where ready.jstree may fire before our listener is attached
   function pollForJsTree() {
     var attempts = 0;

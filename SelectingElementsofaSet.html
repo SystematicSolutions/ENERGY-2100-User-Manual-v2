@@ -1182,35 +1182,164 @@ details.hnd-blue-callout code {
 
             <div class="main-content">
                 
-<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Selecting One or More Set Values</span></span></h3>
-<p class="rvps2"><img alt="" style="width : 709px; height : 285px; padding : 1px;" src="lib/NewItem%2055.png"></p>
-<p class="rvps2"><span class="rvts185">Note: &nbsp;“Year” set is handled differently</span></p>
-<p class="rvps2"><span class="rvts177"><br/></span></p>
-<p class="rvps5"><span class="rvts177">Example:</span></p>
-<div class="rvps31">
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Selecting One or More Set Elements</span></span></h3>
+<p class="rvps48"><span class="rvts56">Use global function </span><span class="rvts37">Select</span><span class="rvts56"> to create a subset of set elements.</span></p>
+<p class="rvps5"><span class="rvts6">1. </span><span class="rvts18">To select one set value</span><span class="rvts6">:</span></p>
+<div class="rvps43">
 <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
  <tr style="vertical-align: top;">
   <td style="padding: 6px 8px;">
-   <p class="rvps34"><span class="rvts54">enduse = Select(Enduse,"Heat"))</span></p>
-   <p class="rvps34"><span class="rvts54">techs = Select(Tech,["Electric","Biomass"])</span></p>
-   <p class="rvps34"><span class="rvts54"><br/></span></p>
-   <p class="rvps34"><span class="rvts54">for area in Areas, ec in ECs, tech in techs, enduse in enduses</span></p>
-   <p class="rvps34"><span class="rvts54">&nbsp; DEEThermalMax[enduse,tech,ec,area] = 1</span></p>
-   <p class="rvps34"><span class="rvts54">end</span></p>
+   <p class="rvps99"><span class="rvts54">subset = Select(SetName,"SetKey")</span></p>
   </td>
  </tr>
 </table>
 </div>
-<p class="rvps2"><span class="rvts6">&nbsp; </span><img alt="" style="width : 654px; height : 157px; padding : 1px;" src="lib/NewItem%2059.png"></p>
+<p class="rvps5"><span class="rvts6">2. </span><span class="rvts18">To select more than one set value:</span></p>
+<div class="rvps43">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps99"><span class="rvts54">subset = Select(SetName,["SetKey1","SetKey2",...])</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps5"><span class="rvts6">3. </span><span class="rvts18">To select a range of set values:</span></p>
+<div class="rvps43">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps99"><span class="rvts54">subset = Select(SetName,(from="SetKey1",to="SetKeyi"))</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps5"><span class="rvts6">&nbsp;4. </span><span class="rvts18">To select a collection of set elements that are not equal to an individual SetKey:</span><span class="rvts6">&nbsp;</span></p>
+<div class="rvps43">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps99"><span class="rvts54">subset = Select(SetName,!=("SetKey"))</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps5"><span class="rvts6"><br/></span></p>
+<div class="rvps24">
+<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps22"><span class="rvts31"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
+   <p class="rvps37"><span class="rvts55">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
+   <p class="rvps47"><span class="rvts101">Example</span></p>
+   <p class="rvps47"><span class="rvts101">Select one enduse, Heat, and techs Electric and Biomass:</span></p>
+   <div class="rvps47">
+   <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+    <tr style="vertical-align: top;">
+     <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 6px 8px; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+      <p class="rvps99"><span class="rvts54">enduse = Select(Enduse,"Heat"))</span></p>
+      <p class="rvps99"><span class="rvts54">techs = Select(Tech,["Electric","Biomass"])</span></p>
+      <p class="rvps99"><span class="rvts54"><br/></span></p>
+      <p class="rvps99"><span class="rvts54">for area in Areas, ec in ECs, tech in techs, enduse in enduses</span></p>
+      <p class="rvps99"><span class="rvts54">&nbsp; DEEThermalMax[enduse,tech,ec,area] = 1</span></p>
+      <p class="rvps99"><span class="rvts54">end</span></p>
+     </td>
+    </tr>
+   </table>
+   </div>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps5"><span class="rvts6"><br/></span></p>
+<div class="rvps24">
+<table width="95%" style="border-color: #3366ff; border-style: solid; border-width: 3px; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #cc99ff; vertical-align: top; width: 2px; height: 58px;">
+   <p class="rvps22"><span class="rvts31"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 21px; height: 58px;">
+   <p class="rvps37"><span class="rvts55">🕮</span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 2px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 770px; height: 58px;">
+   <p class="rvps47"><span class="rvts101">Example</span></p>
+   <p class="rvps47"><span class="rvts101">Select all ECs that are not "Rubber":</span></p>
+   <div class="rvps47">
+   <table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+    <tr style="vertical-align: top;">
+     <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 6px 8px; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+      <p class="rvps99"><span class="rvts54">ecs = Select(EC,!=("Rubber"))</span></p>
+     </td>
+    </tr>
+   </table>
+   </div>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps24"><span class="rvts6"><br/></span></p>
+<div class="rvps26">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 3px; border-collapse: collapse;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; background-color: #ff0000; vertical-align: top; width: 6px; height: 42px;">
+   <p class="rvps22"><span class="rvts31"><br/></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 27px; height: 42px;">
+   <p class="rvps42"><span class="rvts74"></span></p>
+  </td>
+  <td style="border-width : 2px; border-color: #0080c0; border-style: solid; padding: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; vertical-align: top; width: 591px; height: 42px;">
+   <p class="rvps2"><span class="rvts56">The “Year” set is handled differently.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Selecting a Subset of Years</span></span></h3>
-<p class="rvps2"><span class="rvts6"><br/></span></p>
-<p class="rvps2"><img alt="" style="width : 679px; height : 256px; padding : 1px;" src="lib/NewItem%2061.png"></p>
-<p class="rvps2"><span class="rvts177"><br/></span></p>
-<p class="rvps2"><span class="rvts177"><br/></span></p>
-<p class="rvps2"><img alt="" style="width : 605px; height : 182px; padding : 1px;" src="lib/NewItem%2060.png"></p>
-<p class="rvps2"><span class="rvts177"><br/></span></p>
-<p class="rvps2"><span class="rvts177"><br/></span></p>
-<p class="rvps2"><span class="rvts177"></span><span class="rvts6"></span></p>
+<p class="rvps5"><span class="rvts6">1. Use global function </span><span class="rvts37">Yr(year)</span><span class="rvts6"> to select one year:</span></p>
+<div class="rvps43">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps103"><span class="rvts54">(1) year = Yr(2019) # turns year 2019 into index</span></p>
+   <p class="rvps99"><span class="rvts54">(2) for year in Years</span></p>
+   <p class="rvps99"><span class="rvts54">&nbsp; &nbsp; &nbsp; Multiplier[year] = Multiplier(Yr(2019))</span></p>
+   <p class="rvps99"><span class="rvts54">&nbsp; &nbsp; end</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps5"><span class="rvts6">2. Use Julia function </span><span class="rvts37">collect</span><span class="rvts6"> to select multiple years:</span></p>
+<div class="rvps43">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps103"><span class="rvts54">(1) years = collect(Future:Final)</span></p>
+   <p class="rvps99"><span class="rvts54">(2) years = collect(Yr(2030):Yr(2035))</span></p>
+   <p class="rvps99"><span class="rvts54">&nbsp; &nbsp; for year in years</span></p>
+   <p class="rvps99"><span class="rvts54">&nbsp; &nbsp; &nbsp; Multiplier[year] = Multiplier[year-1]</span></p>
+   <p class="rvps99"><span class="rvts54">&nbsp; &nbsp; end</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps5"><span class="rvts177"><br/></span></p>
+<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Combining Multiple Set Selections</span></span></h3>
+<p class="rvps5"><span class="rvts6">Use </span><span class="rvts37">union</span><span class="rvts6"> to combine multiple set selections together:</span></p>
+<div class="rvps43">
+<table width="100%" style="border-color: #d9d9d9; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="padding: 6px 8px;">
+   <p class="rvps99"><span class="rvts54">subset1 = Select(SetName,"SetKey")</span></p>
+   <p class="rvps99"><span class="rvts54">subset2 = Select(SetName(from="SetKey1",to="SetKeyi"))</span></p>
+   <p class="rvps99"><span class="rvts54">subset = union(subset1,subset2)</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps5"><span class="rvts6"></span><span class="rvts6"></span></p>
 
             </div>
             

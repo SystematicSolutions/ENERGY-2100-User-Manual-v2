@@ -1213,7 +1213,7 @@ details.hnd-blue-callout code {
  </ol>
 </ol>
 <p class="rvps33"><span class="rvts6"><br/></span></p>
-<p class="rvps106"><span class="rvts6">Below shows an example of the column entries for the variable, </span><span class="rvts34">vGCPot[Plant,Node,Area,Year]</span></p>
+<p class="rvps112"><span class="rvts6">Below shows an example of the column entries for the variable, </span><span class="rvts34">vGCPot[Plant,Node,Area,Year]</span></p>
 <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 96px; list-style-position: outside; list-style-type: disc;">
  <li class="rvps33 noindent"><span class="rvts6">Column 1: Variable name (ex: &nbsp;vGCPot;)&nbsp;</span></li>
  <li class="rvps33 noindent"><span class="rvts6">Column 2: Year descriptors (ex: 2023;)</span></li>
@@ -1224,11 +1224,11 @@ details.hnd-blue-callout code {
  <li class="rvps33 noindent"><span class="rvts6">Column 7: Data value (ex: 6708.32)</span></li>
 </ul>
 <p class="rvps33"><span class="rvts6"><br/></span></p>
-<p class="rvps104"><span class="rvts197">vGCPot.dat</span></p>
-<p class="rvps105"><span class="rvts103">Variable;Year;Area;Node;Plant;Units;Data</span></p>
-<p class="rvps105"><span class="rvts103">vGCPot;2023;Ontario;Ontario;Gas/Oil Combined Cycle;MW;6708.32</span></p>
-<p class="rvps105"><span class="rvts103">vGCPot;2023;Ontario;Ontario;Onshore Wind;10000&nbsp;</span></p>
-<p class="rvps105"><span class="rvts103">...</span></p>
+<p class="rvps110"><span class="rvts200">vGCPot.dat</span></p>
+<p class="rvps111"><span class="rvts103">Variable;Year;Area;Node;Plant;Units;Data</span></p>
+<p class="rvps111"><span class="rvts103">vGCPot;2023;Ontario;Ontario;Gas/Oil Combined Cycle;MW;6708.32</span></p>
+<p class="rvps111"><span class="rvts103">vGCPot;2023;Ontario;Ontario;Onshore Wind;10000&nbsp;</span></p>
+<p class="rvps111"><span class="rvts103">...</span></p>
 <h3 class="rvps10"><span class="rvts0"><span class="rvts19">Incorporating a New .DAT File into the Model</span></span></h3>
 <p class="rvps2"><span class="rvts6">To incorporate the new </span><span class="rvts18">.dat</span><span class="rvts6"> file into the model, follow the steps below:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
@@ -1255,7 +1255,7 @@ details.hnd-blue-callout code {
   <li style="text-indent: 0px" class="rvps83 noindent"><span class="rvts14">The unit in the input file (.dat) must be in the first column.</span></li>
   <li style="text-indent: 0px" class="rvps83 noindent"><span class="rvts14">The unit of the database source code variable (from step 1) must be in the second column.&nbsp;</span></li>
   <li style="text-indent: 0px" class="rvps83 noindent"><span class="rvts14">If a unit conversion is required, input the Factor into column 3 (Factor). &nbsp; The input data will be divided by the factor.</span></li>
-  <li style="text-indent: 0px" class="rvps83 noindent"><span class="rvts14">If a currency conversion is required, the units must include ‘</span><span class="rvts196">Nominal CN$’, ‘US$’, or ‘CN$’.</span></li>
+  <li style="text-indent: 0px" class="rvps83 noindent"><span class="rvts14">If a currency conversion is required, the units must include ‘</span><span class="rvts199">Nominal CN$’, ‘US$’, or ‘CN$’.</span></li>
  </ul>
 </ul>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
@@ -1268,11 +1268,11 @@ details.hnd-blue-callout code {
 </ul>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
-  <li style="text-indent: 0px" class="rvps107 noindent"><span class="rvts14">vUnArea is moved to UnArea.</span></li>
-  <li style="text-indent: 0px" class="rvps107 noindent"><span class="rvts14">Many variables need to be moved to an “X” variable, for example vUnGC is moved to XUnGC.</span></li>
+  <li style="text-indent: 0px" class="rvps113 noindent"><span class="rvts14">vUnArea is moved to UnArea.</span></li>
+  <li style="text-indent: 0px" class="rvps113 noindent"><span class="rvts14">Many variables need to be moved to an “X” variable, for example vUnGC is moved to XUnGC.</span></li>
   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-roman;">
-   <li style="text-indent: 0px" class="rvps108 noindent"><span class="rvts14">This relationship is mapped in \InputData\InputVariableToModelVariable.csv.</span></li>
-   <li style="text-indent: 0px" class="rvps108 noindent"><span class="rvts14">Only exception variables need to be mapped.</span></li>
+   <li style="text-indent: 0px" class="rvps114 noindent"><span class="rvts14">This relationship is mapped in \InputData\InputVariableToModelVariable.csv.</span></li>
+   <li style="text-indent: 0px" class="rvps114 noindent"><span class="rvts14">Only exception variables need to be mapped.</span></li>
   </ol>
  </ol>
 </ol>
@@ -1283,7 +1283,7 @@ details.hnd-blue-callout code {
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
   <li value="3" style="text-indent: 0px" class="rvps83 noindent"><span class="rvts14">A full list of the header exceptions can be found here:</span></li>
   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-roman;">
-   <li style="text-indent: 0px" class="rvps103 noindent"><span class="rvts14">\InputData\PromulaHeaders_ClientHeaders.txt</span></li>
+   <li style="text-indent: 0px" class="rvps109 noindent"><span class="rvts14">\InputData\PromulaHeaders_ClientHeaders.txt</span></li>
   </ol>
  </ol>
 </ol>
@@ -1294,7 +1294,7 @@ details.hnd-blue-callout code {
  <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-alpha;">
   <li value="4" style="text-indent: 0px" class="rvps83 noindent"><span class="rvts14">You can use batch files in 2020Model.</span></li>
   <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: lower-roman;">
-   <li style="text-indent: 0px" class="rvps103 noindent"><span class="rvts14">CreateVBInput.bat/ CreateElectricUnitDBs.bat</span></li>
+   <li style="text-indent: 0px" class="rvps109 noindent"><span class="rvts14">CreateVBInput.bat/ CreateElectricUnitDBs.bat</span></li>
   </ol>
  </ol>
 </ol>
