@@ -1199,6 +1199,7 @@ details.hnd-blue-callout code {
  <li class="rvps6 noindent"><span class="rvts224">Industrial (IDemand.jl)</span></li>
  <li class="rvps6 noindent"><span class="rvts224">Transportation (TDemand.jl)</span></li>
 </ul>
+<p class="rvps6"><span class="rvts224"><br/></span></p>
 <h3 class="rvps10"><a name="_How_Policies_Affect_the_Model"></a><span class="rvts0"><span class="rvts19">How Policies Affect the Model</span></span></h3>
 <p class="rvps2"><span class="rvts6">There are </span><span class="rvts66">two approaches</span><span class="rvts6"> to modifying market shares, depending on your policy objective:</span></p>
 <h4 class="rvps78"><a name="_Approach_1:_Modify_xMMSF_(Most_Common)"></a><span class="rvts0"><span class="rvts147">Approach 1: Modify xMMSF (Most Common)</span></span></h4>
@@ -1708,9 +1709,10 @@ end</code></pre>
       <p class="rvps34"><span class="rvts227">&nbsp; # &nbsp;</span></p>
       <p class="rvps34"><span class="rvts227">&nbsp; years = collect(Yr(2026):Yr(2049))</span></p>
       <p class="rvps34"><span class="rvts227">&nbsp; for year in years, ec in ECs</span></p>
-      <p class="rvps34"><span class="rvts227">&nbsp; &nbsp; xMMSF[Heat,HeatPump,ec,CA,year] = xMMSF[Heat,HeatPump,ec,CA,year-1]+</span></p>
-      <p class="rvps34"><span class="rvts227">&nbsp; &nbsp; &nbsp; (xMMSF[Heat,tech,ec,CA,Yr(2050)]-xMMSF[Heat,tech,ec,CA,Yr(2025)])/</span></p>
-      <p class="rvps34"><span class="rvts227">&nbsp; &nbsp; &nbsp; &nbsp; (2050-2025)</span></p>
+      <p class="rvps34"><span class="rvts227">&nbsp; &nbsp; xMMSF[Heat,HeatPump,ec,CA,year] =&nbsp;</span></p>
+      <p class="rvps34"><span class="rvts227">&nbsp; &nbsp; &nbsp; &nbsp;xMMSF[Heat,HeatPump,ec,CA,year-1]+</span></p>
+      <p class="rvps34"><span class="rvts227">&nbsp; &nbsp; &nbsp; (xMMSF[Heat,tech,ec,CA,Yr(2050)]-</span></p>
+      <p class="rvps34"><span class="rvts227">&nbsp; &nbsp; &nbsp; &nbsp;xMMSF[Heat,tech,ec,CA,Yr(2025)])/(2050-2025)</span></p>
       <p class="rvps34"><span class="rvts227">&nbsp; end</span></p>
       <p class="rvps34"><span class="rvts227">&nbsp;</span></p>
       <p class="rvps34"><span class="rvts227">&nbsp; WriteDisk(db, "$CalDB/xMMSF", xMMSF)</span></p>
@@ -1787,11 +1789,11 @@ end</code></pre>
       <p class="rvps34"><span class="rvts54">&nbsp; # &nbsp; &nbsp; &nbsp;</span></p>
       <p class="rvps34"><span class="rvts54">&nbsp; # Set 70% electric share and 30% fuel cell</span></p>
       <p class="rvps34"><span class="rvts54">&nbsp; #</span></p>
-      <p class="rvps34"><span class="rvts54">&nbsp; for area in areas, tech in ElectricTechs</span></p>
+      <p class="rvps34"><span class="rvts54">&nbsp; for area in areas, tech in electricTechs</span></p>
       <p class="rvps34"><span class="rvts54">&nbsp; &nbsp; &nbsp;xMMSF[Carriage,tech,Freight,area,year] = MSFTarget[tech,area,year]*0.7 &nbsp;</span></p>
       <p class="rvps34"><span class="rvts54">&nbsp; end</span></p>
       <p class="rvps34"><span class="rvts54"><br/></span></p>
-      <p class="rvps34"><span class="rvts54">&nbsp; for area in areas, tech in ElectricTechs</span></p>
+      <p class="rvps34"><span class="rvts54">&nbsp; for area in areas, tech in fuelcellTechs</span></p>
       <p class="rvps34"><span class="rvts54">&nbsp; &nbsp; &nbsp;xMMSF[Carriage,tech,Freight,area,year] = MSFTarget[tech,area,year]*0.3&nbsp;</span></p>
       <p class="rvps34"><span class="rvts54">&nbsp; end</span></p>
       <p class="rvps34"><span class="rvts54"><br/></span></p>
