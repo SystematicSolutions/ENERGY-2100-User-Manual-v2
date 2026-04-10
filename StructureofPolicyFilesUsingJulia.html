@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="favicon.ico"/>
 
-  <title>Executing Existing and New Policies</title>
+  <title>Structure of Policy Files Using Julia</title>
   <meta name="description" content="" /> 
   <meta name="keywords" content="">
 
@@ -22,11 +22,11 @@
 
   <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Executing Existing and New Policies">
+  <meta name="twitter:title" content="Structure of Policy Files Using Julia">
   <meta name="twitter:description" content="">
 
   <!-- Open Graph data -->
-  <meta property="og:title" content="Executing Existing and New Policies" />
+  <meta property="og:title" content="Structure of Policy Files Using Julia" />
   <meta property="og:type" content="article" />
   <meta property="og:description" content="" />
   <meta property="og:site_name" content="ENERGY 2100 User Manual" /> 
@@ -1161,30 +1161,34 @@ details.hnd-blue-callout code {
 
     <article>
         <div id="topic-content" class="container-fluid" 
-		  data-hnd-id="ExecutingExistingandNewPolicies"
-		  data-hnd-context="101"
-		  data-hnd-title="Executing Existing and New Policies"
+		  data-hnd-id="StructureofPolicyFilesUsingJulia"
+		  data-hnd-context="59"
+		  data-hnd-title="Structure of Policy Files Using Julia"
 		>
             
                 <div class="navigation">
                     <ol class="breadcrumb">
-                        <li><a href="PolicyAnalysis.html">Policy Analysis</a></li><li><a href="ExecutingPolicies.html">Executing Policies</a></li>
+                        <li><a href="PolicyAnalysis.html">Policy Analysis</a></li>
                     </ol>
                     <div class="nav-arrows">
-                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="ExecutingPolicies.html" title="Executing Policies" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="TestingPolicyFile.html" title="Testing Policy File" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="MacroeconomicModule.html" title="Macroeconomic Module" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
+                        <div class="btn-group btn-group" role="group"><a class="btn btn-default" href="PolicyAnalysis.html" title="Policy Analysis" role="button"><span class="bi bi-chevron-up" aria-hidden="true"></span></a><a class="btn btn-default" href="TestingPolicyFiles.html" title="Testing Policy Files" role="button"><span class="bi bi-chevron-left" aria-hidden="true"></span></a><a class="btn btn-default" href="OrganizationofaJuliaScriptFile.html" title="Organization of a Julia Script File" role="button"><span class="bi bi-chevron-right" aria-hidden="true"></span></a></div>
                     </div>
                 </div> 
             
 
             <a id="main-content"></a>
 
-            <h2>Executing Existing and New Policies</h2>
+            <h2>Structure of Policy Files Using Julia</h2>
 
             <div class="main-content">
                 
-<h3 class="rvps10"><span class="rvts0"><span class="rvts19">Existing Policy Files</span></span></h3>
-<p class="rvps15"><span class="rvts6">The easiest method of creating a new policy file is to use an existing policy file as a template. Values can be specified by direct input, an equation, or a set of equations. Equations allow the values to be specified as a fraction of an existing model variable, including a percent change from a base case or reference case. Setting values of a policy variable in relation an existing model variable greatly facilitates and improves the accuracy of the representation of complex policies.</span></p>
-<p class="rvps15"><span class="rvts6">To simulate the impact of single policy in the forecast, a policy file is developed that makes changes to all the relevant model variables. An appropriate base line or reference scenario is identified, and a new model run is executed with the new policy added on top of the forecast that it is being compared to. The impact of the policy is the difference in the model results between the two cases. A portfolio of policies can be individually tested then added together to develop entire forecast scenarios.</span><span class="rvts6"></span></p>
+<p class="rvps19"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+ <li class="rvps19 noindent"><a class="rvts11" href="OrganizationofaJuliaScriptFile.html">Components of Policy Files</a></li>
+ <li class="rvps19 noindent"><a class="rvts11" href="DataStruct.html">Data Structs</a></li>
+ <li class="rvps19 noindent"><a class="rvts11" href="Functions.html">Functions</a></li>
+ <li class="rvps19 noindent"><a class="rvts11" href="SamplePolicyFile.html">Sample Policy</a><span class="rvts6"></span></li>
+</ol>
 
             </div>
             
